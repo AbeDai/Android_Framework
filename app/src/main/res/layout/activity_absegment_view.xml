@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll"
+    android:background="#000000"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="example.abe.com.android_framework.activity.ABSegmentViewActivity">
+
+    <!--默认模式-->
+    <example.abe.com.framework.view.ABSegmentView
+        android:id="@+id/default_segment_view"
+        android:layout_width="160dp"
+        android:layout_height="100dp" />
+
+    <!--XML自定义-->
+    <example.abe.com.framework.view.ABSegmentView
+        android:id="@+id/custom_segment_view"
+        android:layout_width="299dp"
+        android:layout_height="30dp"
+        app:text_left="所有车辆"
+        app:text_right="我的关注"
+        app:text_size="15sp"
+        app:background_selector_right="@drawable/seg_right_bg_selector"
+        app:background_selector_left="@drawable/seg_left_bg_selector"
+        app:text_color_selector="@drawable/seg_text_btn_selector" />
+
+</LinearLayout>

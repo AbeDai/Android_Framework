@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.abe.com.android_framework.activity.ABViewPagerActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/act_view_pager_pager1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/act_view_pager_pager2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/act_view_pager_pager1" />
+
+    <LinearLayout
+        android:id="@+id/act_view_pager_ll"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_below="@id/act_view_pager_pager2">
+
+        <Button
+            android:id="@+id/act_view_pager_btn_add"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="末尾添加" />
+
+        <Button
+            android:id="@+id/act_view_pager_btn_del"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/act_view_pager_pager2"
+            android:layout_weight="1"
+            android:text="末尾删除" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/act_view_pager_pager3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/act_view_pager_ll" />
+
+</RelativeLayout>
+

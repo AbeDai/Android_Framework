@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="segmentView">
+        <attr name="text_left" format="string" />
+        <attr name="text_right" format="string" />
+        <attr name = "text_color_selector" format = "reference" />
+        <attr name = "background_selector_left" format = "reference" />
+        <attr name = "background_selector_right" format = "reference" />
+        <attr name = "text_size" format = "dimension" />
+    </declare-styleable>
+</resources>
