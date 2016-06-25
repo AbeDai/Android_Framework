@@ -7,6 +7,7 @@
     <string name="btn_title_retrofit">网络封装(半成品)</string>
     <string name="btn_title_view_pager">ViewPager使用</string>
     <string name="btn_title_assets">Assets使用</string>
+    <string name="btn_title_tab_layout">TabLayout使用</string>
 
 
     <string name="view_pager_title_1">第一弹</string>

@@ -23,7 +23,8 @@
         <activity android:name=".activity.ABRetrofitActivity" />
         <activity android:name=".activity.ABRecycleListActivity" />
         <activity android:name=".activity.ABViewPagerActivity" />
-        <activity android:name=".activity.ABAssetsActivity"></activity>
+        <activity android:name=".activity.ABAssetsActivity" />
+        <activity android:name=".activity.ABTabLayoutActivity"></activity>
     </application>
 
 </manifest>
