@@ -14,10 +14,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import example.abe.com.android_framework.activity.ABAssetsActivity;
 import example.abe.com.android_framework.activity.ABLogActivity;
 import example.abe.com.android_framework.activity.ABRecycleListActivity;
 import example.abe.com.android_framework.activity.ABRetrofitActivity;
 import example.abe.com.android_framework.activity.ABSegmentViewActivity;
+import example.abe.com.android_framework.activity.ABTabLayoutActivity;
 import example.abe.com.android_framework.activity.ABTimeUtilActivity;
 import example.abe.com.android_framework.activity.ABViewPagerActivity;
 
@@ -49,7 +51,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mData.add(R.string.btn_title_recycle_view);
         //ViewPager界面
         mData.add(R.string.btn_title_view_pager);
-
+        //Assets界面
+        mData.add(R.string.btn_title_assets);
+        //TabLayout界面
+        mData.add(R.string.btn_title_tab_layout);
     }
 
     private void initView() {
@@ -102,6 +107,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
             }
             break;
+
+            //Assets使用范例
+            case R.string.btn_title_assets: {
+                Intent intent = new Intent(MainActivity.this, ABAssetsActivity.class);
+                startActivity(intent);
+            }
+            break;
+
+            //TabLayout使用范例
+            case R.string.btn_title_tab_layout: {
+                Intent intent = new Intent(MainActivity.this, ABTabLayoutActivity.class);
+                startActivity(intent);
+            }
+            break;
+
+
 
             default:
                 break;

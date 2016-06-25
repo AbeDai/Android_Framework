@@ -23,13 +23,6 @@ import java.util.List;
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.util.ABLog;
 
-interface OnItemClickListener {
-
-    void onClickItem(View view, int position);
-
-    boolean onLongClickItem(View view, int position);
-}
-
 public class ABRecycleListActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
@@ -83,149 +76,157 @@ public class ABRecycleListActivity extends AppCompatActivity {
 
     }
 
-}
+    interface OnItemClickListener {
 
-class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
+        void onClickItem(View view, int position);
 
-    private OnItemClickListener l;
-    private List<String> mData;
-    private Context mContext;
-
-    ListAdapter(Context context, List<String> data) {
-        mData = data;
-        mContext = context;
+        boolean onLongClickItem(View view, int position);
     }
 
-    /**
-     * 设置Item点击监听
-     * @param listener
-     */
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        l = listener;
-    }
+    class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    /**
-     * 构建ViewHolder
-     */
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        private OnItemClickListener l;
+        private List<String> mData;
+        private Context mContext;
 
-        final View view = LayoutInflater.from(mContext)
-                .inflate(R.layout.item_abrecycle_list, parent, false);
-        ViewHolder holder = new ViewHolder(view);
-
-        return holder;
-    }
-
-    /**
-     *
-     * @param holder
-     * @param position
-     */
-    @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        if (position % 2 == 0) {
-            holder.itemView.setMinimumHeight(300);
-        } else {
-            holder.itemView.setMinimumHeight(100);
+        ListAdapter(Context context, List<String> data) {
+            mData = data;
+            mContext = context;
         }
-        holder.tvTitle.setText(mData.get(position));
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (l != null) {
-                    l.onClickItem(v, position);
-                }
+        /**
+         * 设置Item点击监听
+         *
+         * @param listener
+         */
+        public void setOnItemClickListener(OnItemClickListener listener) {
+            l = listener;
+        }
+
+        /**
+         * 构建ViewHolder
+         */
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            final View view = LayoutInflater.from(mContext)
+                    .inflate(R.layout.item_abrecycle_list, parent, false);
+            ViewHolder holder = new ViewHolder(view);
+
+            return holder;
+        }
+
+        /**
+         * @param holder
+         * @param position
+         */
+        @Override
+        public void onBindViewHolder(ViewHolder holder, final int position) {
+            if (position % 2 == 0) {
+                holder.itemView.setMinimumHeight(300);
+            } else {
+                holder.itemView.setMinimumHeight(100);
             }
-        });
+            holder.tvTitle.setText(mData.get(position));
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (l != null) {
-                    return l.onLongClickItem(v, position);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (l != null) {
+                        l.onClickItem(v, position);
+                    }
                 }
-                return false;
-            }
-        });
-    }
+            });
 
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if (l != null) {
+                        return l.onLongClickItem(v, position);
+                    }
+                    return false;
+                }
+            });
+        }
 
-    /**
-     * 添加元素
-     *
-     * @param position
-     */
-    public void addData(int position) {
-        mData.add(position, "Insert One");
-        notifyItemInserted(position);
-    }
+        @Override
+        public int getItemCount() {
+            return mData.size();
+        }
 
-    /**
-     * 删除元素
-     *
-     * @param position
-     */
-    public void removeData(int position) {
-        mData.remove(position);
-        notifyItemRemoved(position);
-    }
-}
+        /**
+         * 添加元素
+         *
+         * @param position
+         */
+        public void addData(int position) {
+            mData.add(position, "Insert One");
+            notifyItemInserted(position);
+        }
 
-class ViewHolder extends RecyclerView.ViewHolder {
-    TextView tvTitle;
-    ImageView ivIcon;
-
-    public ViewHolder(View view) {
-        super(view);
-        tvTitle = (TextView) view.findViewById(R.id.item_abrecycle_list_tv_title);
-        ivIcon = (ImageView) view.findViewById(R.id.item_abrecycle_list_img_icon);
-    }
-}
-
-class DivideDecoration extends RecyclerView.ItemDecoration {
-
-    private Drawable mDivider;
-    {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setColor(Color.LTGRAY);
-        drawable.setSize(0, 1);
-        mDivider = drawable;
-    }
-
-    /*
-     * 绘制分割线,根据ChildView的位置,在RecycleView的相应位置绘制分割线
-     * 每次ChildView的位置改变(即,滑动ChildView),就需要重新绘制
-     */
-    @Override
-    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-        ABLog.d("onDraw()");
-
-        int left = parent.getPaddingLeft();
-        int right = parent.getWidth() - parent.getPaddingRight();
-        int childCount = parent.getChildCount();
-
-        for (int i = 0; i < childCount; i++) {
-            View child = parent.getChildAt(i);
-            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
-            int top = child.getBottom() + params.bottomMargin;
-            int bottom = top + mDivider.getIntrinsicHeight();
-            mDivider.setBounds(left, top, right, bottom);
-            mDivider.draw(c);
+        /**
+         * 删除元素
+         *
+         * @param position
+         */
+        public void removeData(int position) {
+            mData.remove(position);
+            notifyItemRemoved(position);
         }
     }
 
-    /*
-     * 位置偏移
-     */
-    @Override
-    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+    class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvTitle;
+        ImageView ivIcon;
+
+        public ViewHolder(View view) {
+            super(view);
+            tvTitle = (TextView) view.findViewById(R.id.item_abrecycle_list_tv_title);
+            ivIcon = (ImageView) view.findViewById(R.id.item_abrecycle_list_img_icon);
+        }
     }
+
+    class DivideDecoration extends RecyclerView.ItemDecoration {
+
+        private Drawable mDivider;
+
+        {
+            GradientDrawable drawable = new GradientDrawable();
+            drawable.setColor(Color.LTGRAY);
+            drawable.setSize(0, 1);
+            mDivider = drawable;
+        }
+
+        /*
+         * 绘制分割线,根据ChildView的位置,在RecycleView的相应位置绘制分割线
+         * 每次ChildView的位置改变(即,滑动ChildView),就需要重新绘制
+         */
+        @Override
+        public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+            ABLog.d("onDraw()");
+
+            int left = parent.getPaddingLeft();
+            int right = parent.getWidth() - parent.getPaddingRight();
+            int childCount = parent.getChildCount();
+
+            for (int i = 0; i < childCount; i++) {
+                View child = parent.getChildAt(i);
+                RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+                int top = child.getBottom() + params.bottomMargin;
+                int bottom = top + mDivider.getIntrinsicHeight();
+                mDivider.setBounds(left, top, right, bottom);
+                mDivider.draw(c);
+            }
+        }
+
+        /*
+         * 位置偏移
+         */
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
+        }
+    }
+
 }
 
