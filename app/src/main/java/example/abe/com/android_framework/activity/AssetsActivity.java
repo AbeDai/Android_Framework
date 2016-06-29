@@ -15,7 +15,7 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 
-public class ABAssetsActivity extends AppCompatActivity {
+public class AssetsActivity extends AppCompatActivity {
 
     private ImageView mIvRoot;
     private ImageView mIvFile;
@@ -24,7 +24,7 @@ public class ABAssetsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abassets);
+        setContentView(R.layout.activity_assets);
 
         //获取root中图片
         mIvRoot = (ImageView) findViewById(R.id.act_abassets_iv_root_png);

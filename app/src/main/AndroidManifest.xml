@@ -17,14 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ABLogActivity" />
-        <activity android:name=".activity.ABSegmentViewActivity" />
-        <activity android:name=".activity.ABTimeUtilActivity" />
-        <activity android:name=".activity.ABRetrofitActivity" />
-        <activity android:name=".activity.ABRecycleListActivity" />
-        <activity android:name=".activity.ABViewPagerActivity" />
-        <activity android:name=".activity.ABAssetsActivity" />
-        <activity android:name=".activity.ABTabLayoutActivity"></activity>
+        <activity android:name=".activity.LogActivity" />
+        <activity android:name=".activity.SegmentViewActivity" />
+        <activity android:name=".activity.TimeUtilActivity" />
+        <activity android:name=".activity.RetrofitActivity" />
+        <activity android:name=".activity.RecycleListActivity" />
+        <activity android:name=".activity.ViewPagerActivity" />
+        <activity android:name=".activity.AssetsActivity" />
+        <activity android:name=".activity.TabLayoutActivity" />
+        <activity android:name=".activity.EventBusFristActivity" />
+        <activity android:name=".activity.EventBusSecondActivity"></activity>
     </application>
 
 </manifest>

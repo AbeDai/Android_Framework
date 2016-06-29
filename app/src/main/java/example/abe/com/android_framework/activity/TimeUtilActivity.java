@@ -10,12 +10,12 @@ import example.abe.com.android_framework.R;
 import example.abe.com.framework.util.ABLog;
 import example.abe.com.framework.util.ABTimeUtil;
 
-public class ABTimeUtilActivity extends AppCompatActivity {
+public class TimeUtilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abtime_util);
+        setContentView(R.layout.activity_time_util);
 
         //简单示例
         String nowStr = ABTimeUtil.getStrCurrentCH(ABTimeUtil.FORMAT_YYYYMMDD);

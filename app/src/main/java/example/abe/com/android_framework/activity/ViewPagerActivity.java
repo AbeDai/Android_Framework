@@ -20,7 +20,7 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 
-public class ABViewPagerActivity extends AppCompatActivity {
+public class ViewPagerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

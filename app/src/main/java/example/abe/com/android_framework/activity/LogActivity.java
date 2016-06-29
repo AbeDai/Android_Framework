@@ -6,12 +6,12 @@ import android.os.Bundle;
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.util.ABLog;
 
-public class ABLogActivity extends AppCompatActivity {
+public class LogActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ablog);
+        setContentView(R.layout.activity_log);
 
         ABLog.v("Abe Log verbose");
         ABLog.d("Abe Log debug");

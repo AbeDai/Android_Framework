@@ -14,14 +14,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.abe.com.android_framework.activity.ABAssetsActivity;
-import example.abe.com.android_framework.activity.ABLogActivity;
-import example.abe.com.android_framework.activity.ABRecycleListActivity;
-import example.abe.com.android_framework.activity.ABRetrofitActivity;
-import example.abe.com.android_framework.activity.ABSegmentViewActivity;
-import example.abe.com.android_framework.activity.ABTabLayoutActivity;
-import example.abe.com.android_framework.activity.ABTimeUtilActivity;
-import example.abe.com.android_framework.activity.ABViewPagerActivity;
+import example.abe.com.android_framework.activity.AssetsActivity;
+import example.abe.com.android_framework.activity.EventBusFristActivity;
+import example.abe.com.android_framework.activity.LogActivity;
+import example.abe.com.android_framework.activity.RecycleListActivity;
+import example.abe.com.android_framework.activity.RetrofitActivity;
+import example.abe.com.android_framework.activity.SegmentViewActivity;
+import example.abe.com.android_framework.activity.TabLayoutActivity;
+import example.abe.com.android_framework.activity.TimeUtilActivity;
+import example.abe.com.android_framework.activity.ViewPagerActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mData.add(R.string.btn_title_assets);
         //TabLayout界面
         mData.add(R.string.btn_title_tab_layout);
+        //EventBus使用模板
+        mData.add(R.string.btn_title_event_bus);
     }
 
     private void initView() {
@@ -68,61 +71,66 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         switch ((int) id) {
             //自定义Log
             case R.string.btn_title_log: {
-                Intent intent = new Intent(MainActivity.this, ABLogActivity.class);
+                Intent intent = new Intent(MainActivity.this, LogActivity.class);
                 startActivity(intent);
             }
             break;
 
             //分段选择项
             case R.string.btn_title_segment_view: {
-                Intent intent = new Intent(MainActivity.this, ABSegmentViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, SegmentViewActivity.class);
                 startActivity(intent);
             }
             break;
 
             //时间类
             case R.string.btn_title_time_util: {
-                Intent intent = new Intent(MainActivity.this, ABTimeUtilActivity.class);
+                Intent intent = new Intent(MainActivity.this, TimeUtilActivity.class);
                 startActivity(intent);
             }
             break;
 
             //网络框架
             case R.string.btn_title_retrofit: {
-                Intent intent = new Intent(MainActivity.this, ABRetrofitActivity.class);
+                Intent intent = new Intent(MainActivity.this, RetrofitActivity.class);
                 startActivity(intent);
             }
             break;
 
             //RecycleView使用范例
             case R.string.btn_title_recycle_view: {
-                Intent intent = new Intent(MainActivity.this, ABRecycleListActivity.class);
+                Intent intent = new Intent(MainActivity.this, RecycleListActivity.class);
                 startActivity(intent);
             }
             break;
 
             //ViewPager使用范例
             case R.string.btn_title_view_pager: {
-                Intent intent = new Intent(MainActivity.this, ABViewPagerActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewPagerActivity.class);
                 startActivity(intent);
             }
             break;
 
             //Assets使用范例
             case R.string.btn_title_assets: {
-                Intent intent = new Intent(MainActivity.this, ABAssetsActivity.class);
+                Intent intent = new Intent(MainActivity.this, AssetsActivity.class);
                 startActivity(intent);
             }
             break;
 
             //TabLayout使用范例
             case R.string.btn_title_tab_layout: {
-                Intent intent = new Intent(MainActivity.this, ABTabLayoutActivity.class);
+                Intent intent = new Intent(MainActivity.this, TabLayoutActivity.class);
                 startActivity(intent);
             }
             break;
 
-
+            //EventBus使用模板
+            case R.string.btn_title_event_bus: {
+                Intent intent = new Intent(MainActivity.this, EventBusFristActivity.class);
+                startActivity(intent);
+            }
+            break;
 
             default:
                 break;

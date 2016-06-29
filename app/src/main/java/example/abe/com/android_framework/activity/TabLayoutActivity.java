@@ -14,7 +14,7 @@ import java.util.List;
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.util.ABLog;
 
-public class ABTabLayoutActivity extends AppCompatActivity {
+public class TabLayoutActivity extends AppCompatActivity {
 
     private ViewPager mPager;
     private android.support.v4.view.PagerAdapter mPagerAdapter;
@@ -24,7 +24,7 @@ public class ABTabLayoutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ab_tab_layout);
+        setContentView(R.layout.activity_tab_layout);
 
 
         //ViewPager和TabLayout建立关联
@@ -104,7 +104,7 @@ public class ABTabLayoutActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return ABViewPagerActivity.ScreenSlidePageFragment
+            return ViewPagerActivity.ScreenSlidePageFragment
                     .instance(mTitleList.get(position), mContentList.get(position));
         }
 

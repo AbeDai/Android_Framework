@@ -2,11 +2,9 @@ package example.abe.com.android_framework.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.network.ABNetworkPresent;
@@ -14,14 +12,13 @@ import example.abe.com.android_framework.network.AllCarModel;
 import example.abe.com.android_framework.network.PersonInfoModel;
 import example.abe.com.android_framework.network.SetInfoModel;
 import example.abe.com.framework.network.ABRetrofitUtil;
-import example.abe.com.framework.util.ABLog;
 
-public class ABRetrofitActivity extends AppCompatActivity {
+public class RetrofitActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abretrofit);
+        setContentView(R.layout.activity_retrofit);
 
         final EditText tvShow = (EditText) findViewById(R.id.et_show);
 

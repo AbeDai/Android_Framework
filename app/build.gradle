@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     testCompile 'junit:junit:4.12'
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

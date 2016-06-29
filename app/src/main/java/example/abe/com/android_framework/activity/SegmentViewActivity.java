@@ -11,12 +11,12 @@ import example.abe.com.framework.view.ABSegmentView;
 /**
  * 问题代码
  */
-public class ABSegmentViewActivity extends AppCompatActivity {
+public class SegmentViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_absegment_view);
+        setContentView(R.layout.activity_segment_view);
 
         LinearLayout ll = (LinearLayout)findViewById(R.id.ll);
 

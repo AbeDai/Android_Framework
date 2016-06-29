@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.ABAssetsActivity">
+    tools:context="example.abe.com.android_framework.activity.AssetsActivity">
 
     <ImageView
         android:id="@+id/act_abassets_iv_root_png"

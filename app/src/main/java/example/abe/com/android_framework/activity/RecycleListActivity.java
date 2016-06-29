@@ -23,7 +23,7 @@ import java.util.List;
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.util.ABLog;
 
-public class ABRecycleListActivity extends AppCompatActivity {
+public class RecycleListActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private List<String> mData;
@@ -32,7 +32,7 @@ public class ABRecycleListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_abrecycle_list);
+        setContentView(R.layout.activity_recycle_list);
 
         //数据初始化
         mData = new ArrayList<>();
@@ -110,7 +110,7 @@ public class ABRecycleListActivity extends AppCompatActivity {
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             final View view = LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_abrecycle_list, parent, false);
+                    .inflate(R.layout.item_recycle_list, parent, false);
             ViewHolder holder = new ViewHolder(view);
 
             return holder;
