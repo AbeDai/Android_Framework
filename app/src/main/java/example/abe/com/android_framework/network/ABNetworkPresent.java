@@ -2,9 +2,11 @@ package example.abe.com.android_framework.network;
 
 import java.util.HashMap;
 
+import example.abe.com.android_framework.model.AllCarModel;
+import example.abe.com.android_framework.model.PersonInfoModel;
+import example.abe.com.android_framework.model.SetInfoModel;
 import example.abe.com.framework.network.ABRetrofitUtil.ABCallback;
 
-import static example.abe.com.framework.network.ABRetrofitUtil.getService;
 import static example.abe.com.framework.network.ABRetrofitUtil.handleCall;
 
 /**

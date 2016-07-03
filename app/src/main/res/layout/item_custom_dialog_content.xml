@@ -85,6 +85,6 @@
         android:layout_height="wrap_content"
         android:background="#00ffffff"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_dialog" />
+        android:src="@drawable/icon_custom_dialog" />
 
 </RelativeLayout>

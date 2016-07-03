@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.network;
+package example.abe.com.android_framework.model;
 
 import java.util.Iterator;
 import java.util.List;

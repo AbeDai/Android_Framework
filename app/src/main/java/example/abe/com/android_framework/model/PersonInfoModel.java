@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.network;
+package example.abe.com.android_framework.model;
 
 /**
  * Created by abe on 16/5/22.

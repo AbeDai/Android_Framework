@@ -4,15 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
-import java.util.zip.Inflater;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.framework.util.ABDensityUtil;
-import example.abe.com.framework.util.ABLog;
 import example.abe.com.framework.util.ABToast;
 
 public class ToastActivity extends AppCompatActivity implements View.OnClickListener{
@@ -50,7 +43,7 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.act_toast_show_id_view:
                 View content = LayoutInflater.from(ToastActivity.this)
-                        .inflate(R.layout.item_custom_view, null);
+                        .inflate(R.layout.item_custom_dialog_content, null);
                 ABToast.showEditToast(content);
                 break;
         }

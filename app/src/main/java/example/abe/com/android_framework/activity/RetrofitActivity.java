@@ -8,9 +8,9 @@ import android.widget.EditText;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.network.ABNetworkPresent;
-import example.abe.com.android_framework.network.AllCarModel;
-import example.abe.com.android_framework.network.PersonInfoModel;
-import example.abe.com.android_framework.network.SetInfoModel;
+import example.abe.com.android_framework.model.AllCarModel;
+import example.abe.com.android_framework.model.PersonInfoModel;
+import example.abe.com.android_framework.model.SetInfoModel;
 import example.abe.com.framework.network.ABRetrofitUtil;
 
 public class RetrofitActivity extends AppCompatActivity {
