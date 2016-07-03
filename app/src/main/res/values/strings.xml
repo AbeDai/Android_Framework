@@ -9,8 +9,7 @@
     <string name="btn_title_assets">Assets使用</string>
     <string name="btn_title_tab_layout">TabLayout使用</string>
     <string name="btn_title_event_bus">EventBus第三方使用</string>
-
-
+    <string name="btn_title_toast">封装Toast</string>
 
     <string name="view_pager_title_1">第一弹</string>
     <string name="view_pager_title_2">第二弹</string>

@@ -22,6 +22,7 @@ import example.abe.com.android_framework.activity.RetrofitActivity;
 import example.abe.com.android_framework.activity.SegmentViewActivity;
 import example.abe.com.android_framework.activity.TabLayoutActivity;
 import example.abe.com.android_framework.activity.TimeUtilActivity;
+import example.abe.com.android_framework.activity.ToastActivity;
 import example.abe.com.android_framework.activity.ViewPagerActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -58,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mData.add(R.string.btn_title_tab_layout);
         //EventBus使用模板
         mData.add(R.string.btn_title_event_bus);
+        //封装Toast
+        mData.add(R.string.btn_title_toast);
     }
 
     private void initView() {
@@ -128,6 +131,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //EventBus使用模板
             case R.string.btn_title_event_bus: {
                 Intent intent = new Intent(MainActivity.this, EventBusFristActivity.class);
+                startActivity(intent);
+            }
+            break;
+
+            //封装Toast
+            case R.string.btn_title_toast: {
+                Intent intent = new Intent(MainActivity.this, ToastActivity.class);
                 startActivity(intent);
             }
             break;
