@@ -14,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,43 +49,21 @@ public class ViewPagerActivity extends AppCompatActivity {
         mPager0.setAdapter(adapter0);
 
         //简单使用模版
+        List<String> listTitle = Arrays.asList(getResources().getStringArray(R.array.view_pager_title));
+        List<String> listContent = Arrays.asList(getResources().getStringArray(R.array.view_pager_content));
         final ArrayList<Fragment> fragments1 = new ArrayList<>();
-        fragments1.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_1)
-                        , getResources().getString(R.string.view_pager_content_1)));
-        fragments1.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_2)
-                        , getResources().getString(R.string.view_pager_content_2)));
-        fragments1.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_3)
-                        , getResources().getString(R.string.view_pager_content_3)));
-        fragments1.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_4)
-                        , getResources().getString(R.string.view_pager_content_4)));
-        fragments1.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_5)
-                        , getResources().getString(R.string.view_pager_content_5)));
+        for (int i = 0; i < listContent.size(); i++){
+            fragments1.add(ScreenSlidePageFragment.instance(listTitle.get(i), listContent.get(i)));
+        }
         ViewPager mPager1 = (ViewPager) findViewById(R.id.act_view_pager_pager2);
         PagerAdapter1 adapter1 = new PagerAdapter1(getSupportFragmentManager(), fragments1);
         mPager1.setAdapter(adapter1);
 
         //动态增加删减Fragment模版
         final LinkedList<Fragment> fragments2 = new LinkedList<>();
-        fragments2.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_1)
-                        , getResources().getString(R.string.view_pager_content_1)));
-        fragments2.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_2)
-                        , getResources().getString(R.string.view_pager_content_2)));
-        fragments2.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_3)
-                        , getResources().getString(R.string.view_pager_content_3)));
-        fragments2.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_4)
-                        , getResources().getString(R.string.view_pager_content_4)));
-        fragments2.add(ScreenSlidePageFragment
-                .instance(getResources().getString(R.string.view_pager_title_5)
-                        , getResources().getString(R.string.view_pager_content_5)));
+        for (int i = 0; i < listContent.size(); i++){
+            fragments2.add(ScreenSlidePageFragment.instance(listTitle.get(i), listContent.get(i)));
+        }
         ViewPager mPager2 = (ViewPager) findViewById(R.id.act_view_pager_pager3);
         final PagerAdapter2 adapter2 = new PagerAdapter2(getSupportFragmentManager(), fragments2);
         mPager2.setAdapter(adapter2);

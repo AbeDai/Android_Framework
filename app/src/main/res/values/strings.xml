@@ -10,17 +10,4 @@
     <string name="btn_title_tab_layout">TabLayout使用</string>
     <string name="btn_title_event_bus">EventBus第三方使用</string>
     <string name="btn_title_toast">封装Toast</string>
-
-    <string name="view_pager_title_1">第一弹</string>
-    <string name="view_pager_title_2">第二弹</string>
-    <string name="view_pager_title_3">第三弹</string>
-    <string name="view_pager_title_4">第四弹</string>
-    <string name="view_pager_title_5">第五弹</string>
-
-    <string name="view_pager_content_1">沙发老实交代弗利萨快解放辣椒水立方会计师111111111111111111111111111111111111</string>
-    <string name="view_pager_content_2">沙发老实交代弗利萨快解放辣椒水立方会计师2222222222222222222222222222222222222</string>
-    <string name="view_pager_content_3">沙发老实交代弗利萨快解放辣椒水立方会计师3333333333333333333333333333333333333</string>
-    <string name="view_pager_content_4">沙发老实交代弗利萨快解放辣椒水立方会计师4444444444444444444444444444444444444</string>
-    <string name="view_pager_content_5">沙发老实交代弗利萨快解放辣椒水立方会计师5555555555555555555555555555555555555</string>
-
 </resources>

@@ -8,7 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
@@ -81,16 +83,8 @@ public class TabLayoutActivity extends AppCompatActivity {
         private List<String> mTitleList = new ArrayList<>();
         private List<String> mContentList = new ArrayList<>();
         {
-            mTitleList.add(getResources().getString(R.string.view_pager_title_1));
-            mTitleList.add(getResources().getString(R.string.view_pager_title_2));
-            mTitleList.add(getResources().getString(R.string.view_pager_title_3));
-            mTitleList.add(getResources().getString(R.string.view_pager_title_4));
-            mTitleList.add(getResources().getString(R.string.view_pager_title_5));
-            mContentList.add(getResources().getString(R.string.view_pager_content_1));
-            mContentList.add(getResources().getString(R.string.view_pager_content_2));
-            mContentList.add(getResources().getString(R.string.view_pager_content_3));
-            mContentList.add(getResources().getString(R.string.view_pager_content_4));
-            mContentList.add(getResources().getString(R.string.view_pager_content_5));
+            mTitleList = Arrays.asList(getResources().getStringArray(R.array.view_pager_title));
+            mContentList = Arrays.asList(getResources().getStringArray(R.array.view_pager_content));
         }
 
         public PagerAdapter(FragmentManager fm) {

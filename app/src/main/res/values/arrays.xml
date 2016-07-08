@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="view_pager_title">
+        <item>第一弹</item>
+        <item>第二弹 </item>
+        <item>第三弹</item>
+        <item>第四弹</item>
+        <item>第五弹</item>
+    </string-array>
+
+    <string-array name="view_pager_content">
+        <item>沙发老实交代弗利萨快解放辣椒水立方会计师111111111111111111111111111111111111</item>
+        <item>沙发老实交代弗利萨快解放辣椒水立方会计师2222222222222222222222222222222222222</item>
+        <item>沙发老实交代弗利萨快解放辣椒水立方会计师3333333333333333333333333333333333333</item>
+        <item>沙发老实交代弗利萨快解放辣椒水立方会计师4444444444444444444444444444444444444</item>
+        <item>沙发老实交代弗利萨快解放辣椒水立方会计师5555555555555555555555555555555555555</item>
+    </string-array>
+
+</resources>

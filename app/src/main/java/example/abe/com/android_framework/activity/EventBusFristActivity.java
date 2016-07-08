@@ -14,6 +14,7 @@ import example.abe.com.android_framework.Event.FirstEvent;
 import example.abe.com.android_framework.Event.SecondEvent;
 import example.abe.com.android_framework.Event.ThirdEvent;
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.util.ABToast;
 
 public class EventBusFristActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -46,33 +47,33 @@ public class EventBusFristActivity extends AppCompatActivity implements View.OnC
     //FirstEvent接收函数-1个
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(FirstEvent event) {
-        Log.d("harvic", "onEventMainThread收到了消息：" + "FirstEvent" + event.getMsg()
+        ABToast.makeText("onEventMainThread收到了消息：" + "FirstEvent" + event.getMsg()
                 + "\n" + "当前线程: " + Thread.currentThread());
     }
 
     //SecondEvent接收函数-3个
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onCustomEventMainThread(SecondEvent event) {
-        Log.d("harvic", "onEventMainThread收到了消息：" + event.getMsg()
+        ABToast.makeText("onEventMainThread收到了消息：" + event.getMsg()
                 + "\n" + "当前线程: " + Thread.currentThread());
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onCustomEventBackgroundThread(SecondEvent event){
-        Log.d("harvic", "onEventBackground收到了消息：" + event.getMsg()
+        ABToast.makeText("onEventBackground收到了消息：" + event.getMsg()
                 + "\n" + "当前线程: " + Thread.currentThread());
     }
 
     @Subscribe(threadMode = ThreadMode.ASYNC)
     public void onCustomEventAsync(SecondEvent event){
-        Log.d("harvic", "onEventAsync收到了消息：" + event.getMsg()
+        ABToast.makeText("onEventAsync收到了消息：" + event.getMsg()
                 + "\n" + "当前线程: " + Thread.currentThread());
     }
 
     //ThirdEvent接收函数-1个
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void onCustomEvent(ThirdEvent event) {
-        Log.d("harvic", "onEvent收到了消息：" + event.getMsg()
+        ABToast.makeText("onEvent收到了消息：" + event.getMsg()
                 + "\n" + "当前线程: " + Thread.currentThread());
     }
 }
