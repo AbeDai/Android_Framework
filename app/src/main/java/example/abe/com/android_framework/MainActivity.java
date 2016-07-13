@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android_framework.activity.AssetsActivity;
+import example.abe.com.android_framework.activity.CardViewActivity;
 import example.abe.com.android_framework.activity.EventBusFristActivity;
 import example.abe.com.android_framework.activity.LogActivity;
 import example.abe.com.android_framework.activity.RecycleListActivity;
@@ -61,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mData.add(R.string.btn_title_event_bus);
         //封装Toast
         mData.add(R.string.btn_title_toast);
+        //CardView用法介绍
+        mData.add(R.string.btn_title_card_view);
     }
 
     private void initView() {
@@ -138,6 +141,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //封装Toast
             case R.string.btn_title_toast: {
                 Intent intent = new Intent(MainActivity.this, ToastActivity.class);
+                startActivity(intent);
+            }
+            break;
+
+            //CardView用法介绍
+            case R.string.btn_title_card_view: {
+                Intent intent = new Intent(MainActivity.this, CardViewActivity.class);
                 startActivity(intent);
             }
             break;

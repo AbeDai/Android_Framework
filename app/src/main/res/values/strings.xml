@@ -10,4 +10,5 @@
     <string name="btn_title_tab_layout">TabLayout使用</string>
     <string name="btn_title_event_bus">EventBus第三方使用</string>
     <string name="btn_title_toast">封装Toast</string>
+    <string name="btn_title_card_view">CardView用法介绍</string>
 </resources>
