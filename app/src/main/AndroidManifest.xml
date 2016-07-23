@@ -29,7 +29,8 @@
         <activity android:name=".activity.EventBusFristActivity" />
         <activity android:name=".activity.EventBusSecondActivity" />
         <activity android:name=".activity.ToastActivity" />
-        <activity android:name=".activity.CardViewActivity"></activity>
+        <activity android:name=".activity.CardViewActivity" />
+        <activity android:name=".activity.GridViewActivity"></activity>
     </application>
 
 </manifest>

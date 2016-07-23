@@ -17,6 +17,7 @@ import java.util.List;
 import example.abe.com.android_framework.activity.AssetsActivity;
 import example.abe.com.android_framework.activity.CardViewActivity;
 import example.abe.com.android_framework.activity.EventBusFristActivity;
+import example.abe.com.android_framework.activity.GridViewActivity;
 import example.abe.com.android_framework.activity.LogActivity;
 import example.abe.com.android_framework.activity.RecycleListActivity;
 import example.abe.com.android_framework.activity.RetrofitActivity;
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mData.add(R.string.btn_title_toast);
         //CardView用法介绍
         mData.add(R.string.btn_title_card_view);
+        //GridView使用介绍
+        mData.add(R.string.btn_title_grid_view);
     }
 
     private void initView() {
@@ -151,6 +154,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
             }
             break;
+
+            //GridView使用介绍
+            case R.string.btn_title_grid_view: {
+                Intent intent = new Intent(MainActivity.this, GridViewActivity.class);
+                startActivity(intent);
+            }
+            break;
+
 
             default:
                 break;
