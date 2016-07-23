@@ -17,6 +17,7 @@ import java.util.List;
 
 import example.abe.com.android_framework.MainActivity;
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.util.ABToast;
 
 public class GridViewActivity extends AppCompatActivity {
 
@@ -33,10 +34,7 @@ public class GridViewActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HashMap<String, Object> item = (HashMap<String, Object>) parent.getItemAtPosition(position);
-                Toast.makeText(
-                        GridViewActivity.this,
-                        (String)item.get(ITEM_TEXT),
-                        Toast.LENGTH_SHORT).show();
+                ABToast.makeText((String)item.get(ITEM_TEXT));
             }
         });
 
@@ -45,10 +43,7 @@ public class GridViewActivity extends AppCompatActivity {
         gridview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(
-                        GridViewActivity.this,
-                        "位置: " + position,
-                        Toast.LENGTH_SHORT).show();
+                ABToast.makeText("位置: " + position);
             }
         });
     }
