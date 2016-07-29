@@ -1,15 +1,11 @@
 <resources>
     <string name="app_name">Android_Framework</string>
-    <string name="btn_title_log">Log使用</string>
-    <string name="btn_title_time_util">Time使用</string>
     <string name="btn_title_recycle_view">RecycleView使用</string>
-    <string name="btn_title_segment_view">分页栏使用</string>
     <string name="btn_title_retrofit">网络封装(半成品)</string>
     <string name="btn_title_view_pager">ViewPager使用</string>
     <string name="btn_title_assets">Assets使用</string>
     <string name="btn_title_tab_layout">TabLayout使用</string>
     <string name="btn_title_event_bus">EventBus第三方使用</string>
-    <string name="btn_title_toast">封装Toast</string>
     <string name="btn_title_card_view">CardView用法介绍</string>
     <string name="btn_title_grid_view">GridView使用介绍</string>
 </resources>

@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_third"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.EventBusFristActivity">
-
+    tools:context="example.abe.com.android_framework.activity.eventbus.EventBusSecondActivity">
 
     <TextView
-        android:id="@+id/act_frist_tv_enter"
+        android:id="@+id/act_third_tv_event_1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="进入"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="发送事件-1"
+        android:textSize="25sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/act_third_tv_event_2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="发送事件-2"
+        android:textSize="25sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/act_third_tv_event_3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="发送事件-3"
         android:textSize="25sp"
         android:gravity="center"/>
 
