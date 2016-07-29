@@ -7,15 +7,16 @@ import java.util.Calendar;
 import java.util.Date;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 import example.abe.com.framework.util.ABLog;
 import example.abe.com.framework.util.ABTimeUtil;
 
-public class TimeUtilActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_time_util)
+public class TimeUtilActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_time_util);
 
         //简单示例
         String nowStr = ABTimeUtil.getStrCurrentCH(ABTimeUtil.FORMAT_YYYYMMDD);

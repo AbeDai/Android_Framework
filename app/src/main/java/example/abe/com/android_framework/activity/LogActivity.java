@@ -4,14 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 import example.abe.com.framework.util.ABLog;
 
-public class LogActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_log)
+public class LogActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log);
 
         ABLog.v("Abe Log verbose");
         ABLog.d("Abe Log debug");

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android_framework.activity.AssetsActivity;
+import example.abe.com.android_framework.activity.BaseActivity;
 import example.abe.com.android_framework.activity.CardViewActivity;
 import example.abe.com.android_framework.activity.EventBusFristActivity;
 import example.abe.com.android_framework.activity.GridViewActivity;
@@ -26,16 +27,19 @@ import example.abe.com.android_framework.activity.TabLayoutActivity;
 import example.abe.com.android_framework.activity.TimeUtilActivity;
 import example.abe.com.android_framework.activity.ToastActivity;
 import example.abe.com.android_framework.activity.ViewPagerActivity;
+import example.abe.com.framework.Annotation.ContentView;
+import example.abe.com.framework.Annotation.ViewInject;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+@ContentView(id = R.layout.activity_main)
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
-    private List<Integer> mData;
+    @ViewInject(id = R.id.act_main_list)
     private ListView mLv;
+    private List<Integer> mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         initData();
         initView();
@@ -70,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void initView() {
-        mLv = (ListView) findViewById(R.id.act_main_list);
         mLv.setAdapter(new MainAdapter());
         mLv.setOnItemClickListener(this);
     }
@@ -200,6 +203,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             return convertView;
         }
-
     }
 }

@@ -11,17 +11,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
+import example.abe.com.framework.Annotation.ViewInject;
 
+@ContentView(id = R.layout.activity_card_view)
+public class CardViewActivity extends BaseActivity {
 
-public class CardViewActivity extends AppCompatActivity {
-
+    @ViewInject(id = R.id.act_card_view_root)
     ViewGroup root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_view);
-        root = (ViewGroup)findViewById(R.id.act_card_view_root);
         root.addView(getCardView());
     }
 

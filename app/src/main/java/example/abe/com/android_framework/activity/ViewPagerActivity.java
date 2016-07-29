@@ -21,13 +21,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 
-public class ViewPagerActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_view_pager)
+public class ViewPagerActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_pager);
 
         //使用最原始的适配器,创建ViewPager
         final ArrayList<View> views = new ArrayList<>();

@@ -14,14 +14,15 @@ import example.abe.com.android_framework.Event.FirstEvent;
 import example.abe.com.android_framework.Event.SecondEvent;
 import example.abe.com.android_framework.Event.ThirdEvent;
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 import example.abe.com.framework.util.ABToast;
 
-public class EventBusFristActivity extends AppCompatActivity implements View.OnClickListener{
+@ContentView(id = R.layout.activity_event_bus_frist)
+public class EventBusFristActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_bus_frist);
         EventBus.getDefault().register(this);//注册
 
         initView();

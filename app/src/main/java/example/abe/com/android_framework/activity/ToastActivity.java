@@ -6,14 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 import example.abe.com.framework.util.ABToast;
 
-public class ToastActivity extends AppCompatActivity implements View.OnClickListener{
+@ContentView(id = R.layout.activity_toast)
+public class ToastActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_toast);
 
         findViewById(R.id.act_toast_show_msg_long).setOnClickListener(this);
         findViewById(R.id.act_toast_show_msg_short).setOnClickListener(this);

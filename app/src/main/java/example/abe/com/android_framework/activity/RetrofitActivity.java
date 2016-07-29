@@ -11,14 +11,15 @@ import example.abe.com.android_framework.network.ABNetworkPresent;
 import example.abe.com.android_framework.model.AllCarModel;
 import example.abe.com.android_framework.model.PersonInfoModel;
 import example.abe.com.android_framework.model.SetInfoModel;
+import example.abe.com.framework.Annotation.ContentView;
 import example.abe.com.framework.network.ABRetrofitUtil;
 
-public class RetrofitActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_retrofit)
+public class RetrofitActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
 
         final EditText tvShow = (EditText) findViewById(R.id.et_show);
 

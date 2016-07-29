@@ -14,31 +14,32 @@ import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
+import example.abe.com.framework.Annotation.ViewInject;
 import example.abe.com.framework.util.ABLog;
 
-public class TabLayoutActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_tab_layout)
+public class TabLayoutActivity extends BaseActivity {
 
+    @ViewInject(id = R.id.act_main_pager)
     private ViewPager mPager;
-    private android.support.v4.view.PagerAdapter mPagerAdapter;
+    @ViewInject(id = R.id.act_main_tab_layout_1)
     private TabLayout mTabLayout1;
+    @ViewInject(id = R.id.act_main_tab_layout_2)
     private TabLayout mTabLayout2;
+    private android.support.v4.view.PagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tab_layout);
-
 
         //ViewPager和TabLayout建立关联
-        mPager = (ViewPager) findViewById(R.id.act_main_pager);
         mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-        mTabLayout1 = (TabLayout) findViewById(R.id.act_main_tab_layout_1);
         mTabLayout1.setupWithViewPager(mPager);
 
 
         //单独TabLayout
-        mTabLayout2 = (TabLayout) findViewById(R.id.act_main_tab_layout_2);
         TabLayout.Tab tab1 = mTabLayout2.newTab().setIcon(R.mipmap.ic_launcher).setText("自定义_1");
         TabLayout.Tab tab2 = mTabLayout2.newTab().setIcon(android.R.drawable.sym_def_app_icon).setText("自定义_2");
         TabLayout.Tab tab3 = mTabLayout2.newTab().setIcon(android.R.drawable.star_big_on).setText("自定义_3");

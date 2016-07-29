@@ -12,14 +12,15 @@ import example.abe.com.android_framework.Event.FirstEvent;
 import example.abe.com.android_framework.Event.SecondEvent;
 import example.abe.com.android_framework.Event.ThirdEvent;
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 
-public class EventBusSecondActivity extends AppCompatActivity implements View.OnClickListener{
+@ContentView(id = R.layout.activity_event_bus_second)
+public class EventBusSecondActivity extends BaseActivity implements View.OnClickListener{
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_bus_second);
 
         findViewById(R.id.act_third_tv_event_1).setOnClickListener(this);
         findViewById(R.id.act_third_tv_event_2).setOnClickListener(this);

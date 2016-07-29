@@ -14,28 +14,32 @@ import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
+import example.abe.com.framework.Annotation.ViewInject;
+import example.abe.com.framework.network.ABRetrofitUtil;
+import example.abe.com.framework.util.ABViewInjectUtils;
 
-public class AssetsActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_assets)
+public class AssetsActivity extends BaseActivity {
 
+    @ViewInject(id = R.id.act_abassets_iv_root_png)
     private ImageView mIvRoot;
+    @ViewInject(id = R.id.act_abassets_iv_file_png)
     private ImageView mIvFile;
+    @ViewInject(id = R.id.act_abassets_tv_file_list)
     private TextView mTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_assets);
 
         //获取root中图片
-        mIvRoot = (ImageView) findViewById(R.id.act_abassets_iv_root_png);
         mIvRoot.setImageBitmap(getAssetBitmap("root_img.png"));
 
         //获取file中图片
-        mIvFile = (ImageView) findViewById(R.id.act_abassets_iv_file_png);
         mIvFile.setImageBitmap(getAssetBitmap("file2/file_img.png"));
 
         //打印文件目录
-        mTv = (TextView) findViewById(R.id.act_abassets_tv_file_list);
         mTv.setText(getAssetRootList().toString());
     }
 

@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
 import example.abe.com.framework.util.ABLog;
 import example.abe.com.framework.view.ABSegmentView;
 
-/**
- * 问题代码
- */
-public class SegmentViewActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_segment_view)
+public class SegmentViewActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_segment_view);
 
         LinearLayout ll = (LinearLayout)findViewById(R.id.ll);
 

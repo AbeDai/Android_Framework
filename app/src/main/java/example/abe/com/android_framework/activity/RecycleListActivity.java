@@ -21,10 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
+import example.abe.com.framework.Annotation.ViewInject;
 import example.abe.com.framework.util.ABLog;
 
-public class RecycleListActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_recycle_list)
+public class RecycleListActivity extends BaseActivity {
 
+    @ViewInject(id = R.id.act_abrecycle_list_rv)
     private RecyclerView mRecyclerView;
     private List<String> mData;
     private ListAdapter mAdapter;
@@ -32,7 +36,6 @@ public class RecycleListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycle_list);
 
         //数据初始化
         mData = new ArrayList<>();
@@ -54,7 +57,6 @@ public class RecycleListActivity extends AppCompatActivity {
                 return false;
             }
         });
-        mRecyclerView = (RecyclerView) findViewById(R.id.act_abrecycle_list_rv);
         mRecyclerView.setAdapter(mAdapter);//设置adapter
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//设置布局管理器
         mRecyclerView.addItemDecoration(new DivideDecoration());//添加分割线

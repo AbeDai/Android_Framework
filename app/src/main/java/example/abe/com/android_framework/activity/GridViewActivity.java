@@ -1,5 +1,6 @@
 package example.abe.com.android_framework.activity;
 
+import android.graphics.drawable.RippleDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,18 +18,24 @@ import java.util.List;
 
 import example.abe.com.android_framework.MainActivity;
 import example.abe.com.android_framework.R;
+import example.abe.com.framework.Annotation.ContentView;
+import example.abe.com.framework.Annotation.ViewInject;
 import example.abe.com.framework.util.ABToast;
 
-public class GridViewActivity extends AppCompatActivity {
+@ContentView(id = R.layout.activity_grid_view)
+public class GridViewActivity extends BaseActivity {
 
     private static final String ITEM_IMAGE = "item_image";
     private static final String ITEM_TEXT = "item_text";
 
+    @ViewInject(id = R.id.grid_view_1)
+    private GridView gridview1;
+    @ViewInject(id = R.id.grid_view_2)
+    private GridView gridview2;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grid_view);
 
-        GridView gridview1 = (GridView) findViewById(R.id.grid_view_1);
         gridview1.setAdapter(getSimpleAdapter());
         gridview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -38,7 +45,6 @@ public class GridViewActivity extends AppCompatActivity {
             }
         });
 
-        GridView gridview2 = (GridView) this.findViewById(R.id.grid_view_2);
         gridview2.setAdapter(new ImageAdapter());
         gridview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
