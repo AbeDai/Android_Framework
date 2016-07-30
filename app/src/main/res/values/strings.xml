@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Android_Framework</string>
     <string name="btn_title_recycle_view">RecycleView使用</string>
-    <string name="btn_title_retrofit">retrofit使用</string>
+    <string name="btn_title_retrofit">Retrofit使用</string>
     <string name="btn_title_view_pager">ViewPager使用</string>
     <string name="btn_title_assets">Assets使用</string>
     <string name="btn_title_tab_layout">TabLayout使用</string>
