@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Android_Framework</string>
     <string name="btn_title_recycle_view">RecycleView使用</string>
-    <string name="btn_title_retrofit">网络封装(半成品)</string>
+    <string name="btn_title_retrofit">retrofit使用</string>
     <string name="btn_title_view_pager">ViewPager使用</string>
     <string name="btn_title_assets">Assets使用</string>
     <string name="btn_title_tab_layout">TabLayout使用</string>
-    <string name="btn_title_event_bus">EventBus第三方使用</string>
-    <string name="btn_title_card_view">CardView用法介绍</string>
-    <string name="btn_title_grid_view">GridView使用介绍</string>
+    <string name="btn_title_event_bus">EventBus使用</string>
+    <string name="btn_title_card_view">CardView使用</string>
+    <string name="btn_title_grid_view">GridView使用</string>
 </resources>
