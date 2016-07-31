@@ -2,7 +2,6 @@ package example.abe.com.android_framework.activity.volley;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 
 import com.android.volley.toolbox.ImageLoader.ImageCache;
 
@@ -14,12 +13,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import example.abe.com.framework.util.FileUtil;
-import example.abe.com.framework.util.LogUtil;
 
 /**
  * Created by abe on 16/7/31.
  */
-
 public class BitmapCache implements ImageCache {
 
     @Override
