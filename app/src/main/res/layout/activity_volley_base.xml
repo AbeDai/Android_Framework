@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_abretrofit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android_framework.activity.retrofit.RetrofitActivity">
+
+    <Button
+        android:id="@+id/act_volley_base_btn_get_string"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="GET_STRING"/>
+
+    <Button
+        android:id="@+id/act_volley_base_btn_post_string"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="POST_STRING"/>
+
+    <Button
+        android:id="@+id/act_volley_base_btn_get_json"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="POST_JSON"/>
+
+    <Button
+        android:id="@+id/act_volley_base_btn_post_json"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="POST_JSON"/>
+
+    <EditText
+        android:id="@+id/act_volley_et_show"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="left|top"/>
+</LinearLayout>

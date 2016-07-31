@@ -22,6 +22,7 @@ import example.abe.com.android_framework.activity.recyclelist.RecycleListActivit
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
 import example.abe.com.android_framework.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
+import example.abe.com.android_framework.activity.volley.VolleyActivity;
 import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
 
@@ -60,6 +61,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         mData.add(R.string.btn_title_card_view);
         //GridView使用介绍
         mData.add(R.string.btn_title_grid_view);
+        //Volley使用介绍
+        mData.add(R.string.btn_title_volley);
     }
 
     private void initView() {
@@ -126,6 +129,12 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             }
             break;
 
+            //Volley使用介绍
+            case R.string.btn_title_volley: {
+                Intent intent = new Intent(MainActivity.this, VolleyActivity.class);
+                startActivity(intent);
+            }
+            break;
 
             default:
                 break;

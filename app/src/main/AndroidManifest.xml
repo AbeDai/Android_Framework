@@ -25,7 +25,10 @@
         <activity android:name=".activity.tablayout.TabLayoutActivity" />
         <activity android:name=".activity.eventbus.EventBusActivity" />
         <activity android:name=".activity.cardview.CardViewActivity" />
-        <activity android:name=".activity.gridview.GridViewActivity"></activity>
+        <activity android:name=".activity.gridview.GridViewActivity" />
+        <activity android:name=".activity.volley.VolleyActivity" />
+        <activity android:name=".activity.volley.VolleyBaseActivity" />
+        <activity android:name=".activity.volley.VolleyImageActivity"></activity>
     </application>
 
 </manifest>
