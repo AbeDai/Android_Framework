@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.android_framework.activity.DrawActivity;
 import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.cardview.CardViewActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
@@ -60,6 +61,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         mData.add(R.string.btn_title_card_view);
         //GridView使用介绍
         mData.add(R.string.btn_title_grid_view);
+        //绘图详解
+        mData.add(R.string.btn_title_draw);
     }
 
     private void initView() {
@@ -126,6 +129,12 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             }
             break;
 
+            //绘图详解
+            case R.string.btn_title_draw:{
+                Intent intent = new Intent(MainActivity.this, DrawActivity.class);
+                startActivity(intent);
+            }
+            break;
 
             default:
                 break;
@@ -149,7 +158,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         public long getItemId(int position) {
             return mData.get(position);
         }
-
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {

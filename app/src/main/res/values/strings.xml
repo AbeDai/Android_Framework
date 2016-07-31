@@ -8,4 +8,5 @@
     <string name="btn_title_event_bus">EventBus使用</string>
     <string name="btn_title_card_view">CardView使用</string>
     <string name="btn_title_grid_view">GridView使用</string>
+    <string name="btn_title_draw">绘图详解</string>
 </resources>

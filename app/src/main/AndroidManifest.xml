@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.retrofit.RetrofitActivity" />
         <activity android:name=".activity.recyclelist.RecycleListActivity" />
@@ -25,7 +25,14 @@
         <activity android:name=".activity.tablayout.TabLayoutActivity" />
         <activity android:name=".activity.eventbus.EventBusActivity" />
         <activity android:name=".activity.cardview.CardViewActivity" />
-        <activity android:name=".activity.gridview.GridViewActivity"></activity>
+        <activity android:name=".activity.gridview.GridViewActivity" />
+        <activity android:name=".activity.DrawActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
