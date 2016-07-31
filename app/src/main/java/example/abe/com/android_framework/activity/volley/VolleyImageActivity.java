@@ -1,7 +1,6 @@
 package example.abe.com.android_framework.activity.volley;
 
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +9,9 @@ import android.widget.ImageView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import example.abe.com.android_framework.R;
@@ -23,6 +24,7 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
 
     private String mImgUrl;
     private RequestQueue mQueue;
+    private ImageLoader mLoader;
 
     @ViewInject(id = R.id.act_volley_image_btn_request)
     private Button mBtnRequest;
@@ -32,6 +34,8 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
     private Button mBtnView;
     @ViewInject(id = R.id.act_volley_image_iv)
     private ImageView mIv;
+    @ViewInject(id = R.id.act_volley_image_network_image_view)
+    private NetworkImageView mIvNetwork;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,10 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void initData() {
-        mQueue = Volley.newRequestQueue(this);
         mImgUrl = "http://img.mp.itc.cn/upload/20160418/c44022406262471e86551d54945d4c55_th.jpg";
+        mQueue = Volley.newRequestQueue(this);
+        mLoader = new ImageLoader(mQueue, new BitmapCache());
+
     }
 
     private void initView() {
@@ -66,11 +72,15 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
             }break;
 
             case R.id.act_volley_image_btn_loader:{
-
+                ImageLoader.ImageListener listener = ImageLoader.getImageListener(mIv,
+                        R.drawable.icon_custom_dialog, R.mipmap.ic_launcher);
+                mLoader.get(mImgUrl, listener,  0, 0);
             }break;
 
             case R.id.act_volley_image_btn_view:{
-
+                mIvNetwork.setDefaultImageResId(R.drawable.icon_custom_dialog);
+                mIvNetwork.setErrorImageResId(R.mipmap.ic_launcher);
+                mIvNetwork.setImageUrl(mImgUrl, mLoader);
             }break;
         }
     }

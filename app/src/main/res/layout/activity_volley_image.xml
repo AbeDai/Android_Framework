@@ -12,26 +12,65 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="ImageRequest使用操作"/>
+        android:text="ImageRequest使用操作" />
 
     <Button
         android:id="@+id/act_volley_image_btn_loader"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="ImageLoader使用操作"/>
+        android:text="ImageLoader使用操作" />
 
     <Button
         android:id="@+id/act_volley_image_btn_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="NetworkImageView使用操作"/>
-    
-    <ImageView
-        android:id="@+id/act_volley_image_iv"
+        android:text="NetworkImageView使用操作" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:scaleType="fitCenter"/>
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal"
+                android:text="效果显示ImageView" />
+
+            <ImageView
+                android:id="@+id/act_volley_image_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_horizontal"
+                android:text="NetworkImageView视图" />
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/act_volley_image_network_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

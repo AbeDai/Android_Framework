@@ -14,18 +14,34 @@ public class ToastUtil {
     private static Toast mToast;
     private static Toast mToastEdit;
 
+    /**
+     * Toast的LENGTH_SHORT显示
+     * @param msg 消息
+     */
     public static void makeText(CharSequence msg) {
         showToast(msg, Toast.LENGTH_SHORT);
     }
 
+    /**
+     * Toast的LENGTH_SHORT显示
+     * @param resId 消息资源ID
+     */
     public static void makeText(int resId) {
         showToast(resId, Toast.LENGTH_SHORT);
     }
 
+    /**
+     * Toast的LENGTH_LONG显示
+     * @param msg 消息
+     */
     public static void makeTextLong(CharSequence msg) {
         showToast(msg, Toast.LENGTH_LONG);
     }
 
+    /**
+     * Toast的LENGTH_LONG显示
+     * @param resId 消息资源ID
+     */
     public static void makeTextLong(int resId) {
         showToast(resId, Toast.LENGTH_LONG);
     }
@@ -52,15 +68,5 @@ public class ToastUtil {
             mToast.setDuration(duration);
         }
         mToast.show();
-    }
-
-    public static void showEditToast(View view) {
-        if (mToastEdit == null) {
-            mToastEdit = new Toast(BaseApplication.getInstance());
-        }
-        mToastEdit.setView(view);
-        mToastEdit.setDuration(Toast.LENGTH_SHORT);
-        mToastEdit.setGravity(Gravity.CENTER, 0, 0);
-        mToastEdit.show();
     }
 }

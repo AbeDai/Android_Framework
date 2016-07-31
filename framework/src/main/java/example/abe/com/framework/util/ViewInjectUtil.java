@@ -16,11 +16,19 @@ public class ViewInjectUtil {
     private static final String METHOD_SET_CONTENT_VIEW = "setContentView";
     private static final String METHOD_FIND_VIEW_BY_ID = "findViewById";
 
+    /**
+     * 注入操作初始化
+     * @param activity 当前活动
+     */
     public static void inject(Activity activity) {
         injectContentView(activity);
         injectViews(activity);
     }
 
+    /**
+     * 注入界面操作
+     * @param activity 当前活动
+     */
     private static void injectContentView(Activity activity) {
         Class<? extends Activity> clazz = activity.getClass();
         ContentView contentViewAnnotation = clazz.getAnnotation(ContentView.class);
@@ -39,6 +47,10 @@ public class ViewInjectUtil {
         }
     }
 
+    /**
+     * 注入视图属性
+     * @param activity 当前活动
+     */
     private static void injectViews(Activity activity) {
         Class<? extends Activity> clazz = activity.getClass();
         Field[] fields = clazz.getDeclaredFields();
