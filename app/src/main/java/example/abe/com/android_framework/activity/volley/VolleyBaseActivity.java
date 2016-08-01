@@ -1,6 +1,5 @@
 package example.abe.com.android_framework.activity.volley;
 
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -70,19 +69,19 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        Request request;
         switch (v.getId()) {
-            case R.id.act_volley_base_btn_get_string: {
-                StringRequest stringRequest = new StringRequest(
+            case R.id.act_volley_base_btn_get_string:
+                request = new StringRequest(
                         Request.Method.GET,
                         mGetUrl,
                         mStringListener,
                         mErrorListener);
-                mQueue.add(stringRequest);
-            }
-            break;
+                mQueue.add(request);
+                break;
 
-            case R.id.act_volley_base_btn_post_string: {
-                StringRequest stringRequest = new StringRequest(
+            case R.id.act_volley_base_btn_post_string:
+                request = new StringRequest(
                         Request.Method.POST,
                         mPostUrl,
                         mStringListener,
@@ -92,32 +91,28 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
                         return mPostParamMap;
                     }
                 };
-                mQueue.add(stringRequest);
-            }
-            break;
+                mQueue.add(request);
+                break;
 
-            case R.id.act_volley_base_btn_get_json: {
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+            case R.id.act_volley_base_btn_get_json:
+                request = new JsonObjectRequest(
                         Request.Method.GET,
                         mGetUrl,
                         null,
                         mJsonListener, mErrorListener);
-                mQueue.add(jsonObjectRequest);
-            }
-            break;
+                mQueue.add(request);
+                break;
 
-            //TODO:无法使用
-            case R.id.act_volley_base_btn_post_json: {
+            //此方法传入的参数，为json格式。需要获得满足条件的接口，才可以测试。
+            case R.id.act_volley_base_btn_post_json:
                 JSONObject param = new JSONObject(mPostParamMap);
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                request = new JsonObjectRequest(
                         Request.Method.POST,
                         mPostUrl,
                         param,
                         mJsonListener, mErrorListener);
-                mQueue.add(jsonObjectRequest);
-            }
-            break;
-
+                mQueue.add(request);
+                break;
         }
     }
 

@@ -46,7 +46,7 @@ public class BitmapCache implements ImageCache {
             FileInputStream in = new FileInputStream(imgFile);
             bitmap = BitmapFactory.decodeStream(in);
             in.close();
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

@@ -5,10 +5,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -21,10 +23,10 @@ import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
 
 @ContentView(id = R.layout.activity_volley_custom)
-public class VolleyCustomActivity extends BaseActivity implements View.OnClickListener{
+public class VolleyCustomActivity extends BaseActivity implements View.OnClickListener {
 
     private String mXMLUrl;
-    private String mJsonUrl;
+    private String mJsonGetUrl;
     private RequestQueue mQueue;
     @ViewInject(id = R.id.act_volley_custom_btn_xml_get)
     private Button mBtnXml;
@@ -43,7 +45,7 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
 
     private void initData() {
         mXMLUrl = "http://flash.weather.com.cn/sk2/101220607.xml";
-        mJsonUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
+        mJsonGetUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
         mQueue = Volley.newRequestQueue(this);
     }
 
@@ -54,26 +56,24 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        Request request = null;
         switch (v.getId()) {
-            case R.id.act_volley_custom_btn_xml_get: {
-                XMLRequest xmlRequest = new XMLRequest(
+            case R.id.act_volley_custom_btn_xml_get:
+                request = new XMLRequest(
                         mXMLUrl,
                         mXmlListener,
                         mErrorListener);
-                mQueue.add(xmlRequest);
-            }
-            break;
+                break;
 
-            case R.id.act_volley_custom_btn_gson_get: {
-                GsonRequest gsonRequest = new GsonRequest<>(
-                        mJsonUrl,
+            case R.id.act_volley_custom_btn_gson_get:
+                request = new GsonRequest<>(
+                        mJsonGetUrl,
                         PlModel.class,
                         mGsonListener,
                         mErrorListener);
-                mQueue.add(gsonRequest);
-            }
-            break;
+                break;
         }
+        mQueue.add(request);
     }
 
     Response.Listener<XmlPullParser> mXmlListener = new Response.Listener<XmlPullParser>() {

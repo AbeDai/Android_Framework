@@ -21,7 +21,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:textAllCaps="false"
-        android:text="自定义GSON Request"/>
+        android:text="自定义GSON Request的get方法"/>
 
     <EditText
         android:id="@+id/act_volley_custom_et_show"
