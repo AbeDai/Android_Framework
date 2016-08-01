@@ -9,11 +9,36 @@
     </string-array>
 
     <string-array name="view_pager_content">
-        <item>沙发老实交代弗利萨快解放辣椒水立方会计师111111111111111111111111111111111111</item>
-        <item>沙发老实交代弗利萨快解放辣椒水立方会计师2222222222222222222222222222222222222</item>
-        <item>沙发老实交代弗利萨快解放辣椒水立方会计师3333333333333333333333333333333333333</item>
-        <item>沙发老实交代弗利萨快解放辣椒水立方会计师4444444444444444444444444444444444444</item>
-        <item>沙发老实交代弗利萨快解放辣椒水立方会计师5555555555555555555555555555555555555</item>
+        <item>11111111111111111111111111111111111111111111111111111111111111111111111111</item>
+        <item>22222222222222222222222222222222222222222222222222222222222222222222222222</item>
+        <item>33333333333333333333333333333333333333333333333333333333333333333333333333</item>
+        <item>44444444444444444444444444444444444444444444444444444444444444444444444444</item>
+        <item>55555555555555555555555555555555555555555555555555555555555555555555555555</item>
     </string-array>
+
+    <string-array name="main_act_btn_title">
+        <item>RecycleView使用</item>
+        <item>Retrofit使用</item>
+        <item>ViewPager使用</item>
+        <item>Assets使用</item>
+        <item>TabLayout使用</item>
+        <item>EventBus使用</item>
+        <item>CardView使用</item>
+        <item>GridView使用</item>
+        <item>Volley使用介绍</item>
+    </string-array>
+
+    <string-array name="main_act_btn_dec">
+        <item>介绍了RecycleView的简单使用</item>
+        <item>对Retrofit框架进行了简单的封装，使用起来更加简单方便</item>
+        <item>对ViewPager的使用详解，主要包含往ViewPager中添加View，往ViewPager中添加Fragment，还有ViewPager中元素动态增减</item>
+        <item>将文件添加到Assets中，并通过相应方法获取其中内容</item>
+        <item>TabLayout使用介绍，分别实现了TabLayout的简单添加 和 TabLayout与ViewPager关联使用</item>
+        <item>EventBus使用，介绍了EventBus的几种使用方式</item>
+        <item>CardView介绍</item>
+        <item>GridView的使用方法介绍，实现效果和ListView差不多</item>
+        <item>Volley框架的学习介绍，主要包括框架自带Request的使用，自定义Request使用，还有图片下载功能</item>
+    </string-array>
+
 
 </resources>

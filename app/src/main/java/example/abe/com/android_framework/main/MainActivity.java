@@ -2,15 +2,11 @@ package example.abe.com.android_framework.main;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
@@ -31,7 +27,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @ViewInject(id = R.id.act_main_list)
     private ListView mLv;
-    private List<Integer> mData;
+    private List<String> mListTitle;
+    private List<String> mListDec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,136 +39,57 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     }
 
     private void initData() {
-        mData = new ArrayList();
-        //ViewPager使用
-        mData.add(R.string.btn_title_view_pager);
-        //网络框架
-        mData.add(R.string.btn_title_retrofit);
-        //RecycleView使用范例
-        mData.add(R.string.btn_title_recycle_view);
-        //ViewPager界面
-        mData.add(R.string.btn_title_view_pager);
-        //Assets界面
-        mData.add(R.string.btn_title_assets);
-        //TabLayout界面
-        mData.add(R.string.btn_title_tab_layout);
-        //EventBus使用模板
-        mData.add(R.string.btn_title_event_bus);
-        //CardView用法介绍
-        mData.add(R.string.btn_title_card_view);
-        //GridView使用介绍
-        mData.add(R.string.btn_title_grid_view);
-        //Volley使用介绍
-        mData.add(R.string.btn_title_volley);
+        String[] titles = getResources().getStringArray(R.array.main_act_btn_title);
+        mListTitle = Arrays.asList(titles);
+        String[] decs = getResources().getStringArray(R.array.main_act_btn_dec);
+        mListDec = Arrays.asList(decs);
     }
 
     private void initView() {
-        mLv.setAdapter(new MainAdapter());
+        mLv.setAdapter(new MainAdapter(this, mListTitle, mListDec));
         mLv.setOnItemClickListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch ((int) id) {
-            //网络框架
-            case R.string.btn_title_retrofit: {
-                Intent intent = new Intent(MainActivity.this, RetrofitActivity.class);
-                startActivity(intent);
-            }
+        Intent intent = null;
+        switch (position) {
+            case 0://RecycleView使用范例
+                intent = new Intent(MainActivity.this, RecycleListActivity.class);
             break;
 
-            //RecycleView使用范例
-            case R.string.btn_title_recycle_view: {
-                Intent intent = new Intent(MainActivity.this, RecycleListActivity.class);
-                startActivity(intent);
-            }
+            case 1://网络框架
+                 intent = new Intent(MainActivity.this, RetrofitActivity.class);
             break;
 
-            //ViewPager使用范例
-            case R.string.btn_title_view_pager: {
-                Intent intent = new Intent(MainActivity.this, ViewPagerActivity.class);
-                startActivity(intent);
-            }
+            case 2: //ViewPager使用范例
+                 intent = new Intent(MainActivity.this, ViewPagerActivity.class);
             break;
 
-            //Assets使用范例
-            case R.string.btn_title_assets: {
-                Intent intent = new Intent(MainActivity.this, AssetsActivity.class);
-                startActivity(intent);
-            }
+            case 3://Assets使用范例
+                 intent = new Intent(MainActivity.this, AssetsActivity.class);
             break;
 
-            //TabLayout使用范例
-            case R.string.btn_title_tab_layout: {
-                Intent intent = new Intent(MainActivity.this, TabLayoutActivity.class);
-                startActivity(intent);
-            }
+            case 4://TabLayout使用范例
+                 intent = new Intent(MainActivity.this, TabLayoutActivity.class);
             break;
 
-            //EventBus使用模板
-            case R.string.btn_title_event_bus: {
-                Intent intent = new Intent(MainActivity.this, EventBusActivity.class);
-                startActivity(intent);
-            }
+            case 5: //EventBus使用模板
+                 intent = new Intent(MainActivity.this, EventBusActivity.class);
             break;
 
-            //CardView用法介绍
-            case R.string.btn_title_card_view: {
-                Intent intent = new Intent(MainActivity.this, CardViewActivity.class);
-                startActivity(intent);
-            }
+            case 6: //CardView用法介绍
+                 intent = new Intent(MainActivity.this, CardViewActivity.class);
             break;
 
-            //GridView使用介绍
-            case R.string.btn_title_grid_view: {
-                Intent intent = new Intent(MainActivity.this, GridViewActivity.class);
-                startActivity(intent);
-            }
+            case 7: //GridView使用介绍
+                 intent = new Intent(MainActivity.this, GridViewActivity.class);
             break;
 
-            //Volley使用介绍
-            case R.string.btn_title_volley: {
-                Intent intent = new Intent(MainActivity.this, VolleyActivity.class);
-                startActivity(intent);
-            }
+            case 8://Volley使用介绍
+                 intent = new Intent(MainActivity.this, VolleyActivity.class);
             break;
-
-            default:
-                break;
         }
-    }
-
-
-    class MainAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return mData.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return mData.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return mData.get(position);
-        }
-
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            if (convertView == null) {
-                convertView = LayoutInflater.from(MainActivity.this)
-                        .inflate(R.layout.item_main_activity_list, parent, false);
-            }
-
-            TextView tv = (TextView) convertView;
-            tv.setText(getResources().getString(mData.get(position)));
-
-            return convertView;
-        }
+        startActivity(intent);
     }
 }
