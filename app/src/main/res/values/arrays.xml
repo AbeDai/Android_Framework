@@ -26,6 +26,7 @@
         <item>CardView使用</item>
         <item>GridView使用</item>
         <item>Volley使用介绍</item>
+        <item>绘图详解</item>
     </string-array>
 
     <string-array name="main_act_btn_dec">
@@ -38,6 +39,7 @@
         <item>CardView介绍</item>
         <item>GridView的使用方法介绍，实现效果和ListView差不多</item>
         <item>Volley框架的学习介绍，主要包括框架自带Request的使用，自定义Request使用，还有图片下载功能</item>
+        <item>绘图详情，等我写好了，再来补充吧。</item>
     </string-array>
 
 

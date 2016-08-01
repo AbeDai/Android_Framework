@@ -39,7 +39,6 @@ public class ViewInjectUtil {
                     Method method = clazz.getMethod(METHOD_SET_CONTENT_VIEW, int.class);
                     method.setAccessible(true);
                     method.invoke(activity, id);
-                    method.invoke(activity, id);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

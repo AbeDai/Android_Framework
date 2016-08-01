@@ -32,6 +32,7 @@
         <activity android:name=".activity.volley.VolleyBaseActivity" />
         <activity android:name=".activity.volley.VolleyImageActivity" />
         <activity android:name=".activity.volley.VolleyCustomActivity"></activity>
+        <activity android:name=".activity.drawing.DrawActivity"/>
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import java.util.List;
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.cardview.CardViewActivity;
+import example.abe.com.android_framework.activity.drawing.DrawActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
@@ -52,6 +53,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         Intent intent = null;
         switch (position) {
             case 0://RecycleView使用范例
@@ -88,6 +90,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
             case 8://Volley使用介绍
                 intent = new Intent(MainActivity.this, VolleyActivity.class);
+                break;
+
+            case 9://绘图详解
+                intent = new Intent(MainActivity.this, DrawActivity.class);
                 break;
         }
         startActivity(intent);
