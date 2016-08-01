@@ -42,8 +42,8 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void initData() {
-        mXMLUrl = "http://flash.weather.com.cn/wmaps/xml/china.xml";
-        mJsonUrl = "http://www.weather.com.cn/data/sk/101010100.html";
+        mXMLUrl = "http://flash.weather.com.cn/sk2/101220607.xml";
+        mJsonUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
         mQueue = Volley.newRequestQueue(this);
     }
 
@@ -67,13 +67,8 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
             case R.id.act_volley_custom_btn_gson_get: {
                 GsonRequest gsonRequest = new GsonRequest<>(
                         mJsonUrl,
-                        Weather.class,
-                        new Response.Listener<Weather>() {
-                            @Override
-                            public void onResponse(Weather weather) {
-                                mEtShow.setText(weather.toString());
-                            }
-                        },
+                        PlModel.class,
+                        mGsonListener,
                         mErrorListener);
                 mQueue.add(gsonRequest);
             }
@@ -91,7 +86,7 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
                     switch (eventType) {
                         case XmlPullParser.START_TAG:
                             String nodeName = response.getName();
-                            if ("city".equals(nodeName)) {
+                            if ("qw".equals(nodeName)) {
                                 String quName = response.getAttributeValue(0);
                                 String stateDetailed = response.getAttributeValue(5);
                                 stringBuilder.append(quName + ": " + stateDetailed + "\n");
@@ -106,6 +101,13 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
                 e.printStackTrace();
             }
             mEtShow.setText(stringBuilder.toString());
+        }
+    };
+
+    Response.Listener<PlModel> mGsonListener = new Response.Listener<PlModel>() {
+        @Override
+        public void onResponse(PlModel pl) {
+            mEtShow.setText(pl.toString());
         }
     };
 

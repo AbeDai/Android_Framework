@@ -49,7 +49,6 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
         mImgUrl = "http://img.mp.itc.cn/upload/20160418/c44022406262471e86551d54945d4c55_th.jpg";
         mQueue = Volley.newRequestQueue(this);
         mLoader = new ImageLoader(mQueue, new BitmapCache());
-
     }
 
     private void initView() {
@@ -68,6 +67,7 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
                         0, 0,
                         Bitmap.Config.ARGB_8888,
                         mErrorListener);
+                imageRequest.setShouldCache(false);
                 mQueue.add(imageRequest);
             }break;
 

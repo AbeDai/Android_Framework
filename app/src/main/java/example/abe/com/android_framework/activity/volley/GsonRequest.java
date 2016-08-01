@@ -7,11 +7,6 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -20,12 +15,13 @@ import java.io.UnsupportedEncodingException;
 public class GsonRequest<T> extends Request<T> {
 
     private final Response.Listener<T> mListener;
-    private Class<T> clazz;
+    private Class<T> mClazz;
 
     public GsonRequest(int method, String url, Class<T> clazz, Response.Listener<T> listener,
                       Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mListener = listener;
+        mClazz = clazz;
     }
 
     public GsonRequest(String url, Class<T>clazz, Response.Listener<T> listener, Response.ErrorListener errorListener) {
@@ -38,8 +34,8 @@ public class GsonRequest<T> extends Request<T> {
             String jsonStr = new String(response.data,
                     HttpHeaderParser.parseCharset(response.headers));
             Gson gson = new Gson();
-            T data = gson.fromJson(jsonStr, clazz);
-            return Response.success(data, HttpHeaderParser.parseCacheHeaders(response));
+            T model = gson.fromJson(jsonStr, mClazz);
+            return Response.success(model, HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));
         }
