@@ -3,8 +3,8 @@
     package="example.abe.com.android_framework">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
         android:name=".main.MyApplication"
@@ -30,7 +30,8 @@
         <activity android:name=".activity.gridview.GridViewActivity" />
         <activity android:name=".activity.volley.VolleyActivity" />
         <activity android:name=".activity.volley.VolleyBaseActivity" />
-        <activity android:name=".activity.volley.VolleyImageActivity"></activity>
+        <activity android:name=".activity.volley.VolleyImageActivity" />
+        <activity android:name=".activity.volley.VolleyCustomActivity"></activity>
     </application>
 
 </manifest>

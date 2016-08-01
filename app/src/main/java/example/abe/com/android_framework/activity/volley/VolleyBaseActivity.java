@@ -39,7 +39,7 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
     private Button mBtnGetJson;
     @ViewInject(id = R.id.act_volley_base_btn_post_json)
     private Button mBtnPostJson;
-    @ViewInject(id = R.id.act_volley_et_show)
+    @ViewInject(id = R.id.act_volley_base_et_show)
     private EditText mEtShow;
 
     @Override
@@ -50,11 +50,9 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
     }
 
     private void initData() {
-        mQueue = Volley.newRequestQueue(this);
-
         mGetUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
         mPostUrl = "http://121.196.244.159:8081/mobileAppServlet";
-
+        mQueue = Volley.newRequestQueue(this);
         mPostParamMap = new HashMap<>();
         mPostParamMap.put("secretId", "jui5dhmmimhggmidheodkdhlkndo5g7");
         mPostParamMap.put("m", "getConfigData");

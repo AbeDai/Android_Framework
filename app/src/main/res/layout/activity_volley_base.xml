@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.retrofit.RetrofitActivity">
+    tools:context=".activity.volley.VolleyBaseActivity">
 
     <Button
         android:id="@+id/act_volley_base_btn_get_string"
@@ -36,7 +36,7 @@
         android:text="POST_JSON"/>
 
     <EditText
-        android:id="@+id/act_volley_et_show"
+        android:id="@+id/act_volley_base_et_show"
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="0dp"

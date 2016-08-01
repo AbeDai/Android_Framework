@@ -32,6 +32,8 @@ public class VolleyActivity extends BaseActivity implements View.OnClickListener
     private Button mBtnBase;
     @ViewInject(id = R.id.act_volley_btn_image)
     private Button mBtnImage;
+    @ViewInject(id = R.id.act_volley_btn_custom)
+    private Button mBtnCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class VolleyActivity extends BaseActivity implements View.OnClickListener
 
         mBtnBase.setOnClickListener(this);
         mBtnImage.setOnClickListener(this);
+        mBtnCustom.setOnClickListener(this);
     }
 
 
@@ -53,6 +56,12 @@ public class VolleyActivity extends BaseActivity implements View.OnClickListener
 
             case R.id.act_volley_btn_image: {
                 Intent intent = new Intent(this, VolleyImageActivity.class);
+                startActivity(intent);
+            }
+            break;
+
+            case R.id.act_volley_btn_custom: {
+                Intent intent = new Intent(this, VolleyCustomActivity.class);
                 startActivity(intent);
             }
             break;
