@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.DrawActivity">
+    tools:context=".activity.drawing.DrawActivity">
 
-    <example.abe.com.android_framework.activity.CustomView
+    <example.abe.com.android_framework.activity.drawing.CustomView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
