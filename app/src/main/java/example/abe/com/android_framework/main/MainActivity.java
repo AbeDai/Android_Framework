@@ -56,39 +56,39 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         switch (position) {
             case 0://RecycleView使用范例
                 intent = new Intent(MainActivity.this, RecycleListActivity.class);
-            break;
+                break;
 
             case 1://网络框架
-                 intent = new Intent(MainActivity.this, RetrofitActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, RetrofitActivity.class);
+                break;
 
             case 2: //ViewPager使用范例
-                 intent = new Intent(MainActivity.this, ViewPagerActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, ViewPagerActivity.class);
+                break;
 
             case 3://Assets使用范例
-                 intent = new Intent(MainActivity.this, AssetsActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, AssetsActivity.class);
+                break;
 
             case 4://TabLayout使用范例
-                 intent = new Intent(MainActivity.this, TabLayoutActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, TabLayoutActivity.class);
+                break;
 
             case 5: //EventBus使用模板
-                 intent = new Intent(MainActivity.this, EventBusActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, EventBusActivity.class);
+                break;
 
             case 6: //CardView用法介绍
-                 intent = new Intent(MainActivity.this, CardViewActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, CardViewActivity.class);
+                break;
 
             case 7: //GridView使用介绍
-                 intent = new Intent(MainActivity.this, GridViewActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, GridViewActivity.class);
+                break;
 
             case 8://Volley使用介绍
-                 intent = new Intent(MainActivity.this, VolleyActivity.class);
-            break;
+                intent = new Intent(MainActivity.this, VolleyActivity.class);
+                break;
         }
         startActivity(intent);
     }
