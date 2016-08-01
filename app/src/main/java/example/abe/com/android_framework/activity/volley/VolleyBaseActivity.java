@@ -135,7 +135,7 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
     private Response.ErrorListener mErrorListener = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            mEtShow.setText(error.getMessage());
+            mEtShow.setText(error.toString());
         }
     };
 }

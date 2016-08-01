@@ -1,7 +1,6 @@
 package example.abe.com.android_framework.activity.volley;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,10 +23,13 @@ import example.abe.com.framework.annotation.ViewInject;
 @ContentView(id = R.layout.activity_volley_custom)
 public class VolleyCustomActivity extends BaseActivity implements View.OnClickListener{
 
-    private String mGetUrl;
+    private String mXMLUrl;
+    private String mJsonUrl;
     private RequestQueue mQueue;
     @ViewInject(id = R.id.act_volley_custom_btn_xml_get)
     private Button mBtnXml;
+    @ViewInject(id = R.id.act_volley_custom_btn_gson_get)
+    private Button mBtnGson;
     @ViewInject(id = R.id.act_volley_custom_et_show)
     private EditText mEtShow;
 
@@ -40,12 +42,14 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
     }
 
     private void initData() {
-        mGetUrl = "http://flash.weather.com.cn/wmaps/xml/china.xml";
+        mXMLUrl = "http://flash.weather.com.cn/wmaps/xml/china.xml";
+        mJsonUrl = "http://www.weather.com.cn/data/sk/101010100.html";
         mQueue = Volley.newRequestQueue(this);
     }
 
     private void initView() {
         mBtnXml.setOnClickListener(this);
+        mBtnGson.setOnClickListener(this);
     }
 
     @Override
@@ -53,10 +57,25 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.act_volley_custom_btn_xml_get: {
                 XMLRequest xmlRequest = new XMLRequest(
-                        mGetUrl,
+                        mXMLUrl,
                         mXmlListener,
                         mErrorListener);
                 mQueue.add(xmlRequest);
+            }
+            break;
+
+            case R.id.act_volley_custom_btn_gson_get: {
+                GsonRequest gsonRequest = new GsonRequest<>(
+                        mJsonUrl,
+                        Weather.class,
+                        new Response.Listener<Weather>() {
+                            @Override
+                            public void onResponse(Weather weather) {
+                                mEtShow.setText(weather.toString());
+                            }
+                        },
+                        mErrorListener);
+                mQueue.add(gsonRequest);
             }
             break;
         }
@@ -93,7 +112,7 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
     Response.ErrorListener mErrorListener = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            mEtShow.setText(error.getMessage());
+            mEtShow.setText(error.toString());
         }
     };
 }

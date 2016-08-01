@@ -12,7 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="GET_STRING"/>
+        android:textAllCaps="false"
+        android:text="自定义XML Request"/>
+
+    <Button
+        android:id="@+id/act_volley_custom_btn_gson_get"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textAllCaps="false"
+        android:text="自定义GSON Request"/>
 
     <EditText
         android:id="@+id/act_volley_custom_et_show"
