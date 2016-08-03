@@ -24,6 +24,7 @@ import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
 import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_volley)
 public class VolleyActivity extends BaseActivity implements View.OnClickListener {
@@ -36,9 +37,12 @@ public class VolleyActivity extends BaseActivity implements View.OnClickListener
     private Button mBtnCustom;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initData(){
 
+    }
+
+    @Override
+    public void initView(){
         mBtnBase.setOnClickListener(this);
         mBtnImage.setOnClickListener(this);
         mBtnCustom.setOnClickListener(this);

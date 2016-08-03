@@ -5,11 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 
 import example.abe.com.framework.util.ViewInjectUtil;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewInjectUtil.inject(this);
+
+        initData();
+        initView();
     }
+
+    abstract public void initData();
+
+    abstract public void initView();
 }

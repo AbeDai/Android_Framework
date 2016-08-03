@@ -1,18 +1,15 @@
 package example.abe.com.android_framework.activity.tablayout;
 
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android_framework.main.BaseActivity;
 import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
@@ -28,16 +25,26 @@ public class TabLayoutActivity extends BaseActivity {
     @ViewInject(id = R.id.act_main_tab_layout_2)
     private TabLayout mTabLayout2;
     private android.support.v4.view.PagerAdapter mPagerAdapter;
+    private List<Map<String, Integer>> mData2;
+
+    private static final String KEY_ICON = "KEY_ICON";
+    private static final String KEY_TEXT = "KEY_TEXT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    public void initData() {
+    }
+
+    @Override
+    public void initView(){
         //ViewPager和TabLayout建立关联
-        mPagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
         mTabLayout1.setupWithViewPager(mPager);
-
 
         //单独TabLayout
         TabLayout.Tab tab1 = mTabLayout2.newTab().setIcon(R.mipmap.ic_launcher).setText("自定义_1");
@@ -77,35 +84,5 @@ public class TabLayoutActivity extends BaseActivity {
         }
     }
 
-    private class PagerAdapter extends FragmentPagerAdapter {
 
-        private static final int NUM_PAGES = 5;
-        private ArrayList<Fragment> mFragmentList = new ArrayList<>();
-        private List<String> mTitleList = new ArrayList<>();
-        private List<String> mContentList = new ArrayList<>();
-        {
-            mTitleList = Arrays.asList(getResources().getStringArray(R.array.view_pager_title));
-            mContentList = Arrays.asList(getResources().getStringArray(R.array.view_pager_content));
-        }
-
-        public PagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mTitleList.get(position);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return ViewPagerActivity.ScreenSlidePageFragment
-                    .instance(mTitleList.get(position), mContentList.get(position));
-        }
-
-        @Override
-        public int getCount() {
-            return NUM_PAGES;
-        }
-    }
 }

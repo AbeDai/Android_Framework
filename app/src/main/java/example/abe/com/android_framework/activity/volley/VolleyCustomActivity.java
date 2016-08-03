@@ -36,20 +36,14 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
     private EditText mEtShow;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        initData();
-        initView();
-    }
-
-    private void initData() {
+    public void initData(){
         mXMLUrl = "http://flash.weather.com.cn/sk2/101220607.xml";
         mJsonGetUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
         mQueue = Volley.newRequestQueue(this);
     }
 
-    private void initView() {
+    @Override
+    public void initView(){
         mBtnXml.setOnClickListener(this);
         mBtnGson.setOnClickListener(this);
     }

@@ -2,6 +2,7 @@ package example.abe.com.android_framework.activity.retrofit;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import example.abe.com.android_framework.R;
@@ -10,18 +11,32 @@ import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
 
 @ContentView(id = R.layout.activity_retrofit)
-public class RetrofitActivity extends BaseActivity {
+public class RetrofitActivity extends BaseActivity implements View.OnClickListener{
 
     @ViewInject(id = R.id.et_show)
     private EditText mTvShow;
+    @ViewInject(id = R.id.btn_person_info)
+    private Button mBtnPersonInfo;
+    @ViewInject(id = R.id.btn_setting_info)
+    private Button mBtnSettingInfo;
+    @ViewInject(id = R.id.btn_all_car)
+    private Button mBtnAllCar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initData(){
 
-        findViewById(R.id.btn_person_info).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public void initView(){
+        mBtnPersonInfo.setOnClickListener(this);
+        mBtnSettingInfo.setOnClickListener(this);
+        mBtnAllCar.setOnClickListener(this);
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_person_info:
                 NetworkPresent.getPersonInfo("jui5dhmmimhggmidheodkdhlkndo5g7", "2567", new RetrofitUtil.ABCallback() {
                     @Override
                     public <T> void onSuccess(T data) {
@@ -34,12 +49,9 @@ public class RetrofitActivity extends BaseActivity {
                         mTvShow.setText(message);
                     }
                 });
-            }
-        });
+                break;
 
-        findViewById(R.id.btn_setting_info).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.btn_setting_info:
                 NetworkPresent.getSetInfo("jui5dhmmimhggmidheodkdhlkndo5g7", new RetrofitUtil.ABCallback() {
                     @Override
                     public <T> void onSuccess(T data) {
@@ -52,12 +64,9 @@ public class RetrofitActivity extends BaseActivity {
                         mTvShow.setText(message);
                     }
                 });
-            }
-        });
+                break;
 
-        findViewById(R.id.btn_all_car).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            case R.id.btn_all_car:
                 NetworkPresent.getAllCar("pui5dhlmiihkgpidnejdgdhlkodo5g7", new RetrofitUtil.ABCallback() {
                     @Override
                     public <T> void onSuccess(T data) {
@@ -70,11 +79,9 @@ public class RetrofitActivity extends BaseActivity {
                         mTvShow.setText(message);
                     }
                 });
-            }
-        });
-
+                break;
+        }
 
     }
-
 
 }

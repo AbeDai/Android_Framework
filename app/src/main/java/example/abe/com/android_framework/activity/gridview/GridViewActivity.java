@@ -30,9 +30,13 @@ public class GridViewActivity extends BaseActivity {
     @ViewInject(id = R.id.grid_view_2)
     private GridView gridview2;
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override
+    public void initData(){
 
+    }
+
+    @Override
+    public void initView(){
         gridview1.setAdapter(getSimpleAdapter());
         gridview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -42,7 +46,7 @@ public class GridViewActivity extends BaseActivity {
             }
         });
 
-        gridview2.setAdapter(new ImageAdapter());
+        gridview2.setAdapter(new ImageAdapter(this));
         gridview2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -69,43 +73,6 @@ public class GridViewActivity extends BaseActivity {
                 R.layout.item_grid_view_image_text,
                 new String[]{ITEM_IMAGE, ITEM_TEXT},
                 new int[]{R.id.grid_view_item_image, R.id.grid_view_item_text});
-    }
-
-    /**
-     * 自定义Adapter
-     */
-    public class ImageAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return 100;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return R.mipmap.ic_launcher;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView imageView;
-            if (convertView == null) {
-                imageView = new ImageView(GridViewActivity.this);
-            } else {
-                imageView = (ImageView) convertView;
-            }
-            imageView.setImageResource(R.mipmap.ic_launcher);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setLayoutParams(new GridView.LayoutParams(
-                    GridView.LayoutParams.WRAP_CONTENT,
-                    GridView.LayoutParams.WRAP_CONTENT));
-            return imageView;
-        }
     }
 }
 

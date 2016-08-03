@@ -16,7 +16,12 @@ import example.abe.com.framework.annotation.ContentView;
 public class DrawActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initData(){
+
+    }
+
+    @Override
+    public void initView(){
+
     }
 }

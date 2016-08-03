@@ -21,9 +21,14 @@ public class CardViewActivity extends BaseActivity {
     ViewGroup root;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        root.addView(getCardView());
+    public void initData(){
+
+    }
+
+    @Override
+    public void initView(){
+        View content = getCardView();
+        root.addView(content);
     }
 
     private View getCardView(){
@@ -45,4 +50,5 @@ public class CardViewActivity extends BaseActivity {
 
         return cardView;
     }
+
 }

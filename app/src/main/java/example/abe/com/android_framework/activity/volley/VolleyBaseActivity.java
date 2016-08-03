@@ -43,13 +43,7 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
     private EditText mEtShow;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initData();
-        initView();
-    }
-
-    private void initData() {
+    public void initData(){
         mGetUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
         mPostUrl = "http://121.196.244.159:8081/mobileAppServlet";
         mQueue = Volley.newRequestQueue(this);
@@ -60,7 +54,8 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
         mPostParamMap.put("cla", "system");
     }
 
-    private void initView() {
+    @Override
+    public void initView(){
         mBtnGetStr.setOnClickListener(this);
         mBtnPostStr.setOnClickListener(this);
         mBtnGetJson.setOnClickListener(this);

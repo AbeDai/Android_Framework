@@ -32,21 +32,15 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     private List<String> mListDec;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        initData();
-        initView();
-    }
-
-    private void initData() {
+    public void initData(){
         String[] titles = getResources().getStringArray(R.array.main_act_btn_title);
         mListTitle = Arrays.asList(titles);
         String[] decs = getResources().getStringArray(R.array.main_act_btn_dec);
         mListDec = Arrays.asList(decs);
     }
 
-    private void initView() {
+    @Override
+    public void initView(){
         mLv.setAdapter(new MainAdapter(this, mListTitle, mListDec));
         mLv.setOnItemClickListener(this);
     }
