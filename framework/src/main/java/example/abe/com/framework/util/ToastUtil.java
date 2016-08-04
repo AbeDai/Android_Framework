@@ -12,7 +12,6 @@ import example.abe.com.framework.main.BaseApplication;
 
 public class ToastUtil {
     private static Toast mToast;
-    private static Toast mToastEdit;
 
     /**
      * Toast的LENGTH_SHORT显示

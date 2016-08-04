@@ -1,7 +1,6 @@
 package example.abe.com.android_framework.main;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -10,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.android_framework.activity.banner.BannerActivity;
 import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.cardview.CardViewActivity;
 import example.abe.com.android_framework.activity.drawing.DrawActivity;
@@ -88,6 +88,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
             case 9://绘图详解
                 intent = new Intent(MainActivity.this, DrawActivity.class);
+                break;
+
+            case 10://广告栏详解
+                intent = new Intent(MainActivity.this, BannerActivity.class);
                 break;
         }
         startActivity(intent);

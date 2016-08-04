@@ -17,7 +17,7 @@ import example.abe.com.framework.annotation.ViewInject;
 import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_view_pager)
-public class ViewPagerActivity extends BaseActivity {
+public class ViewPagerActivity extends BaseActivity implements View.OnClickListener{
 
     @ViewInject(id = R.id.act_view_pager_pager1)
     private ViewPager mViewPager1;
@@ -66,7 +66,7 @@ public class ViewPagerActivity extends BaseActivity {
     @Override
     public void initView() {
         //范例1
-        // 使用最原始的适配器,创建ViewPager
+        //使用最原始的适配器,创建ViewPager
         mAdapter1 = new PagerAdapter1(mData1);
         mViewPager1.setAdapter(mAdapter1);
         mViewPager1.setOffscreenPageLimit(2);
@@ -80,25 +80,25 @@ public class ViewPagerActivity extends BaseActivity {
         //动态增加删减Fragment模版
         mAdapter3 = new PagerAdapter3(getSupportFragmentManager(), mData3);
         mViewPager3.setAdapter(mAdapter3);
-        //添加Fragment
-        mBtnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mBtnAdd.setOnClickListener(this);//添加Fragment
+        mBtnDel.setOnClickListener(this);//删除Fragment
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.act_view_pager_btn_del:
+                mData3.removeLast();
+                mAdapter3.notifyDataSetChanged(mData3);
+                break;
+
+            case R.id.act_view_pager_btn_add:
                 String title = "new_title";
                 String content = "new_content:" + mData3.size();
                 Fragment fragment = ViewPagerFragment.instance(title, content);
                 mData3.add(fragment);
                 mAdapter3.notifyDataSetChanged(mData3);
-            }
-        });
-        //删除Fragment
-        mBtnDel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mData3.removeLast();
-                mAdapter3.notifyDataSetChanged(mData3);
-            }
-        });
+                break;
+        }
     }
 
     private View getViewForColor(int color) {

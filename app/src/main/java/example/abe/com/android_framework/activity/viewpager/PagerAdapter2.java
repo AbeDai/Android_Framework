@@ -8,8 +8,7 @@ import java.util.List;
 
 /**
  * Created by abe on 16/8/3.
- * 创建了Fragment之后，就保存在FragmentManager中了。
- * 之后，不需要在getItem创建Fragment了
+ * 创建了Fragment之后，就保存在FragmentManager中了;之后，不需要在getItem创建Fragment了。
  */
 public class PagerAdapter2 extends FragmentPagerAdapter {
 
