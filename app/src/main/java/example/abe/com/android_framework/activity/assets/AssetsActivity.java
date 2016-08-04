@@ -16,6 +16,7 @@ import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
 import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.util.AssetUtil;
 import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_assets)
@@ -36,12 +37,12 @@ public class AssetsActivity extends BaseActivity {
     @Override
     public void initView(){
         //获取root中图片
-        mIvRoot.setImageBitmap(ResourceUtil.getAssetBitmap("root_img.png"));
+        mIvRoot.setImageBitmap(AssetUtil.getAssetBitmap("root_img.png"));
 
         //获取file中图片
-        mIvFile.setImageBitmap(ResourceUtil.getAssetBitmap("file2/file_img.png"));
+        mIvFile.setImageBitmap(AssetUtil.getAssetBitmap("file2/file_img.png"));
 
         //打印文件目录
-        mTv.setText(ResourceUtil.getAssetRootList().toString());
+        mTv.setText(AssetUtil.getAssetRootList().toString());
     }
 }

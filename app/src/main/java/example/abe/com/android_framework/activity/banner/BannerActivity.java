@@ -16,33 +16,54 @@ import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
 import example.abe.com.framework.util.DensityUtil;
 
-//TODO:需要左右两边，都存在一个View页面，实现流畅滚动效果
-//TODO:需要设置自动滚动的方向。
-//TODO:最好就是画一个流程图，然后将功能写上去。在进行封装。
-//TODO:需要在封装一下
+//TOOD:看看哪里有问题，需要重构，和总结一下。
 @ContentView(id = R.layout.activity_banner)
 public class BannerActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_banner_auto_paly_view_pager)
-    private AutoPlayViewPager mBanner;
-    private BannerPagerAdapter mAdapter;
-    private List<View> mData;
-
+    @ViewInject(id = R.id.act_banner_auto_paly_view_pager1)
+    private BannerViewPager mBanner1;
+    @ViewInject(id = R.id.act_banner_auto_paly_view_pager2)
+    private BannerViewPager mBanner2;
+    private BannerAdapter mAdapter1;
+    private BannerAdapter mAdapter2;
+    private List<View> mData1;
+    private List<View> mData2;
     @Override
     public void initData(){
-        mData = new ArrayList<>();
-        mData.add(getViewForText("1"));
-        mData.add(getViewForText("2"));
-        mData.add(getViewForText("3"));
-        mData.add(getViewForText("4"));
-        mData.add(getViewForText("5"));
+        mData1 = new ArrayList<>();
+        mData1.add(getViewForText("5"));
+        mData1.add(getViewForText("1"));
+        mData1.add(getViewForText("2"));
+        mData1.add(getViewForText("3"));
+        mData1.add(getViewForText("4"));
+        mData1.add(getViewForText("5"));
+        mData1.add(getViewForText("1"));
+
+        mData2 = new ArrayList<>();
+        mData2.add(getViewForText("5"));
+        mData2.add(getViewForText("1"));
+        mData2.add(getViewForText("2"));
+        mData2.add(getViewForText("3"));
+        mData2.add(getViewForText("4"));
+        mData2.add(getViewForText("5"));
+        mData2.add(getViewForText("1"));
     }
 
     @Override
     public void initView(){
-        mAdapter = new BannerPagerAdapter(mData);
-        mBanner.setAdapter(mAdapter);
-        mBanner.start();
+        mAdapter1 = new BannerAdapter(mData1);
+        mBanner1.setAdapter(mAdapter1);
+        mBanner1.setShowTime(1000);
+        mBanner1.setDirection(BannerViewPager.Direction.LEFT);
+        mBanner2.moveToFirst();
+        mBanner1.start();
+
+        mAdapter2 = new BannerAdapter(mData2);
+        mBanner2.setAdapter(mAdapter2);
+        mBanner2.setShowTime(2000);
+        mBanner2.setDirection(BannerViewPager.Direction.RIGHT);
+        mBanner2.moveToFirst();
+        mBanner2.start();
     }
 
     private View getViewForText(String text){
@@ -53,6 +74,7 @@ public class BannerActivity extends BaseActivity {
         Paint paint = new Paint();
         paint.setColor(Color.RED);
         paint.setStrokeWidth(3);
+        paint.setTextSize(DensityUtil.dip2px(40));
         canvas.drawText(text, width/2f, height/2f, paint);
 
         ImageView imageView = new ImageView(this);

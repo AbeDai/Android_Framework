@@ -9,10 +9,10 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/8/4.
  */
-public class BannerPagerAdapter extends PagerAdapter {
+public class BannerAdapter extends PagerAdapter {
     private List<View> mData;
 
-    public BannerPagerAdapter(List<View> data) {
+    public BannerAdapter(List<View> data) {
         super();
         mData = data;
     }

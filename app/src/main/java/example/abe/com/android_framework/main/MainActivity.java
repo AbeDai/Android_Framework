@@ -22,6 +22,7 @@ import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android_framework.activity.volley.VolleyActivity;
 import example.abe.com.framework.annotation.ContentView;
 import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
@@ -33,10 +34,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void initData(){
-        String[] titles = getResources().getStringArray(R.array.main_act_btn_title);
-        mListTitle = Arrays.asList(titles);
-        String[] decs = getResources().getStringArray(R.array.main_act_btn_dec);
-        mListDec = Arrays.asList(decs);
+        mListTitle = ResourceUtil.getStringList(R.array.main_act_btn_title);
+        mListDec = ResourceUtil.getStringList(R.array.main_act_btn_dec);
     }
 
     @Override
