@@ -1,6 +1,5 @@
 package example.abe.com.android_framework.activity.volley;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +9,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -19,8 +17,8 @@ import java.io.IOException;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_volley_custom)
 public class VolleyCustomActivity extends BaseActivity implements View.OnClickListener {

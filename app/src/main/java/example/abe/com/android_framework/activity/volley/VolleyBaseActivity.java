@@ -1,6 +1,5 @@
 package example.abe.com.android_framework.activity.volley;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,8 +20,8 @@ import java.util.Map;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_volley_base)
 public class VolleyBaseActivity extends BaseActivity implements View.OnClickListener {

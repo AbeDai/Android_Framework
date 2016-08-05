@@ -1,6 +1,5 @@
 package example.abe.com.android_framework.activity.recyclelist;
 
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +10,8 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.LogUtil;
 
 @ContentView(id = R.layout.activity_recycle_list)

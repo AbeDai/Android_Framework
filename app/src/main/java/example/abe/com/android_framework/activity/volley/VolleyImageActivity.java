@@ -1,7 +1,6 @@
 package example.abe.com.android_framework.activity.volley;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,8 +15,8 @@ import com.android.volley.toolbox.Volley;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_volley_image)
 public class VolleyImageActivity extends BaseActivity implements View.OnClickListener {

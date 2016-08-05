@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
@@ -14,14 +13,15 @@ import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.cardview.CardViewActivity;
 import example.abe.com.android_framework.activity.drawing.DrawActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
+import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
 import example.abe.com.android_framework.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android_framework.activity.volley.VolleyActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_main)
@@ -91,6 +91,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
             case 10://广告栏详解
                 intent = new Intent(MainActivity.this, BannerActivity.class);
+                break;
+
+            case 11://自定义EventBus
+                intent = new Intent(MainActivity.this, EventCenterActivity.class);
                 break;
         }
         startActivity(intent);

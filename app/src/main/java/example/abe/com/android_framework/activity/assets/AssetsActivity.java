@@ -1,23 +1,13 @@
 package example.abe.com.android_framework.activity.assets;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
-
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.AssetUtil;
-import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_assets)
 public class AssetsActivity extends BaseActivity {

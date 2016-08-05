@@ -1,7 +1,6 @@
 package example.abe.com.android_framework.activity.cardview;
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,8 @@ import android.widget.TextView;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_card_view)
 public class CardViewActivity extends BaseActivity {

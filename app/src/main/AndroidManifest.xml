@@ -33,7 +33,8 @@
         <activity android:name=".activity.volley.VolleyImageActivity" />
         <activity android:name=".activity.volley.VolleyCustomActivity" />
         <activity android:name=".activity.drawing.DrawActivity" />
-        <activity android:name=".activity.banner.BannerActivity"></activity>
+        <activity android:name=".activity.banner.BannerActivity" />
+        <activity android:name=".activity.eventcenter.EventCenterActivity"></activity>
     </application>
 
 </manifest>

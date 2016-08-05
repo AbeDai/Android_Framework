@@ -6,14 +6,13 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ResourceUtil;
 
 @ContentView(id = R.layout.activity_view_pager)

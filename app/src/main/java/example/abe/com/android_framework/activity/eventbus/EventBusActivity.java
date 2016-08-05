@@ -10,8 +10,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ToastUtil;
 
 @ContentView(id = R.layout.activity_event_bus_frist)

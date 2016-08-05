@@ -1,12 +1,8 @@
 package example.abe.com.android_framework.activity.gridview;
 
-import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
@@ -15,8 +11,8 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ToastUtil;
 
 @ContentView(id = R.layout.activity_grid_view)

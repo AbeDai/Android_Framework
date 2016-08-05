@@ -1,13 +1,10 @@
-package example.abe.com.framework.util;
+package example.abe.com.framework.viewinject;
 
 import android.app.Activity;
 import android.view.View;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-import example.abe.com.framework.annotation.ContentView;
-import example.abe.com.framework.annotation.ViewInject;
 
 /**
  * Created by Administrator on 2016/7/29.
