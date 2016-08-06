@@ -11,6 +11,11 @@ import android.util.AttributeSet;
  */
 public class BannerViewPager extends ViewPager {
 
+    public enum Direction {
+        RIGHT,
+        LEFT,
+    }
+
     public static final int DEFAULT_SHOW_TIME = 3 * 1000;
     private int mShowTime;
     private Direction mDirection;
@@ -23,11 +28,6 @@ public class BannerViewPager extends ViewPager {
     public BannerViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         initData();
-    }
-
-    private void initData() {
-        mShowTime = DEFAULT_SHOW_TIME;
-        mDirection = Direction.LEFT;
     }
 
     public void setShowTime(int showTime) {
@@ -53,6 +53,26 @@ public class BannerViewPager extends ViewPager {
 
     public void stop() {
         removeCallbacks(player);
+    }
+
+    private void gotoFirst() {
+        PagerAdapter pagerAdapter = getAdapter();
+        if (pagerAdapter != null) {
+            int count = pagerAdapter.getCount();
+            int currentItem = getCurrentItem();
+            if (currentItem == count - 1) {
+                currentItem = 1;
+            }
+            if (currentItem == 0) {
+                currentItem = count - 1;
+            }
+            setCurrentItem(currentItem, false);
+        }
+    }
+
+    private void initData() {
+        mShowTime = DEFAULT_SHOW_TIME;
+        mDirection = Direction.LEFT;
     }
 
     private Runnable player = new Runnable() {
@@ -116,21 +136,6 @@ public class BannerViewPager extends ViewPager {
         return false;
     }
 
-    public void moveToFirst(){
-        PagerAdapter pagerAdapter = getAdapter();
-        if (pagerAdapter != null) {
-            int count = pagerAdapter.getCount();
-            int currentItem = getCurrentItem();
-            if (currentItem == count - 1) {
-                currentItem = 1;
-            }
-            if (currentItem == 0) {
-                currentItem = count - 1;
-            }
-            setCurrentItem(currentItem, false);
-        }
-    }
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -146,8 +151,8 @@ public class BannerViewPager extends ViewPager {
             @Override
             public void onPageScrollStateChanged(int state) {
                 if (state == SCROLL_STATE_IDLE) {
-                    if (isLast()){
-                        moveToFirst();
+                    if (isLast()) {
+                        gotoFirst();
                     }
                     start();
                 } else if (state == SCROLL_STATE_DRAGGING) {
@@ -155,10 +160,5 @@ public class BannerViewPager extends ViewPager {
                 }
             }
         });
-    }
-
-    public enum Direction {
-        RIGHT,
-        LEFT,
     }
 }

@@ -6,17 +6,17 @@
     android:orientation="vertical"
     tools:context=".activity.banner.BannerActivity">
 
-    <example.abe.com.android_framework.activity.banner.BannerViewPager
-        android:id="@+id/act_banner_auto_paly_view_pager1"
+    <FrameLayout
+        android:id="@+id/act_banner_frame_layout1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
-    <View style="@style/line_divider"/>
+    <View style="@style/line_divider" />
 
-    <example.abe.com.android_framework.activity.banner.BannerViewPager
-        android:id="@+id/act_banner_auto_paly_view_pager2"
+    <FrameLayout
+        android:id="@+id/act_banner_frame_layout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 </LinearLayout>

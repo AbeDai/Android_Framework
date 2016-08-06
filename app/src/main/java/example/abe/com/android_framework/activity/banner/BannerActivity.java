@@ -1,84 +1,48 @@
 package example.abe.com.android_framework.activity.banner;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.view.View;
-import android.widget.ImageView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
-import example.abe.com.framework.util.DensityUtil;
 
-//TOOD:看看哪里有问题，需要重构，和总结一下。
 @ContentView(id = R.layout.activity_banner)
 public class BannerActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_banner_auto_paly_view_pager1)
-    private BannerViewPager mBanner1;
-    @ViewInject(id = R.id.act_banner_auto_paly_view_pager2)
-    private BannerViewPager mBanner2;
-    private BannerAdapter mAdapter1;
-    private BannerAdapter mAdapter2;
-    private List<View> mData1;
-    private List<View> mData2;
-    @Override
-    public void initData(){
-        mData1 = new ArrayList<>();
-        mData1.add(getViewForText("5"));
-        mData1.add(getViewForText("1"));
-        mData1.add(getViewForText("2"));
-        mData1.add(getViewForText("3"));
-        mData1.add(getViewForText("4"));
-        mData1.add(getViewForText("5"));
-        mData1.add(getViewForText("1"));
+    private BannerFragment mBannerFrag1;
+    private BannerFragment mBannerFrag2;
+    private List<String> mData1;
+    private List<String> mData2;
 
-        mData2 = new ArrayList<>();
-        mData2.add(getViewForText("5"));
-        mData2.add(getViewForText("1"));
-        mData2.add(getViewForText("2"));
-        mData2.add(getViewForText("3"));
-        mData2.add(getViewForText("4"));
-        mData2.add(getViewForText("5"));
-        mData2.add(getViewForText("1"));
+    @Override
+    public void initData() {
+        mData1 = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "5"));
+        mData2 = new ArrayList<>(Arrays.asList(
+                "http://f.hiphotos.baidu.com/baike/c0%3Dbaike180%2C5%2C5%2C180%2C60/sign=cc7b8e436859252db71a155655f2685e/caef76094b36acaf3b5ffaa574d98d1001e99c2f.jpg",
+                "http://baike.baidu.com/pic/%E5%88%98%E4%BA%A6%E8%8F%B2/136156/19715638/f9198618367adab43ab7b9c88cd4b31c8601e4d2?fr=lemma&ct=cover#aid=19715638&pic=f9198618367adab43ab7b9c88cd4b31c8601e4d2",
+                "http://f.hiphotos.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=28e193859558d109d0eea1e0b031a7da/c83d70cf3bc79f3d0d6914cbbda1cd11738b2945.jpg",
+                "http://b.hiphotos.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=ac5e4673a086c9171c0e5a6ba8541baa/0ff41bd5ad6eddc4684e16703edbb6fd5366338b.jpg",
+                "http://c.hiphotos.baidu.com/baike/c0%3Dbaike220%2C5%2C5%2C220%2C73/sign=f8dc51723d2ac65c73086e219a9bd974/7aec54e736d12f2e7b63237247c2d562853568ba.jpg"));
     }
 
     @Override
-    public void initView(){
-        mAdapter1 = new BannerAdapter(mData1);
-        mBanner1.setAdapter(mAdapter1);
-        mBanner1.setShowTime(1000);
-        mBanner1.setDirection(BannerViewPager.Direction.LEFT);
-        mBanner2.moveToFirst();
-        mBanner1.start();
-
-        mAdapter2 = new BannerAdapter(mData2);
-        mBanner2.setAdapter(mAdapter2);
-        mBanner2.setShowTime(2000);
-        mBanner2.setDirection(BannerViewPager.Direction.RIGHT);
-        mBanner2.moveToFirst();
-        mBanner2.start();
+    public void initView() {
+        mBannerFrag1 = BannerFragment.newInstanceWithTitle(mData1);
+        replaceFragment(R.id.act_banner_frame_layout1, mBannerFrag1);
+        mBannerFrag2 = BannerFragment.newInstanceWithURL(mData2);
+        replaceFragment(R.id.act_banner_frame_layout2, mBannerFrag2);
     }
 
-    private View getViewForText(String text){
-        Bitmap bitmap = Bitmap.createBitmap(DensityUtil.dip2px(300), DensityUtil.dip2px(300), Bitmap.Config.ARGB_8888);
-        float height = bitmap.getHeight();
-        float width = bitmap.getWidth();
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint.setColor(Color.RED);
-        paint.setStrokeWidth(3);
-        paint.setTextSize(DensityUtil.dip2px(40));
-        canvas.drawText(text, width/2f, height/2f, paint);
-
-        ImageView imageView = new ImageView(this);
-        imageView.setImageBitmap(bitmap);
-        return imageView;
+    private void replaceFragment(int id, Fragment fragment){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(id, fragment);
+        transaction.commit();
     }
 }

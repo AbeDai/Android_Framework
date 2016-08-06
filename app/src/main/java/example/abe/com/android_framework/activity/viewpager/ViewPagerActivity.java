@@ -50,14 +50,14 @@ public class ViewPagerActivity extends BaseActivity implements View.OnClickListe
         List<String> listContent = ResourceUtil.getStringList(R.array.view_pager_content);
         mData2 = new ArrayList<>();
         for (int i = 0; i < listContent.size(); i++) {
-            Fragment fragment = ViewPagerFragment.instance(listTitle.get(i), listContent.get(i));
+            Fragment fragment = ViewPagerFragment.newInstance(listTitle.get(i), listContent.get(i));
             mData2.add(fragment);
         }
 
         //范例3
         mData3 = new LinkedList<>();
         for (int i = 0; i < listContent.size(); i++) {
-            Fragment fragment = ViewPagerFragment.instance(listTitle.get(i), listContent.get(i));
+            Fragment fragment = ViewPagerFragment.newInstance(listTitle.get(i), listContent.get(i));
             mData3.add(fragment);
         }
     }
@@ -93,7 +93,7 @@ public class ViewPagerActivity extends BaseActivity implements View.OnClickListe
             case R.id.act_view_pager_btn_add:
                 String title = "new_title";
                 String content = "new_content:" + mData3.size();
-                Fragment fragment = ViewPagerFragment.instance(title, content);
+                Fragment fragment = ViewPagerFragment.newInstance(title, content);
                 mData3.add(fragment);
                 mAdapter3.notifyDataSetChanged(mData3);
                 break;

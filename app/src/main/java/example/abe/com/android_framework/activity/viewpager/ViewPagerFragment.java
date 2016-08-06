@@ -2,52 +2,47 @@ package example.abe.com.android_framework.activity.viewpager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.android_framework.main.BaseFragment;
+import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.ViewInject;
 
 /**
  * Created by abe on 16/8/3.
  */
+@ContentView(id = R.layout.fragment_view_pager)
+public class ViewPagerFragment extends BaseFragment {
 
-public class ViewPagerFragment extends Fragment {
+  @ViewInject(id = R.id.fragment_screen_slide_page_tv_title)
+    private TextView tvTitle;
+    @ViewInject(id = R.id.fragment_screen_slide_page_tv_content)
+    private TextView tvContent;
+    private String mTitle;
+    private String mContent;
 
-        private ViewGroup rootView;
-        private TextView tvTitle;
-        private TextView tvContent;
+    public static Fragment newInstance(String title, String content) {
+        ViewPagerFragment fragment = new ViewPagerFragment();
 
-        public static Fragment instance(String title, String content){
-            ViewPagerFragment fragment = new ViewPagerFragment();
-            Bundle args = new Bundle();
-            args.putString("title", title);
-            args.putString("content", content);
-            fragment.setArguments(args);
-            return fragment;
-        }
+        Bundle args = new Bundle();
+        args.putString("title", title);
+        args.putString("content", content);
+        fragment.setArguments(args);
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            //数据属性
-            Bundle args = getArguments();
-            String title = args.getString("title");
-            String content = args.getString("content");
-
-            //设置界面
-            rootView = (ViewGroup) inflater
-                    .inflate(R.layout.fragment_view_pager, container, false);
-            tvTitle = (TextView)rootView
-                    .findViewById(R.id.fragment_screen_slide_page_tv_title);
-            tvContent = (TextView)rootView
-                    .findViewById(R.id.fragment_screen_slide_page_tv_content);
-
-            //设置UI
-            tvTitle.setText(title);
-            tvContent.setText(content);
-
-            return rootView;
-        }
+        return fragment;
     }
+
+    @Override
+    public void initData(){
+        Bundle args = getArguments();
+        mTitle = args.getString("title");
+        mContent = args.getString("content");
+    }
+
+    @Override
+    public void initView(){
+        tvTitle.setText(mTitle);
+        tvContent.setText(mContent);
+    }
+}
