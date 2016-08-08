@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.main.BaseActivity;
+import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 

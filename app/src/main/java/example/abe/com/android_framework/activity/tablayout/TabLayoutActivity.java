@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.main.BaseActivity;
+import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.LogUtil;

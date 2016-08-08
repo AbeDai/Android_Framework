@@ -20,6 +20,7 @@ import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
 import example.abe.com.android_framework.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android_framework.activity.volley.VolleyActivity;
+import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ResourceUtil;

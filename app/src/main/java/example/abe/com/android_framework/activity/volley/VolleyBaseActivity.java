@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.main.BaseActivity;
+import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
@@ -93,7 +93,8 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
                         Request.Method.GET,
                         mGetUrl,
                         null,
-                        mJsonListener, mErrorListener);
+                        mJsonListener,
+                        mErrorListener);
                 mQueue.add(request);
                 break;
 
@@ -104,7 +105,8 @@ public class VolleyBaseActivity extends BaseActivity implements View.OnClickList
                         Request.Method.POST,
                         mPostUrl,
                         param,
-                        mJsonListener, mErrorListener);
+                        mJsonListener,
+                        mErrorListener);
                 mQueue.add(request);
                 break;
         }

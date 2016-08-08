@@ -19,7 +19,7 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.volley.BitmapCache;
-import example.abe.com.android_framework.main.BaseFragment;
+import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.util.DensityUtil;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;

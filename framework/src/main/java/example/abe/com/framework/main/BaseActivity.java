@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.main;
+package example.abe.com.framework.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

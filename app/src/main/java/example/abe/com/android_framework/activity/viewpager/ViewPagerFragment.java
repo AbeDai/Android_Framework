@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.main.BaseFragment;
+import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
