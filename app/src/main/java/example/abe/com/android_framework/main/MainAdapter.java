@@ -10,27 +10,26 @@ import android.widget.TextView;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
+import example.abe.com.android_framework.main.ActivityFactory.ActivityFlag;
 
-public class MainAdapter extends BaseAdapter {
+public class MainAdapter extends BaseAdapter{
 
-    private List<String> mListTitle;
-    private List<String> mListDec;
+    private List<ActivityFlag> mListActFlag;
     private Context mContext;
 
-    public MainAdapter(Context context, List<String> listTitle, List<String> listDec) {
-        mListTitle = listTitle;
-        mListDec = listDec;
+    public MainAdapter(Context context, List<ActivityFlag> listActFlag) {
+        mListActFlag = listActFlag;
         mContext = context;
     }
 
     @Override
     public int getCount() {
-        return mListTitle.size();
+        return mListActFlag.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mListTitle.get(position);
+        return mListActFlag.get(position);
     }
 
     @Override
@@ -49,8 +48,9 @@ public class MainAdapter extends BaseAdapter {
         }
 
         viewHolder = (ViewHolder) convertView.getTag();
-        viewHolder.setTitle(mListTitle.get(position));
-        viewHolder.setDec(mListDec.get(position));
+        ActivityFlag flag = mListActFlag.get(position);
+        viewHolder.setTitle(ActivityFactory.getActivityTitle(flag));
+        viewHolder.setDec(ActivityFactory.getActivityContent(flag));
 
         return convertView;
     }

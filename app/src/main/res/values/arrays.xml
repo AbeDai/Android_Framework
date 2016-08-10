@@ -16,35 +16,4 @@
         <item>55555555555555555555555555555555555555555555555555555555555555555555555555</item>
     </string-array>
 
-    <string-array name="main_act_btn_title">
-        <item>RecycleView使用</item>
-        <item>Retrofit使用</item>
-        <item>ViewPager使用</item>
-        <item>Assets使用</item>
-        <item>TabLayout使用</item>
-        <item>EventBus使用</item>
-        <item>CardView使用</item>
-        <item>GridView使用</item>
-        <item>Volley使用介绍</item>
-        <item>绘图详解</item>
-        <item>广告栏详解</item>
-        <item>EventCenter(自定义EventBus)</item>
-    </string-array>
-
-    <string-array name="main_act_btn_dec">
-        <item>介绍了RecycleView的简单使用</item>
-        <item>对Retrofit框架进行了简单的封装，使用起来更加简单方便</item>
-        <item>对ViewPager的使用详解，主要包含往ViewPager中添加View，往ViewPager中添加Fragment，还有ViewPager中元素动态增减</item>
-        <item>将文件添加到Assets中，并通过相应方法获取其中内容</item>
-        <item>TabLayout使用介绍，分别实现了TabLayout的简单添加 和 TabLayout与ViewPager关联使用</item>
-        <item>EventBus使用，介绍了EventBus的几种使用方式</item>
-        <item>CardView介绍</item>
-        <item>GridView的使用方法介绍，实现效果和ListView差不多</item>
-        <item>Volley框架的学习介绍，主要包括框架自带Request的使用，自定义Request使用，还有图片下载功能</item>
-        <item>绘图详情，等我写好了，再来补充吧。</item>
-        <item>自定义实现广告栏项目，但是现在还没有开始重构什么的，封装的也不是很好的。需要在参考：http://blog.csdn.net/yanzhenjie1003/article/details/51327392</item>
-        <item>EventCenter，仿造EventBus。EventCenter中，完成注册和注销。EventHandler中，完成主线程和背景线程Runable分发。EventMethod存储函数信息。</item>
-    </string-array>
-
-
 </resources>
