@@ -20,6 +20,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @ViewInject(id = R.id.act_main_list)
     private ListView mLv;
+
     private List<ActivityFlag> mListActFlag;
 
     @Override
