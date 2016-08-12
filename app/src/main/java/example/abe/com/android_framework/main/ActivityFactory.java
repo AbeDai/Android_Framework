@@ -10,6 +10,7 @@ import example.abe.com.android_framework.activity.eventcenter.EventCenterActivit
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
+import example.abe.com.android_framework.activity.socket.SocketActivity;
 import example.abe.com.android_framework.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android_framework.activity.volley.VolleyActivity;
@@ -56,6 +57,9 @@ public class ActivityFactory {
 
         //自定义EventBus
         EVENT_CENTER,
+
+        //Socket使用介绍
+        SOCKET,
     }
 
     static Class getActivityClass(ActivityFlag flag) {
@@ -96,6 +100,9 @@ public class ActivityFactory {
                 break;
             case EVENT_CENTER:
                 clazz = EventCenterActivity.class;
+                break;
+            case SOCKET:
+                clazz = SocketActivity.class;
                 break;
         }
         return clazz;
@@ -140,50 +147,54 @@ public class ActivityFactory {
             case EVENT_CENTER:
                 title = ResourceUtil.getString(R.string.act_title_event_center);
                 break;
+            case SOCKET:
+                title = ResourceUtil.getString(R.string.act_title_socket);
         }
         return title;
     }
 
     static String getActivityContent(ActivityFlag flag) {
-        String title = null;
+        String content = null;
         switch (flag) {
             case RECYCLE_LIST:
-                title = ResourceUtil.getString(R.string.act_content_recycle_list);
+                content = ResourceUtil.getString(R.string.act_content_recycle_list);
                 break;
             case RETROFIT:
-                title = ResourceUtil.getString(R.string.act_content_retrofit);
+                content = ResourceUtil.getString(R.string.act_content_retrofit);
                 break;
             case VIEW_PAGER:
-                title = ResourceUtil.getString(R.string.act_content_view_pager);
+                content = ResourceUtil.getString(R.string.act_content_view_pager);
                 break;
             case ASSETS:
-                title = ResourceUtil.getString(R.string.act_content_assets);
+                content = ResourceUtil.getString(R.string.act_content_assets);
                 break;
             case TAB_LAYOUT:
-                title = ResourceUtil.getString(R.string.act_content_tab_layout);
+                content = ResourceUtil.getString(R.string.act_content_tab_layout);
                 break;
             case EVENT_BUS:
-                title = ResourceUtil.getString(R.string.act_content_event_bus);
+                content = ResourceUtil.getString(R.string.act_content_event_bus);
                 break;
             case CARD_VIEW:
-                title = ResourceUtil.getString(R.string.act_content_card_view);
+                content = ResourceUtil.getString(R.string.act_content_card_view);
                 break;
             case GRID_VIEW:
-                title = ResourceUtil.getString(R.string.act_content_grid_view);
+                content = ResourceUtil.getString(R.string.act_content_grid_view);
                 break;
             case VOLLEY:
-                title = ResourceUtil.getString(R.string.act_content_volley);
+                content = ResourceUtil.getString(R.string.act_content_volley);
                 break;
             case DRAW:
-                title = ResourceUtil.getString(R.string.act_content_draw);
+                content = ResourceUtil.getString(R.string.act_content_draw);
                 break;
             case BANNER:
-                title = ResourceUtil.getString(R.string.act_content_banner);
+                content = ResourceUtil.getString(R.string.act_content_banner);
                 break;
             case EVENT_CENTER:
-                title = ResourceUtil.getString(R.string.act_content_event_center);
+                content = ResourceUtil.getString(R.string.act_content_event_center);
                 break;
+            case SOCKET:
+                content = ResourceUtil.getString(R.string.act_content_socket);
         }
-        return title;
+        return content;
     }
 }

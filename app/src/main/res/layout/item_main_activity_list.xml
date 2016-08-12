@@ -21,7 +21,7 @@
             android:layout_height="25dp"
             android:layout_width="match_parent"/>
 
-        <View style="@style/line_divider"/>
+        <View style="@style/divider"/>
 
         <TextView
             android:id="@+id/item_main_act_list_dec"

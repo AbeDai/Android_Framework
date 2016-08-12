@@ -23,7 +23,7 @@ public class BannerAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {  //这个方法用来实例化页卡
+    public Object instantiateItem(ViewGroup container, int position) {
         container.addView(mData.get(position));
         return mData.get(position);
     }

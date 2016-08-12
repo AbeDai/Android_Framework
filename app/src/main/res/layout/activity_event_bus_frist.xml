@@ -6,33 +6,27 @@
     android:id="@+id/activity_third"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.eventbus.EventBusSecondActivity">
+    tools:context="example.abe.com.android_framework.activity.eventbus.EventBusActivity">
 
     <Button
         android:id="@+id/act_third_btn_event1"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="发送事件1"
-        android:textSize="25sp"
-        android:gravity="center"/>
+        android:text="发送事件1"/>
 
     <Button
         android:id="@+id/act_third_btn_event2"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="发送事件2"
-        android:textSize="25sp"
-        android:gravity="center"/>
+        android:text="发送事件2"/>
 
     <Button
         android:id="@+id/act_third_btn_event3"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="发送事件3"
-        android:textSize="25sp"
-        android:gravity="center"/>
+        android:text="发送事件3"/>
 
 </LinearLayout>

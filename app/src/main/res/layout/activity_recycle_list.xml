@@ -17,15 +17,15 @@
             android:layout_height="64dp">
             <Button
                 android:id="@+id/act_abrecycle_list_btn_add"
+                style="@style/btn__font_normal__gravity_center__height_fill"
                 android:text="+"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:layout_weight="1"/>
             <Button
                 android:id="@+id/act_abrecycle_list_btn_del"
+                style="@style/btn__font_normal__gravity_center__height_fill"
                 android:text="-"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:layout_weight="1"/>
         </LinearLayout>
 

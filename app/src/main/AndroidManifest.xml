@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="example.abe.com.android_framework">
+          package="example.abe.com.android_framework">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <application
         android:name=".main.MyApplication"
@@ -15,26 +15,41 @@
         android:theme="@style/AppTheme">
         <activity android:name=".main.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.retrofit.RetrofitActivity" />
-        <activity android:name=".activity.recyclelist.RecycleListActivity" />
-        <activity android:name=".activity.viewpager.ViewPagerActivity" />
-        <activity android:name=".activity.assets.AssetsActivity" />
-        <activity android:name=".activity.tablayout.TabLayoutActivity" />
-        <activity android:name=".activity.eventbus.EventBusActivity" />
-        <activity android:name=".activity.cardview.CardViewActivity" />
-        <activity android:name=".activity.gridview.GridViewActivity" />
-        <activity android:name=".activity.volley.VolleyActivity" />
-        <activity android:name=".activity.volley.VolleyBaseActivity" />
-        <activity android:name=".activity.volley.VolleyImageActivity" />
-        <activity android:name=".activity.volley.VolleyCustomActivity" />
-        <activity android:name=".activity.drawing.DrawActivity" />
-        <activity android:name=".activity.banner.BannerActivity" />
-        <activity android:name=".activity.eventcenter.EventCenterActivity"></activity>
+        <activity android:name=".activity.retrofit.RetrofitActivity"/>
+        <activity android:name=".activity.recyclelist.RecycleListActivity"/>
+        <activity android:name=".activity.viewpager.ViewPagerActivity"/>
+        <activity android:name=".activity.assets.AssetsActivity"/>
+        <activity android:name=".activity.tablayout.TabLayoutActivity"/>
+        <activity android:name=".activity.eventbus.EventBusActivity"/>
+        <activity android:name=".activity.cardview.CardViewActivity"/>
+        <activity android:name=".activity.gridview.GridViewActivity"/>
+        <activity android:name=".activity.volley.VolleyActivity"/>
+        <activity android:name=".activity.volley.VolleyBaseActivity"/>
+        <activity android:name=".activity.volley.VolleyImageActivity"/>
+        <activity android:name=".activity.volley.VolleyCustomActivity"/>
+        <activity android:name=".activity.drawing.DrawActivity"/>
+        <activity android:name=".activity.banner.BannerActivity"/>
+        <activity android:name=".activity.eventcenter.EventCenterActivity"/>
+        <activity android:name=".activity.socket.reader.ReaderSocketActivity"/>
+        <activity android:name=".activity.socket.SocketActivity">
+        </activity>
+
+        <service
+            android:name=".activity.socket.reader.ReaderSocketService"
+            android:enabled="true"
+            android:exported="true"/>
+        <service
+            android:name=".activity.socket.image.ImageSocketService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <activity android:name=".activity.socket.image.ImageSocketActivity">
+        </activity>
     </application>
 
 </manifest>

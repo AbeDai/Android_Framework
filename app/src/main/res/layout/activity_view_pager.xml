@@ -21,20 +21,20 @@
         android:id="@+id/act_view_pager_ll"
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:orientation="horizontal"
         android:layout_below="@id/act_view_pager_pager2">
 
         <Button
             android:id="@+id/act_view_pager_btn_add"
+            style="@style/btn__font_normal__gravity_center__height_fill"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="末尾添加" />
 
         <Button
             android:id="@+id/act_view_pager_btn_del"
+            style="@style/btn__font_normal__gravity_center__height_fill"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_below="@id/act_view_pager_pager2"
             android:layout_weight="1"
             android:text="末尾删除" />
     </LinearLayout>

@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#000000</color>
+    <!--主题色-->
+    <color name="theme">#21c393</color>
+    <!--暗主题色-->
+    <color name="theme_dark">#057e5b</color>
+    <!--辅色1-->
+    <color name="theme_accent">#ffae2b</color>
+    <!--背景色-->
+    <color name="theme_background">#dcdcdc</color>
+    <!--文字黑色-->
+    <color name="text_black">#333333</color>
+    <!--文字白色-->
+    <color name="text_white">#ededed</color>
+    <!--浅灰-->
+    <color name="gray_light">#dfdfdb</color>
+    <!--普通灰-->
+    <color name="gray_normal">#aaaaaa</color>
+    <!--深灰-->
+    <color name="gray_dark">#666666</color>
 </resources>

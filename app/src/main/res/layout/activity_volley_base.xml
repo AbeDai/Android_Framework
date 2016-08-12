@@ -9,31 +9,31 @@
 
     <Button
         android:id="@+id/act_volley_base_btn_get_string"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="GET_STRING"/>
+        android:text="Get String"/>
 
     <Button
         android:id="@+id/act_volley_base_btn_post_string"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="POST_STRING"/>
+        android:text="Post String"/>
 
     <Button
         android:id="@+id/act_volley_base_btn_get_json"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="POST_JSON"/>
+        android:text="Get Json"/>
 
     <Button
         android:id="@+id/act_volley_base_btn_post_json"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="POST_JSON"/>
+        android:text="Post Json"/>
 
     <EditText
         android:id="@+id/act_volley_base_et_show"

@@ -9,18 +9,16 @@
 
     <Button
         android:id="@+id/act_volley_custom_btn_xml_get"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textAllCaps="false"
         android:text="自定义XML Request"/>
 
     <Button
         android:id="@+id/act_volley_custom_btn_gson_get"
-        android:layout_width="match_parent"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textAllCaps="false"
         android:text="自定义GSON Request的get方法"/>
 
     <EditText

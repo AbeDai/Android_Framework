@@ -15,6 +15,7 @@
     <string name="act_title_draw">绘图详解</string>
     <string name="act_title_banner">广告栏详解</string>
     <string name="act_title_event_center">EventCenter(自定义EventBus)</string>
+    <string name="act_title_socket">socket使用介绍</string>
     <!--Activity列表详细描述-->
     <string name="act_content_recycle_list">介绍了RecycleView的简单使用</string>
     <string name="act_content_retrofit">对Retrofit框架进行了简单的封装，使用起来更加简单方便</string>
@@ -28,5 +29,5 @@
     <string name="act_content_draw">绘图详情，等我写好了，再来补充吧。</string>
     <string name="act_content_banner">自定义实现广告栏项目，但是现在还没有开始重构什么的，封装的也不是很好的。需要在参考：http://blog.csdn.net/yanzhenjie1003/article/details/51327392</string>
     <string name="act_content_event_center">EventCenter，仿造EventBus。EventCenter中，完成注册和注销。EventHandler中，完成主线程和背景线程Runable分发。EventMethod存储函数信息。</string>
-
+    <string name="act_content_socket">socket网络通讯使用方法，详细描述待完善。</string>
 </resources>
