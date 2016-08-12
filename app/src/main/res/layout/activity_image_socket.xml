@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:orientation="vertical"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".activity.socket.reader.ImageSocketActivity">
+tools:context=".activity.socket.image.ImageSocketActivity">
 
 <Button
     android:id="@+id/act_image_socket_btn_start"
@@ -15,25 +15,11 @@ tools:context=".activity.socket.reader.ImageSocketActivity">
     android:text="开启Socket Server"/>
 
 <Button
-    android:id="@+id/act_image_socket_btn_connect"
-    style="@style/btn__font_normal__gravity_center__width_fill"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:text="建立连接"/>
-
-<Button
     android:id="@+id/act_image_socket_btn_send"
     style="@style/btn__font_normal__gravity_center__width_fill"
     android:layout_height="0dp"
     android:layout_weight="1"
     android:text="发送图片"/>
-
-<Button
-    android:id="@+id/act_image_socket_btn_disconnect"
-    style="@style/btn__font_normal__gravity_center__width_fill"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:text="断开连接"/>
 
 <Button
     android:id="@+id/act_image_socket_btn_stop"

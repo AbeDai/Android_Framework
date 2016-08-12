@@ -37,7 +37,7 @@ public class ReaderSocketActivity extends BaseActivity implements View.OnClickLi
 
     private Socket mSocket;
     private Intent mIntent;
-    private static int COUNT = 0;
+    private static int COUNT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class ReaderSocketActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void initData() {
-
+        COUNT = 0;
     }
 
     @Override

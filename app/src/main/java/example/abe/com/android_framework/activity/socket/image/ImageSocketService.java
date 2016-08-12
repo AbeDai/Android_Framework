@@ -25,7 +25,7 @@ public class ImageSocketService extends SocketService {
     }
 
     @Override
-    public int getPort(){
+    public int getPort() {
         return PORT;
     }
 

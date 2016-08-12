@@ -13,6 +13,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.eventcenter.EventCenter;
@@ -26,12 +29,8 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
 
     @ViewInject(id = R.id.act_image_socket_btn_start)
     private Button mBtnStart;
-    @ViewInject(id = R.id.act_image_socket_btn_connect)
-    private Button mBtnConnect;
     @ViewInject(id = R.id.act_image_socket_btn_send)
     private Button mBtnSend;
-    @ViewInject(id = R.id.act_image_socket_btn_disconnect)
-    private Button mBtnDisConnect;
     @ViewInject(id = R.id.act_image_socket_btn_stop)
     private Button mBtnStop;
     @ViewInject(id = R.id.act_image_socket_iv_display)
@@ -39,6 +38,8 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
 
     private Socket mSocket;
     private Intent mIntent;
+    private static int COUNT;
+    private List<Integer> listRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,22 +48,23 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
         EventCenter.getInstance().unRigister(this);
     }
 
     @Override
     public void initData() {
-
+        COUNT = 0;
+        listRes = new ArrayList<>(Arrays.asList(
+                R.drawable.icon_card_view,
+                R.drawable.icon_custom_dialog));
     }
 
     @Override
     public void initView() {
         mBtnStart.setOnClickListener(this);
-        mBtnConnect.setOnClickListener(this);
         mBtnSend.setOnClickListener(this);
-        mBtnDisConnect.setOnClickListener(this);
         mBtnStop.setOnClickListener(this);
     }
 
@@ -72,19 +74,15 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
             case R.id.act_image_socket_btn_start:
                 startServices();
                 break;
-            case R.id.act_image_socket_btn_connect:
+            case R.id.act_image_socket_btn_send:
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         connectServer();
+                        sendImage(COUNT++);
+                        disConnectServer();
                     }
                 }).start();
-                break;
-            case R.id.act_image_socket_btn_send:
-                sendImage();
-                break;
-            case R.id.act_image_socket_btn_disconnect:
-                disConnectServer();
                 break;
             case R.id.act_image_socket_btn_stop:
                 stopServices();
@@ -106,18 +104,23 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void sendImage(){
-        if (mSocket == null){
+    private void sendImage(int count) {
+        if (mSocket == null) {
             LogUtil.e("Socket为空, 请重试...");
             return;
         }
 
         try {
+            //图片解码
+            int id = listRes.get(count % listRes.size());
+            Bitmap bm = BitmapFactory.decodeResource(getResources(), id);
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            bm.compress(Bitmap.CompressFormat.PNG, 100, os);
+            byte[] bytes = os.toByteArray();
+
+            //传输
             OutputStream out = new BufferedOutputStream(mSocket.getOutputStream());
-            Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.icon_card_view);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
-            out.write(baos.toByteArray());
+            out.write(bytes);
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -125,21 +128,21 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
-    private void disConnectServer(){
-        if (mSocket == null){
+    private void disConnectServer() {
+        if (mSocket == null) {
             LogUtil.e("Socket为空, 请重试...");
             return;
         }
 
         try {
             mSocket.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             LogUtil.e("断开Socket失败");
         }
     }
 
-    private void stopServices(){
+    private void stopServices() {
         //Socket发送文字到Socket Service
         stopService(mIntent);
     }
@@ -147,6 +150,5 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
     public void onEventUI(BitmapEvent event) {
         mIvDisplay.setImageBitmap(event.getBitmap());
     }
-
 
 }
