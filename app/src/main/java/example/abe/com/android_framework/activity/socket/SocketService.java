@@ -15,9 +15,6 @@ import example.abe.com.framework.util.LogUtil;
  */
 public abstract class SocketService extends Service {
 
-    //TODO:Socket TCP传文字，图片
-    //TODO:Socket UDP 传文字
-
     private boolean exit;
     private ServerSocket server;
 
