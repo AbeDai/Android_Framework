@@ -7,29 +7,33 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.main.ActivityFactory.ActivityFlag;
+import example.abe.com.android_framework.main.ActivityFactory.Flags;
 
-public class MainAdapter extends BaseAdapter{
+public class MainAdapter extends BaseAdapter {
 
-    private List<ActivityFlag> mListActFlag;
+    private List<Flags> mListFlag;
+    private List<Flags> mListFlagFilter;
     private Context mContext;
 
-    public MainAdapter(Context context, List<ActivityFlag> listActFlag) {
-        mListActFlag = listActFlag;
+
+    public MainAdapter(Context context, List<Flags> listFlag) {
+        mListFlag = new ArrayList<>(listFlag);
+        mListFlagFilter = new ArrayList<>(mListFlag);
         mContext = context;
     }
 
     @Override
     public int getCount() {
-        return mListActFlag.size();
+        return mListFlagFilter.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mListActFlag.get(position);
+        return mListFlagFilter.get(position);
     }
 
     @Override
@@ -48,11 +52,32 @@ public class MainAdapter extends BaseAdapter{
         }
 
         viewHolder = (ViewHolder) convertView.getTag();
-        ActivityFlag flag = mListActFlag.get(position);
-        viewHolder.setTitle(ActivityFactory.getActivityTitle(flag));
-        viewHolder.setDec(ActivityFactory.getActivityContent(flag));
+        Flags flag = mListFlagFilter.get(position);
+        viewHolder.setTitle(ActivityFactory.getTitle(flag));
+        viewHolder.setDec(ActivityFactory.getContent(flag));
 
         return convertView;
+    }
+
+    public void filter(String key) {
+        mListFlagFilter.clear();
+        mListFlagFilter.addAll(fuzzyMatchList(mListFlag, key));
+        notifyDataSetChanged();
+    }
+
+    private List<Flags> fuzzyMatchList(List<Flags> list, String key) {
+        key = key.toLowerCase();//转小写
+
+        List<Flags> temp = new ArrayList<>();
+        for (Flags flag : list) {
+            //内容转小写
+            if (ActivityFactory.getTitle(flag).toLowerCase().contains(key)
+                    || ActivityFactory.getContent(flag).toLowerCase().contains(key)) {
+                temp.add(flag);
+            }
+        }
+
+        return temp;
     }
 
     private class ViewHolder {
@@ -64,11 +89,11 @@ public class MainAdapter extends BaseAdapter{
             mTvDec = (TextView) content.findViewById(R.id.item_main_act_list_dec);
         }
 
-        private void setTitle(String title){
+        private void setTitle(String title) {
             mTvTitle.setText(title);
         }
 
-        private void setDec(String dec){
+        private void setDec(String dec) {
             mTvDec.setText(dec);
         }
     }

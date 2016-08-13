@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/theme_background"
-    android:orientation="horizontal"
-    android:padding="@dimen/padding_large"
-    tools:context="example.abe.com.android_framework.main.MainActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/theme_background"
+              android:orientation="vertical"
+              tools:context="example.abe.com.android_framework.main.MainActivity">
+
+    <EditText
+        android:id="@+id/act_main_et_search"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:singleLine="true"/>
 
     <ListView
         android:id="@+id/act_main_list"

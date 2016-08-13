@@ -1,44 +1,64 @@
 package example.abe.com.android_framework.main;
 
 import android.content.Intent;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.main.ActivityFactory.ActivityFlag;
+import example.abe.com.android_framework.main.ActivityFactory.Flags;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 
 @ContentView(id = R.layout.activity_main)
-public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
+        TextView.OnEditorActionListener {
 
     @ViewInject(id = R.id.act_main_list)
     private ListView mLv;
+    @ViewInject(id = R.id.act_main_et_search)
+    private EditText mEtSearch;
 
-    private List<ActivityFlag> mListActFlag;
+    private MainAdapter mAdapter;
+    private List<Flags> mListActFlag;
 
     @Override
-    public void initData(){
-        mListActFlag = Arrays.asList(ActivityFlag.values());
+    public void initData() {
+        mListActFlag = new ArrayList<>(Arrays.asList(Flags.values()));
     }
 
     @Override
-    public void initView(){
-        mLv.setAdapter(new MainAdapter(this, mListActFlag));
+    public void initView() {
+        mAdapter = new MainAdapter(this, mListActFlag);
+        mLv.setAdapter(mAdapter);
         mLv.setOnItemClickListener(this);
+
+        mEtSearch.setOnEditorActionListener(this);
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ActivityFlag tag = mListActFlag.get(position);
-        Class clazz = ActivityFactory.getActivityClass(tag);
+        Flags tag = mListActFlag.get(position);
+        Class clazz = ActivityFactory.getClass(tag);
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+            mAdapter.filter(v.getText().toString());
+        }
+        return false;
     }
 }

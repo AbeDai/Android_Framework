@@ -1,5 +1,8 @@
 package example.abe.com.android_framework.main;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.banner.BannerActivity;
@@ -21,7 +24,15 @@ import example.abe.com.framework.util.ResourceUtil;
  */
 public class ActivityFactory {
 
-    public enum ActivityFlag {
+    private static Map<Flags, String> mapTitle;
+    private static Map<Flags, String> mapContent;
+
+    static {
+        mapTitle = new HashMap<>();
+        mapContent = new HashMap<>();
+    }
+
+    public enum Flags {
         //RecycleView使用范例
         RECYCLE_LIST,
 
@@ -62,7 +73,7 @@ public class ActivityFactory {
         SOCKET,
     }
 
-    static Class getActivityClass(ActivityFlag flag) {
+    public static Class getClass(Flags flag) {
         Class clazz = null;
         switch (flag) {
             case RECYCLE_LIST:
@@ -108,8 +119,14 @@ public class ActivityFactory {
         return clazz;
     }
 
-    static String getActivityTitle(ActivityFlag flag) {
+    public static String getTitle(Flags flag) {
         String title = null;
+        //获取
+        if ((title = mapTitle.get(flag)) != null){
+            return title;
+        }
+
+        //获取资源
         switch (flag) {
             case RECYCLE_LIST:
                 title = ResourceUtil.getString(R.string.act_title_recycle_list);
@@ -150,11 +167,20 @@ public class ActivityFactory {
             case SOCKET:
                 title = ResourceUtil.getString(R.string.act_title_socket);
         }
+
+        //存储
+        mapTitle.put(flag, title);
         return title;
     }
 
-    static String getActivityContent(ActivityFlag flag) {
+    public static String getContent(Flags flag) {
         String content = null;
+        //获取
+        if ((content = mapContent.get(flag)) != null){
+            return content;
+        }
+
+        //获取资源
         switch (flag) {
             case RECYCLE_LIST:
                 content = ResourceUtil.getString(R.string.act_content_recycle_list);
@@ -195,6 +221,9 @@ public class ActivityFactory {
             case SOCKET:
                 content = ResourceUtil.getString(R.string.act_content_socket);
         }
+
+        //存储
+        mapContent.put(flag, content);
         return content;
     }
 }
