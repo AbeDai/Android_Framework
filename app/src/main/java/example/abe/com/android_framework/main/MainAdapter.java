@@ -19,7 +19,6 @@ public class MainAdapter extends BaseAdapter {
     private List<Flags> mListFlagFilter;
     private Context mContext;
 
-
     public MainAdapter(Context context, List<Flags> listFlag) {
         mListFlag = new ArrayList<>(listFlag);
         mListFlagFilter = new ArrayList<>(mListFlag);
@@ -63,6 +62,10 @@ public class MainAdapter extends BaseAdapter {
         mListFlagFilter.clear();
         mListFlagFilter.addAll(fuzzyMatchList(mListFlag, key));
         notifyDataSetChanged();
+    }
+
+    public List<Flags> getListFlagFilter(){
+        return mListFlagFilter;
     }
 
     private List<Flags> fuzzyMatchList(List<Flags> list, String key) {

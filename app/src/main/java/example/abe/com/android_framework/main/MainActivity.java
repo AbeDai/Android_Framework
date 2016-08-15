@@ -30,16 +30,16 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     private EditText mEtSearch;
 
     private MainAdapter mAdapter;
-    private List<Flags> mListActFlag;
 
     @Override
     public void initData() {
-        mListActFlag = new ArrayList<>(Arrays.asList(Flags.values()));
+        
     }
 
     @Override
     public void initView() {
-        mAdapter = new MainAdapter(this, mListActFlag);
+        List<Flags> listActFlag = new ArrayList<>(Arrays.asList(Flags.values()));
+        mAdapter = new MainAdapter(this, listActFlag);
         mLv.setAdapter(mAdapter);
         mLv.setOnItemClickListener(this);
 
@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Flags tag = mListActFlag.get(position);
+        Flags tag = mAdapter.getListFlagFilter().get(position);
         Class clazz = ActivityFactory.getClass(tag);
         Intent intent = new Intent(this, clazz);
         startActivity(intent);

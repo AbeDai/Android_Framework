@@ -13,7 +13,8 @@
         android:layout_height="64dp"
         android:imeOptions="actionSearch"
         android:inputType="text"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:hint="搜索关键字"/>
 
     <ListView
         android:id="@+id/act_main_list"
