@@ -8,13 +8,12 @@ import example.abe.com.android_framework.activity.drawing.whiteboard.tool.step.I
 /**
  * Created by abe on 16/8/16.
  */
-public class DrawStepMemory {
-    private static final int RESTORE_STOP_COUNT = 10;
+public class StepMemory {
 
     private Stack<IStep> mStackSaveStep;
     private Stack<IStep> mStackDeleteStep;
 
-    public DrawStepMemory(){
+    public StepMemory(){
         initData();
     }
 
@@ -28,7 +27,7 @@ public class DrawStepMemory {
     }
 
     public void restore(){
-        if (!mStackSaveStep.isEmpty() && mStackDeleteStep.size() < RESTORE_STOP_COUNT){
+        if (!mStackSaveStep.isEmpty()){
             IStep step = mStackSaveStep.pop();
             mStackDeleteStep.push(step);
         }

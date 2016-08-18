@@ -4,13 +4,15 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.DrawManager;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.Type;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.paint.PaintFeatures;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.view.AbPaintView;
 
-public class PenPaintView extends View {
+public class PenPaintView extends AbPaintView {
 
-    private DrawManager mManager;
+    private DrawManager mDrawManager;
 
     public PenPaintView(Context context) {
         super(context);
@@ -28,22 +30,24 @@ public class PenPaintView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-        mManager = new DrawManager(this);
+        mDrawManager = new DrawManager(this, Type.DRAW);
+        mDrawManager.setStatusColor(PaintFeatures.PaintColor.BLUE);
+        mDrawManager.setStatusWidth(PaintFeatures.PaintWidth.NORMAL);
+        mDrawManager.setStatusEraserSize(PaintFeatures.PaintEraserSize.NORMAL);
+        mDrawManager.setType(Type.DRAW);
     }
 
-    public DrawManager getManager(){
-        return mManager;
+    public DrawManager getDrawManager(){
+        return mDrawManager;
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        mManager.drawAllStep(canvas);
+        super.onDraw(canvas);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mManager.handleEvent(event);
-
-        return true;
+        return super.onTouchEvent(event);
     }
 }

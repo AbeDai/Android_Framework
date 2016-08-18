@@ -5,19 +5,19 @@ import android.graphics.Paint;
 import android.graphics.Path;
 
 /**
- * Created by abe on 16/8/17.
+ * Created by abe on 16/8/18.
  */
-public class DrawStep implements IStep{
+public class EraserStep implements IStep {
     private Path mPath;
     private Paint mPaint;
 
-    public DrawStep(Path path, Paint paint){
+    public EraserStep(Path path, Paint paint) {
         mPath = new Path(path);
         mPaint = new Paint(paint);
     }
 
     @Override
-    public void draw(Canvas canvas){
+    public void draw(Canvas canvas) {
         canvas.drawPath(mPath, mPaint);
     }
 
@@ -25,8 +25,7 @@ public class DrawStep implements IStep{
         mPath.moveTo(x, y);
     }
 
-    public void quadTo(float x1, float y1, float x2, float y2) {
-        //TODO:学习贝塞尔曲线，看看为什么这个没有断点
-        mPath.quadTo(x1, y1, x2, y2);
+    public void lineTo(float x, float y) {
+        mPath.lineTo(x, y);
     }
 }

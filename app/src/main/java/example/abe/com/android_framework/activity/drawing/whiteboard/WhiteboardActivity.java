@@ -6,7 +6,9 @@ import android.widget.LinearLayout;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.DrawManager;
-import example.abe.com.android_framework.activity.drawing.whiteboard.tool.WhiteboardStatus;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.Type;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.paint.PaintFeatures;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.view.AbPaintView;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
@@ -15,8 +17,7 @@ import example.abe.com.framework.viewinject.ViewInject;
 public class WhiteboardActivity extends BaseActivity implements View.OnClickListener{
 
     @ViewInject(id = R.id.act_whiteboard_pen_paint_view)
-    private PenPaintView mPenPaintView;
-
+    private AbPaintView mPenPaintView;
     @ViewInject(id = R.id.act_whiteboard_ll_detail_tool_bar)
     private LinearLayout mLlDetailToolBar;
     @ViewInject(id = R.id.act_whiteboard_btn_color)
@@ -43,13 +44,21 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
     private Button mBtnEraserNormal;
     @ViewInject(id = R.id.act_whiteboard_btn_eraser_small)
     private Button mBtnEraserSmall;
-
-
     @ViewInject(id = R.id.act_whiteboard_btn_text)
     private Button mBtnText;
+    @ViewInject(id = R.id.act_whiteboard_btn_text_big)
+    private Button mBtnTextBig;
+    @ViewInject(id = R.id.act_whiteboard_btn_text_normal)
+    private Button mBtnTextNormal;
+    @ViewInject(id = R.id.act_whiteboard_btn_text_small)
+    private Button mBtnTextSmall;
+
     @ViewInject(id = R.id.act_whiteboard_btn_rect)
     private Button mBtnRect;
     @ViewInject(id = R.id.act_whiteboard_btn_restore)
+
+
+
     private Button mBtnRestore;
     @ViewInject(id = R.id.act_whiteboard_btn_un_restore)
     private Button mBtnUnRestore;
@@ -58,7 +67,7 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void initData(){
-        mPenPaintManager = mPenPaintView.getManager();
+        mPenPaintManager = mPenPaintView.getDrawManager();
     }
 
     @Override
@@ -77,9 +86,13 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
         mBtnEraser.setOnClickListener(mEraserListener);
         mBtnEraserBig.setOnClickListener(mEraserListener);
         mBtnEraserNormal.setOnClickListener(mEraserListener);
-        mBtnEraserNormal.setOnClickListener(mEraserListener);
+        mBtnEraserSmall.setOnClickListener(mEraserListener);
 
-//        mBtnText.setOnClickListener(this);
+        mBtnText.setOnClickListener(mTextListener);
+        mBtnTextBig.setOnClickListener(mTextListener);
+        mBtnTextNormal.setOnClickListener(mTextListener);
+        mBtnTextSmall.setOnClickListener(mTextListener);
+
 //        mBtnRect.setOnClickListener(this);
 
         mBtnRestore.setOnClickListener(mRestoreListener);
@@ -94,13 +107,16 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
                 case R.id.act_whiteboard_btn_color:
                     break;
                 case R.id.act_whiteboard_btn_color_red:
-                    mPenPaintManager.setStatusColor(WhiteboardStatus.Color.RED);
+                    mPenPaintManager.setStatusColor(PaintFeatures.PaintColor.RED);
+                    mPenPaintManager.setType(Type.DRAW);
                     break;
                 case R.id.act_whiteboard_btn_color_blue:
-                    mPenPaintManager.setStatusColor(WhiteboardStatus.Color.BLUE);
+                    mPenPaintManager.setStatusColor(PaintFeatures.PaintColor.BLUE);
+                    mPenPaintManager.setType(Type.DRAW);
                     break;
                 case R.id.act_whiteboard_btn_color_green:
-                    mPenPaintManager.setStatusColor(WhiteboardStatus.Color.GREEN);
+                    mPenPaintManager.setStatusColor(PaintFeatures.PaintColor.GREEN);
+                    mPenPaintManager.setType(Type.DRAW);
                     break;
             }
             invertVisibilityStatus(mLlDetailToolBar);
@@ -114,13 +130,16 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
                 case R.id.act_whiteboard_ll_detail_tool_bar_width:
                     break;
                 case R.id.act_whiteboard_btn_width_bold:
-                    mPenPaintManager.setStatusWidth(WhiteboardStatus.Width.BOLD);
+                    mPenPaintManager.setStatusWidth(PaintFeatures.PaintWidth.BOLD);
+                    mPenPaintManager.setType(Type.DRAW);
                     break;
                 case R.id.act_whiteboard_btn_width_normal:
-                    mPenPaintManager.setStatusWidth(WhiteboardStatus.Width.NORMAL);
+                    mPenPaintManager.setStatusWidth(PaintFeatures.PaintWidth.NORMAL);
+                    mPenPaintManager.setType(Type.DRAW);
                     break;
                 case R.id.act_whiteboard_btn_width_light:
-                    mPenPaintManager.setStatusWidth(WhiteboardStatus.Width.LIGHT);
+                    mPenPaintManager.setStatusWidth(PaintFeatures.PaintWidth.LIGHT);
+                    mPenPaintManager.setType(Type.DRAW);
                     break;
             }
             invertVisibilityStatus(mLlDetailToolBar);
@@ -134,13 +153,39 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
                 case R.id.act_whiteboard_btn_eraser:
                     break;
                 case R.id.act_whiteboard_btn_eraser_big:
-                    mPenPaintManager.setStatusEraserSize(WhiteboardStatus.EraserSize.BIG);
+                    mPenPaintManager.setStatusEraserSize(PaintFeatures.PaintEraserSize.BIG);
+                    mPenPaintManager.setType(Type.ERASER);
                     break;
                 case R.id.act_whiteboard_btn_eraser_normal:
-                    mPenPaintManager.setStatusEraserSize(WhiteboardStatus.EraserSize.NORMAL);
+                    mPenPaintManager.setStatusEraserSize(PaintFeatures.PaintEraserSize.NORMAL);
+                    mPenPaintManager.setType(Type.ERASER);
                     break;
                 case R.id.act_whiteboard_btn_eraser_small:
-                    mPenPaintManager.setStatusEraserSize(WhiteboardStatus.EraserSize.SMALL);
+                    mPenPaintManager.setStatusEraserSize(PaintFeatures.PaintEraserSize.SMALL);
+                    mPenPaintManager.setType(Type.ERASER);
+                    break;
+            }
+            invertVisibilityStatus(mLlDetailToolBar);
+        }
+    };
+
+    private View.OnClickListener mTextListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.act_whiteboard_btn_text:
+                    break;
+                case R.id.act_whiteboard_btn_text_big:
+                    mPenPaintManager.setStatusFont(PaintFeatures.PaintFont.BIG);
+                    mPenPaintManager.setType(Type.TEXT);
+                    break;
+                case R.id.act_whiteboard_btn_text_normal:
+                    mPenPaintManager.setStatusFont(PaintFeatures.PaintFont.NORMAL);
+                    mPenPaintManager.setType(Type.TEXT);
+                    break;
+                case R.id.act_whiteboard_btn_text_small:
+                    mPenPaintManager.setStatusFont(PaintFeatures.PaintFont.SMALL);
+                    mPenPaintManager.setType(Type.TEXT);
                     break;
             }
             invertVisibilityStatus(mLlDetailToolBar);

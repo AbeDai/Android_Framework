@@ -40,6 +40,9 @@
         <activity android:name=".activity.socket.reader.ReaderSocketActivity"/>
         <activity android:name=".activity.socket.SocketActivity"/>
         <activity android:name=".activity.socket.image.ImageSocketActivity"/>
+        <activity android:name=".activity.drawing.whiteboard.WhiteboardActivity"
+                  android:screenOrientation="landscape"/>
+        <activity android:name=".activity.drawing.custom.CustomActivity"/>
 
         <service
             android:name=".activity.socket.reader.ReaderSocketService"
@@ -49,12 +52,6 @@
             android:name=".activity.socket.image.ImageSocketService"
             android:enabled="true"
             android:exported="true"/>
-
-        <activity android:name=".activity.drawing.custom.CustomActivity">
-        </activity>
-        <activity android:name=".activity.drawing.whiteboard.WhiteboardActivity"
-                  android:screenOrientation="landscape">
-        </activity>
     </application>
 
 </manifest>
