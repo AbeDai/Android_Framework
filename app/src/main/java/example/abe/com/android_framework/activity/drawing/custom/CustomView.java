@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.activity.drawing;
+package example.abe.com.android_framework.activity.drawing.custom;
 
 import android.content.Context;
 import android.graphics.Canvas;

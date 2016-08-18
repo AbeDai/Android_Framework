@@ -6,9 +6,19 @@
     android:orientation="vertical"
     tools:context=".activity.drawing.DrawActivity">
 
-    <example.abe.com.android_framework.activity.drawing.CustomView
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/act_draw_btn_custom_view"
+        style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:text="自定义绘图View"/>
+
+    <Button
+        android:id="@+id/act_draw_btn_whiteboard"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="白板绘制"/>
+
 
 </LinearLayout>
