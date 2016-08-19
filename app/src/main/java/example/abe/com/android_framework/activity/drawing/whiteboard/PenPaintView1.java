@@ -10,21 +10,21 @@ import example.abe.com.android_framework.activity.drawing.whiteboard.tool.Type;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.paint.PaintFeatures;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.view.AbPaintView;
 
-public class PenPaintView extends AbPaintView {
+public class PenPaintView1 extends AbPaintView {
 
     private DrawManager mDrawManager;
 
-    public PenPaintView(Context context) {
+    public PenPaintView1(Context context) {
         super(context);
         init(null, 0);
     }
 
-    public PenPaintView(Context context, AttributeSet attrs) {
+    public PenPaintView1(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public PenPaintView(Context context, AttributeSet attrs, int defStyle) {
+    public PenPaintView1(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
