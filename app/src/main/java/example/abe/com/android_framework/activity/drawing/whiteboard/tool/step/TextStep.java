@@ -11,10 +11,10 @@ public class TextStep implements IStep{
     private String mText;
     private Paint mPaint;
 
-    public TextStep(String text, float x, float y, Paint paint){
+    public TextStep(String text, Paint paint){
         mText = text;
-        posX = x;
-        posY = y;
+        posX = 0;
+        posY = 0;
         mPaint = new Paint(paint);
     }
 

@@ -2,7 +2,10 @@ package example.abe.com.android_framework.activity.drawing.whiteboard.tool;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -14,6 +17,7 @@ import example.abe.com.android_framework.activity.drawing.whiteboard.tool.paint.
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.step.DrawStep;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.step.EraserStep;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.step.IStep;
+import example.abe.com.android_framework.activity.drawing.whiteboard.tool.step.RectStep;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.step.TextStep;
 
 /**
@@ -51,13 +55,15 @@ public class DrawManager {
         mStepMemory = new StepMemory();
     }
 
-    public void drawAllStep(Canvas canvas){
-        if (mCanvas == null || mBitmap == null){
+    public void drawAllStep(Canvas canvas) {
+        if (mCanvas == null || mBitmap == null) {
             createFgBitmap();
+        } else {
+            clearBitmap(mCanvas);
         }
 
         drawSavedStep(mCanvas);
-        if (mCurStep != null){
+        if (mCurStep != null) {
             mCurStep.draw(mCanvas);
         }
 
@@ -72,8 +78,8 @@ public class DrawManager {
         }
     }
 
-    public void savePath(IStep step){
-        if (step == null){
+    public void savePath(IStep step) {
+        if (step == null) {
             return;
         }
         mStepMemory.saveStep(step);
@@ -81,35 +87,35 @@ public class DrawManager {
         mStepMemory.clearDeleteStep();
     }
 
-    public void restore(){
-        createFgBitmap();
+    public void restore() {
+        clearBitmap(mCanvas);
         mStepMemory.restore();
         mView.postInvalidate();
     }
 
-    public void unRestore(){
-        createFgBitmap();
+    public void unRestore() {
+        clearBitmap(mCanvas);
         mStepMemory.unRestore();
         mView.postInvalidate();
     }
 
-    public void setStatusColor(PaintFeatures.PaintColor color){
+    public void setStatusColor(PaintFeatures.PaintColor color) {
         mPaintWrapper.setColor(color);
     }
 
-    public void setStatusWidth(PaintFeatures.PaintWidth width){
+    public void setStatusWidth(PaintFeatures.PaintWidth width) {
         mPaintWrapper.setWidth(width);
     }
 
-    public void setStatusEraserSize(PaintFeatures.PaintEraserSize eraserSize){
+    public void setStatusEraserSize(PaintFeatures.PaintEraserSize eraserSize) {
         mPaintWrapper.setEraserSize(eraserSize);
     }
 
-    public void setStatusFont(PaintFeatures.PaintFont font){
+    public void setStatusFont(PaintFeatures.PaintFont font) {
         mPaintWrapper.setFont(font);
     }
 
-    public Type getType(){
+    public Type getType() {
         return mType;
     }
 
@@ -118,7 +124,59 @@ public class DrawManager {
         mPaintWrapper.updatePaint(mType);
     }
 
-    private void createFgBitmap(){
+    private float posX, posY;
+
+    public void handleEvent(MotionEvent event) {
+        float x = event.getX();
+        float y = event.getY();
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                posX = x;
+                posY = y;
+                if (mType == Type.DRAW) {
+                    mCurStep = new DrawStep(new Path(), mPaintWrapper.getPaint());
+                    ((DrawStep) mCurStep).moveTo(posX, posY);
+                } else if (mType == Type.ERASER) {
+                    mCurStep = new EraserStep(new Path(), mPaintWrapper.getPaint());
+                    ((EraserStep) mCurStep).moveTo(posX, posY);
+                } else if (mType == Type.TEXT) {
+                    mCurStep = new TextStep("戴益波", mPaintWrapper.getPaint());
+                    ((TextStep) mCurStep).setPoint(posX, posY);
+                } else if (mType == Type.RECT) {
+                    mCurStep = new RectStep(posX, posY, mPaintWrapper.getPaint());
+                }
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                if (Math.abs(x - posX) > TOUCH_TOLERANCE
+                        || Math.abs(y - posY) > TOUCH_TOLERANCE) {
+                    if (mType == Type.DRAW) {
+                            ((DrawStep) mCurStep).quadTo(posX, posY, (x + posX) / 2, (y + posY) / 2);
+                    } else if (mType == Type.ERASER) {
+                            ((EraserStep) mCurStep).lineTo(x, y);
+                    } else if (mType == Type.TEXT) {
+                            ((TextStep) mCurStep).setPoint(x, y);
+                    } else if (mType == Type.RECT) {
+                            ((RectStep) mCurStep).setPoint(x, y);
+                    }
+                    posX = x;
+                    posY = y;
+                }
+                break;
+
+            case MotionEvent.ACTION_UP:
+                if (mType == Type.DRAW || mType == Type.ERASER
+                        || mType == Type.TEXT || mType == Type.RECT) {
+                    savePath(mCurStep);
+                    mCurStep = null;
+                }
+                break;
+        }
+        mView.postInvalidate();
+    }
+
+    private void createFgBitmap() {
         mBitmap = null;
         mCanvas = null;
         int width = mView.getMeasuredWidth();
@@ -127,77 +185,9 @@ public class DrawManager {
         mCanvas = new Canvas(mBitmap);
     }
 
-    private float posX, posY;
-    public void handleEvent(MotionEvent event){
-        float x = event.getX();
-        float y = event.getY();
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                if (mType == Type.DRAW){
-                    posX = x;
-                    posY = y;
-                    DrawStep step = new DrawStep(new Path(), mPaintWrapper.getPaint());
-                    step.moveTo(posX, posY);
-                    mCurStep = step;
-                }
-                else if (mType == Type.ERASER){
-                    posX = x;
-                    posY = y;
-                    EraserStep step = new EraserStep(new Path(), mPaintWrapper.getPaint());
-                    step.moveTo(posX, posY);
-                    mCurStep = step;
-                }
-                else if(mType == Type.TEXT){
-                    posX = x;
-                    posY = y;
-                    TextStep step = new TextStep("戴益波", posX, posY, mPaintWrapper.getPaint());
-                    mCurStep = step;
-                }
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                if (mType == Type.DRAW){
-                    if (Math.abs(x - posX) > TOUCH_TOLERANCE
-                            || Math.abs(y - posY) > TOUCH_TOLERANCE) {
-                        ((DrawStep) mCurStep).quadTo(posX, posY, (x + posX) / 2, (y + posY) / 2);
-                        posX = x;
-                        posY = y;
-                    }
-                }
-                else if (mType == Type.ERASER){
-                    if (Math.abs(x - posX) > TOUCH_TOLERANCE
-                            || Math.abs(y - posY) > TOUCH_TOLERANCE) {
-                        ((EraserStep) mCurStep).lineTo(x, y);
-                        posX = x;
-                        posY = y;
-                    }
-                }
-                else if(mType == Type.TEXT) {
-                    if (Math.abs(x - posX) > TOUCH_TOLERANCE
-                            || Math.abs(y - posY) > TOUCH_TOLERANCE) {
-                        ((TextStep) mCurStep).setPoint(x, y);
-                        posX = x;
-                        posY = y;
-                    }
-                }
-                break;
-
-            case MotionEvent.ACTION_UP:
-                if (mType == Type.DRAW){
-                    savePath(mCurStep);
-                    mCurStep = null;
-                }
-                else if (mType == Type.ERASER){
-                    savePath(mCurStep);
-                    mCurStep = null;
-                }
-                else if(mType == Type.TEXT){
-                    savePath(mCurStep);
-                    mCurStep = null;
-                }
-                break;
-        }
-        mView.postInvalidate();
+    private void clearBitmap(Canvas canvas) {
+        Paint paint = new Paint();
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        canvas.drawPaint(paint);
     }
 }

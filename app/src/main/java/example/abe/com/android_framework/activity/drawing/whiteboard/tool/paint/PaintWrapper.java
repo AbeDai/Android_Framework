@@ -83,7 +83,14 @@ public class PaintWrapper {
             }break;
 
             case RECT:{
+                //画笔
+                paint.setStyle(Paint.Style.STROKE);
 
+                //颜色
+                paint.setColor(color.value);
+
+                //宽度
+                paint.setStrokeWidth(width.value);
             }break;
         }
 

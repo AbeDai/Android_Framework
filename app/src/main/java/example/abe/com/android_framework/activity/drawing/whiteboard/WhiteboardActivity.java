@@ -14,7 +14,7 @@ import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_whiteboard)
-public class WhiteboardActivity extends BaseActivity implements View.OnClickListener{
+public class WhiteboardActivity extends BaseActivity{
 
     @ViewInject(id = R.id.act_whiteboard_pen_paint_view)
     private AbPaintView mPenPaintView;
@@ -52,13 +52,9 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
     private Button mBtnTextNormal;
     @ViewInject(id = R.id.act_whiteboard_btn_text_small)
     private Button mBtnTextSmall;
-
     @ViewInject(id = R.id.act_whiteboard_btn_rect)
     private Button mBtnRect;
     @ViewInject(id = R.id.act_whiteboard_btn_restore)
-
-
-
     private Button mBtnRestore;
     @ViewInject(id = R.id.act_whiteboard_btn_un_restore)
     private Button mBtnUnRestore;
@@ -73,29 +69,37 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
     @Override
     public void initView(){
 
+        //颜色
         mBtnColor.setOnClickListener(mColorListener);
         mBtnRed.setOnClickListener(mColorListener);
         mBtnBlue.setOnClickListener(mColorListener);
         mBtnGreen.setOnClickListener(mColorListener);
 
+        //线条粗细
         mBtnWidth.setOnClickListener(mWidthListener);
         mBtnWidthBold.setOnClickListener(mWidthListener);
         mBtnWidthNormal.setOnClickListener(mWidthListener);
         mBtnWidthLight.setOnClickListener(mWidthListener);
 
+        //橡皮
         mBtnEraser.setOnClickListener(mEraserListener);
         mBtnEraserBig.setOnClickListener(mEraserListener);
         mBtnEraserNormal.setOnClickListener(mEraserListener);
         mBtnEraserSmall.setOnClickListener(mEraserListener);
 
+        //文字
         mBtnText.setOnClickListener(mTextListener);
         mBtnTextBig.setOnClickListener(mTextListener);
         mBtnTextNormal.setOnClickListener(mTextListener);
         mBtnTextSmall.setOnClickListener(mTextListener);
 
-//        mBtnRect.setOnClickListener(this);
+        //矩形
+        mBtnRect.setOnClickListener(mRectListener);
 
+        //恢复
         mBtnRestore.setOnClickListener(mRestoreListener);
+
+        //重做
         mBtnUnRestore.setOnClickListener(mRestoreListener);
 
     }
@@ -192,6 +196,17 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
         }
     };
 
+    private View.OnClickListener mRectListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.act_whiteboard_btn_rect:
+                    mPenPaintManager.setType(Type.RECT);
+                    break;
+            }
+        }
+    };
+
     private View.OnClickListener mRestoreListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -205,11 +220,6 @@ public class WhiteboardActivity extends BaseActivity implements View.OnClickList
             }
         }
     };
-
-    @Override
-    public void onClick(View v) {
-
-    }
 
     private void invertVisibilityStatus(View view) {
         if (view.getVisibility() != View.VISIBLE){

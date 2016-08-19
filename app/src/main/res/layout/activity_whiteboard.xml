@@ -10,14 +10,18 @@
         android:id="@+id/act_whiteboard_pen_paint_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/act_whiteboard_ll_tool_bar"/>
+        android:background="@android:color/holo_orange_light"
+        android:layout_margin="8dp"
+        android:layout_above="@+id/act_whiteboard_ll_tool_bar"
+        android:layout_alignParentTop="true"/>
 
     <LinearLayout
         android:id="@+id/act_whiteboard_ll_detail_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_above="@+id/act_whiteboard_ll_tool_bar"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/act_whiteboard_ll_detail_tool_bar_color"
@@ -195,7 +199,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="图形"/>
+            android:text="矩形"/>
 
         <Button
             android:id="@+id/act_whiteboard_btn_restore"
