@@ -1,5 +1,6 @@
 package example.abe.com.android_framework.activity.drawing.whiteboard;
 
+import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -10,11 +11,13 @@ import example.abe.com.android_framework.activity.drawing.whiteboard.tool.Type;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.paint.PaintFeatures;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.view.AbPaintView;
 import example.abe.com.framework.main.BaseActivity;
+import example.abe.com.framework.util.FileUtil;
+import example.abe.com.framework.util.TimeUtil;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_whiteboard)
-public class WhiteboardActivity extends BaseActivity{
+public class WhiteboardActivity extends BaseActivity {
 
     @ViewInject(id = R.id.act_whiteboard_pen_paint_view)
     private AbPaintView mPenPaintView;
@@ -58,16 +61,18 @@ public class WhiteboardActivity extends BaseActivity{
     private Button mBtnRestore;
     @ViewInject(id = R.id.act_whiteboard_btn_un_restore)
     private Button mBtnUnRestore;
+    @ViewInject(id = R.id.act_whiteboard_btn_save)
+    private Button mBtnSave;
 
     private DrawManager mPenPaintManager;
 
     @Override
-    public void initData(){
+    public void initData() {
         mPenPaintManager = mPenPaintView.getDrawManager();
     }
 
     @Override
-    public void initView(){
+    public void initView() {
 
         //颜色
         mBtnColor.setOnClickListener(mColorListener);
@@ -102,12 +107,15 @@ public class WhiteboardActivity extends BaseActivity{
         //重做
         mBtnUnRestore.setOnClickListener(mRestoreListener);
 
+        //保存
+        mBtnSave.setOnClickListener(mSaveListener);
+
     }
 
     private View.OnClickListener mColorListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.act_whiteboard_btn_color:
                     break;
                 case R.id.act_whiteboard_btn_color_red:
@@ -130,7 +138,7 @@ public class WhiteboardActivity extends BaseActivity{
     private View.OnClickListener mWidthListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.act_whiteboard_ll_detail_tool_bar_width:
                     break;
                 case R.id.act_whiteboard_btn_width_bold:
@@ -153,7 +161,7 @@ public class WhiteboardActivity extends BaseActivity{
     private View.OnClickListener mEraserListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.act_whiteboard_btn_eraser:
                     break;
                 case R.id.act_whiteboard_btn_eraser_big:
@@ -176,7 +184,7 @@ public class WhiteboardActivity extends BaseActivity{
     private View.OnClickListener mTextListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.act_whiteboard_btn_text:
                     break;
                 case R.id.act_whiteboard_btn_text_big:
@@ -199,7 +207,7 @@ public class WhiteboardActivity extends BaseActivity{
     private View.OnClickListener mRectListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.act_whiteboard_btn_rect:
                     mPenPaintManager.setType(Type.RECT);
                     break;
@@ -207,10 +215,25 @@ public class WhiteboardActivity extends BaseActivity{
         }
     };
 
+    private View.OnClickListener mSaveListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //截屏
+            mPenPaintView.setDrawingCacheEnabled(true);
+            mPenPaintView.buildDrawingCache();
+            Bitmap bitmap= mPenPaintView.getDrawingCache();
+            String name = "whiteboard_"
+                    + TimeUtil.getStrCurrentCH(TimeUtil.FORMAT_YYYYMMDDHHMMSS)
+                    + ".png";
+            //保存
+            FileUtil.saveBitmap(name, bitmap);
+        }
+    };
+
     private View.OnClickListener mRestoreListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.act_whiteboard_btn_restore:
                     mPenPaintManager.restore();
                     break;
@@ -222,9 +245,9 @@ public class WhiteboardActivity extends BaseActivity{
     };
 
     private void invertVisibilityStatus(View view) {
-        if (view.getVisibility() != View.VISIBLE){
+        if (view.getVisibility() != View.VISIBLE) {
             view.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             view.setVisibility(View.GONE);
         }
     }

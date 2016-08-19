@@ -125,7 +125,6 @@ public class DrawManager {
     }
 
     private float posX, posY;
-
     public void handleEvent(MotionEvent event) {
         float x = event.getX();
         float y = event.getY();

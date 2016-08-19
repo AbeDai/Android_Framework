@@ -1,17 +1,62 @@
 package example.abe.com.framework.util;
 
-import android.nfc.tech.NfcA;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.jar.Attributes;
+import java.io.OutputStream;
 
 /**
  * Created by abe on 16/7/31.
  */
 
 public class FileUtil {
+
+    /**
+     * 保存位图到本地
+     * @param name 图片名
+     * @param bitmap 图片位图
+     */
+    public static void saveBitmap(String name, Bitmap bitmap){
+        File imgFile = FileUtil.getImageFile(name);
+        try {
+            OutputStream out = new FileOutputStream(imgFile);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 本地获取位图
+     * @param name 图片名
+     * @return 位图
+     */
+    public static Bitmap getBitmap(String name) {
+        File imgFile = FileUtil.getImageFile(name);
+
+        Bitmap bitmap = null;
+        try {
+            FileInputStream in = new FileInputStream(imgFile);
+            bitmap = BitmapFactory.decodeStream(in);
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return bitmap;
+    }
 
     /**
      * 获取图片文件

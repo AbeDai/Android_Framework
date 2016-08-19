@@ -11,6 +11,7 @@ import java.util.TimeZone;
  */
 public class TimeUtil {
 
+    public static final String FORMAT_YYYYMMDDHHMMSS = "yyyyMMdd_HHmmss";
     public static final String FORMAT_YYYYMMDDHHMM = "yyyy-MM-dd HH:mm";
     public static final String FORMAT_YYYYMMDD = "yyyy-MM-dd";
     public static final long LENGHT_DAY_MSEC = 24 * 60 * 60 * 1000;
