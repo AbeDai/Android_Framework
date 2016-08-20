@@ -24,7 +24,9 @@ public class BannerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(mData.get(position));
+        if (mData.get(position).getParent() == null){
+            container.addView(mData.get(position));
+        }
         return mData.get(position);
     }
 

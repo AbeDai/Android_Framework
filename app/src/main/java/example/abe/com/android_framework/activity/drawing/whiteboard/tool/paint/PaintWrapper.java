@@ -27,6 +27,7 @@ public class PaintWrapper {
 
     public Paint updatePaint(Type type){
         paint.reset();
+
         switch (type){
             case DRAW:{
                 //抗锯齿功能,会消耗资源

@@ -28,7 +28,7 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return R.mipmap.ic_launcher;
+        return R.drawable.ic_launcher;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class ImageAdapter extends BaseAdapter {
             convertView = new ImageView(mContext);
         }
         imageView = (ImageView) convertView;
-        imageView.setImageResource(R.mipmap.ic_launcher);
+        imageView.setImageResource(R.drawable.ic_launcher);
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         imageView.setLayoutParams(new GridView.LayoutParams(
                 GridView.LayoutParams.WRAP_CONTENT,

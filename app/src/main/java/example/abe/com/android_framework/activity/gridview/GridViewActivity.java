@@ -58,7 +58,7 @@ public class GridViewActivity extends BaseActivity {
         List<HashMap<String, Object>> data = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             HashMap<String, Object> map = new HashMap<>();
-            map.put(ITEM_IMAGE, R.mipmap.ic_launcher);
+            map.put(ITEM_IMAGE, R.drawable.ic_launcher);
             map.put(ITEM_TEXT, "NO." + String.valueOf(i));
             data.add(map);
         }

@@ -26,7 +26,6 @@ import example.abe.com.framework.util.ToastUtil;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
-
 @ContentView(id = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
         TextView.OnEditorActionListener {
@@ -118,7 +117,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             }
         }else{
             //已经授权
-            ToastUtil.makeText("已经授权");
         }
     }
 }

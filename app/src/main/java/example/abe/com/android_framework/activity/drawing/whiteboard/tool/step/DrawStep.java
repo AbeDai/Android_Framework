@@ -26,7 +26,6 @@ public class DrawStep implements IStep{
     }
 
     public void quadTo(float x1, float y1, float x2, float y2) {
-        //TODO:学习贝塞尔曲线，看看为什么这个没有断点
         mPath.quadTo(x1, y1, x2, y2);
     }
 }

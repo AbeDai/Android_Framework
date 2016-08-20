@@ -102,7 +102,7 @@ public class BannerFragment extends BaseFragment {
 
         NetworkImageView imageView = new NetworkImageView(getActivity());
         imageView.setDefaultImageResId(android.R.drawable.ic_delete);
-        imageView.setErrorImageResId(R.mipmap.ic_launcher);
+        imageView.setErrorImageResId(R.drawable.ic_launcher);
         imageView.setImageUrl(url, loader);
 
         return imageView;

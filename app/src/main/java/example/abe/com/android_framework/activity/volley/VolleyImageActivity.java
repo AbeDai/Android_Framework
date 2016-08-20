@@ -66,13 +66,13 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
 
             case R.id.act_volley_image_btn_loader:{
                 ImageLoader.ImageListener listener = ImageLoader.getImageListener(mIv,
-                        R.drawable.icon_custom_dialog, R.mipmap.ic_launcher);
+                        R.drawable.icon_custom_dialog, R.drawable.ic_launcher);
                 mLoader.get(mImgUrl, listener,  0, 0);
             }break;
 
             case R.id.act_volley_image_btn_view:{
                 mIvNetwork.setDefaultImageResId(R.drawable.icon_custom_dialog);
-                mIvNetwork.setErrorImageResId(R.mipmap.ic_launcher);
+                mIvNetwork.setErrorImageResId(R.drawable.ic_launcher);
                 mIvNetwork.setImageUrl(mImgUrl, mLoader);
             }break;
         }
@@ -88,7 +88,7 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
     private Response.ErrorListener mErrorListener = new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            mIv.setImageResource(R.mipmap.ic_launcher);
+            mIv.setImageResource(R.drawable.ic_launcher);
         }
     };
 }

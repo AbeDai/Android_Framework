@@ -45,7 +45,7 @@ public class TabLayoutActivity extends BaseActivity {
         mTabLayout1.setupWithViewPager(mPager);
 
         //单独TabLayout
-        TabLayout.Tab tab1 = mTabLayout2.newTab().setIcon(R.mipmap.ic_launcher).setText("自定义_1");
+        TabLayout.Tab tab1 = mTabLayout2.newTab().setIcon(R.drawable.ic_launcher).setText("自定义_1");
         TabLayout.Tab tab2 = mTabLayout2.newTab().setIcon(android.R.drawable.sym_def_app_icon).setText("自定义_2");
         TabLayout.Tab tab3 = mTabLayout2.newTab().setIcon(android.R.drawable.star_big_on).setText("自定义_3");
         TabLayout.Tab tab4 = mTabLayout2.newTab().setIcon(android.R.drawable.ic_menu_week).setText("自定义_4");

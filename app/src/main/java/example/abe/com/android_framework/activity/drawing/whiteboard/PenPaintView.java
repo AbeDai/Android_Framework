@@ -16,20 +16,20 @@ public class PenPaintView extends AbPaintView {
 
     public PenPaintView(Context context) {
         super(context);
-        init(null, 0);
+        init();
     }
 
     public PenPaintView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs, 0);
+        init();
     }
 
     public PenPaintView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs, defStyle);
+        init();
     }
 
-    private void init(AttributeSet attrs, int defStyle) {
+    private void init() {
         mDrawManager = new DrawManager(this, Type.DRAW);
         mDrawManager.setStatusColor(PaintFeatures.PaintColor.BLUE);
         mDrawManager.setStatusWidth(PaintFeatures.PaintWidth.NORMAL);
@@ -37,7 +37,7 @@ public class PenPaintView extends AbPaintView {
         mDrawManager.setType(Type.DRAW);
     }
 
-    public DrawManager getDrawManager(){
+    public DrawManager getDrawManager() {
         return mDrawManager;
     }
 

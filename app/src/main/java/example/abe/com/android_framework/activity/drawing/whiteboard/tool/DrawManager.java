@@ -165,6 +165,7 @@ public class DrawManager {
                 break;
 
             case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
                 if (mType == Type.DRAW || mType == Type.ERASER
                         || mType == Type.TEXT || mType == Type.RECT) {
                     savePath(mCurStep);
