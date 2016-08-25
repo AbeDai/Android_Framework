@@ -70,6 +70,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         return false;
     }
 
+    //TODO：学习APT注解处理方式，然后，通过注解解决封装成一套框架
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                            int[] grantResults) {
