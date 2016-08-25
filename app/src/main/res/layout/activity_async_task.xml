@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.abe.com.android_framework.activity.multithread.AsyncTaskActivity">
+    
+    <ProgressBar
+        android:id="@+id/act_async_task_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        style="?android:attr/progressBarStyleHorizontal"/>
+
+    <Button
+        android:id="@+id/act_async_task_btn_start"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="100dp"
+        android:text="开始AsyncTask任务"/>
+
+    <Button
+        android:id="@+id/act_async_task_btn_cancel"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="100dp"
+        android:text="停止AsyncTask任务"/>
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/act_thread_btn_async_task"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="AsyncTask使用介绍"/>
+
+    <Button
+        android:id="@+id/act_thread_btn_handler_thread"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="HandlerThread使用介绍"/>
+
+    <Button
+        android:id="@+id/act_thread_btn_thread_pool"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Thread Pool使用介绍"/>
+
+</LinearLayout>

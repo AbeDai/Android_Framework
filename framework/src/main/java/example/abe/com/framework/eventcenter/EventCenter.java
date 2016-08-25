@@ -17,8 +17,7 @@ public class EventCenter {
     private static EventCenter instance;
     private EventHandler mEventHandler;
     private Map<Class<?>, List<EventMethod>> mMapEventMethods;
-
-    public static EventCenter getInstance(){
+    public static EventCenter getDefault(){
         if (instance == null){
             init();
         }
@@ -88,19 +87,19 @@ public class EventCenter {
         }
     }
 
-    public void post(Object args0){
-        Class<?> clazz = args0.getClass();
+    public void post(Object event){
+        Class<?> clazz = event.getClass();
 
         List<EventMethod> list = mMapEventMethods.get(clazz);
         if (list != null){
             for (EventMethod em: list){
 
                 if (em.getmType() == EventMethod.Type.UI){
-                    mEventHandler.postUI(em, args0);
+                    mEventHandler.postUI(em, event);
                 }
 
                 if (em.getmType() == EventMethod.Type.BG){
-                    mEventHandler.postBg(em, args0);
+                    mEventHandler.postBg(em, event);
                 }
             }
         }

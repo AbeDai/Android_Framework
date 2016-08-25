@@ -42,13 +42,13 @@ public class ReaderSocketActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventCenter.getInstance().register(this);
+        EventCenter.getDefault().register(this);
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
-        EventCenter.getInstance().unRigister(this);
+        EventCenter.getDefault().unRigister(this);
     }
 
     @Override
@@ -141,7 +141,7 @@ public class ReaderSocketActivity extends BaseActivity implements View.OnClickLi
     }
 
     public void onEventUI(MessageEvent event) {
-        mTvDisplay.setText(event.getmMessage());
+        mTvDisplay.setText(event.getMessage());
     }
 
 

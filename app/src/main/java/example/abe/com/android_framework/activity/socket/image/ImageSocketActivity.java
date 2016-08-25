@@ -44,13 +44,13 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventCenter.getInstance().register(this);
+        EventCenter.getDefault().register(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventCenter.getInstance().unRigister(this);
+        EventCenter.getDefault().unRigister(this);
     }
 
     @Override

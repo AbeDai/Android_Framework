@@ -42,15 +42,15 @@ public class EventCenterActivity extends BaseActivity {
             switch (v.getId()) {
                 case R.id.act_event_center_btn_post_event:
                     MessageEvent event = new MessageEvent("发送消息：我是戴益波");
-                    EventCenter.getInstance().post(event);
+                    EventCenter.getDefault().post(event);
                     break;
 
                 case R.id.act_event_center_btn_register:
-                    EventCenter.getInstance().register(EventCenterActivity.this);
+                    EventCenter.getDefault().register(EventCenterActivity.this);
                     break;
 
                 case R.id.act_event_center_btn_unregister:
-                    EventCenter.getInstance().unRigister(EventCenterActivity.this);
+                    EventCenter.getDefault().unRigister(EventCenterActivity.this);
                     break;
             }
         }
@@ -68,7 +68,7 @@ public class EventCenterActivity extends BaseActivity {
             Log.e("ABE onEventUI", "当前线程是BG线程");
         }
 
-        tv.setText(event.getmMessage());
+        tv.setText(event.getMessage());
     }
 
     public void onEventBg(MessageEvent event) {

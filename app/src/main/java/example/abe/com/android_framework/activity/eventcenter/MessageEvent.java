@@ -10,11 +10,11 @@ public class MessageEvent {
         mMessage = message;
     }
 
-    public String getmMessage() {
+    public String getMessage() {
         return mMessage;
     }
 
-    public void setmMessage(String mMessage) {
+    public void setMessage(String mMessage) {
         this.mMessage = mMessage;
     }
 }

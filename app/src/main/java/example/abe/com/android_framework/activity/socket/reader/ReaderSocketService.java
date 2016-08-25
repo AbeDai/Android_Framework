@@ -21,7 +21,7 @@ public class ReaderSocketService extends SocketService {
             int len;
             while ((len = reader.read(chars)) != -1) {
                 MessageEvent event = new MessageEvent(new String(chars, 0, len));
-                EventCenter.getInstance().post(event);
+                EventCenter.getDefault().post(event);
             }
         } catch (IOException e) {
             e.printStackTrace();

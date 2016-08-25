@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android_framework.activity.multithread.ThreadPoolActivity">
+
+    <Button
+        android:id="@+id/act_thread_pool_btn_single_executor"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="SingleThreadExecutor执行任务"/>
+
+    <Button
+        android:id="@+id/act_thread_pool_btn_cache_thread_pool"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Cache ThreadPool执行任务"/>
+
+    <Button
+        android:id="@+id/act_thread_pool_btn_fixed_thread_pool"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Fixed ThreadPool执行任务"/>
+
+    <Button
+        android:id="@+id/act_thread_pool_btn_scheduled_thread_pool"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Scheduled ThreadPool执行任务"/>
+    
+    <TextView
+        android:id="@+id/act_thread_pool_tv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
+</LinearLayout>

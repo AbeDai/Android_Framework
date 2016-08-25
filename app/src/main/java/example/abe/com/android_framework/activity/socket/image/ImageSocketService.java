@@ -18,7 +18,7 @@ public class ImageSocketService extends SocketService {
         try {
             Bitmap bitmap = BitmapFactory.decodeStream(socket.getInputStream());
             BitmapEvent event = new BitmapEvent(bitmap);
-            EventCenter.getInstance().post(event);
+            EventCenter.getDefault().post(event);
         } catch (IOException e) {
             e.printStackTrace();
         }

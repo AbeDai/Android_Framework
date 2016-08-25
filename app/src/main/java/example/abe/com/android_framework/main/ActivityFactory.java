@@ -11,6 +11,7 @@ import example.abe.com.android_framework.activity.drawing.DrawActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
+import example.abe.com.android_framework.activity.multithread.MultiThreadActivity;
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
 import example.abe.com.android_framework.activity.socket.SocketActivity;
@@ -71,6 +72,9 @@ public class ActivityFactory {
 
         //Socket使用介绍
         SOCKET,
+
+        //多线程框架
+        MULTI_THREAD,
     }
 
     public static Class getClass(Flags flag) {
@@ -114,6 +118,9 @@ public class ActivityFactory {
                 break;
             case SOCKET:
                 clazz = SocketActivity.class;
+                break;
+            case MULTI_THREAD:
+                clazz = MultiThreadActivity.class;
                 break;
         }
         return clazz;
@@ -166,6 +173,10 @@ public class ActivityFactory {
                 break;
             case SOCKET:
                 title = ResourceUtil.getString(R.string.act_title_socket);
+                break;
+            case MULTI_THREAD:
+                title = ResourceUtil.getString(R.string.act_title_multi_thread);
+                break;
         }
 
         //存储
@@ -220,6 +231,10 @@ public class ActivityFactory {
                 break;
             case SOCKET:
                 content = ResourceUtil.getString(R.string.act_content_socket);
+                break;
+            case MULTI_THREAD:
+                content = ResourceUtil.getString(R.string.act_content_multi_thread);
+                break;
         }
 
         //存储
