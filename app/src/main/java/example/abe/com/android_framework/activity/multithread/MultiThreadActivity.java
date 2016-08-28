@@ -18,6 +18,8 @@ public class MultiThreadActivity extends BaseActivity implements View.OnClickLis
     public Button mBtnHandlerThread;
     @ViewInject(id = R.id.act_thread_btn_thread_pool)
     public Button mBtnThreadPool;
+    @ViewInject(id = R.id.act_thread_btn_intent_service)
+    public Button mBtnIntentService;
 
     @Override
     public void initData() {
@@ -29,6 +31,7 @@ public class MultiThreadActivity extends BaseActivity implements View.OnClickLis
         mBtnAsyncTask.setOnClickListener(this);
         mBtnHandlerThread.setOnClickListener(this);
         mBtnThreadPool.setOnClickListener(this);
+        mBtnIntentService.setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +46,9 @@ public class MultiThreadActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.act_thread_btn_thread_pool:
                 intent = new Intent(MultiThreadActivity.this, ThreadPoolActivity.class);
+                break;
+            case R.id.act_thread_btn_intent_service:
+                intent = new Intent(MultiThreadActivity.this, IntentServiceActivity.class);
                 break;
         }
         startActivity(intent);

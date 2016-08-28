@@ -25,4 +25,11 @@
         android:layout_weight="1"
         android:text="Thread Pool使用介绍"/>
 
+    <Button
+        android:id="@+id/act_thread_btn_intent_service"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Intent Service使用介绍"/>
+
 </LinearLayout>

@@ -13,15 +13,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".main.MainActivity"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
         <activity android:name=".activity.retrofit.RetrofitActivity"/>
         <activity android:name=".activity.recyclelist.RecycleListActivity"/>
         <activity android:name=".activity.viewpager.ViewPagerActivity"/>
@@ -40,6 +31,20 @@
         <activity android:name=".activity.socket.reader.ReaderSocketActivity"/>
         <activity android:name=".activity.socket.SocketActivity"/>
         <activity android:name=".activity.socket.image.ImageSocketActivity"/>
+        <activity android:name=".activity.multithread.MultiThreadActivity"/>
+        <activity android:name=".activity.multithread.AsyncTaskActivity"/>
+        <activity android:name=".activity.multithread.HandlerThreadActivity"/>
+        <activity android:name=".activity.multithread.ThreadPoolActivity"/>
+        <activity android:name=".activity.multithread.IntentServiceActivity"/>
+        <activity
+            android:name=".main.MainActivity"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -53,15 +58,8 @@
             android:name=".activity.socket.image.ImageSocketService"
             android:enabled="true"
             android:exported="true"/>
-
-        <activity android:name=".activity.multithread.MultiThreadActivity">
-        </activity>
-        <activity android:name=".activity.multithread.AsyncTaskActivity">
-        </activity>
-        <activity android:name=".activity.multithread.HandlerThreadActivity">
-        </activity>
-        <activity android:name=".activity.multithread.ThreadPoolActivity">
-        </activity>
+        <service
+            android:name=".activity.multithread.MyIntentService"/>
     </application>
 
 </manifest>
