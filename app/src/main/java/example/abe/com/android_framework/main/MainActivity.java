@@ -30,12 +30,12 @@ import example.abe.com.framework.viewinject.ViewInject;
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
         TextView.OnEditorActionListener {
 
+    private static final int MY_PERMISSIONS_REQUEST = 100;
     @ViewInject(id = R.id.act_main_list)
     private ListView mLv;
     @ViewInject(id = R.id.act_main_et_search)
     private EditText mEtSearch;
     private MainAdapter mAdapter;
-    private static final int MY_PERMISSIONS_REQUEST = 100;
 
     @Override
     public void initData() {
