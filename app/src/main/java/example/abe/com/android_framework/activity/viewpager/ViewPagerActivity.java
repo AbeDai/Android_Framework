@@ -105,7 +105,5 @@ public class ViewPagerActivity extends BaseActivity implements View.OnClickListe
         view.setBackgroundColor(color);
         return view;
     }
-
-
 }
 

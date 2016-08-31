@@ -11,6 +11,7 @@ import example.abe.com.android_framework.activity.drawing.DrawActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
+import example.abe.com.android_framework.activity.imageloader.ImageLoaderActivity;
 import example.abe.com.android_framework.activity.multithread.MultiThreadActivity;
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
@@ -75,6 +76,9 @@ public class ActivityFactory {
 
         //多线程框架
         MULTI_THREAD,
+
+        //自定义图片加载框架
+        IMAGE_LOADER,
     }
 
     public static Class getClass(Flags flag) {
@@ -121,6 +125,9 @@ public class ActivityFactory {
                 break;
             case MULTI_THREAD:
                 clazz = MultiThreadActivity.class;
+                break;
+            case IMAGE_LOADER:
+                clazz = ImageLoaderActivity.class;
                 break;
         }
         return clazz;
@@ -176,6 +183,9 @@ public class ActivityFactory {
                 break;
             case MULTI_THREAD:
                 title = ResourceUtil.getString(R.string.act_title_multi_thread);
+                break;
+            case IMAGE_LOADER:
+                title = ResourceUtil.getString(R.string.act_title_image_loader);
                 break;
         }
 
@@ -234,6 +244,9 @@ public class ActivityFactory {
                 break;
             case MULTI_THREAD:
                 content = ResourceUtil.getString(R.string.act_content_multi_thread);
+                break;
+            case IMAGE_LOADER:
+                content = ResourceUtil.getString(R.string.act_content_image_loader);
                 break;
         }
 

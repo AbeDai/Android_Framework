@@ -58,8 +58,10 @@
             android:name=".activity.socket.image.ImageSocketService"
             android:enabled="true"
             android:exported="true"/>
-        <service
-            android:name=".activity.multithread.MyIntentService"/>
+        <service android:name=".activity.multithread.MyIntentService"/>
+
+        <activity android:name=".activity.imageloader.ImageLoaderActivity">
+        </activity>
     </application>
 
 </manifest>
