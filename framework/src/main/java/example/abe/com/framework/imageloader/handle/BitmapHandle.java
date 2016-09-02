@@ -17,7 +17,6 @@ public class BitmapHandle implements IImageHandle {
     private BitmapHandleListener mListener;
     private String mUrl;
 
-
     public BitmapHandle(String url, BitmapHandleListener listener){
         mListener = listener;
         mUrl = url;
