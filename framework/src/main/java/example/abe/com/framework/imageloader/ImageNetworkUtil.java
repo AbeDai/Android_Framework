@@ -19,11 +19,16 @@ import example.abe.com.framework.util.LogUtil;
  */
 public class ImageNetworkUtil {
 
-    public static Bitmap downloadImgByUrl(String strUrl) {
+    /**
+     * 网络加载图片方式
+     * @param path 图片地址
+     * @return 位图
+     */
+    public static Bitmap downloadImgByUrl(String path) {
         InputStream is = null;
         Bitmap bitmap = null;
         try {
-            URL url = new URL(strUrl);
+            URL url = new URL(path);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             is = new BufferedInputStream(conn.getInputStream());

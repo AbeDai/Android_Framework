@@ -62,6 +62,10 @@
 
         <activity android:name=".activity.imageloader.ImageLoaderActivity">
         </activity>
+        <activity android:name=".activity.imageloader.ImageLoaderGridViewActivity">
+        </activity>
+        <activity android:name=".activity.imageloader.ImageLoaderImageViewActivity">
+        </activity>
     </application>
 
 </manifest>

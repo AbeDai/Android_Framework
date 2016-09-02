@@ -1,5 +1,8 @@
 package example.abe.com.framework.util;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,7 +30,15 @@ public class ResourceUtil {
      * @return String内容
      */
     public static String getString(int id) {
-        String strings = BaseApplication.getInstance().getResources().getString(id);
-        return strings;
+        return BaseApplication.getInstance().getResources().getString(id);
+    }
+
+    /**
+     * 获取资源文件中的图片
+     * @param id 资源id
+     * @return 位图
+     */
+    public static Bitmap getBitmap(int id){
+        return BitmapFactory.decodeResource(BaseApplication.getInstance().getResources(), id);
     }
 }

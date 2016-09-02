@@ -59,7 +59,7 @@ public class FileUtil {
     }
 
     /**
-     * 获取图片文件
+     * 获取图片文件（不存在则创建）
      * @param name 图片名
      * @return 图片文件
      */
@@ -77,7 +77,7 @@ public class FileUtil {
     }
 
     /**
-     * 获取图片目录
+     * 获取图片目录（不存在则创建）
      * @return 图片目录
      */
     public static File getImagesDir(){
@@ -90,7 +90,7 @@ public class FileUtil {
     }
 
     /**
-     * 获取缓存目录
+     * 获取缓存目录（不存在则创建）
      * @return 缓存目录
      */
     public static File getCacheDir(){
@@ -102,4 +102,13 @@ public class FileUtil {
         return cache;
     }
 
+    /**
+     * 判断图片文件是否存在
+     * @param name 图片名
+     * @return 是否存在
+     */
+    public static boolean isImageFileExists(String name){
+        File image = new File(getImagesDir(), name);
+        return image.exists();
+    }
 }
