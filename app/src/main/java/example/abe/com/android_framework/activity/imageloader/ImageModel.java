@@ -2,13 +2,15 @@ package example.abe.com.android_framework.activity.imageloader;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by abe on 16/9/1.
  */
-public class Images {
+public class ImageModel {
 
-    public final static List<String> listImageUrl = Arrays.asList(
+    public static final Random random = new Random(System.currentTimeMillis());
+    public static final List<String> listImageUrl = Arrays.asList(
             "http://img.my.csdn.net/uploads/201407/26/1406383299_1976.jpg",
             "http://img.my.csdn.net/uploads/201407/26/1406383291_6518.jpg",
             "http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg",
@@ -94,4 +96,9 @@ public class Images {
             "http://img.my.csdn.net/uploads/201407/26/1406382766_4924.jpg",
             "http://img.my.csdn.net/uploads/201407/26/1406382766_5762.jpg",
             "http://img.my.csdn.net/uploads/201407/26/1406382765_7341.jpg");
+
+    public static String getRandomImageUrl(){
+        int location = random.nextInt(listImageUrl.size());
+        return listImageUrl.get(location);
+    }
 }

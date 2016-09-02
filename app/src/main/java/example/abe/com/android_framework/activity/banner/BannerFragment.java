@@ -9,9 +9,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,6 +16,7 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.volley.BitmapCache;
+import example.abe.com.framework.imageloader.ImageLoader;
 import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.util.DensityUtil;
 import example.abe.com.framework.viewinject.ContentView;
@@ -51,7 +49,7 @@ public class BannerFragment extends BaseFragment {
     public static BannerFragment newInstanceWithURL(List<String> urls) {
         BannerFragment fragment = new BannerFragment();
 
-     Bundle bundle = new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putStringArrayList(DATA_URLS, new ArrayList<>(urls));
         fragment.setArguments(bundle);
 
@@ -78,11 +76,11 @@ public class BannerFragment extends BaseFragment {
         if (urls != null) {
             LinkedList<View> data = new LinkedList<>();
             for (String url : urls) {
-                data.add(getNetworkImageView(url));
+                data.add(getImageView(url));
             }
             //过渡视图
-            data.addFirst(getNetworkImageView(urls.get(urls.size() - 1)));
-            data.addLast(getNetworkImageView(urls.get(0)));
+            data.addFirst(getImageView(urls.get(urls.size() - 1)));
+            data.addLast(getImageView(urls.get(0)));
             mData = new ArrayList<>(data);
         }
     }
@@ -95,15 +93,9 @@ public class BannerFragment extends BaseFragment {
         mBanner.start();
     }
 
-    private NetworkImageView getNetworkImageView(String url){
-
-        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        ImageLoader loader = new ImageLoader(queue, new BitmapCache());
-
-        NetworkImageView imageView = new NetworkImageView(getActivity());
-        imageView.setDefaultImageResId(android.R.drawable.ic_delete);
-        imageView.setErrorImageResId(R.drawable.ic_launcher);
-        imageView.setImageUrl(url, loader);
+    private ImageView getImageView(String url){
+        ImageView imageView = new ImageView(getActivity());
+        ImageLoader.getInstance().getImage(imageView, url);
 
         return imageView;
     }

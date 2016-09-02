@@ -19,11 +19,9 @@ public class ImageLoaderImageViewActivity extends BaseActivity implements View.O
     private Button mBtnChangeImage;
     @ViewInject(id = R.id.act_image_loader_image_view_root)
     private ImageView mIvShow;
-    private int position;
 
     @Override
     public void initData() {
-        position = 0;
     }
 
     @Override
@@ -33,8 +31,7 @@ public class ImageLoaderImageViewActivity extends BaseActivity implements View.O
 
     @Override
     public void onClick(View v) {
-        position = ((position + 1) % Images.listImageUrl.size());
-        ImageLoader.getInstance().getImageFIFO(Images.listImageUrl.get(position),
+        ImageLoader.getInstance().getImage(ImageModel.getRandomImageUrl(),
                 new BitmapHandle.BitmapHandleListener() {
                     @Override
                     public void onHandle(Bitmap bitmap) {

@@ -27,7 +27,7 @@ public class ImageLoaderGridViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mGridView.setAdapter(new ListImgItemAdaper(this, 0, Images.listImageUrl));
+        mGridView.setAdapter(new ListImgItemAdaper(this, 0, ImageModel.listImageUrl));
     }
 
     private class ListImgItemAdaper extends ArrayAdapter<String> {
@@ -45,10 +45,9 @@ public class ImageLoaderGridViewActivity extends BaseActivity {
             final ImageView imageview = (ImageView) convertView;
             imageview.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 120));
             imageview.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            ImageLoader.getInstance().getImage(imageview, getItem(position));
+            ImageLoader.getInstance().getImageFIFO(imageview, getItem(position));
             return convertView;
         }
-
     }
 
 }
