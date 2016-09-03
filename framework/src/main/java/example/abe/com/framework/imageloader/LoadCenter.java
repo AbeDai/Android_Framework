@@ -121,13 +121,18 @@ public class LoadCenter {
                 String name = EncryptionUtil.getMd5(url);
                 String uid = imageHandle.getUniqueId();
 
+                //保存在内存
                 if (mImageCache.isExistsCache(uid)){
                     bitmap = mImageCache.getBitmapCache(uid);
-                }else if (mImageCache.isExistsDisk(name)){
+                }
+                //保存在本地
+                else if (mImageCache.isExistsDisk(name)){
                     byte[] bytes = mImageCache.getBitmapDisk(name);
                     bitmap = imageHandle.onPreHandle(bytes);
                     mImageCache.saveBitmapCache(uid, bitmap);
-                } else{
+                }
+                //网络加载
+                else{
                     byte[] bytes = ImageNetworkUtil.loadByteArrayByUrl(url);
                     mImageCache.saveBitmapDisk(name, bytes);
                     bitmap = imageHandle.onPreHandle(bytes);

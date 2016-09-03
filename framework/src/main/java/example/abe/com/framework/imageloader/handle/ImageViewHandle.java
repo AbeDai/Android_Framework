@@ -1,13 +1,11 @@
 package example.abe.com.framework.imageloader.handle;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import java.util.UUID;
 
 import example.abe.com.framework.R;
 import example.abe.com.framework.main.BaseApplication;
@@ -21,31 +19,27 @@ public class ImageViewHandle implements IImageHandle {
     private String mUrl;
     private ImageView mIv;
     int[] size;
+
     public ImageViewHandle(ImageView imageView, String url) {
         mIv = imageView;
         mUrl = url;
-        setDefaultImage();
-        getImageSize();
+        init();
     }
 
-    /**
-     * 获取图片大小
-     */
-    private void getImageSize(){
-        size = getImageViewSize(mIv);
-    }
 
-    /**
-     * 设置默认图片
-     */
-    private void setDefaultImage() {
-        if (mIv != null) {
+    private void init() {
+        if (mIv != null){
+            //获取图片大小
+            size = getImageViewSize(mIv);
+            //设置默认图片
             mIv.setImageResource(R.drawable.ic_no_picture);
+            //将ImageView与Url绑定
+            mIv.setTag(R.id.image_view_handle_image_url, mUrl);
         }
     }
 
     @Override
-    public String getUniqueId(){
+    public String getUniqueId() {
         return EncryptionUtil.getMd5("ImageViewHandle" +
                 size[0] + size[1] + mUrl);
     }
@@ -79,7 +73,9 @@ public class ImageViewHandle implements IImageHandle {
 
     @Override
     public void onImageLoadSuccess(Bitmap bitmap, String url) {
-        if (mIv != null) {
+        String oldUrl = (String) mIv.getTag(R.id.image_view_handle_image_url);
+        if (mIv != null && TextUtils.equals(url, oldUrl)) {
+            //url相等，image url没有改变，进行图片加载
             mIv.setImageBitmap(bitmap);
         }
     }
@@ -106,7 +102,7 @@ public class ImageViewHandle implements IImageHandle {
         // 获取ImageView的实际宽度
         int width = imageView.getWidth();
         if (width <= 0) {
-            if (lp != null){
+            if (lp != null) {
                 // 获取ImageView在layout中声明的宽度
                 width = lp.width;
             }
@@ -123,7 +119,7 @@ public class ImageViewHandle implements IImageHandle {
         // 获取ImageView的实际高度
         int height = imageView.getHeight();
         if (height <= 0) {
-            if (lp != null){
+            if (lp != null) {
                 // 获取ImageView在layout中声明的高度
                 height = lp.height;
             }
