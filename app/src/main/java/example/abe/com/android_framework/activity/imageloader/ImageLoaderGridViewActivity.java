@@ -1,6 +1,7 @@
 package example.abe.com.android_framework.activity.imageloader;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.imageloader.ImageLoader;
+import example.abe.com.framework.imageloader.handle.BitmapHandle;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.viewinject.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
@@ -27,25 +29,27 @@ public class ImageLoaderGridViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mGridView.setAdapter(new ListImgItemAdaper(this, 0, ImageModel.listImageUrl));
+        mGridView.setAdapter(new ListImgItemAdapter(this, 0, ImageModel.listImageUrl));
     }
 
-    private class ListImgItemAdaper extends ArrayAdapter<String> {
+    private class ListImgItemAdapter extends ArrayAdapter<String> {
 
-        public ListImgItemAdaper(Context context, int resource, List<String> datas) {
+        public ListImgItemAdapter(Context context, int resource, List<String> datas) {
             super(context, resource, datas);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = new ImageView(ImageLoaderGridViewActivity.this);
+                ImageView imageView= new ImageView(ImageLoaderGridViewActivity.this);
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 120));
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                convertView = imageView;
             }
 
-            final ImageView imageview = (ImageView) convertView;
-            imageview.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 120));
-            imageview.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            ImageLoader.getInstance().getImageFIFO(imageview, getItem(position));
+            final ImageView imageView = (ImageView) convertView;
+            ImageLoader.getInstance().getImageFIFO(imageView, getItem(position));
+
             return convertView;
         }
     }

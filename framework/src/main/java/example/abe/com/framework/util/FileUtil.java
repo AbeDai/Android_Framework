@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,9 +21,33 @@ public class FileUtil {
     /**
      * 保存位图到本地
      * @param name 图片名
+     * @param bytes 位图字节码
+     */
+    public static void saveBitmapBytes(String name, byte[] bytes){
+        //保存图片
+        File imgFile = FileUtil.getImageFile(name);
+        try {
+            OutputStream out = new FileOutputStream(imgFile);
+            out.write(bytes);
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 保存位图到本地
+     * @param name 图片名
      * @param bitmap 图片位图
      */
     public static void saveBitmap(String name, Bitmap bitmap){
+        //添加图片格式后缀
+        name += ".png";
+        //保存图片
         File imgFile = FileUtil.getImageFile(name);
         try {
             OutputStream out = new FileOutputStream(imgFile);
@@ -42,8 +67,10 @@ public class FileUtil {
      * @return 位图
      */
     public static Bitmap getBitmap(String name) {
+        //添加图片格式后缀
+        name += ".png";
+        //保存图片
         File imgFile = FileUtil.getImageFile(name);
-
         Bitmap bitmap = null;
         try {
             FileInputStream in = new FileInputStream(imgFile);
@@ -54,8 +81,39 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return bitmap;
+    }
+
+    /**
+     * 本地获取位图
+     * @param name 图片名
+     * @return 位图
+     */
+    public static byte[] getBitmapBytes(String name) {
+        File imgFile = FileUtil.getImageFile(name);
+
+        byte[] bytes = new byte[0];
+        ByteArrayOutputStream os = null;
+        FileInputStream in = null;
+        try {
+            in = new FileInputStream(imgFile);
+            os = new ByteArrayOutputStream();
+
+            byte[] buffer = new byte[512];
+            while (in.read(buffer) != -1){
+                os.write(buffer);
+            }
+
+            bytes = os.toByteArray();
+            os.close();
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return bytes;
     }
 
     /**

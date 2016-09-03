@@ -8,6 +8,14 @@ import android.graphics.Bitmap;
 public interface IImageHandle {
 
     /**
+     * 获取处理后得到的图片的唯一id
+     * （将与图片处理有关的所有因素都结合组成一个MD5码）
+     *
+     * @return 唯一id
+     */
+    String getUniqueId();
+
+    /**
      * 获取图片地址
      * @return 图片地址
      */
@@ -15,10 +23,10 @@ public interface IImageHandle {
 
     /**
      * 处理图片
-     * @param origin 原始图片
+     * @param bytes 原始图片字节码
      * @return 处理后图片
      */
-    Bitmap onPreHandle(Bitmap origin);
+    Bitmap onPreHandle(byte[] bytes);
 
     /**
      * 图片加载成功回调

@@ -1,6 +1,7 @@
 package example.abe.com.framework.imageloader;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -118,18 +119,19 @@ public class LoadCenter {
                 final Bitmap bitmap;
                 final String url = imageHandle.getImageUrl();
                 String name = EncryptionUtil.getMd5(url);
+                String uid = imageHandle.getUniqueId();
 
-                if (mImageCache.isExistsCache(name)){
-                    bitmap = mImageCache.getBitmapCache(name);
+                if (mImageCache.isExistsCache(uid)){
+                    bitmap = mImageCache.getBitmapCache(uid);
                 }else if (mImageCache.isExistsDisk(name)){
-                    Bitmap origin = mImageCache.getBitmapDisk(name);
-                    bitmap = imageHandle.onPreHandle(origin);
-                    mImageCache.saveBitmapCache(name, bitmap);
+                    byte[] bytes = mImageCache.getBitmapDisk(name);
+                    bitmap = imageHandle.onPreHandle(bytes);
+                    mImageCache.saveBitmapCache(uid, bitmap);
                 } else{
-                    Bitmap origin = ImageNetworkUtil.downloadImgByUrl(url);
-                    mImageCache.saveBitmapDisk(name, origin);
-                    bitmap = imageHandle.onPreHandle(origin);
-                    mImageCache.saveBitmapCache(name, bitmap);
+                    byte[] bytes = ImageNetworkUtil.loadByteArrayByUrl(url);
+                    mImageCache.saveBitmapDisk(name, bytes);
+                    bitmap = imageHandle.onPreHandle(bytes);
+                    mImageCache.saveBitmapCache(uid, bitmap);
                 }
 
                 mUIHandler.post(new Runnable() {
@@ -150,7 +152,7 @@ public class LoadCenter {
     }
 
     /**
-     * 添加任务（LIFO）
+     * 添加任务
      *
      * @param task 任务
      */
@@ -174,7 +176,7 @@ public class LoadCenter {
     }
 
     /**
-     * 获取任务（LIFO）
+     * 获取任务
      *
      * @return 任务
      */

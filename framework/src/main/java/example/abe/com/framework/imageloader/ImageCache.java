@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
 import example.abe.com.framework.util.FileUtil;
-import example.abe.com.framework.util.LogUtil;
 
 /**
  * Created by abe on 16/8/31.
@@ -29,7 +28,8 @@ public class ImageCache {
         mLruCache = new LruCache<String, Bitmap>(cacheMemory) {
             @Override
             protected int sizeOf(String key, Bitmap value) {
-                return value.getRowBytes() * value.getHeight();
+                //获取位图大小
+                return value.getByteCount();
             }
         };
     }
@@ -37,12 +37,12 @@ public class ImageCache {
     /**
      * 保存图片到缓存
      *
-     * @param name   名字
+     * @param uid   名字
      * @param bitmap 位图
      */
-    public synchronized void saveBitmapCache(String name, Bitmap bitmap) {
-        if (mLruCache.get(name) == null) {
-            mLruCache.put(name, bitmap);
+    public synchronized void saveBitmapCache(String uid, Bitmap bitmap) {
+        if (mLruCache.get(uid) == null) {
+            mLruCache.put(uid, bitmap);
         }
     }
 
@@ -50,23 +50,23 @@ public class ImageCache {
      * 保存图片到本地
      *
      * @param name   名字
-     * @param bitmap 位图
+     * @param bytes 位图字节码
      */
-    public synchronized void saveBitmapDisk(String name, Bitmap bitmap) {
+    public synchronized void saveBitmapDisk(String name, byte[] bytes) {
         if (!FileUtil.isImageFileExists(name)) {
-            FileUtil.saveBitmap(name, bitmap);
+            FileUtil.saveBitmapBytes(name, bytes);
         }
     }
 
     /**
      * 获取缓存中保存的图片
      *
-     * @param name 名字
+     * @param uid 名字
      * @return 位图
      */
-    public synchronized Bitmap getBitmapCache(String name) {
+    public synchronized Bitmap getBitmapCache(String uid) {
         Bitmap bitmap;
-        if ((bitmap = mLruCache.get(name)) != null) {
+        if ((bitmap = mLruCache.get(uid)) != null) {
             return bitmap;
         }
         return bitmap;
@@ -78,24 +78,22 @@ public class ImageCache {
      * @param name 名字
      * @return 位图
      */
-    public synchronized Bitmap getBitmapDisk(String name) {
-        Bitmap bitmap = null;
+    public synchronized byte[] getBitmapDisk(String name) {
+        byte[] bytes = new byte[0];
         if (FileUtil.isImageFileExists(name)) {
-            bitmap = FileUtil.getBitmap(name);
-            mLruCache.put(name, bitmap);
-            return bitmap;
+            bytes = FileUtil.getBitmapBytes(name);
         }
-        return bitmap;
+        return bytes;
     }
 
     /**
      * 判断缓存中存在图片
      *
-     * @param name 名字
+     * @param uid 名字
      * @return 是否存在
      */
-    public synchronized boolean isExistsCache(String name) {
-        if (mLruCache.get(name) != null)
+    public synchronized boolean isExistsCache(String uid) {
+        if (mLruCache.get(uid) != null)
             return true;
 
         return false;
