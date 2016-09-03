@@ -1,7 +1,6 @@
 package example.abe.com.framework.imageloader;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -27,7 +26,8 @@ public class LoadCenter {
 
     //线程池
     private ExecutorService mThreadPool;
-    private static final int DEFAULT_THREAD_COUNT = 3;
+    private static final int CPU_COUNT =  Runtime.getRuntime().availableProcessors();
+    private static final int DEFAULT_THREAD_COUNT = CPU_COUNT + 1;
 
     //后台线程
     private Thread mPoolThread;

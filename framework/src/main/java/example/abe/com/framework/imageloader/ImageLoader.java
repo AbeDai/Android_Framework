@@ -2,8 +2,6 @@ package example.abe.com.framework.imageloader;
 
 import android.widget.ImageView;
 
-import java.util.Queue;
-
 import example.abe.com.framework.imageloader.handle.BitmapHandle;
 import example.abe.com.framework.imageloader.handle.ImageViewHandle;
 
@@ -46,15 +44,15 @@ public class ImageLoader {
     }
 
     /***********************  位图处理策略  ***********************/
-    public void getImage(String url, BitmapHandle.BitmapHandleListener listener) {
-        getImageLIFO( url,listener);
+    public void getBitmap(String url, BitmapHandle.BitmapHandleListener listener) {
+        getBitmapLIFO( url,listener);
     }
 
-    public void getImageFIFO(String url, BitmapHandle.BitmapHandleListener listener) {
+    public void getBitmapFIFO(String url, BitmapHandle.BitmapHandleListener listener) {
         mLoadCenterFIFO.submitTask(new BitmapHandle(url, listener));
     }
 
-    public void getImageLIFO(String url, BitmapHandle.BitmapHandleListener listener) {
+    public void getBitmapLIFO(String url, BitmapHandle.BitmapHandleListener listener) {
         mLoadCenterLIFO.submitTask(new BitmapHandle(url, listener));
     }
 

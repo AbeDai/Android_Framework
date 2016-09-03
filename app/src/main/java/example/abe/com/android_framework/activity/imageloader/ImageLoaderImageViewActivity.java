@@ -31,7 +31,7 @@ public class ImageLoaderImageViewActivity extends BaseActivity implements View.O
 
     @Override
     public void onClick(View v) {
-        ImageLoader.getInstance().getImage(ImageModel.getRandomImageUrl(),
+        ImageLoader.getInstance().getBitmap(ImageModel.getRandomImageUrl(),
                 new BitmapHandle.BitmapHandleListener() {
                     @Override
                     public void onHandle(Bitmap bitmap) {
