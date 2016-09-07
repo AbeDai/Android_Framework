@@ -1,7 +1,6 @@
 package example.abe.com.android_framework.activity.imageloader;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -12,9 +11,8 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.imageloader.ImageLoader;
-import example.abe.com.framework.imageloader.handle.BitmapHandle;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.annotation.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_image_loader_grid_view)

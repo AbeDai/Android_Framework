@@ -8,18 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.android.volley.RequestQueue;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.activity.volley.BitmapCache;
 import example.abe.com.framework.imageloader.ImageLoader;
 import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.util.DensityUtil;
-import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.annotation.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 /**

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -20,7 +21,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(path: ':framework')
     compile files('libs/volley.jar')
     compile 'com.android.support:appcompat-v7:23.2.1'
@@ -31,4 +32,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.yolanda.nohttp:nohttp:1.0.4'
     testCompile 'junit:junit:4.12'
+    apt project(':viewinject-compiler')
 }

@@ -13,7 +13,7 @@ import example.abe.com.android_framework.activity.drawing.whiteboard.tool.view.A
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.FileUtil;
 import example.abe.com.framework.util.TimeUtil;
-import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.annotation.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_whiteboard)

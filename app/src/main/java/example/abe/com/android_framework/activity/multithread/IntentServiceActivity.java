@@ -1,8 +1,6 @@
 package example.abe.com.android_framework.activity.multithread;
 
 import android.content.Intent;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,11 +8,10 @@ import android.widget.TextView;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
-import example.abe.com.android_framework.main.MainActivity;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.annotation.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_intent_service)

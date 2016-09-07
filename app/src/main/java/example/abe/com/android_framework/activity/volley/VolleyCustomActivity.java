@@ -17,7 +17,7 @@ import java.io.IOException;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
+import example.abe.com.framework.viewinject.annotation.ContentView;
 import example.abe.com.framework.viewinject.ViewInject;
 
 @ContentView(id = R.layout.activity_volley_custom)
