@@ -10,11 +10,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutID());
         ViewInjectUtil.inject(this);
-
         initData();
         initView();
     }
+
+    abstract public int getLayoutID();
 
     abstract public void initData();
 

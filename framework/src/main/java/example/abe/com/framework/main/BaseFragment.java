@@ -18,17 +18,17 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
 
-        int id = ViewInjectUtil.getContentViewId(this);
-        View content = inflater.inflate(id, container, false);
-        ViewInjectUtil.inject(content, this);
-
+        View contentView = inflater.inflate(getLayoutID(), container, false);
+        ViewInjectUtil.inject(this, contentView);
         initData();
         initView();
 
-        return content;
+        return contentView;
     }
 
     abstract public void initData();
 
     abstract public void initView();
+
+    abstract public int getLayoutID();
 }

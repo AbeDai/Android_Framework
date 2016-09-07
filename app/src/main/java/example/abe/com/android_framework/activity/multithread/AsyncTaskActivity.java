@@ -6,22 +6,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.ToastUtil;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_async_task)
 public class AsyncTaskActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.act_async_task_progress_bar)
-    private ProgressBar mProgressBar;
-    @ViewInject(id = R.id.act_async_task_btn_start)
-    private Button mBtnStart;
-    @ViewInject(id = R.id.act_async_task_btn_cancel)
-    private Button mBtnCancel;
+    @BindView(R.id.act_async_task_progress_bar)
+    protected ProgressBar mProgressBar;
+    @BindView(R.id.act_async_task_btn_start)
+    protected Button mBtnStart;
+    @BindView(R.id.act_async_task_btn_cancel)
+    protected Button mBtnCancel;
+
     private MyTask mTask;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_async_task;
+    }
 
     @Override
     public void initData() {

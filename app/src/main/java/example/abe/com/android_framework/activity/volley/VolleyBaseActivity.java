@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.BindView;
 
 import org.json.JSONObject;
 
@@ -20,26 +21,28 @@ import java.util.Map;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_volley_base)
 public class VolleyBaseActivity extends BaseActivity implements View.OnClickListener {
 
     private String mGetUrl;
     private String mPostUrl;
     private Map<String, String> mPostParamMap;
     private RequestQueue mQueue;
-    @ViewInject(id = R.id.act_volley_base_btn_get_string)
-    private Button mBtnGetStr;
-    @ViewInject(id = R.id.act_volley_base_btn_post_string)
-    private Button mBtnPostStr;
-    @ViewInject(id = R.id.act_volley_base_btn_get_json)
-    private Button mBtnGetJson;
-    @ViewInject(id = R.id.act_volley_base_btn_post_json)
-    private Button mBtnPostJson;
-    @ViewInject(id = R.id.act_volley_base_et_show)
-    private EditText mEtShow;
+    @BindView(R.id.act_volley_base_btn_get_string)
+    protected Button mBtnGetStr;
+    @BindView(R.id.act_volley_base_btn_post_string)
+    protected Button mBtnPostStr;
+    @BindView(R.id.act_volley_base_btn_get_json)
+    protected Button mBtnGetJson;
+    @BindView(R.id.act_volley_base_btn_post_json)
+    protected Button mBtnPostJson;
+    @BindView(R.id.act_volley_base_et_show)
+    protected EditText mEtShow;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_volley_base;
+    }
 
     @Override
     public void initData(){

@@ -4,18 +4,22 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_image_loader)
 public class ImageLoaderActivity extends BaseActivity implements View.OnClickListener {
 
-    @ViewInject(id = R.id.act_image_loader_btn_image_view)
-    private Button mBtnImageView;
-    @ViewInject(id = R.id.act_image_loader_btn_grid_view)
-    private Button mBtnGridView;
+    @BindView(R.id.act_image_loader_btn_image_view)
+    protected Button mBtnImageView;
+    @BindView(R.id.act_image_loader_btn_grid_view)
+    protected Button mBtnGridView;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_image_loader;
+    }
 
     @Override
     public void initData() {

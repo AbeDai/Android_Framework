@@ -6,23 +6,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.eventcenter.EventCenter;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_event_center)
 public class EventCenterActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_event_center_tv_content)
-    private TextView tv;
-    @ViewInject(id = R.id.act_event_center_btn_post_event)
-    private Button mBtnenter;
-    @ViewInject(id = R.id.act_event_center_btn_register)
-    private Button mBtnRegister;
-    @ViewInject(id = R.id.act_event_center_btn_unregister)
-    private Button mBtnUnRegister;
+    @BindView(R.id.act_event_center_tv_content)
+    protected TextView tv;
+    @BindView(R.id.act_event_center_btn_post_event)
+    protected Button mBtnenter;
+    @BindView(R.id.act_event_center_btn_register)
+    protected Button mBtnRegister;
+    @BindView(R.id.act_event_center_btn_unregister)
+    protected Button mBtnUnRegister;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_event_center;
+    }
 
     @Override
     public void initView() {

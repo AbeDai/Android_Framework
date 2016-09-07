@@ -4,25 +4,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ToastUtil;
 
-@ContentView(id = R.layout.activity_event_bus_frist)
 public class EventBusActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.act_third_btn_event1)
-    private Button mBtnEvent1;
-    @ViewInject(id = R.id.act_third_btn_event2)
-    private Button mBtnEvent2;
-    @ViewInject(id = R.id.act_third_btn_event3)
-    private Button mBtnEvent3;
+    @BindView(R.id.act_third_btn_event1)
+    protected Button mBtnEvent1;
+    @BindView(R.id.act_third_btn_event2)
+    protected Button mBtnEvent2;
+    @BindView(R.id.act_third_btn_event3)
+    protected Button mBtnEvent3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,11 @@ public class EventBusActivity extends BaseActivity implements View.OnClickListen
     protected void onDestroy(){
         super.onDestroy();
         EventBus.getDefault().unregister(this);//解除注册
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_event_bus_frist;
     }
 
     @Override

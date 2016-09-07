@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.BindView;
+
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,20 +23,17 @@ import example.abe.com.android_framework.R;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_image_socket)
 public class ImageSocketActivity extends BaseActivity implements View.OnClickListener {
 
-    @ViewInject(id = R.id.act_image_socket_btn_start)
-    private Button mBtnStart;
-    @ViewInject(id = R.id.act_image_socket_btn_send)
-    private Button mBtnSend;
-    @ViewInject(id = R.id.act_image_socket_btn_stop)
-    private Button mBtnStop;
-    @ViewInject(id = R.id.act_image_socket_iv_display)
-    private ImageView mIvDisplay;
+    @BindView(R.id.act_image_socket_btn_start)
+    protected Button mBtnStart;
+    @BindView(R.id.act_image_socket_btn_send)
+    protected Button mBtnSend;
+    @BindView(R.id.act_image_socket_btn_stop)
+    protected Button mBtnStop;
+    @BindView(R.id.act_image_socket_iv_display)
+    protected ImageView mIvDisplay;
 
     private Socket mSocket;
     private Intent mIntent;
@@ -51,6 +50,11 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
     public void onDestroy() {
         super.onDestroy();
         EventCenter.getDefault().unRigister(this);
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_image_socket;
     }
 
     @Override

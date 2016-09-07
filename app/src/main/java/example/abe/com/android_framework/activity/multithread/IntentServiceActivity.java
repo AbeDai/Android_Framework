@@ -6,23 +6,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_intent_service)
 public class IntentServiceActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_intent_service_btn_intent1_start)
-    private Button mBtnStartIntent1;
-    @ViewInject(id = R.id.act_intent_service_btn_intent2_start)
-    private Button mBtnStartIntent2;
-    @ViewInject(id = R.id.act_intent_service_tv)
-    private TextView mTv;
+    @BindView(R.id.act_intent_service_btn_intent1_start)
+    protected Button mBtnStartIntent1;
+    @BindView(R.id.act_intent_service_btn_intent2_start)
+    protected Button mBtnStartIntent2;
+    @BindView(R.id.act_intent_service_tv)
+    protected TextView mTv;
     private Intent intent1;
     private Intent intent2;
 
@@ -36,6 +35,11 @@ public class IntentServiceActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         EventCenter.getDefault().unRigister(this);
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_intent_service;
     }
 
     @Override

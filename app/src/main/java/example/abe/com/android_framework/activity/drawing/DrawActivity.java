@@ -4,20 +4,24 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.drawing.custom.CustomActivity;
 import example.abe.com.android_framework.activity.drawing.whiteboard.WhiteboardActivity;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_draw)
 public class DrawActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.act_draw_btn_custom_view)
-    private Button mBtnCustom;
-    @ViewInject(id = R.id.act_draw_btn_whiteboard)
-    private Button mBtnWhiteBoard;
+    @BindView(R.id.act_draw_btn_custom_view)
+    protected Button mBtnCustom;
+    @BindView(R.id.act_draw_btn_whiteboard)
+    protected Button mBtnWhiteBoard;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_draw;
+    }
 
     @Override
     public void initData(){
@@ -46,6 +50,4 @@ public class DrawActivity extends BaseActivity implements View.OnClickListener{
 
         startActivity(intent);
     }
-
-
 }

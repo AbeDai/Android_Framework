@@ -4,20 +4,24 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_volley)
 public class VolleyActivity extends BaseActivity implements View.OnClickListener {
 
-    @ViewInject(id = R.id.act_volley_btn_base)
-    private Button mBtnBase;
-    @ViewInject(id = R.id.act_volley_btn_image)
-    private Button mBtnImage;
-    @ViewInject(id = R.id.act_volley_btn_custom)
-    private Button mBtnCustom;
+    @BindView(R.id.act_volley_btn_base)
+    protected Button mBtnBase;
+    @BindView(R.id.act_volley_btn_image)
+    protected Button mBtnImage;
+    @BindView(R.id.act_volley_btn_custom)
+    protected Button mBtnCustom;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_volley;
+    }
 
     @Override
     public void initData(){

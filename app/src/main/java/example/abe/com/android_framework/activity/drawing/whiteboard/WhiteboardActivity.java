@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.DrawManager;
 import example.abe.com.android_framework.activity.drawing.whiteboard.tool.Type;
@@ -13,58 +15,60 @@ import example.abe.com.android_framework.activity.drawing.whiteboard.tool.view.A
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.FileUtil;
 import example.abe.com.framework.util.TimeUtil;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_whiteboard)
 public class WhiteboardActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_whiteboard_pen_paint_view)
-    private AbPaintView mPenPaintView;
-    @ViewInject(id = R.id.act_whiteboard_ll_detail_tool_bar)
-    private LinearLayout mLlDetailToolBar;
-    @ViewInject(id = R.id.act_whiteboard_btn_color)
-    private Button mBtnColor;
-    @ViewInject(id = R.id.act_whiteboard_btn_color_red)
-    private Button mBtnRed;
-    @ViewInject(id = R.id.act_whiteboard_btn_color_blue)
-    private Button mBtnBlue;
-    @ViewInject(id = R.id.act_whiteboard_btn_color_green)
-    private Button mBtnGreen;
-    @ViewInject(id = R.id.act_whiteboard_btn_width)
-    private Button mBtnWidth;
-    @ViewInject(id = R.id.act_whiteboard_btn_width_bold)
-    private Button mBtnWidthBold;
-    @ViewInject(id = R.id.act_whiteboard_btn_width_normal)
-    private Button mBtnWidthNormal;
-    @ViewInject(id = R.id.act_whiteboard_btn_width_light)
-    private Button mBtnWidthLight;
-    @ViewInject(id = R.id.act_whiteboard_btn_eraser)
-    private Button mBtnEraser;
-    @ViewInject(id = R.id.act_whiteboard_btn_eraser_big)
-    private Button mBtnEraserBig;
-    @ViewInject(id = R.id.act_whiteboard_btn_eraser_normal)
-    private Button mBtnEraserNormal;
-    @ViewInject(id = R.id.act_whiteboard_btn_eraser_small)
-    private Button mBtnEraserSmall;
-    @ViewInject(id = R.id.act_whiteboard_btn_text)
-    private Button mBtnText;
-    @ViewInject(id = R.id.act_whiteboard_btn_text_big)
-    private Button mBtnTextBig;
-    @ViewInject(id = R.id.act_whiteboard_btn_text_normal)
-    private Button mBtnTextNormal;
-    @ViewInject(id = R.id.act_whiteboard_btn_text_small)
-    private Button mBtnTextSmall;
-    @ViewInject(id = R.id.act_whiteboard_btn_rect)
-    private Button mBtnRect;
-    @ViewInject(id = R.id.act_whiteboard_btn_restore)
-    private Button mBtnRestore;
-    @ViewInject(id = R.id.act_whiteboard_btn_un_restore)
-    private Button mBtnUnRestore;
-    @ViewInject(id = R.id.act_whiteboard_btn_save)
-    private Button mBtnSave;
+    @BindView(R.id.act_whiteboard_pen_paint_view)
+    protected AbPaintView mPenPaintView;
+    @BindView(R.id.act_whiteboard_ll_detail_tool_bar)
+    protected LinearLayout mLlDetailToolBar;
+    @BindView(R.id.act_whiteboard_btn_color)
+    protected Button mBtnColor;
+    @BindView(R.id.act_whiteboard_btn_color_red)
+    protected Button mBtnRed;
+    @BindView(R.id.act_whiteboard_btn_color_blue)
+    protected Button mBtnBlue;
+    @BindView(R.id.act_whiteboard_btn_color_green)
+    protected Button mBtnGreen;
+    @BindView(R.id.act_whiteboard_btn_width)
+    protected Button mBtnWidth;
+    @BindView(R.id.act_whiteboard_btn_width_bold)
+    protected Button mBtnWidthBold;
+    @BindView(R.id.act_whiteboard_btn_width_normal)
+    protected Button mBtnWidthNormal;
+    @BindView(R.id.act_whiteboard_btn_width_light)
+    protected Button mBtnWidthLight;
+    @BindView(R.id.act_whiteboard_btn_eraser)
+    protected Button mBtnEraser;
+    @BindView(R.id.act_whiteboard_btn_eraser_big)
+    protected Button mBtnEraserBig;
+    @BindView(R.id.act_whiteboard_btn_eraser_normal)
+    protected Button mBtnEraserNormal;
+    @BindView(R.id.act_whiteboard_btn_eraser_small)
+    protected Button mBtnEraserSmall;
+    @BindView(R.id.act_whiteboard_btn_text)
+    protected Button mBtnText;
+    @BindView(R.id.act_whiteboard_btn_text_big)
+    protected Button mBtnTextBig;
+    @BindView(R.id.act_whiteboard_btn_text_normal)
+    protected Button mBtnTextNormal;
+    @BindView(R.id.act_whiteboard_btn_text_small)
+    protected Button mBtnTextSmall;
+    @BindView(R.id.act_whiteboard_btn_rect)
+    protected Button mBtnRect;
+    @BindView(R.id.act_whiteboard_btn_restore)
+    protected Button mBtnRestore;
+    @BindView(R.id.act_whiteboard_btn_un_restore)
+    protected Button mBtnUnRestore;
+    @BindView(R.id.act_whiteboard_btn_save)
+    protected Button mBtnSave;
 
     private DrawManager mPenPaintManager;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_whiteboard;
+    }
 
     @Override
     public void initData() {

@@ -5,35 +5,39 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.example.BindView;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ResourceUtil;
 
-@ContentView(id = R.layout.activity_view_pager)
 public class ViewPagerActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.act_view_pager_pager1)
-    private ViewPager mViewPager1;
-    @ViewInject(id = R.id.act_view_pager_pager2)
-    private ViewPager mViewPager2;
-    @ViewInject(id = R.id.act_view_pager_pager3)
-    private ViewPager mViewPager3;
-    @ViewInject(id = R.id.act_view_pager_btn_add)
-    private View mBtnAdd;
-    @ViewInject(id = R.id.act_view_pager_btn_del)
-    private View mBtnDel;
+    @BindView(R.id.act_view_pager_pager1)
+    protected ViewPager mViewPager1;
+    @BindView(R.id.act_view_pager_pager2)
+    protected ViewPager mViewPager2;
+    @BindView(R.id.act_view_pager_pager3)
+    protected ViewPager mViewPager3;
+    @BindView(R.id.act_view_pager_btn_add)
+    protected View mBtnAdd;
+    @BindView(R.id.act_view_pager_btn_del)
+    protected View mBtnDel;
     private PagerAdapter1 mAdapter1;
     private PagerAdapter2 mAdapter2;
     private PagerAdapter3 mAdapter3;
     private List<View> mData1;
     private List<Fragment> mData2;
     private LinkedList<Fragment> mData3;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_view_pager;
+    }
 
     @Override
     public void initData() {

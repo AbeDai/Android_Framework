@@ -4,24 +4,23 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
+import com.example.BindView;
+
 import java.util.List;
 import java.util.Map;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.LogUtil;
 
-@ContentView(id = R.layout.activity_tab_layout)
 public class TabLayoutActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_main_pager)
-    private ViewPager mPager;
-    @ViewInject(id = R.id.act_main_tab_layout_1)
-    private TabLayout mTabLayout1;
-    @ViewInject(id = R.id.act_main_tab_layout_2)
-    private TabLayout mTabLayout2;
+    @BindView(R.id.act_main_pager)
+    protected ViewPager mPager;
+    @BindView(R.id.act_main_tab_layout_1)
+    protected TabLayout mTabLayout1;
+    @BindView(R.id.act_main_tab_layout_2)
+    protected TabLayout mTabLayout2;
     private android.support.v4.view.PagerAdapter mPagerAdapter;
     private List<Map<String, Integer>> mData2;
 
@@ -29,8 +28,8 @@ public class TabLayoutActivity extends BaseActivity {
     private static final String KEY_TEXT = "KEY_TEXT";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public int getLayoutID(){
+        return R.layout.activity_tab_layout;
     }
 
     @Override

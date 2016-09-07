@@ -4,22 +4,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_retrofit)
 public class RetrofitActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.et_show)
-    private EditText mTvShow;
-    @ViewInject(id = R.id.btn_person_info)
-    private Button mBtnPersonInfo;
-    @ViewInject(id = R.id.btn_setting_info)
-    private Button mBtnSettingInfo;
-    @ViewInject(id = R.id.btn_all_car)
-    private Button mBtnAllCar;
+    @BindView(R.id.et_show)
+    protected EditText mTvShow;
+    @BindView(R.id.btn_person_info)
+    protected Button mBtnPersonInfo;
+    @BindView(R.id.btn_setting_info)
+    protected Button mBtnSettingInfo;
+    @BindView(R.id.btn_all_car)
+    protected Button mBtnAllCar;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_retrofit;
+    }
 
     @Override
     public void initData(){

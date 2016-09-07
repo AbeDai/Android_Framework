@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -20,22 +22,19 @@ import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_thread_pool)
 public class ThreadPoolActivity extends BaseActivity implements View.OnClickListener {
 
-    @ViewInject(id = R.id.act_thread_pool_tv)
-    private TextView mTv;
-    @ViewInject(id = R.id.act_thread_pool_btn_single_executor)
-    private Button mBtnSingleExecutor;
-    @ViewInject(id = R.id.act_thread_pool_btn_cache_thread_pool)
-    private Button mBtnCacheThreadPool;
-    @ViewInject(id = R.id.act_thread_pool_btn_fixed_thread_pool)
-    private Button mBtnFixedThreadPool;
-    @ViewInject(id = R.id.act_thread_pool_btn_scheduled_thread_pool)
-    private Button mBtnScheduledThreadPool;
+    @BindView(R.id.act_thread_pool_tv)
+    protected TextView mTv;
+    @BindView(R.id.act_thread_pool_btn_single_executor)
+    protected Button mBtnSingleExecutor;
+    @BindView(R.id.act_thread_pool_btn_cache_thread_pool)
+    protected Button mBtnCacheThreadPool;
+    @BindView(R.id.act_thread_pool_btn_fixed_thread_pool)
+    protected Button mBtnFixedThreadPool;
+    @BindView(R.id.act_thread_pool_btn_scheduled_thread_pool)
+    protected Button mBtnScheduledThreadPool;
     private ExecutorService mSingleExecutor;
     private ExecutorService mCachedThreadPool;
     private ExecutorService mFixedThreadPool;
@@ -52,6 +51,11 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
     protected void onDestroy() {
         super.onDestroy();
         EventCenter.getDefault().register(this);
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_thread_pool;
     }
 
     @Override

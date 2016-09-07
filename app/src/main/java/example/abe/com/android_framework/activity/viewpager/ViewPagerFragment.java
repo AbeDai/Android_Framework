@@ -4,21 +4,20 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseFragment;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
 /**
  * Created by abe on 16/8/3.
  */
-@ContentView(id = R.layout.fragment_view_pager)
 public class ViewPagerFragment extends BaseFragment {
 
-  @ViewInject(id = R.id.fragment_screen_slide_page_tv_title)
-    private TextView tvTitle;
-    @ViewInject(id = R.id.fragment_screen_slide_page_tv_content)
-    private TextView tvContent;
+    @BindView(R.id.fragment_screen_slide_page_tv_title)
+    protected TextView tvTitle;
+    @BindView(R.id.fragment_screen_slide_page_tv_content)
+    protected TextView tvContent;
     private String mTitle;
     private String mContent;
 
@@ -31,6 +30,11 @@ public class ViewPagerFragment extends BaseFragment {
         fragment.setArguments(args);
 
         return fragment;
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.fragment_view_pager;
     }
 
     @Override

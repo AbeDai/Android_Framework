@@ -4,26 +4,29 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_thread)
 public class MultiThreadActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.act_thread_btn_async_task)
-    public Button mBtnAsyncTask;
-    @ViewInject(id = R.id.act_thread_btn_handler_thread)
-    public Button mBtnHandlerThread;
-    @ViewInject(id = R.id.act_thread_btn_thread_pool)
-    public Button mBtnThreadPool;
-    @ViewInject(id = R.id.act_thread_btn_intent_service)
-    public Button mBtnIntentService;
+    @BindView(R.id.act_thread_btn_async_task)
+    protected Button mBtnAsyncTask;
+    @BindView(R.id.act_thread_btn_handler_thread)
+    protected Button mBtnHandlerThread;
+    @BindView(R.id.act_thread_btn_thread_pool)
+    protected Button mBtnThreadPool;
+    @BindView(R.id.act_thread_btn_intent_service)
+    protected Button mBtnIntentService;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_thread;
+    }
 
     @Override
     public void initData() {
-
     }
 
     @Override

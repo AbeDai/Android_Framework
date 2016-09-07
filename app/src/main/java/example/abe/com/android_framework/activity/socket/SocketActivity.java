@@ -4,20 +4,24 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.socket.image.ImageSocketActivity;
 import example.abe.com.android_framework.activity.socket.reader.ReaderSocketActivity;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_socket)
 public class SocketActivity extends BaseActivity implements View.OnClickListener{
 
-    @ViewInject(id = R.id.act_socket_btn_send_word_socket)
-    private Button mBtnSendWord;
-    @ViewInject(id = R.id.act_socket_btn_send_image_socket)
-    private Button mBtnSendImage;
+    @BindView(R.id.act_socket_btn_send_word_socket)
+    protected Button mBtnSendWord;
+    @BindView(R.id.act_socket_btn_send_image_socket)
+    protected Button mBtnSendImage;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_socket;
+    }
 
     @Override
     public void initData() {

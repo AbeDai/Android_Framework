@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,19 +25,21 @@ import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.ActivityFactory.Flags;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.ToastUtil;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
         TextView.OnEditorActionListener {
 
     private static final int MY_PERMISSIONS_REQUEST = 100;
-    @ViewInject(id = R.id.act_main_list)
-    private ListView mLv;
-    @ViewInject(id = R.id.act_main_et_search)
-    private EditText mEtSearch;
+    @BindView(R.id.act_main_list)
+    protected ListView mLv;
+    @BindView(R.id.act_main_et_search)
+    protected EditText mEtSearch;
     private MainAdapter mAdapter;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_main;
+    }
 
     @Override
     public void initData() {

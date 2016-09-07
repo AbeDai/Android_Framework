@@ -12,29 +12,32 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
+import com.example.BindView;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.annotation.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_volley_image)
 public class VolleyImageActivity extends BaseActivity implements View.OnClickListener {
 
     private String mImgUrl;
     private RequestQueue mQueue;
     private ImageLoader mLoader;
 
-    @ViewInject(id = R.id.act_volley_image_btn_request)
-    private Button mBtnRequest;
-    @ViewInject(id = R.id.act_volley_image_btn_loader)
-    private Button mBtnLoader;
-    @ViewInject(id = R.id.act_volley_image_btn_view)
-    private Button mBtnView;
-    @ViewInject(id = R.id.act_volley_image_iv)
-    private ImageView mIv;
-    @ViewInject(id = R.id.act_volley_image_network_image_view)
-    private NetworkImageView mIvNetwork;
+    @BindView(R.id.act_volley_image_btn_request)
+    protected Button mBtnRequest;
+    @BindView(R.id.act_volley_image_btn_loader)
+    protected Button mBtnLoader;
+    @BindView(R.id.act_volley_image_btn_view)
+    protected Button mBtnView;
+    @BindView(R.id.act_volley_image_iv)
+    protected ImageView mIv;
+    @BindView(R.id.act_volley_image_network_image_view)
+    protected NetworkImageView mIvNetwork;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_volley_image;
+    }
 
     @Override
     public void initData(){
