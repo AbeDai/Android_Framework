@@ -32,7 +32,6 @@ public class GridViewActivity extends BaseActivity {
 
     @Override
     public void initData(){
-
     }
 
     @Override

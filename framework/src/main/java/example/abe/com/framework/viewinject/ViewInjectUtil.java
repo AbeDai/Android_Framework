@@ -42,7 +42,7 @@ public class ViewInjectUtil {
             }
             viewInject.inject(host, source, provider);
         } catch (Exception e) {
-            throw new RuntimeException("Unable to inject for " + className, e);
+//            throw new RuntimeException("Unable to inject for " + className, e);
         }
     }
 }

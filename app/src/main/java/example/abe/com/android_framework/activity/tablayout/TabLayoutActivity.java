@@ -22,10 +22,6 @@ public class TabLayoutActivity extends BaseActivity {
     @BindView(R.id.act_main_tab_layout_2)
     protected TabLayout mTabLayout2;
     private android.support.v4.view.PagerAdapter mPagerAdapter;
-    private List<Map<String, Integer>> mData2;
-
-    private static final String KEY_ICON = "KEY_ICON";
-    private static final String KEY_TEXT = "KEY_TEXT";
 
     @Override
     public int getLayoutID(){

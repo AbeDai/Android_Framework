@@ -23,7 +23,6 @@ public class ImageLoaderActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void initData() {
-
     }
 
     @Override

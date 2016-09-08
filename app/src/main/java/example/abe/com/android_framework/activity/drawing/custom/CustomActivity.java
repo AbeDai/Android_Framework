@@ -12,11 +12,9 @@ public class CustomActivity extends BaseActivity {
 
     @Override
     public void initData(){
-
     }
 
     @Override
     public void initView(){
-
     }
 }

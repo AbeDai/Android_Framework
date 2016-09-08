@@ -27,7 +27,6 @@ public class RetrofitActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void initData(){
-
     }
 
     @Override
@@ -84,7 +83,5 @@ public class RetrofitActivity extends BaseActivity implements View.OnClickListen
                 });
                 break;
         }
-
     }
-
 }
