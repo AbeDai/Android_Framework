@@ -14,6 +14,7 @@ public class OnClickMethod {
 
     private ExecutableElement methodElement;
     private Name mMethodName;
+    private boolean isExistParameters;
     public int[] ids;
 
     public OnClickMethod(Element element) throws IllegalArgumentException {
@@ -33,16 +34,21 @@ public class OnClickMethod {
                 }
             }
         }
-
         this.mMethodName = methodElement.getSimpleName();
         List<? extends VariableElement> parameters = methodElement.getParameters();
-        if (parameters.size() > 0) {
+        if (parameters.size() > 1) {
             throw new IllegalArgumentException(
-                    String.format("The method annotated with @%s must have no parameters", OnClick.class.getSimpleName()));
+                    String.format("The method annotated with @%s must have one parameter or no parameters", OnClick.class.getSimpleName()));
+        } else {
+            isExistParameters = parameters.size() > 0;
         }
     }
 
     public Name getMethodName() {
         return mMethodName;
+    }
+
+    public boolean isExistParameters(){
+        return isExistParameters;
     }
 }

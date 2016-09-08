@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.BindView;
+import com.example.OnClick;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -24,14 +25,8 @@ import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
 
-public class ImageSocketActivity extends BaseActivity implements View.OnClickListener {
+public class ImageSocketActivity extends BaseActivity{
 
-    @BindView(R.id.act_image_socket_btn_start)
-    protected Button mBtnStart;
-    @BindView(R.id.act_image_socket_btn_send)
-    protected Button mBtnSend;
-    @BindView(R.id.act_image_socket_btn_stop)
-    protected Button mBtnStop;
     @BindView(R.id.act_image_socket_iv_display)
     protected ImageView mIvDisplay;
 
@@ -67,12 +62,9 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void initView() {
-        mBtnStart.setOnClickListener(this);
-        mBtnSend.setOnClickListener(this);
-        mBtnStop.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_image_socket_btn_start, R.id.act_image_socket_btn_send, R.id.act_image_socket_btn_stop})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.act_image_socket_btn_start:

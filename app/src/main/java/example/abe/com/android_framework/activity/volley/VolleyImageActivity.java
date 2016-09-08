@@ -13,22 +13,17 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.example.BindView;
+import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
 
-public class VolleyImageActivity extends BaseActivity implements View.OnClickListener {
+public class VolleyImageActivity extends BaseActivity{
 
     private String mImgUrl;
     private RequestQueue mQueue;
     private ImageLoader mLoader;
 
-    @BindView(R.id.act_volley_image_btn_request)
-    protected Button mBtnRequest;
-    @BindView(R.id.act_volley_image_btn_loader)
-    protected Button mBtnLoader;
-    @BindView(R.id.act_volley_image_btn_view)
-    protected Button mBtnView;
     @BindView(R.id.act_volley_image_iv)
     protected ImageView mIv;
     @BindView(R.id.act_volley_image_network_image_view)
@@ -48,12 +43,9 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void initView(){
-        mBtnRequest.setOnClickListener(this);
-        mBtnLoader.setOnClickListener(this);
-        mBtnView.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_volley_image_btn_request, R.id.act_volley_image_btn_loader, R.id.act_volley_image_btn_view})
     public void onClick(View v){
         switch (v.getId()){
             case R.id.act_volley_image_btn_request:{

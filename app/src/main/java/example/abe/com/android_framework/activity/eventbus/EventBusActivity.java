@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.BindView;
+import com.example.OnClick;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -15,13 +16,6 @@ import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.ToastUtil;
 
 public class EventBusActivity extends BaseActivity implements View.OnClickListener{
-
-    @BindView(R.id.act_third_btn_event1)
-    protected Button mBtnEvent1;
-    @BindView(R.id.act_third_btn_event2)
-    protected Button mBtnEvent2;
-    @BindView(R.id.act_third_btn_event3)
-    protected Button mBtnEvent3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +36,13 @@ public class EventBusActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void initData(){
-
     }
 
     @Override
     public void initView(){
-        mBtnEvent1.setOnClickListener(this);
-        mBtnEvent2.setOnClickListener(this);
-        mBtnEvent3.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_third_btn_event1, R.id.act_third_btn_event2, R.id.act_third_btn_event3})
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.act_third_btn_event1:

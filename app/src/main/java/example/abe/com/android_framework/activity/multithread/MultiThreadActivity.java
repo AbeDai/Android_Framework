@@ -5,20 +5,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.BindView;
+import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
 
-public class MultiThreadActivity extends BaseActivity implements View.OnClickListener{
-
-    @BindView(R.id.act_thread_btn_async_task)
-    protected Button mBtnAsyncTask;
-    @BindView(R.id.act_thread_btn_handler_thread)
-    protected Button mBtnHandlerThread;
-    @BindView(R.id.act_thread_btn_thread_pool)
-    protected Button mBtnThreadPool;
-    @BindView(R.id.act_thread_btn_intent_service)
-    protected Button mBtnIntentService;
+public class MultiThreadActivity extends BaseActivity{
 
     @Override
     public int getLayoutID(){
@@ -31,13 +23,9 @@ public class MultiThreadActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void initView() {
-        mBtnAsyncTask.setOnClickListener(this);
-        mBtnHandlerThread.setOnClickListener(this);
-        mBtnThreadPool.setOnClickListener(this);
-        mBtnIntentService.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_thread_btn_async_task, R.id.act_thread_btn_handler_thread, R.id.act_thread_btn_thread_pool, R.id.act_thread_btn_intent_service})
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()){

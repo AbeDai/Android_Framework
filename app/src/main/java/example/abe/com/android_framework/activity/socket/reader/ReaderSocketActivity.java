@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.BindView;
+import com.example.OnClick;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -21,16 +22,6 @@ import example.abe.com.framework.util.LogUtil;
 
 public class ReaderSocketActivity extends BaseActivity implements View.OnClickListener {
 
-    @BindView(R.id.act_reader_socket_btn_start)
-    protected Button mBtnStart;
-    @BindView(R.id.act_reader_socket_btn_connect)
-    protected Button mBtnConnect;
-    @BindView(R.id.act_reader_socket_btn_send)
-    protected Button mBtnSend;
-    @BindView(R.id.act_reader_socket_btn_disconnect)
-    protected Button mBtnDisConnect;
-    @BindView(R.id.act_reader_socket_btn_stop)
-    protected Button mBtnStop;
     @BindView(R.id.act_reader_socket_tv_display)
     protected TextView mTvDisplay;
 
@@ -62,14 +53,9 @@ public class ReaderSocketActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void initView() {
-        mBtnStart.setOnClickListener(this);
-        mBtnConnect.setOnClickListener(this);
-        mBtnSend.setOnClickListener(this);
-        mBtnDisConnect.setOnClickListener(this);
-        mBtnStop.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_reader_socket_btn_start, R.id.act_reader_socket_btn_connect, R.id.act_reader_socket_btn_send, R.id.act_reader_socket_btn_disconnect, R.id.act_reader_socket_btn_stop})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.act_reader_socket_btn_start:

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.BindView;
+import com.example.OnClick;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -27,14 +28,6 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
 
     @BindView(R.id.act_thread_pool_tv)
     protected TextView mTv;
-    @BindView(R.id.act_thread_pool_btn_single_executor)
-    protected Button mBtnSingleExecutor;
-    @BindView(R.id.act_thread_pool_btn_cache_thread_pool)
-    protected Button mBtnCacheThreadPool;
-    @BindView(R.id.act_thread_pool_btn_fixed_thread_pool)
-    protected Button mBtnFixedThreadPool;
-    @BindView(R.id.act_thread_pool_btn_scheduled_thread_pool)
-    protected Button mBtnScheduledThreadPool;
     private ExecutorService mSingleExecutor;
     private ExecutorService mCachedThreadPool;
     private ExecutorService mFixedThreadPool;
@@ -69,13 +62,9 @@ public class ThreadPoolActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void initView() {
-        mBtnSingleExecutor.setOnClickListener(this);
-        mBtnCacheThreadPool.setOnClickListener(this);
-        mBtnFixedThreadPool.setOnClickListener(this);
-        mBtnScheduledThreadPool.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_thread_pool_btn_single_executor, R.id.act_thread_pool_btn_cache_thread_pool, R.id.act_thread_pool_btn_fixed_thread_pool, R.id.act_thread_pool_btn_scheduled_thread_pool})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.act_thread_pool_btn_single_executor:

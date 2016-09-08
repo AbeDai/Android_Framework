@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.BindView;
+import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
@@ -16,10 +17,6 @@ import example.abe.com.framework.util.LogUtil;
 
 public class IntentServiceActivity extends BaseActivity {
 
-    @BindView(R.id.act_intent_service_btn_intent1_start)
-    protected Button mBtnStartIntent1;
-    @BindView(R.id.act_intent_service_btn_intent2_start)
-    protected Button mBtnStartIntent2;
     @BindView(R.id.act_intent_service_tv)
     protected TextView mTv;
     private Intent intent1;
@@ -53,19 +50,16 @@ public class IntentServiceActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mBtnStartIntent1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startService(intent1);
-            }
-        });
+    }
 
-        mBtnStartIntent2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startService(intent2);
-            }
-        });
+    @OnClick(R.id.act_intent_service_btn_intent1_start)
+    public void startIntent1(){
+        startService(intent1);
+    }
+
+    @OnClick(R.id.act_intent_service_btn_intent2_start)
+    public void startIntent2(){
+        startService(intent2);
     }
 
     public void onEventUI(MessageEvent event){
