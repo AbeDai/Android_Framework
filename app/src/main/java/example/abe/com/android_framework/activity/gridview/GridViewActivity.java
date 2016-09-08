@@ -5,30 +5,33 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
+import com.example.BindView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ToastUtil;
 
-@ContentView(id = R.layout.activity_grid_view)
 public class GridViewActivity extends BaseActivity {
 
     private static final String ITEM_IMAGE = "item_image";
     private static final String ITEM_TEXT = "item_text";
 
-    @ViewInject(id = R.id.grid_view_1)
-    private GridView gridview1;
-    @ViewInject(id = R.id.grid_view_2)
-    private GridView gridview2;
+    @BindView(R.id.grid_view_1)
+    protected GridView gridview1;
+    @BindView(R.id.grid_view_2)
+    protected GridView gridview2;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_grid_view;
+    }
 
     @Override
     public void initData(){
-
     }
 
     @Override

@@ -5,35 +5,37 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.example.BindView;
+import com.example.OnClick;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.ResourceUtil;
 
-@ContentView(id = R.layout.activity_view_pager)
-public class ViewPagerActivity extends BaseActivity implements View.OnClickListener{
+public class ViewPagerActivity extends BaseActivity{
 
-    @ViewInject(id = R.id.act_view_pager_pager1)
-    private ViewPager mViewPager1;
-    @ViewInject(id = R.id.act_view_pager_pager2)
-    private ViewPager mViewPager2;
-    @ViewInject(id = R.id.act_view_pager_pager3)
-    private ViewPager mViewPager3;
-    @ViewInject(id = R.id.act_view_pager_btn_add)
-    private View mBtnAdd;
-    @ViewInject(id = R.id.act_view_pager_btn_del)
-    private View mBtnDel;
+    @BindView(R.id.act_view_pager_pager1)
+    protected ViewPager mViewPager1;
+    @BindView(R.id.act_view_pager_pager2)
+    protected ViewPager mViewPager2;
+    @BindView(R.id.act_view_pager_pager3)
+    protected ViewPager mViewPager3;
+
     private PagerAdapter1 mAdapter1;
     private PagerAdapter2 mAdapter2;
     private PagerAdapter3 mAdapter3;
     private List<View> mData1;
     private List<Fragment> mData2;
     private LinkedList<Fragment> mData3;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_view_pager;
+    }
 
     @Override
     public void initData() {
@@ -79,25 +81,21 @@ public class ViewPagerActivity extends BaseActivity implements View.OnClickListe
         //动态增加删减Fragment模版
         mAdapter3 = new PagerAdapter3(getSupportFragmentManager(), mData3);
         mViewPager3.setAdapter(mAdapter3);
-        mBtnAdd.setOnClickListener(this);//添加Fragment
-        mBtnDel.setOnClickListener(this);//删除Fragment
     }
 
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.act_view_pager_btn_del:
-                mData3.removeLast();
-                mAdapter3.notifyDataSetChanged(mData3);
-                break;
-
-            case R.id.act_view_pager_btn_add:
+    @OnClick(R.id.act_view_pager_btn_add)
+    public void viewPagerAdd(View v) {
                 String title = "new_title";
                 String content = "new_content:" + mData3.size();
                 Fragment fragment = ViewPagerFragment.newInstance(title, content);
                 mData3.add(fragment);
                 mAdapter3.notifyDataSetChanged(mData3);
-                break;
-        }
+    }
+
+    @OnClick(R.id.act_view_pager_btn_del)
+    public void viewPagerDel(View v) {
+                mData3.removeLast();
+                mAdapter3.notifyDataSetChanged(mData3);
     }
 
     private View getViewForColor(int color) {

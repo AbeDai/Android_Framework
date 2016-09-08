@@ -3,21 +3,25 @@ package example.abe.com.android_framework.activity.assets;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.AssetUtil;
 
-@ContentView(id = R.layout.activity_assets)
 public class AssetsActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_abassets_iv_root_png)
-    private ImageView mIvRoot;
-    @ViewInject(id = R.id.act_abassets_iv_file_png)
-    private ImageView mIvFile;
-    @ViewInject(id = R.id.act_abassets_tv_file_list)
-    private TextView mTv;
+    @BindView(R.id.act_abassets_iv_root_png)
+    protected ImageView mIvRoot;
+    @BindView(R.id.act_abassets_iv_file_png)
+    protected ImageView mIvFile;
+    @BindView(R.id.act_abassets_tv_file_list)
+    protected TextView mTv;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_assets;
+    }
 
     @Override
     public void initData(){

@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.BindView;
+import com.example.OnClick;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -16,24 +19,11 @@ import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_reader_socket)
 public class ReaderSocketActivity extends BaseActivity implements View.OnClickListener {
 
-    @ViewInject(id = R.id.act_reader_socket_btn_start)
-    private Button mBtnStart;
-    @ViewInject(id = R.id.act_reader_socket_btn_connect)
-    private Button mBtnConnect;
-    @ViewInject(id = R.id.act_reader_socket_btn_send)
-    private Button mBtnSend;
-    @ViewInject(id = R.id.act_reader_socket_btn_disconnect)
-    private Button mBtnDisConnect;
-    @ViewInject(id = R.id.act_reader_socket_btn_stop)
-    private Button mBtnStop;
-    @ViewInject(id = R.id.act_reader_socket_tv_display)
-    private TextView mTvDisplay;
+    @BindView(R.id.act_reader_socket_tv_display)
+    protected TextView mTvDisplay;
 
     private Socket mSocket;
     private Intent mIntent;
@@ -52,20 +42,20 @@ public class ReaderSocketActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Override
+    public int getLayoutID(){
+        return R.layout.activity_reader_socket;
+    }
+
+    @Override
     public void initData() {
         COUNT = 0;
     }
 
     @Override
     public void initView() {
-        mBtnStart.setOnClickListener(this);
-        mBtnConnect.setOnClickListener(this);
-        mBtnSend.setOnClickListener(this);
-        mBtnDisConnect.setOnClickListener(this);
-        mBtnStop.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_reader_socket_btn_start, R.id.act_reader_socket_btn_connect, R.id.act_reader_socket_btn_send, R.id.act_reader_socket_btn_disconnect, R.id.act_reader_socket_btn_stop})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.act_reader_socket_btn_start:

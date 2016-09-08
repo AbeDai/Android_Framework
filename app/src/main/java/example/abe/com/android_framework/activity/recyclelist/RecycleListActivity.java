@@ -5,22 +5,26 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.BindView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 import example.abe.com.framework.util.LogUtil;
 
-@ContentView(id = R.layout.activity_recycle_list)
 public class RecycleListActivity extends BaseActivity implements ListAdapter.OnItemClickListener {
 
-    @ViewInject(id = R.id.act_abrecycle_list_rv)
-    private RecyclerView mRecyclerView;
+    @BindView(R.id.act_abrecycle_list_rv)
+    protected RecyclerView mRecyclerView;
     private List<String> mData;
     private ListAdapter mAdapter;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_recycle_list;
+    }
 
     @Override
     public void initData() {

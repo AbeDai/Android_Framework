@@ -1,27 +1,29 @@
 package example.abe.com.android_framework.activity.imageloader;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.example.BindView;
+
 import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.imageloader.ImageLoader;
-import example.abe.com.framework.imageloader.handle.BitmapHandle;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_image_loader_grid_view)
 public class ImageLoaderGridViewActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_image_loader_grid_view_root)
-    private GridView mGridView;
+    @BindView(R.id.act_image_loader_grid_view_root)
+    protected GridView mGridView;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_image_loader_grid_view;
+    }
 
     @Override
     public void initData() {

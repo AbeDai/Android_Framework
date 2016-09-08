@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.BindView;
+import com.example.OnClick;
+
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,20 +24,11 @@ import example.abe.com.android_framework.R;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_image_socket)
-public class ImageSocketActivity extends BaseActivity implements View.OnClickListener {
+public class ImageSocketActivity extends BaseActivity{
 
-    @ViewInject(id = R.id.act_image_socket_btn_start)
-    private Button mBtnStart;
-    @ViewInject(id = R.id.act_image_socket_btn_send)
-    private Button mBtnSend;
-    @ViewInject(id = R.id.act_image_socket_btn_stop)
-    private Button mBtnStop;
-    @ViewInject(id = R.id.act_image_socket_iv_display)
-    private ImageView mIvDisplay;
+    @BindView(R.id.act_image_socket_iv_display)
+    protected ImageView mIvDisplay;
 
     private Socket mSocket;
     private Intent mIntent;
@@ -54,6 +48,11 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
     }
 
     @Override
+    public int getLayoutID(){
+        return R.layout.activity_image_socket;
+    }
+
+    @Override
     public void initData() {
         COUNT = 0;
         listRes = new ArrayList<>(Arrays.asList(
@@ -63,12 +62,9 @@ public class ImageSocketActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void initView() {
-        mBtnStart.setOnClickListener(this);
-        mBtnSend.setOnClickListener(this);
-        mBtnStop.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_image_socket_btn_start, R.id.act_image_socket_btn_send, R.id.act_image_socket_btn_stop})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.act_image_socket_btn_start:

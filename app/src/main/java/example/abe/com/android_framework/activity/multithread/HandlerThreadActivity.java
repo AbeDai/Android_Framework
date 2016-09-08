@@ -7,17 +7,16 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_handler_thread)
 public class HandlerThreadActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_handler_thread_tv)
-    private TextView mTv;
+    @BindView(R.id.act_handler_thread_tv)
+    protected TextView mTv;
     private HandlerThread mHandlerThread;
     private Handler handler;
     private static final int MSG_UPDATE_INFO = 0x110;
@@ -33,6 +32,11 @@ public class HandlerThreadActivity extends BaseActivity {
         super.onDestroy();
         EventCenter.getDefault().register(this);
         mHandlerThread.quit();//释放资源
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_handler_thread;
     }
 
     @Override

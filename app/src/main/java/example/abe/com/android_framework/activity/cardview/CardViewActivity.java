@@ -8,16 +8,20 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.BindView;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_card_view)
 public class CardViewActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_card_view_root)
-    ViewGroup root;
+    @BindView(R.id.act_card_view_root)
+    protected ViewGroup root;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_card_view;
+    }
 
     @Override
     public void initData(){

@@ -9,6 +9,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.BindView;
+import com.example.OnClick;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -17,21 +19,19 @@ import java.io.IOException;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_volley_custom)
-public class VolleyCustomActivity extends BaseActivity implements View.OnClickListener {
+public class VolleyCustomActivity extends BaseActivity{
 
     private String mXMLUrl;
     private String mJsonGetUrl;
     private RequestQueue mQueue;
-    @ViewInject(id = R.id.act_volley_custom_btn_xml_get)
-    private Button mBtnXml;
-    @ViewInject(id = R.id.act_volley_custom_btn_gson_get)
-    private Button mBtnGson;
-    @ViewInject(id = R.id.act_volley_custom_et_show)
-    private EditText mEtShow;
+    @BindView(R.id.act_volley_custom_et_show)
+    protected EditText mEtShow;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_volley_custom;
+    }
 
     @Override
     public void initData(){
@@ -42,11 +42,9 @@ public class VolleyCustomActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void initView(){
-        mBtnXml.setOnClickListener(this);
-        mBtnGson.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_volley_custom_btn_xml_get, R.id.act_volley_custom_btn_gson_get})
     public void onClick(View v) {
         Request request = null;
         switch (v.getId()) {

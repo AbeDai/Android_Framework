@@ -1,31 +1,24 @@
 package example.abe.com.android_framework.activity.multithread;
 
 import android.content.Intent;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.BindView;
+import com.example.OnClick;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
-import example.abe.com.android_framework.main.MainActivity;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_intent_service)
 public class IntentServiceActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_intent_service_btn_intent1_start)
-    private Button mBtnStartIntent1;
-    @ViewInject(id = R.id.act_intent_service_btn_intent2_start)
-    private Button mBtnStartIntent2;
-    @ViewInject(id = R.id.act_intent_service_tv)
-    private TextView mTv;
+    @BindView(R.id.act_intent_service_tv)
+    protected TextView mTv;
     private Intent intent1;
     private Intent intent2;
 
@@ -42,6 +35,11 @@ public class IntentServiceActivity extends BaseActivity {
     }
 
     @Override
+    public int getLayoutID(){
+        return R.layout.activity_intent_service;
+    }
+
+    @Override
     public void initData() {
         intent1 = new Intent(IntentServiceActivity.this, MyIntentService.class);
         intent1.putExtra(MyIntentService.TASK_KEY_ID, MyIntentService.TASK_ID_ONE);
@@ -52,19 +50,16 @@ public class IntentServiceActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mBtnStartIntent1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startService(intent1);
-            }
-        });
+    }
 
-        mBtnStartIntent2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startService(intent2);
-            }
-        });
+    @OnClick(R.id.act_intent_service_btn_intent1_start)
+    public void startIntent1(){
+        startService(intent1);
+    }
+
+    @OnClick(R.id.act_intent_service_btn_intent2_start)
+    public void startIntent2(){
+        startService(intent2);
     }
 
     public void onEventUI(MessageEvent event){

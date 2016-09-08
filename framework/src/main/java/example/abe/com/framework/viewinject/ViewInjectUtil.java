@@ -1,118 +1,48 @@
 package example.abe.com.framework.viewinject;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.view.View;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Created by Administrator on 2016/7/29.
- */
+import example.abe.com.framework.viewinject.provider.ActivityProvider;
+import example.abe.com.framework.viewinject.provider.Provider;
+import example.abe.com.framework.viewinject.provider.ViewProvider;
+
 public class ViewInjectUtil {
-    private static final String METHOD_SET_CONTENT_VIEW_ACTIVITY = "setContentView";
-    private static final String METHOD_FIND_VIEW_BY_ID = "findViewById";
 
-    /**
-     * 注入操作初始化
-     * @param activity 当前活动
-     */
+    //Activity实现策略
+    private static final ActivityProvider PROVIDER_ACTIVITY = new ActivityProvider();
+    //View实现策略
+    private static final ViewProvider PROVIDER_VIEW = new ViewProvider();
+    //注解方法缓存
+    private static final Map<String, IViewInject> VIEW_INJECT_MAP = new HashMap<>();
+
     public static void inject(Activity activity) {
-        injectContentView(activity);
-        injectViews(activity);
+        inject(activity, activity, PROVIDER_ACTIVITY);
     }
 
-    /**
-     * 注入操作初始化
-     * @param fragment 当前碎片
-     */
-    public static void inject(View view, Fragment fragment) {
-        injectViews(view, fragment);
+    public static void inject(View view) {
+        inject(view, view);
     }
 
-    /**
-     * 获取内容视图的布局ID
-     * @param fragment 当前碎片
-     * @return 布局ID
-     */
-    public static int getContentViewId(Fragment fragment){
-        Class<? extends Fragment> clazz = fragment.getClass();
-        ContentView contentViewAnnotation = clazz.getAnnotation(ContentView.class);
-        if (contentViewAnnotation != null) {
-            return contentViewAnnotation.id();
-        }
-        return -1;
+    public static void inject(Object host, View view) {
+        inject(host, view, PROVIDER_VIEW);
     }
 
-    /**
-     * 注入界面操作
-     * @param activity 当前活动
-     */
-    private static void injectContentView(Activity activity) {
-        Class<? extends Activity> clazz = activity.getClass();
-        ContentView contentViewAnnotation = clazz.getAnnotation(ContentView.class);
-        if (contentViewAnnotation != null) {
-            int id = contentViewAnnotation.id();
-            if (id != -1) {
-                try {
-                    Method method = clazz.getMethod(METHOD_SET_CONTENT_VIEW_ACTIVITY, int.class);
-                    method.setAccessible(true);
-                    method.invoke(activity, id);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+    public static void inject(Object host, Object source, Provider provider) {
+        String className = host.getClass().getName();
+        try {
+            IViewInject viewInject = VIEW_INJECT_MAP.get(className);
+            if (viewInject == null) {
+                Class<?> finderClass = Class.forName(className + "$$ViewInject");
+                viewInject = (IViewInject) finderClass.newInstance();
+                VIEW_INJECT_MAP.put(className, viewInject);
             }
+            viewInject.inject(host, source, provider);
+        } catch (Exception e) {
+//            throw new RuntimeException("Unable to inject for " + className, e);
         }
     }
-
-    /**
-     * 注入视图属性
-     * @param activity 当前活动
-     */
-    private static void injectViews(Activity activity) {
-        Class<? extends Activity> clazz = activity.getClass();
-        Field[] fields = clazz.getDeclaredFields();
-        for (Field field : fields){
-            ViewInject viewInjectAnnotation = field.getAnnotation(ViewInject.class);
-            if (viewInjectAnnotation != null){
-                int id = viewInjectAnnotation.id();
-                if (id != -1){
-                    try {
-                        Method method = clazz.getMethod(METHOD_FIND_VIEW_BY_ID, Integer.TYPE);
-                        View resView = (View)method.invoke(activity, id);
-                        field.setAccessible(true);
-                        field.set(activity, resView);
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * 注入视图属性
-     * @param fragment 当前活动
-     */
-    private static void injectViews(View view, Fragment fragment) {
-        Class<? extends Fragment> clazz = fragment.getClass();
-        Field[] fields = clazz.getDeclaredFields();
-        for (Field field : fields){
-            ViewInject viewInjectAnnotation = field.getAnnotation(ViewInject.class);
-            if (viewInjectAnnotation != null){
-                int id = viewInjectAnnotation.id();
-                if (id != -1){
-                    try {
-                        View resView = view.findViewById(id);
-                        field.setAccessible(true);
-                        field.set(fragment, resView);
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
 }

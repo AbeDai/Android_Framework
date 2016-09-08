@@ -8,31 +8,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.android.volley.RequestQueue;
+import com.example.BindView;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.activity.volley.BitmapCache;
 import example.abe.com.framework.imageloader.ImageLoader;
 import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.util.DensityUtil;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
 /**
  * Created by abe on 16/8/6.
  */
-@ContentView(id = R.layout.fragment_banner)
 public class BannerFragment extends BaseFragment {
 
+    @BindView(R.id.frag_banner_view_pager)
+    protected BannerViewPager mBanner;
     private static String DATA_TITLES = "data_titles";
     private static String DATA_URLS = "data_url";
-
-    @ViewInject(id = R.id.frag_banner_view_pager)
-    private BannerViewPager mBanner;
     private BannerAdapter mAdapter;
     private List<View> mData;
 
@@ -54,6 +49,11 @@ public class BannerFragment extends BaseFragment {
         fragment.setArguments(bundle);
 
         return fragment;
+    }
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.fragment_banner;
     }
 
     @Override

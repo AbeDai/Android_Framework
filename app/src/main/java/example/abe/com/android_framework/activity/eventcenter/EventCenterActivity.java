@@ -6,29 +6,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.BindView;
+import com.example.OnClick;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.eventcenter.EventCenter;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_event_center)
 public class EventCenterActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_event_center_tv_content)
-    private TextView tv;
-    @ViewInject(id = R.id.act_event_center_btn_post_event)
-    private Button mBtnenter;
-    @ViewInject(id = R.id.act_event_center_btn_register)
-    private Button mBtnRegister;
-    @ViewInject(id = R.id.act_event_center_btn_unregister)
-    private Button mBtnUnRegister;
+    @BindView(R.id.act_event_center_tv_content)
+    protected TextView tv;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_event_center;
+    }
 
     @Override
     public void initView() {
-        mBtnenter.setOnClickListener(mBtnListener);
-        mBtnRegister.setOnClickListener(mBtnListener);
-        mBtnUnRegister.setOnClickListener(mBtnListener);
     }
 
     @Override
@@ -36,25 +32,23 @@ public class EventCenterActivity extends BaseActivity {
 
     }
 
-    View.OnClickListener mBtnListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.act_event_center_btn_post_event:
-                    MessageEvent event = new MessageEvent("发送消息：我是戴益波");
-                    EventCenter.getDefault().post(event);
-                    break;
+    @OnClick({R.id.act_event_center_btn_post_event, R.id.act_event_center_btn_register, R.id.act_event_center_btn_unregister})
+    public void onBtnClick(View v) {
+        switch (v.getId()) {
+            case R.id.act_event_center_btn_post_event:
+                MessageEvent event = new MessageEvent("发送消息：我是戴益波");
+                EventCenter.getDefault().post(event);
+                break;
 
-                case R.id.act_event_center_btn_register:
-                    EventCenter.getDefault().register(EventCenterActivity.this);
-                    break;
+            case R.id.act_event_center_btn_register:
+                EventCenter.getDefault().register(EventCenterActivity.this);
+                break;
 
-                case R.id.act_event_center_btn_unregister:
-                    EventCenter.getDefault().unRigister(EventCenterActivity.this);
-                    break;
-            }
+            case R.id.act_event_center_btn_unregister:
+                EventCenter.getDefault().unRigister(EventCenterActivity.this);
+                break;
         }
-    };
+    }
 
     @Override
     protected void onDestroy() {

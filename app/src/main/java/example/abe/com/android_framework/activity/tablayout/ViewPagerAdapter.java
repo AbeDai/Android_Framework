@@ -17,7 +17,6 @@ import example.abe.com.framework.util.ResourceUtil;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private static final int NUM_PAGES = 5;
-    private ArrayList<Fragment> mFragmentList = new ArrayList<>();
     private List<String> mTitleList = new ArrayList<>();
     private List<String> mContentList = new ArrayList<>();
 

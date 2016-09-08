@@ -4,37 +4,28 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.BindView;
+import com.example.OnClick;
+
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_thread)
-public class MultiThreadActivity extends BaseActivity implements View.OnClickListener{
+public class MultiThreadActivity extends BaseActivity{
 
-    @ViewInject(id = R.id.act_thread_btn_async_task)
-    public Button mBtnAsyncTask;
-    @ViewInject(id = R.id.act_thread_btn_handler_thread)
-    public Button mBtnHandlerThread;
-    @ViewInject(id = R.id.act_thread_btn_thread_pool)
-    public Button mBtnThreadPool;
-    @ViewInject(id = R.id.act_thread_btn_intent_service)
-    public Button mBtnIntentService;
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_thread;
+    }
 
     @Override
     public void initData() {
-
     }
 
     @Override
     public void initView() {
-        mBtnAsyncTask.setOnClickListener(this);
-        mBtnHandlerThread.setOnClickListener(this);
-        mBtnThreadPool.setOnClickListener(this);
-        mBtnIntentService.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_thread_btn_async_task, R.id.act_thread_btn_handler_thread, R.id.act_thread_btn_thread_pool, R.id.act_thread_btn_intent_service})
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()){

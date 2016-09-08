@@ -10,15 +10,18 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
 
-@ContentView(id = R.layout.activity_banner)
 public class BannerActivity extends BaseActivity {
 
     private BannerFragment mBannerFrag1;
     private BannerFragment mBannerFrag2;
     private List<String> mData1;
     private List<String> mData2;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_banner;
+    }
 
     @Override
     public void initData() {

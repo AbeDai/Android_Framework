@@ -3,25 +3,26 @@ package example.abe.com.android_framework.activity.multithread;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
+
+import com.example.BindView;
+import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.ToastUtil;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_async_task)
-public class AsyncTaskActivity extends BaseActivity implements View.OnClickListener{
+public class AsyncTaskActivity extends BaseActivity {
 
-    @ViewInject(id = R.id.act_async_task_progress_bar)
-    private ProgressBar mProgressBar;
-    @ViewInject(id = R.id.act_async_task_btn_start)
-    private Button mBtnStart;
-    @ViewInject(id = R.id.act_async_task_btn_cancel)
-    private Button mBtnCancel;
+    @BindView(R.id.act_async_task_progress_bar)
+    protected ProgressBar mProgressBar;
+
     private MyTask mTask;
+
+    @Override
+    public int getLayoutID() {
+        return R.layout.activity_async_task;
+    }
 
     @Override
     public void initData() {
@@ -29,21 +30,17 @@ public class AsyncTaskActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     public void initView() {
-        mBtnStart.setOnClickListener(this);
-        mBtnCancel.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.act_async_task_btn_start:
-                mTask = new MyTask();
-                mTask.execute(10);
-                break;
-            case R.id.act_async_task_btn_cancel:
-                mTask.cancel(false);
-                break;
-        }
+    @OnClick({R.id.act_async_task_btn_start})
+    public void taskStart() {
+        mTask = new MyTask();
+        mTask.execute(10);
+    }
+
+    @OnClick({R.id.act_async_task_btn_cancel})
+    public void taskCancel(View v) {
+        mTask.cancel(false);
     }
 
     private class MyTask extends AsyncTask<Integer, Integer, String> {

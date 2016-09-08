@@ -12,29 +12,27 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
+import com.example.BindView;
+import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.viewinject.ContentView;
-import example.abe.com.framework.viewinject.ViewInject;
 
-@ContentView(id = R.layout.activity_volley_image)
-public class VolleyImageActivity extends BaseActivity implements View.OnClickListener {
+public class VolleyImageActivity extends BaseActivity{
 
     private String mImgUrl;
     private RequestQueue mQueue;
     private ImageLoader mLoader;
 
-    @ViewInject(id = R.id.act_volley_image_btn_request)
-    private Button mBtnRequest;
-    @ViewInject(id = R.id.act_volley_image_btn_loader)
-    private Button mBtnLoader;
-    @ViewInject(id = R.id.act_volley_image_btn_view)
-    private Button mBtnView;
-    @ViewInject(id = R.id.act_volley_image_iv)
-    private ImageView mIv;
-    @ViewInject(id = R.id.act_volley_image_network_image_view)
-    private NetworkImageView mIvNetwork;
+    @BindView(R.id.act_volley_image_iv)
+    protected ImageView mIv;
+    @BindView(R.id.act_volley_image_network_image_view)
+    protected NetworkImageView mIvNetwork;
+
+    @Override
+    public int getLayoutID(){
+        return R.layout.activity_volley_image;
+    }
 
     @Override
     public void initData(){
@@ -45,12 +43,9 @@ public class VolleyImageActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     public void initView(){
-        mBtnRequest.setOnClickListener(this);
-        mBtnLoader.setOnClickListener(this);
-        mBtnView.setOnClickListener(this);
     }
 
-    @Override
+    @OnClick({R.id.act_volley_image_btn_request, R.id.act_volley_image_btn_loader, R.id.act_volley_image_btn_view})
     public void onClick(View v){
         switch (v.getId()){
             case R.id.act_volley_image_btn_request:{
