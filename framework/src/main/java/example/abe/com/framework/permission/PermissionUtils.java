@@ -151,6 +151,30 @@ public class PermissionUtils {
     }
 
     /**
+     * 请求结果回调
+     *
+     * @param obj          当前环境（Activity或Fragment）
+     * @param requestCode  请求码
+     * @param permissions  权限组
+     * @param grantResults 请求结果
+     */
+    private static void requestResult(Object obj, int requestCode, String[] permissions,
+                                      int[] grantResults) {
+        List<String> deniedPermissions = new ArrayList<>();
+        for (int i = 0; i < grantResults.length; i++) {
+            if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                deniedPermissions.add(permissions[i]);
+            }
+        }
+
+        if (deniedPermissions.size() > 0) {
+            doExecuteFail(obj, requestCode);
+        } else {
+            doExecuteSuccess(obj, requestCode);
+        }
+    }
+
+    /**
      * 执行请求成功回调
      *
      * @param object      当前环境对象（Activity或Fragment）
@@ -192,30 +216,6 @@ public class PermissionUtils {
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    /**
-     * 请求结果回调
-     *
-     * @param obj          当前环境（Activity或Fragment）
-     * @param requestCode  请求码
-     * @param permissions  权限组
-     * @param grantResults 请求结果
-     */
-    private static void requestResult(Object obj, int requestCode, String[] permissions,
-                                      int[] grantResults) {
-        List<String> deniedPermissions = new ArrayList<>();
-        for (int i = 0; i < grantResults.length; i++) {
-            if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                deniedPermissions.add(permissions[i]);
-            }
-        }
-
-        if (deniedPermissions.size() > 0) {
-            doExecuteFail(obj, requestCode);
-        } else {
-            doExecuteSuccess(obj, requestCode);
         }
     }
 

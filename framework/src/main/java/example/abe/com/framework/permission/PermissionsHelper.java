@@ -32,38 +32,20 @@ public class PermissionsHelper {
      * 过滤被拒绝的权限
      *
      * @param activity   视图对象
-     * @param permission 权限数组
+     * @param permissions 权限数组
      * @return 被拒绝的权限数组
      */
     @TargetApi(value = Build.VERSION_CODES.M)
-    public static List<String> filterDeniedPermissions(Activity activity, String... permission) {
+    public static List<String> filterDeniedPermissions(Activity activity, String... permissions) {
         List<String> denyPermissions = new ArrayList<>();
         if (isOverMarshmallow()) {
-            for (String value : permission) {
+            for (String value : permissions) {
                 if (activity.checkSelfPermission(value) != PackageManager.PERMISSION_GRANTED) {
                     denyPermissions.add(value);
                 }
             }
         }
         return denyPermissions;
-    }
-
-    /**
-     * 过滤需要显示原理的权限
-     *
-     * @param activity    视图对象
-     * @param permissions 权限数组
-     * @return 需要显示原理的权限
-     */
-    @TargetApi(value = Build.VERSION_CODES.M)
-    public static List<String> filterNeedShowRationalePermissions(Activity activity, String... permissions) {
-        List<String> showRationalePermissions = new ArrayList<>();
-        for (String value : permissions) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, value)) {
-                showRationalePermissions.add(value);
-            }
-        }
-        return showRationalePermissions;
     }
 
     /**
