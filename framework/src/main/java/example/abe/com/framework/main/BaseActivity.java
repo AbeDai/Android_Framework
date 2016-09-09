@@ -3,7 +3,7 @@ package example.abe.com.framework.main;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import example.abe.com.framework.viewinject.ViewInjectUtil;
+import example.abe.com.framework.viewinject.ViewInjectUtils;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -11,7 +11,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutID());
-        ViewInjectUtil.inject(this);
+        ViewInjectUtils.inject(this);
         initData();
         initView();
     }

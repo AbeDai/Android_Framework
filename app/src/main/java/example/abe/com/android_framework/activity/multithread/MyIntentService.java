@@ -2,12 +2,10 @@ package example.abe.com.android_framework.activity.multithread;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.os.Bundle;
 
 import example.abe.com.android_framework.activity.eventcenter.MessageEvent;
 import example.abe.com.framework.eventcenter.EventCenter;
 import example.abe.com.framework.util.LogUtil;
-import example.abe.com.framework.viewinject.ViewInjectUtil;
 
 /**
  * Created by abe on 16/8/28.

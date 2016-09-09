@@ -8,6 +8,7 @@ import example.abe.com.framework.main.BaseApplication;
  * Created by abe on 16/5/19.
  */
 public class DensityUtil {
+
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */

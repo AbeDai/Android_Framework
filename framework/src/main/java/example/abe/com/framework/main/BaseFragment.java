@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import example.abe.com.framework.viewinject.ViewInjectUtil;
+import example.abe.com.framework.viewinject.ViewInjectUtils;
 
 /**
  * Created by abe on 16/8/6.
@@ -19,7 +19,7 @@ public abstract class BaseFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View contentView = inflater.inflate(getLayoutID(), container, false);
-        ViewInjectUtil.inject(this, contentView);
+        ViewInjectUtils.inject(this, contentView);
         initData();
         initView();
 

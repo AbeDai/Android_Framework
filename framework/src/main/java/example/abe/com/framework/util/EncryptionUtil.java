@@ -35,6 +35,5 @@ public class EncryptionUtil {
             e.printStackTrace();
             return null;
         }
-
     }
 }

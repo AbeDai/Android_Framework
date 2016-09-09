@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.BindView;
+import com.example.PermissionFail;
+import com.example.PermissionSuccess;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,12 +26,14 @@ import java.util.List;
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.ActivityFactory.Flags;
 import example.abe.com.framework.main.BaseActivity;
+import example.abe.com.framework.permission.PermissionUtils;
+import example.abe.com.framework.util.LogUtil;
 import example.abe.com.framework.util.ToastUtil;
 
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
         TextView.OnEditorActionListener {
 
-    private static final int MY_PERMISSIONS_REQUEST = 100;
+    private static final int STORAGE_PERMISSIONS_REQUEST = 100;
     @BindView(R.id.act_main_list)
     protected ListView mLv;
     @BindView(R.id.act_main_et_search)
@@ -43,7 +47,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void initData() {
-        
     }
 
     @Override
@@ -74,54 +77,37 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         return false;
     }
 
-    //TODO：学习APT注解处理方式，然后，通过注解解决封装成一套框架
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                            int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    ToastUtil.makeText("权限申请成功");
-                } else {
-                    ToastUtil.makeText("权限申请失败");
-                }
-                return;
-            }
-        }
+        PermissionUtils.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
     }
 
-    /**
-     * 获取运行时权限
-     */
     private void requestPermissions(){
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                //再次提醒
-                AlertDialog.Builder builder = new AlertDialog
-                        .Builder(this)
-                        .setMessage("这项权限对我们非常重要，取消授权将对App的正常运行产生影响！")
-                        .setPositiveButton("知道了", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                                //再次授权
-                                ActivityCompat.requestPermissions(MainActivity.this,
-                                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                                        MY_PERMISSIONS_REQUEST);
-                            }
-                        });
-                builder.create().show();
-            } else {
-                //需要授权
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                        MY_PERMISSIONS_REQUEST);
-            }
-        }else{
-            //已经授权
-        }
+        PermissionUtils
+                .with(this)
+                .addRequestCode(STORAGE_PERMISSIONS_REQUEST)
+                .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .request();
+    }
+
+    @PermissionSuccess(requestCode = STORAGE_PERMISSIONS_REQUEST)
+    public void onRequestStorageSuccess(){
+
+    }
+
+    @PermissionFail(requestCode = STORAGE_PERMISSIONS_REQUEST)
+    public void onRequestStorageFail(){
+        AlertDialog.Builder builder = new AlertDialog
+                .Builder(this)
+                .setTitle("存储读写权限")
+                .setMessage("这项权限对我们非常重要，取消授权将对App的正常运行产生影响！")
+                .setPositiveButton("知道了", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
     }
 }

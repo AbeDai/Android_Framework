@@ -10,7 +10,7 @@ import example.abe.com.framework.viewinject.provider.ActivityProvider;
 import example.abe.com.framework.viewinject.provider.Provider;
 import example.abe.com.framework.viewinject.provider.ViewProvider;
 
-public class ViewInjectUtil {
+public class ViewInjectUtils {
 
     //Activity实现策略
     private static final ActivityProvider PROVIDER_ACTIVITY = new ActivityProvider();
