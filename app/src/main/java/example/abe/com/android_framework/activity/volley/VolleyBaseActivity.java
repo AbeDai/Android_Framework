@@ -1,6 +1,5 @@
 package example.abe.com.android_framework.activity.volley;
 
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;

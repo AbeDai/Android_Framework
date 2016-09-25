@@ -1,7 +1,7 @@
 package example.abe.com.android_framework.activity.recyclelist;
 
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -22,7 +22,7 @@ public class RecycleListActivity extends BaseActivity implements ListAdapter.OnI
     private ListAdapter mAdapter;
 
     @Override
-    public int getLayoutID(){
+    public int getLayoutID() {
         return R.layout.activity_recycle_list;
     }
 
@@ -40,7 +40,7 @@ public class RecycleListActivity extends BaseActivity implements ListAdapter.OnI
         mAdapter = new ListAdapter(this, mData);
         mAdapter.setOnItemClickListener(this);
         mRecyclerView.setAdapter(mAdapter);//设置adapter
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//设置布局管理器
+        mRecyclerView.setLayoutManager(new GridLayoutManager(RecycleListActivity.this, 3, GridLayoutManager.VERTICAL, false));//设置布局管理器
         mRecyclerView.addItemDecoration(new DivideDecoration());//添加分割线
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());//设置Item增加、移除动画
 
