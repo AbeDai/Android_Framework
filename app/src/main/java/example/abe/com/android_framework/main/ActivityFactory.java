@@ -8,6 +8,7 @@ import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.banner.BannerActivity;
 import example.abe.com.android_framework.activity.cardview.CardViewActivity;
 import example.abe.com.android_framework.activity.drawing.DrawActivity;
+import example.abe.com.android_framework.activity.drawing.custom.CustomActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;

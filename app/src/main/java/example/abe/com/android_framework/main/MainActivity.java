@@ -3,10 +3,14 @@ package example.abe.com.android_framework.main;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteCantOpenDatabaseException;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.ArraySet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -21,13 +25,18 @@ import com.example.PermissionSuccess;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.SocketHandler;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.ActivityFactory.Flags;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.permission.PermissionUtils;
 import example.abe.com.framework.util.LogUtil;
+import example.abe.com.framework.util.SharedPreferencesUtil;
 import example.abe.com.framework.util.ToastUtil;
 
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
