@@ -37,6 +37,14 @@
         <activity android:name=".activity.multithread.HandlerThreadActivity"/>
         <activity android:name=".activity.multithread.ThreadPoolActivity"/>
         <activity android:name=".activity.multithread.IntentServiceActivity"/>
+        <activity android:name=".activity.drawing.custom.CustomActivity"/>
+        <activity android:name=".activity.suspend.SuspendWindowActivity"/>
+        <activity android:name=".activity.imageloader.ImageLoaderActivity"/>
+        <activity android:name=".activity.imageloader.ImageLoaderGridViewActivity"/>
+        <activity android:name=".activity.imageloader.ImageLoaderImageViewActivity"/>
+        <activity
+            android:name=".activity.drawing.whiteboard.WhiteboardActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="stateHidden">
@@ -46,10 +54,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.drawing.whiteboard.WhiteboardActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".activity.drawing.custom.CustomActivity"/>
 
         <service
             android:name=".activity.socket.reader.ReaderSocketService"
@@ -59,22 +63,12 @@
             android:name=".activity.socket.image.ImageSocketService"
             android:enabled="true"
             android:exported="true"/>
-        <service android:name=".activity.multithread.MyIntentService"/>
-
-        <activity android:name=".activity.imageloader.ImageLoaderActivity">
-        </activity>
-        <activity android:name=".activity.imageloader.ImageLoaderGridViewActivity">
-        </activity>
-        <activity android:name=".activity.imageloader.ImageLoaderImageViewActivity">
-        </activity>
-        <activity android:name=".activity.suspend.SuspendWindowActivity">
-        </activity>
-
         <service
             android:name=".activity.suspend.MemoryService"
             android:enabled="true"
-            android:exported="true">
-        </service>
+            android:exported="true"
+            android:process=":remote_memory_service"/>
+        <service android:name=".activity.multithread.MyIntentService"/>
     </application>
 
 </manifest>
