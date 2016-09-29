@@ -74,6 +74,7 @@ public class MemoryWindowManager {
      */
     public void removeMemoryWindow() {
         mWindowManager.removeView(mMemoryWindow);
+        mMemoryWindow = null;
     }
 
     /**

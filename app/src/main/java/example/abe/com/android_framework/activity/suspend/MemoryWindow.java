@@ -60,7 +60,6 @@ public class MemoryWindow extends LinearLayout {
                 mPosY = mPosY + y - mOldY;
                 break;
         }
-
         return true;
     }
 }

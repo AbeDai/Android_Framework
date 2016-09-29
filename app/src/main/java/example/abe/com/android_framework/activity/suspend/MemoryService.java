@@ -23,12 +23,12 @@ public class MemoryService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        mTimer = new Timer(true);
+        mTimer.schedule(mTimerTask, 0, TIME_PERIOD);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        mTimer = new Timer(true);
-        mTimer.schedule(mTimerTask, 0, TIME_PERIOD);
         return START_STICKY;
     }
 
