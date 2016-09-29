@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android_framework.activity.suspend.SuspendWindowActivity">
+
+    <Button
+        android:id="@+id/act_suspend_window_show_memory_window"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="显示内存悬浮窗"/>
+
+    <Button
+        android:id="@+id/act_suspend_window_change_simple_suspend_window"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="修改简单悬浮窗位置"/>
+
+    <Button
+        android:id="@+id/act_suspend_window_remove_simple_suspend_window"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text=" 移除简单悬浮窗"/>
+</LinearLayout>

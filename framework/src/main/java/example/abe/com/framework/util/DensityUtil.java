@@ -36,4 +36,20 @@ public class DensityUtil {
 
         return new int[]{w_screen, h_screen};
     }
+
+    /**
+     * 获取屏幕的宽度（单位:px）
+     * @return int[width, height]
+     */
+    public static int getScreenWidth(){
+        return getScreenSize()[0];
+    }
+
+    /**
+     * 获取屏幕的高度（单位:px）
+     * @return int[width, height]
+     */
+    public static int getScreenHeight(){
+        return getScreenSize()[1];
+    }
 }

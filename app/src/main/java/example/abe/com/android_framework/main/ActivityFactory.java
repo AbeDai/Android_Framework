@@ -17,6 +17,7 @@ import example.abe.com.android_framework.activity.multithread.MultiThreadActivit
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
 import example.abe.com.android_framework.activity.socket.SocketActivity;
+import example.abe.com.android_framework.activity.suspend.SuspendWindowActivity;
 import example.abe.com.android_framework.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android_framework.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android_framework.activity.volley.VolleyActivity;
@@ -80,6 +81,9 @@ public class ActivityFactory {
 
         //自定义图片加载框架
         IMAGE_LOADER,
+
+        //悬浮窗实例
+        SUSPEND_WINDOWS,
     }
 
     public static Class getClass(Flags flag) {
@@ -129,6 +133,9 @@ public class ActivityFactory {
                 break;
             case IMAGE_LOADER:
                 clazz = ImageLoaderActivity.class;
+                break;
+            case SUSPEND_WINDOWS:
+                clazz = SuspendWindowActivity.class;
                 break;
         }
         return clazz;
@@ -187,6 +194,9 @@ public class ActivityFactory {
                 break;
             case IMAGE_LOADER:
                 title = ResourceUtil.getString(R.string.act_title_image_loader);
+                break;
+            case SUSPEND_WINDOWS:
+                title = ResourceUtil.getString(R.string.act_title_suspend_windows);
                 break;
         }
 
@@ -248,6 +258,9 @@ public class ActivityFactory {
                 break;
             case IMAGE_LOADER:
                 content = ResourceUtil.getString(R.string.act_content_image_loader);
+                break;
+            case SUSPEND_WINDOWS:
+                content = ResourceUtil.getString(R.string.act_content_suspend_windows);
                 break;
         }
 
