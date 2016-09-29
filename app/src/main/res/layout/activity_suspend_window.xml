@@ -8,23 +8,16 @@
     tools:context="example.abe.com.android_framework.activity.suspend.SuspendWindowActivity">
 
     <Button
-        android:id="@+id/act_suspend_window_show_memory_window"
+        android:id="@+id/act_suspend_window_start_memory_window_service"
         style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="显示内存悬浮窗"/>
+        android:text="开启内存悬浮窗服务"/>
 
     <Button
-        android:id="@+id/act_suspend_window_change_simple_suspend_window"
+        android:id="@+id/act_suspend_window_stop_memory_window_service"
         style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="修改简单悬浮窗位置"/>
-
-    <Button
-        android:id="@+id/act_suspend_window_remove_simple_suspend_window"
-        style="@style/btn__font_normal__gravity_center__width_fill"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text=" 移除简单悬浮窗"/>
+        android:text="终止内存悬浮窗服务"/>
 </LinearLayout>

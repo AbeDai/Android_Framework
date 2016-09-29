@@ -36,6 +36,6 @@
     <string name="act_content_socket">socket通讯使用方法：示例中将数据从Client端发送到Server端，在通过EventCenter将Server端接收的数据显示到UI上。Socket通讯，主要在于建立连接，然后通过Socket中的输入输出流来进行数据传输。</string>
     <string name="act_content_multi_thread">多线程(multi-thread)：介绍了android中常用的多线程使用方法</string>
     <string name="act_content_image_loader">自己实现的一个图片加载框架，对图片加载到内存做了优化，使用策略模式功能便于扩展，使用外观模式代码更加整洁。</string>
-    <string name="act_content_suspend_windows">添加了要给监控内存的悬浮窗界面,通过悬浮窗展示手机内存使用情况</string>
+    <string name="act_content_suspend_windows">添加监控内存的悬浮窗界面,通过悬浮窗展示手机内存使用情况,主要是为了学习使用WindowManager和Window这两个类。</string>
 
 </resources>
