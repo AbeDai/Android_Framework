@@ -35,6 +35,7 @@ import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.main.ActivityFactory.Flags;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.permission.PermissionUtils;
+import example.abe.com.framework.util.DensityUtil;
 import example.abe.com.framework.util.LogUtil;
 import example.abe.com.framework.util.SharedPreferencesUtil;
 import example.abe.com.framework.util.ToastUtil;

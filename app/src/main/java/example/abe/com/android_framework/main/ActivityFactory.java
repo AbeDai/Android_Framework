@@ -13,6 +13,7 @@ import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
 import example.abe.com.android_framework.activity.imageloader.ImageLoaderActivity;
+import example.abe.com.android_framework.activity.ipc.IpcActivity;
 import example.abe.com.android_framework.activity.multithread.MultiThreadActivity;
 import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
@@ -84,6 +85,9 @@ public class ActivityFactory {
 
         //悬浮窗实例
         SUSPEND_WINDOWS,
+
+        //进程通讯总结
+        IPC,
     }
 
     public static Class getClass(Flags flag) {
@@ -136,6 +140,9 @@ public class ActivityFactory {
                 break;
             case SUSPEND_WINDOWS:
                 clazz = SuspendWindowActivity.class;
+                break;
+            case IPC:
+                clazz = IpcActivity.class;
                 break;
         }
         return clazz;
@@ -197,6 +204,9 @@ public class ActivityFactory {
                 break;
             case SUSPEND_WINDOWS:
                 title = ResourceUtil.getString(R.string.act_title_suspend_windows);
+                break;
+            case IPC:
+                title = ResourceUtil.getString(R.string.act_title_ipc);
                 break;
         }
 
@@ -261,6 +271,9 @@ public class ActivityFactory {
                 break;
             case SUSPEND_WINDOWS:
                 content = ResourceUtil.getString(R.string.act_content_suspend_windows);
+                break;
+            case IPC:
+                content = ResourceUtil.getString(R.string.act_content_ipc);
                 break;
         }
 

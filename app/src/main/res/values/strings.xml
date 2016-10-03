@@ -19,6 +19,7 @@
     <string name="act_title_multi_thread">多线程使用介绍</string>
     <string name="act_title_image_loader">ImageLoader（自定义图片加载框架）</string>
     <string name="act_title_suspend_windows">悬浮窗使用介绍</string>
+    <string name="act_title_ipc">进程通讯方式总结</string>
 
     <!--Activity列表详细描述-->
     <string name="act_content_recycle_list">介绍了RecycleView的简单使用</string>
@@ -37,5 +38,6 @@
     <string name="act_content_multi_thread">多线程(multi-thread)：介绍了android中常用的多线程使用方法</string>
     <string name="act_content_image_loader">自己实现的一个图片加载框架，对图片加载到内存做了优化，使用策略模式功能便于扩展，使用外观模式代码更加整洁。</string>
     <string name="act_content_suspend_windows">添加监控内存的悬浮窗界面,通过悬浮窗展示手机内存使用情况,主要是为了学习使用WindowManager和Window这两个类。</string>
+    <string name="act_content_ipc">进程通讯总结,包括了使用Messenger和AIDL方式进行进程间通讯</string>
 
 </resources>

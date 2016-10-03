@@ -42,6 +42,9 @@
         <activity android:name=".activity.imageloader.ImageLoaderActivity"/>
         <activity android:name=".activity.imageloader.ImageLoaderGridViewActivity"/>
         <activity android:name=".activity.imageloader.ImageLoaderImageViewActivity"/>
+        <activity android:name=".activity.ipc.messenger.MessengerActivity"/>
+        <activity android:name=".activity.ipc.IpcActivity"/>
+        <activity android:name=".activity.ipc.aidl.AIDLActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -69,6 +72,17 @@
             android:exported="true"
             android:process=":remote_memory_service"/>
         <service android:name=".activity.multithread.MyIntentService"/>
+        <service
+            android:name=".activity.ipc.messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote_messenger_service">
+        </service>
+        <service
+            android:name=".activity.ipc.aidl.AIDLService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>
