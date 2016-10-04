@@ -58,6 +58,7 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".activity.multithread.MyIntentService"/>
         <service
             android:name=".activity.socket.reader.ReaderSocketService"
             android:enabled="true"
@@ -71,7 +72,6 @@
             android:enabled="true"
             android:exported="true"
             android:process=":remote_memory_service"/>
-        <service android:name=".activity.multithread.MyIntentService"/>
         <service
             android:name=".activity.ipc.messenger.MessengerService"
             android:enabled="true"
@@ -81,7 +81,8 @@
         <service
             android:name=".activity.ipc.aidl.AIDLService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true"
+            android:process=":remote_aidl_service">
         </service>
     </application>
 

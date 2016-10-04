@@ -23,7 +23,7 @@ import example.abe.com.framework.util.LogUtil;
 public class MessengerActivity extends BaseActivity {
 
     @BindView(R.id.act_messenger_tv_show)
-    private TextView mTvShow;
+    protected TextView mTvShow;
 
     //客户端Messenger对象
     private Messenger mMessenger;

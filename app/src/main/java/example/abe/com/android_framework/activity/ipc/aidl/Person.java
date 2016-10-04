@@ -15,6 +15,10 @@ public class Person implements Parcelable {
         describe =in.readString();
     }
 
+    public String toString(){
+        return "name:" + name + "\tdescribe:" + describe;
+    }
+
     public static final Creator<Person> CREATOR = new Creator<Person>() {
         @Override
         public Person createFromParcel(Parcel in) {

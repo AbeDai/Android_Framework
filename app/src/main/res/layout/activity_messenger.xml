@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_messager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="example.abe.com.android_framework.activity.ipc.messenger.MessengerActivity">
 
     <Button
@@ -25,7 +26,7 @@
         android:id="@+id/act_messenger_tv_show"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:text="20sp"
+        android:textSize="20sp"
         android:textColor="@android:color/black"/>
 
-</RelativeLayout>
+</LinearLayout>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_ipc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="example.abe.com.android_framework.activity.ipc.IpcActivity">
 
     <Button
@@ -20,4 +21,4 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="AIDL实例"/>
-</RelativeLayout>
+</LinearLayout>

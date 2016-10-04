@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_aidl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="example.abe.com.android_framework.activity.ipc.aidl.AIDLActivity">
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/act_aidl_btn_server_remote"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="开始后台服务"/>
+
+    <Button
+        android:id="@+id/act_aidl_btn_send_messenger"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="向后台发送消息"/>
+
+    <Button
+        android:id="@+id/act_aidl_btn_show_content"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="显示后台Content内容"/>
+
+    <TextView
+        android:id="@+id/act_aidl_tv_show"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"/>
+</LinearLayout>

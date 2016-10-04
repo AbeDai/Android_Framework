@@ -10,28 +10,35 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AIDLService extends Service{
-    private CopyOnWriteArrayList<Person> mPersonList =new CopyOnWriteArrayList<Person>();
-    private Binder mBinder= new IGameManager.Stub() {
-        @Override
-        public List<Person> getGameList() throws RemoteException {
-            return mPersonList;
-        }
 
-        @Override
-        public void addGame(Person person) throws RemoteException {
-            mPersonList.add(person);
-        }
-    };
+    private CopyOnWriteArrayList<Person> mPersonList =new CopyOnWriteArrayList<Person>();
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mPersonList.add(new Person("九阴真经ol", "最好玩的武侠网游"));
-        mPersonList.add(new Person("大航海时代ol","最好玩的航海网游"));
-
+        initData();
     }
+
+    private void initData() {
+        mPersonList.add(new Person("吴佳芳", "浙江科技学院 信息学院 计算机科学与技术 133班"));
+        mPersonList.add(new Person("戴波波","浙江科技学院 信息学院 计算机科学与技术 131班"));
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
+
+    //Binder实现类
+    private Binder mBinder= new IPersonManager.Stub() {
+        @Override
+        public List<Person> getPersonList() throws RemoteException {
+            return mPersonList;
+        }
+
+        @Override
+        public void addPerson(Person person) throws RemoteException {
+            mPersonList.add(person);
+        }
+    };
 }
