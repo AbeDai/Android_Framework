@@ -16,7 +16,6 @@ import example.abe.com.framework.util.LogUtil;
 public class DivideDecoration extends RecyclerView.ItemDecoration {
 
     private Drawable mDivider;
-
     {
         GradientDrawable drawable = new GradientDrawable();
         drawable.setColor(Color.LTGRAY);

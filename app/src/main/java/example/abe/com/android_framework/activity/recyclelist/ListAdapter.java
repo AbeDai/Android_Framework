@@ -53,10 +53,6 @@ public class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
         return holder;
     }
 
-    /**
-     * @param holder
-     * @param position
-     */
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         if (position % 2 == 0) {
