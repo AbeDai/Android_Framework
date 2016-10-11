@@ -31,7 +31,7 @@ public class ImageLoaderGridViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mGridView.setAdapter(new ListImgItemAdapter(this, 0, ImageModel.listImageUrl));
+        mGridView.setAdapter(new ListImgItemAdapter(this, 0, ImageModel.LIST_IMAGE_URL));
     }
 
     private class ListImgItemAdapter extends ArrayAdapter<String> {

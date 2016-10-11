@@ -9,8 +9,8 @@ import java.util.Random;
  */
 public class ImageModel {
 
-    public static final Random random = new Random(System.currentTimeMillis());
-    public static final List<String> listImageUrl = Arrays.asList(
+    public static final Random RANDOM = new Random(System.currentTimeMillis());
+    public static final List<String> LIST_IMAGE_URL = Arrays.asList(
             "http://img.my.csdn.net/uploads/201407/26/1406383299_1976.jpg",
             "http://img.my.csdn.net/uploads/201407/26/1406383291_6518.jpg",
             "http://img.my.csdn.net/uploads/201407/26/1406383291_8239.jpg",
@@ -98,7 +98,7 @@ public class ImageModel {
             "http://img.my.csdn.net/uploads/201407/26/1406382765_7341.jpg");
 
     public static String getRandomImageUrl(){
-        int location = random.nextInt(listImageUrl.size());
-        return listImageUrl.get(location);
+        int location = RANDOM.nextInt(LIST_IMAGE_URL.size());
+        return LIST_IMAGE_URL.get(location);
     }
 }

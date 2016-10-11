@@ -8,14 +8,13 @@ import example.abe.com.android_framework.activity.assets.AssetsActivity;
 import example.abe.com.android_framework.activity.banner.BannerActivity;
 import example.abe.com.android_framework.activity.cardview.CardViewActivity;
 import example.abe.com.android_framework.activity.drawing.DrawActivity;
-import example.abe.com.android_framework.activity.drawing.custom.CustomActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
 import example.abe.com.android_framework.activity.imageloader.ImageLoaderActivity;
 import example.abe.com.android_framework.activity.ipc.IpcActivity;
 import example.abe.com.android_framework.activity.multithread.MultiThreadActivity;
-import example.abe.com.android_framework.activity.recyclelist.RecycleListActivity;
+import example.abe.com.android_framework.activity.recycleview.RecycleViewActivity;
 import example.abe.com.android_framework.activity.retrofit.RetrofitActivity;
 import example.abe.com.android_framework.activity.socket.SocketActivity;
 import example.abe.com.android_framework.activity.suspend.SuspendWindowActivity;
@@ -38,8 +37,8 @@ public class ActivityFactory {
     }
 
     public enum Flags {
-        //RecycleView使用范例
-        RECYCLE_LIST,
+        //RecycleView详解
+        RECYCLE_VIEW,
 
         //网络框架
         RETROFIT,
@@ -93,8 +92,8 @@ public class ActivityFactory {
     public static Class getClass(Flags flag) {
         Class clazz = null;
         switch (flag) {
-            case RECYCLE_LIST:
-                clazz = RecycleListActivity.class;
+            case RECYCLE_VIEW:
+                clazz = RecycleViewActivity.class;
                 break;
             case RETROFIT:
                 clazz = RetrofitActivity.class;
@@ -157,7 +156,7 @@ public class ActivityFactory {
 
         //获取资源
         switch (flag) {
-            case RECYCLE_LIST:
+            case RECYCLE_VIEW:
                 title = ResourceUtil.getString(R.string.act_title_recycle_list);
                 break;
             case RETROFIT:
@@ -224,7 +223,7 @@ public class ActivityFactory {
 
         //获取资源
         switch (flag) {
-            case RECYCLE_LIST:
+            case RECYCLE_VIEW:
                 content = ResourceUtil.getString(R.string.act_content_recycle_list);
                 break;
             case RETROFIT:

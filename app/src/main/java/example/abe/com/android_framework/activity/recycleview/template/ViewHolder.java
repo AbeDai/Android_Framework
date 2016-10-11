@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.activity.recyclelist;
+package example.abe.com.android_framework.activity.recycleview.template;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

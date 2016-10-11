@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.activity.recyclelist;
+package example.abe.com.android_framework.activity.recycleview.template;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -19,14 +19,14 @@ public class ListAdapter extends RecyclerView.Adapter<ViewHolder> {
     private List<String> mData;
     private Context mContext;
 
-    interface OnItemClickListener {
+    public interface OnItemClickListener {
 
         void onClickItem(View view, int position);
 
         boolean onLongClickItem(View view, int position);
     }
 
-    ListAdapter(Context context, List<String> data) {
+    public ListAdapter(Context context, List<String> data) {
         mData = data;
         mContext = context;
     }

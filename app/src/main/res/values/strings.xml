@@ -22,7 +22,7 @@
     <string name="act_title_ipc">进程通讯方式总结</string>
 
     <!--Activity列表详细描述-->
-    <string name="act_content_recycle_list">介绍了RecycleView的简单使用</string>
+    <string name="act_content_recycle_list">介绍RecycleView的使用,主要包含了Recycle的使用模板示范代码和RecycleView的封装使用介绍</string>
     <string name="act_content_retrofit">对Retrofit框架进行了简单的封装，使用起来更加简单方便</string>
     <string name="act_content_view_pager">对ViewPager的使用详解，主要包含往ViewPager中添加View，往ViewPager中添加Fragment，还有ViewPager中元素动态增减</string>
     <string name="act_content_assets">将文件添加到Assets中，并通过相应方法获取其中内容</string>

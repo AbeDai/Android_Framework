@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.retrofit.RetrofitActivity"/>
-        <activity android:name=".activity.recyclelist.RecycleListActivity"/>
+        <activity android:name=".activity.recycleview.template.RecycleListActivity"/>
         <activity android:name=".activity.viewpager.ViewPagerActivity"/>
         <activity android:name=".activity.assets.AssetsActivity"/>
         <activity android:name=".activity.tablayout.TabLayoutActivity"/>
@@ -45,6 +45,7 @@
         <activity android:name=".activity.ipc.messenger.MessengerActivity"/>
         <activity android:name=".activity.ipc.IpcActivity"/>
         <activity android:name=".activity.ipc.aidl.AIDLActivity"/>
+        <activity android:name=".activity.recycleview.RecycleViewActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -84,6 +85,9 @@
             android:exported="true"
             android:process=":remote_aidl_service">
         </service>
+
+        <activity android:name=".activity.recycleview.example.BaseAdapterActivity">
+        </activity>
     </application>
 
 </manifest>

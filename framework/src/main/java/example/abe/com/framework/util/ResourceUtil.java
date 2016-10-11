@@ -41,4 +41,13 @@ public class ResourceUtil {
     public static Bitmap getBitmap(int id){
         return BitmapFactory.decodeResource(BaseApplication.getInstance().getResources(), id);
     }
+
+    /**
+     * 获取资源文件中的颜色
+     * @param id 资源id
+     * @return 颜色
+     */
+    public static int getColor(int id){
+        return BaseApplication.getInstance().getResources().getColor(id);
+    }
 }
