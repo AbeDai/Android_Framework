@@ -5,7 +5,7 @@
     android:id="@+id/activity_base_adapter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.recycleview.example.BaseAdapterActivity">
+    tools:context="example.abe.com.android_framework.activity.recycleview.example.baseadapter.BaseAdapterActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/act_base_adapter_recycle_view"

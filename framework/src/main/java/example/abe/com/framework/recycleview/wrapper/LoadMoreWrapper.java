@@ -2,31 +2,30 @@ package example.abe.com.framework.recycleview.wrapper;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 
+import example.abe.com.framework.recycleview.adapter.BaseAdapter;
 import example.abe.com.framework.recycleview.base.ViewHolder;
 
 import static example.abe.com.framework.recycleview.wrapper.WrapperHelper.ITEM_TYPE_LOAD_MORE;
-import static example.abe.com.framework.recycleview.wrapper.WrapperHelper.setFullSpan;
 
 /**
  * Created by abe on 16/10/11.
  */
-public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class LoadMoreWrapper<T> extends RecyclerView.Adapter<ViewHolder> {
 
     /**
      * 加载更加监听接口
      */
     public interface OnLoadMoreListener {
-        void onLoadMoreRequested();
+        void onLoadMoreRequested(ViewHolder holder);
     }
 
     //加载更多视图
     private View mLoadMoreView;
     //内容实现Adapter
-    private RecyclerView.Adapter mInnerAdapter;
+    private BaseAdapter<T> mInnerAdapter;
     //LoadMore监听
     private OnLoadMoreListener mOnLoadMoreListener;
 
@@ -34,7 +33,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
      * 构造函数
      * @param adapter 修饰Adapter
      */
-    public LoadMoreWrapper(RecyclerView.Adapter adapter) {
+    public LoadMoreWrapper(BaseAdapter<T> adapter) {
         mInnerAdapter = adapter;
     }
 
@@ -64,7 +63,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //设置LoadMore视图ViewHolder
         if (viewType == ITEM_TYPE_LOAD_MORE) {
             ViewHolder holder = new ViewHolder(parent.getContext(), mLoadMoreView);
@@ -74,11 +73,11 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         if (isShowLoadMore(position)) {
             //调用LoadMore监听
             if (mOnLoadMoreListener != null) {
-                mOnLoadMoreListener.onLoadMoreRequested();
+                mOnLoadMoreListener.onLoadMoreRequested(holder);
             }
             return;
         }
@@ -105,7 +104,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     @Override
-    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+    public void onViewAttachedToWindow(ViewHolder holder) {
         mInnerAdapter.onViewAttachedToWindow(holder);
         //设置StaggeredGridLayoutManager布局Item宽度
         if (isShowLoadMore(holder.getLayoutPosition())) {

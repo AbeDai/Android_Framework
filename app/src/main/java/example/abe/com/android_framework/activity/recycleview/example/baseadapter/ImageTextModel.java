@@ -1,4 +1,4 @@
-package example.abe.com.android_framework.activity.recycleview.example;
+package example.abe.com.android_framework.activity.recycleview.example.baseadapter;
 
 /**
  * Created by abe on 16/10/11.

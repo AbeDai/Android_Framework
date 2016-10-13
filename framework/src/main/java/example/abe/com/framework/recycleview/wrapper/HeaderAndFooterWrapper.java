@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import example.abe.com.framework.recycleview.adapter.BaseAdapter;
 import example.abe.com.framework.recycleview.base.ViewHolder;
 
 import static example.abe.com.framework.recycleview.wrapper.WrapperHelper.ITEM_TYPE_FOOTER;
@@ -15,20 +16,20 @@ import static example.abe.com.framework.recycleview.wrapper.WrapperHelper.ITEM_T
 /**
  * Created by abe on 16/10/11.
  */
-public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<ViewHolder> {
     //HeaderView数据
     private SparseArrayCompat<View> mHeaderViews = new SparseArrayCompat<>();
     //FootView数据
     private SparseArrayCompat<View> mFootViews = new SparseArrayCompat<>();
     //内容实现Adapter
-    private RecyclerView.Adapter mInnerAdapter;
+    private BaseAdapter<T> mInnerAdapter;
 
     /**
      * 构造方法
      *
      * @param adapter 修饰Adapter
      */
-    public HeaderAndFooterWrapper(RecyclerView.Adapter adapter) {
+    public HeaderAndFooterWrapper(BaseAdapter<T> adapter) {
         mInnerAdapter = adapter;
     }
 
@@ -81,7 +82,7 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (mHeaderViews.get(viewType) != null) {
             //设置HeaderView视图ViewHolder
             ViewHolder holder = new ViewHolder(parent.getContext(), mHeaderViews.get(viewType));
@@ -95,7 +96,7 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         //头部尾部视图无操作
         if (isHeaderViewPos(position) || isFooterViewPos(position)) {
             return;
@@ -128,7 +129,7 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
-    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+    public void onViewAttachedToWindow(ViewHolder holder) {
         mInnerAdapter.onViewAttachedToWindow(holder);
 
         //设置StaggeredGridLayoutManager布局Item宽度

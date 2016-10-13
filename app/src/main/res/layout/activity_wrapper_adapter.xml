@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_wrapper_adapter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android_framework.activity.recycleview.example.wrapperadapter.WrapperAdapterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/act_wrapper_adapter_btn_wrapper"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="切换Wrapper修饰形态"/>
+        <Button
+            android:id="@+id/act_wrapper_adapter_btn_layout_manager"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="切换LayoutManager布局形态"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/act_wrapper_adapter_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

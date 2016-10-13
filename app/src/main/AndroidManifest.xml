@@ -86,7 +86,9 @@
             android:process=":remote_aidl_service">
         </service>
 
-        <activity android:name=".activity.recycleview.example.BaseAdapterActivity">
+        <activity android:name=".activity.recycleview.example.baseadapter.BaseAdapterActivity">
+        </activity>
+        <activity android:name=".activity.recycleview.example.wrapperadapter.WrapperAdapterActivity">
         </activity>
     </application>
 
