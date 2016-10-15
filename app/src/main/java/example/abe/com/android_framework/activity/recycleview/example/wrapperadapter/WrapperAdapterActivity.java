@@ -29,6 +29,7 @@ public class WrapperAdapterActivity extends BaseActivity {
     protected RecyclerView mRv;
     private List<ImageTextModel> mListData;
     private BaseAdapter<ImageTextModel> mBaseAdapter;
+    private RecyclerView.Adapter mNowAdapter;
 
     @Override
     public int getLayoutID() {
@@ -50,6 +51,7 @@ public class WrapperAdapterActivity extends BaseActivity {
         mBaseAdapter.addItemViewDelegate(new ImageTextDelegate());
         mRv.setLayoutManager(new LinearLayoutManager(this));
         mRv.setAdapter(mBaseAdapter);
+        mNowAdapter = mBaseAdapter;
     }
 
     @OnClick({R.id.act_wrapper_adapter_btn_wrapper})
@@ -67,8 +69,10 @@ public class WrapperAdapterActivity extends BaseActivity {
             HeaderAndFooterWrapper adapter = new HeaderAndFooterWrapper<>(mBaseAdapter);
             adapter.addHeaderView(header);
             adapter.addFootView(footer);
+            mNowAdapter = adapter;
             mRv.setAdapter(adapter);
         } else if (mRv.getAdapter() instanceof HeaderAndFooterWrapper) {
+            mNowAdapter = mBaseAdapter;
             mRv.setAdapter(mBaseAdapter);
         } else if (mRv.getAdapter() instanceof BaseAdapter) {
             TextView textView = new TextView(this);
@@ -77,6 +81,7 @@ public class WrapperAdapterActivity extends BaseActivity {
             textView.setBackgroundColor(Color.RED);
             LoadMoreWrapper adapter = new LoadMoreWrapper<>(mBaseAdapter);
             adapter.setLoadMoreView(textView);
+            mNowAdapter = adapter;
             mRv.setAdapter(adapter);
         }
     }
@@ -90,5 +95,6 @@ public class WrapperAdapterActivity extends BaseActivity {
         } else if (mRv.getLayoutManager() instanceof StaggeredGridLayoutManager) {
             mRv.setLayoutManager(new LinearLayoutManager(this));
         }
+        mRv.setAdapter(mNowAdapter);
     }
 }

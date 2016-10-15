@@ -22,14 +22,14 @@ public class HeaderAndFooterWrapper<T> extends RecyclerView.Adapter<ViewHolder> 
     //FootView数据
     private SparseArrayCompat<View> mFootViews = new SparseArrayCompat<>();
     //内容实现Adapter
-    private BaseAdapter<T> mInnerAdapter;
+    private RecyclerView.Adapter<ViewHolder> mInnerAdapter;
 
     /**
      * 构造方法
      *
      * @param adapter 修饰Adapter
      */
-    public HeaderAndFooterWrapper(BaseAdapter<T> adapter) {
+    public HeaderAndFooterWrapper(RecyclerView.Adapter<ViewHolder> adapter) {
         mInnerAdapter = adapter;
     }
 

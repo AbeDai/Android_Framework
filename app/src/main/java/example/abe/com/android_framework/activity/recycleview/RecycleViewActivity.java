@@ -7,6 +7,7 @@ import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.android_framework.activity.recycleview.example.baseadapter.BaseAdapterActivity;
+import example.abe.com.android_framework.activity.recycleview.example.loadadapter.LoadAndRefreshActivity;
 import example.abe.com.android_framework.activity.recycleview.example.wrapperadapter.WrapperAdapterActivity;
 import example.abe.com.android_framework.activity.recycleview.template.RecycleListActivity;
 import example.abe.com.framework.main.BaseActivity;
@@ -26,7 +27,8 @@ public class RecycleViewActivity extends BaseActivity {
     public void initView(){
     }
 
-    @OnClick({R.id.act_recycle_view_example, R.id.act_recycle_view_base_adapter, R.id.act_recycle_view_wrapper_adapter})
+    @OnClick({R.id.act_recycle_view_example, R.id.act_recycle_view_base_adapter,
+            R.id.act_recycle_view_wrapper_adapter, R.id.act_recycle_view_load_and_refresh})
     public void onBtnClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
@@ -38,6 +40,9 @@ public class RecycleViewActivity extends BaseActivity {
                 break;
             case R.id.act_recycle_view_wrapper_adapter:
                 intent.setClass(this, WrapperAdapterActivity.class);
+                break;
+            case R.id.act_recycle_view_load_and_refresh:
+                intent.setClass(this, LoadAndRefreshActivity.class);
                 break;
         }
         startActivity(intent);

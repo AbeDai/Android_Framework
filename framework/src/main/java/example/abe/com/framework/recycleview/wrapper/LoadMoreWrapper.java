@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import example.abe.com.framework.recycleview.adapter.BaseAdapter;
 import example.abe.com.framework.recycleview.base.ViewHolder;
 
 import static example.abe.com.framework.recycleview.wrapper.WrapperHelper.ITEM_TYPE_LOAD_MORE;
@@ -25,7 +24,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<ViewHolder> {
     //加载更多视图
     private View mLoadMoreView;
     //内容实现Adapter
-    private BaseAdapter<T> mInnerAdapter;
+    private RecyclerView.Adapter<ViewHolder> mInnerAdapter;
     //LoadMore监听
     private OnLoadMoreListener mOnLoadMoreListener;
 
@@ -33,7 +32,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<ViewHolder> {
      * 构造函数
      * @param adapter 修饰Adapter
      */
-    public LoadMoreWrapper(BaseAdapter<T> adapter) {
+    public LoadMoreWrapper(RecyclerView.Adapter<ViewHolder> adapter) {
         mInnerAdapter = adapter;
     }
 

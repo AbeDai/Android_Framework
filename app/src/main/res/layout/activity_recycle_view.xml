@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.recycleview.template.RecycleViewActivity">
+    tools:context="example.abe.com.android_framework.activity.recycleview.RecycleViewActivity">
 
     <Button
         android:id="@+id/act_recycle_view_example"
@@ -28,4 +28,11 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="RecycleView封装wrapper使用介绍"/>
+
+    <Button
+        android:id="@+id/act_recycle_view_load_and_refresh"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="RecycleView封装loadRefresh使用介绍"/>
 </LinearLayout>

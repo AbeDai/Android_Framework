@@ -90,6 +90,8 @@
         </activity>
         <activity android:name=".activity.recycleview.example.wrapperadapter.WrapperAdapterActivity">
         </activity>
+        <activity android:name=".activity.recycleview.example.loadadapter.LoadAndRefreshActivity">
+        </activity>
     </application>
 
 </manifest>
