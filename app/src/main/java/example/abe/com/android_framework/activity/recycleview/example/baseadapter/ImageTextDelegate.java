@@ -15,7 +15,7 @@ import example.abe.com.framework.recycleview.base.ViewHolder;
  * Created by abe on 16/10/13.
  */
 
-public class ImageTextDelegate extends ItemViewDelegate<ImageTextModel> {
+public class ImageTextDelegate implements ItemViewDelegate<ImageTextModel> {
 
     @Override
     public View getItemView(Context context, ViewGroup parent) {

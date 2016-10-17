@@ -58,17 +58,9 @@ public class WrapperAdapterActivity extends BaseActivity {
     public void onClickChangeWrapper() {
         ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 50);
         if (mRv.getAdapter() instanceof LoadMoreWrapper) {
-            TextView header = new TextView(this);
-            header.setText("Header内容");
-            header.setLayoutParams(lp);
-            header.setBackgroundColor(Color.RED);
-            TextView footer = new TextView(this);
-            footer.setText("Footer内容");
-            footer.setLayoutParams(lp);
-            footer.setBackgroundColor(Color.RED);
-            HeaderAndFooterWrapper adapter = new HeaderAndFooterWrapper<>(mBaseAdapter);
-            adapter.addHeaderView(header);
-            adapter.addFootView(footer);
+            HeaderAndFooterWrapper adapter = new HeaderAndFooterWrapper<>(this, mBaseAdapter);
+            adapter.addHeaderDelegate(new ItemHeaderDelegate());
+            adapter.addFootDelegate(new ItemFooterDelegate());
             mNowAdapter = adapter;
             mRv.setAdapter(adapter);
         } else if (mRv.getAdapter() instanceof HeaderAndFooterWrapper) {
