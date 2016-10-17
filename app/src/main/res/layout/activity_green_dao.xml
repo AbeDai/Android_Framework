@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_green_dao"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android_framework.activity.greendao.GreenDaoActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/act_green_dao_et_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <EditText
+            android:id="@+id/act_green_dao_et_age"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/act_green_dao_btn_insert"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="增"/>
+        <Button
+            android:id="@+id/act_green_dao_btn_delete"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="删"/>
+        <Button
+            android:id="@+id/act_green_dao_btn_update"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="修"/>
+        <Button
+            android:id="@+id/act_green_dao_btn_query"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="查"/>
+    </LinearLayout>
+    
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/act_green_dao_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

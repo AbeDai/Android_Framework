@@ -10,6 +10,7 @@ import example.abe.com.android_framework.activity.cardview.CardViewActivity;
 import example.abe.com.android_framework.activity.drawing.DrawActivity;
 import example.abe.com.android_framework.activity.eventbus.EventBusActivity;
 import example.abe.com.android_framework.activity.eventcenter.EventCenterActivity;
+import example.abe.com.android_framework.activity.greendao.GreenDaoActivity;
 import example.abe.com.android_framework.activity.gridview.GridViewActivity;
 import example.abe.com.android_framework.activity.imageloader.ImageLoaderActivity;
 import example.abe.com.android_framework.activity.ipc.IpcActivity;
@@ -87,6 +88,9 @@ public class ActivityFactory {
 
         //进程通讯总结
         IPC,
+
+        //GreenDAO使用
+        GREEN_DAO,
     }
 
     public static Class getClass(Flags flag) {
@@ -142,6 +146,9 @@ public class ActivityFactory {
                 break;
             case IPC:
                 clazz = IpcActivity.class;
+                break;
+            case GREEN_DAO:
+                clazz = GreenDaoActivity.class;
                 break;
         }
         return clazz;
@@ -207,6 +214,8 @@ public class ActivityFactory {
             case IPC:
                 title = ResourceUtil.getString(R.string.act_title_ipc);
                 break;
+            case GREEN_DAO:
+                title = ResourceUtil.getString(R.string.act_title_green_dao);
         }
 
         //存储
@@ -274,6 +283,8 @@ public class ActivityFactory {
             case IPC:
                 content = ResourceUtil.getString(R.string.act_content_ipc);
                 break;
+            case GREEN_DAO:
+                content = ResourceUtil.getString(R.string.act_content_green_dao);
         }
 
         //存储

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 23
@@ -20,6 +21,15 @@ android {
     }
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.1.0'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(path: ':framework')
@@ -32,5 +42,12 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.yolanda.nohttp:nohttp:1.0.4'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'org.greenrobot:greendao:3.1.0'
     apt project(':viewinject-compiler')
+}
+
+greendao {
+    schemaVersion 1
+    daoPackage 'example.abe.com.android_framework.activity.greendao.dao'
+    targetGenDir 'src/main/java'
 }

@@ -92,6 +92,8 @@
         </activity>
         <activity android:name=".activity.recycleview.example.loadadapter.LoadAndRefreshActivity">
         </activity>
+        <activity android:name=".activity.greendao.GreenDaoActivity">
+        </activity>
     </application>
 
 </manifest>
