@@ -17,9 +17,8 @@ import java.util.List;
 
 import example.abe.com.android_framework.R;
 import example.abe.com.framework.main.BaseActivity;
-import example.abe.com.framework.util.LogUtil;
 
-public class AIDLActivity extends BaseActivity {
+public class AidlActivity extends BaseActivity {
 
     @BindView(R.id.act_aidl_tv_show)
     protected TextView mTvShow;

@@ -50,7 +50,7 @@ public class GreenDaoActivity extends BaseActivity {
         BaseAdapter baseAdapter = new BaseAdapter<>(this, mDatas);
         baseAdapter.addItemViewDelegate(itemDelegate);
         HeaderAndFooterWrapper headWrapper = new HeaderAndFooterWrapper(this, baseAdapter);
-        headWrapper.addHeaderDelegate(headDelegate);
+        headWrapper.addHeaderDelegate(headerDelegate);
         mAdapter = headWrapper;
         mRv.setLayoutManager(new LinearLayoutManager(this));
         mRv.setAdapter(mAdapter);
@@ -95,7 +95,7 @@ public class GreenDaoActivity extends BaseActivity {
         mAdapter.notifyDataSetChanged();
     }
 
-    private ItemHeadFootDelegate headDelegate = new ItemHeadFootDelegate() {
+    private ItemHeadFootDelegate headerDelegate = new ItemHeadFootDelegate() {
         @Override
         public View getItemView(Context context, ViewGroup parent) {
             View view = LayoutInflater.from(context)

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.ipc.aidl.AIDLActivity">
+    tools:context="example.abe.com.android_framework.activity.ipc.aidl.AidlActivity">
 
     <Button
         android:id="@+id/act_aidl_btn_server_remote"

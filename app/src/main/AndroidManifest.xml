@@ -44,7 +44,7 @@
         <activity android:name=".activity.imageloader.ImageLoaderImageViewActivity"/>
         <activity android:name=".activity.ipc.messenger.MessengerActivity"/>
         <activity android:name=".activity.ipc.IpcActivity"/>
-        <activity android:name=".activity.ipc.aidl.AIDLActivity"/>
+        <activity android:name=".activity.ipc.aidl.AidlActivity"/>
         <activity android:name=".activity.recycleview.RecycleViewActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"

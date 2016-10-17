@@ -12,20 +12,15 @@ import java.util.List;
  */
 public class DBManager {
     private final static String dbName = "test_db";
-
     private static DBManager mInstance;
-
-    private DaoMaster.DevOpenHelper openHelper;
-    private DaoMaster daoMaster;
-    private DaoSession daoSession;
-    private Context context;
+    private UserModelDao userDao;
 
     public DBManager(Context context) {
-        this.context = context;
-        openHelper = new DaoMaster.DevOpenHelper(context, dbName, null);
-        SQLiteDatabase db = openHelper.getWritableDatabase();
-        daoMaster = new DaoMaster(db);
-        daoSession = daoMaster.newSession();
+        DaoMaster.DevOpenHelper openHelper = new DaoMaster.DevOpenHelper(context, dbName, null);
+        SQLiteDatabase db =  openHelper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(db);
+        DaoSession daoSession = daoMaster.newSession();
+        userDao = daoSession.getUserModelDao();
     }
 
     /**
@@ -47,44 +42,36 @@ public class DBManager {
 
     /**
      * 插入一条记录
-     *
      * @param user
      */
     public void insertUser(UserModel user) {
-        UserModelDao userDao = daoSession.getUserModelDao();
         userDao.insert(user);
     }
 
     /**
      * 插入用户集合
-     *
      * @param users
      */
     public void insertUserList(List<UserModel> users) {
         if (users == null || users.isEmpty()) {
             return;
         }
-        UserModelDao userDao = daoSession.getUserModelDao();
         userDao.insertInTx(users);
     }
 
     /**
      * 删除一条记录
-     *
      * @param user
      */
     public void deleteUser(UserModel user) {
-        UserModelDao userDao = daoSession.getUserModelDao();
         userDao.delete(user);
     }
 
     /**
      * 更新一条记录
-     *
      * @param user
      */
     public void updateUser(UserModel user) {
-        UserModelDao userDao = daoSession.getUserModelDao();
         userDao.update(user);
     }
 
@@ -92,7 +79,6 @@ public class DBManager {
      * 查询用户列表
      */
     public List<UserModel> queryUserList() {
-        UserModelDao userDao = daoSession.getUserModelDao();
         QueryBuilder<UserModel> qb = userDao.queryBuilder();
         List<UserModel> list = qb.list();
         return list;
@@ -100,21 +86,10 @@ public class DBManager {
 
     /**
      * 查询用户列表
-     */
-    public List<UserModel> queryUserList(int age, String name) {
-        UserModelDao userDao = daoSession.getUserModelDao();
-        QueryBuilder<UserModel> qb = userDao.queryBuilder()
-                .where(UserModelDao.Properties.Age.gt(age), UserModelDao.Properties.Name.gt(name))
-                .orderAsc(UserModelDao.Properties.Age);
-        List<UserModel> list = qb.list();
-        return list;
-    }
-
-    /**
-     * 查询用户列表
+     * @param age 年龄
+     * @return 数据集合
      */
     public List<UserModel> queryUserList(int age) {
-        UserModelDao userDao = daoSession.getUserModelDao();
         QueryBuilder<UserModel> qb = userDao.queryBuilder()
                 .where(UserModelDao.Properties.Age.gt(age))
                 .orderAsc(UserModelDao.Properties.Age);

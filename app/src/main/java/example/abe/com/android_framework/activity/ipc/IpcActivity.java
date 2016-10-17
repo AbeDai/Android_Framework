@@ -6,7 +6,7 @@ import android.view.View;
 import com.example.OnClick;
 
 import example.abe.com.android_framework.R;
-import example.abe.com.android_framework.activity.ipc.aidl.AIDLActivity;
+import example.abe.com.android_framework.activity.ipc.aidl.AidlActivity;
 import example.abe.com.android_framework.activity.ipc.messenger.MessengerActivity;
 import example.abe.com.framework.main.BaseActivity;
 
@@ -33,7 +33,7 @@ public class IpcActivity extends BaseActivity {
                 intent.setClass(this, MessengerActivity.class);
                 break;
             case R.id.act_messenger_btn_aidl:
-                intent.setClass(this, AIDLActivity.class);
+                intent.setClass(this, AidlActivity.class);
                 break;
         }
         startActivity(intent);
