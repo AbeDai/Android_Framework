@@ -11,10 +11,24 @@ android {
         versionName "1.0"
     }
 
-    buildTypes {
+    signingConfigs {
+        //release签名
         release {
-            minifyEnabled false
+            storeFile file("../abekeys/release.keystore")
+            storePassword "daiyibo119"
+            keyAlias "android"
+            keyPassword "daiyibo119"
+        }
+    }
+
+    buildTypes() {
+        //发布版本
+        release {
+            //混淆
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.release
         }
     }
 }

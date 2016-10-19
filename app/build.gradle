@@ -6,7 +6,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
-    defaultConfig(){
+    defaultConfig {
         applicationId "example.abe.com.android.framework"
         minSdkVersion 19
         targetSdkVersion 23
@@ -27,7 +27,10 @@ android {
     buildTypes() {
         //发布版本
         release {
-            //此处加混淆
+            //混淆
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //签名
             signingConfig signingConfigs.release
         }
     }
