@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.ipc.IpcActivity">
+    tools:context="example.abe.com.android.activity.ipc.IpcActivity">
 
     <Button
         android:id="@+id/act_messenger_btn_messenger"

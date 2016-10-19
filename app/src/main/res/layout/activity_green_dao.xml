@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.greendao.GreenDaoActivity">
+    tools:context="example.abe.com.android.activity.greendao.GreenDaoActivity">
     
     <LinearLayout
         android:layout_width="match_parent"

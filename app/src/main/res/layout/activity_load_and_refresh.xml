@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.recycleview.example.loadadapter.LoadAndRefreshActivity">
+    tools:context="example.abe.com.android.activity.recycleview.example.loadadapter.LoadAndRefreshActivity">
 
     <in.srain.cube.views.ptr.PtrClassicFrameLayout
         android:id="@+id/act_load_and_refresh_recycle_ptr"

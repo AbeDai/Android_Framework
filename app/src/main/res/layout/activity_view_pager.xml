@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.viewpager.ViewPagerActivity">
+    tools:context="example.abe.com.android.activity.viewpager.ViewPagerActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/act_view_pager_pager1"

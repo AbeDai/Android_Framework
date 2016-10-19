@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.socket.SocketActivity">
+    tools:context="example.abe.com.android.activity.socket.SocketActivity">
 
     <Button
         android:id="@+id/act_socket_btn_send_word_socket"

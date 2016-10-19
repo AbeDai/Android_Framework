@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.recycleview.RecycleViewActivity">
+    tools:context="example.abe.com.android.activity.recycleview.RecycleViewActivity">
 
     <Button
         android:id="@+id/act_recycle_view_example"

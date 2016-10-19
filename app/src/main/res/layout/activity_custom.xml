@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.drawing.custom.CustomActivity">
 
-    <example.abe.com.android_framework.activity.drawing.custom.CustomView
+    <example.abe.com.android.activity.drawing.custom.CustomView
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

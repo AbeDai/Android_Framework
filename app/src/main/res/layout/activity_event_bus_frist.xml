@@ -6,7 +6,7 @@
     android:id="@+id/activity_third"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.eventbus.EventBusActivity">
+    tools:context="example.abe.com.android.activity.eventbus.EventBusActivity">
 
     <Button
         android:id="@+id/act_third_btn_event1"

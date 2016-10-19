@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.volley.VolleyImageActivity">
+    tools:context="example.abe.com.android.activity.volley.VolleyImageActivity">
 
     <Button
         android:id="@+id/act_volley_image_btn_request"

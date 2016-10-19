@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.drawing.whiteboard.WhiteboardActivity">
+    tools:context="example.abe.com.android.activity.drawing.whiteboard.WhiteboardActivity">
 
-    <example.abe.com.android_framework.activity.drawing.whiteboard.PenPaintView
+    <example.abe.com.android.activity.drawing.whiteboard.PenPaintView
         android:id="@+id/act_whiteboard_pen_paint_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

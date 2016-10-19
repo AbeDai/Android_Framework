@@ -6,8 +6,11 @@ buildscript(){
         jcenter()
     }
     dependencies(){
+        //android gradle 插件
         classpath 'com.android.tools.build:gradle:2.2.0'
+        //android apt 插件
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        //android greendao 插件
         classpath 'org.greenrobot:greendao-gradle-plugin:3.1.0'
     }
 }

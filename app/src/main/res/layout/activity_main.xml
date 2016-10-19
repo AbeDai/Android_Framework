@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:background="@color/theme_background"
               android:orientation="vertical"
-              tools:context="example.abe.com.android_framework.main.MainActivity">
+              tools:context="example.abe.com.android.main.MainActivity">
 
     <EditText
         android:id="@+id/act_main_et_search"

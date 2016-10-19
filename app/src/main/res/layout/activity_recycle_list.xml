@@ -4,7 +4,7 @@
     android:id="@+id/act_abrecycle_list_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="example.abe.com.android_framework.activity.recycleview.template.RecycleListActivity">
+    tools:context="example.abe.com.android.activity.recycleview.template.RecycleListActivity">
 
     <LinearLayout
         android:orientation="vertical"

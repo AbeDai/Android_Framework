@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.suspend.SuspendWindowActivity">
+    tools:context="example.abe.com.android.activity.suspend.SuspendWindowActivity">
 
     <Button
         android:id="@+id/act_suspend_window_start_memory_window_service"

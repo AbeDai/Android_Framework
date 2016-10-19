@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.imageloader.ImageLoaderActivity">
+    tools:context="example.abe.com.android.activity.imageloader.ImageLoaderActivity">
 
     <Button
         android:id="@+id/act_image_loader_btn_grid_view"

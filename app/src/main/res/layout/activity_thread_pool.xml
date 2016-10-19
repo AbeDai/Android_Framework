@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.multithread.ThreadPoolActivity">
+    tools:context="example.abe.com.android.activity.multithread.ThreadPoolActivity">
 
     <Button
         android:id="@+id/act_thread_pool_btn_single_executor"

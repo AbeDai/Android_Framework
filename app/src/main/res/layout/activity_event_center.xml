@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="example.abe.com.android_framework.activity.eventcenter.EventCenterActivity">
+              tools:context="example.abe.com.android.activity.eventcenter.EventCenterActivity">
 
     <TextView
         android:id="@+id/act_event_center_tv_content"

@@ -7,7 +7,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig(){
-        applicationId "example.abe.com.android_framework"
+        applicationId "example.abe.com.android.framework"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
@@ -15,8 +15,9 @@ android {
     }
 
     signingConfigs {
+        //release签名
         release {
-            storeFile file("../releasekey/release.keystore")
+            storeFile file("../abekeys/release.keystore")
             storePassword "daiyibo119"
             keyAlias "android"
             keyPassword "daiyibo119"
@@ -24,7 +25,9 @@ android {
     }
 
     buildTypes() {
+        //发布版本
         release {
+            //此处加混淆
             signingConfig signingConfigs.release
         }
     }
@@ -46,8 +49,12 @@ dependencies {
     apt project(':viewinject-compiler')
 }
 
+//GreenDao配置
 greendao {
+    //数据库版本
     schemaVersion 1
-    daoPackage 'example.abe.com.android_framework.activity.greendao.dao'
+    //设置生成文件包名
+    daoPackage 'example.abe.com.android.activity.greendao.dao'
+    //设置生成文件目录
     targetGenDir 'src/main/java'
 }

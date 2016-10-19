@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="example.abe.com.android_framework.activity.multithread.IntentServiceActivity">
+    tools:context="example.abe.com.android.activity.multithread.IntentServiceActivity">
 
     <Button
         android:id="@+id/act_intent_service_btn_intent1_start"

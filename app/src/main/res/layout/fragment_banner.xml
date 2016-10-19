@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <example.abe.com.android_framework.activity.banner.BannerViewPager
+    <example.abe.com.android.activity.banner.BannerViewPager
         android:id="@+id/frag_banner_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
