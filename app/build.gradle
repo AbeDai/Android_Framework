@@ -6,43 +6,43 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
-    defaultConfig {
+    defaultConfig(){
         applicationId "example.abe.com.android_framework"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
-    buildTypes {
+
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            storeFile file("../releasekey/release.keystore")
+            storePassword "daiyibo119"
+            keyAlias "android"
+            keyPassword "daiyibo119"
+        }
+    }
+
+    buildTypes() {
+        release {
+            signingConfig signingConfigs.release
         }
     }
 }
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'org.greenrobot:greendao-gradle-plugin:3.1.0'
-    }
-}
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(path: ':framework')
     compile files('libs/volley.jar')
-    compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
-    compile 'com.android.support:recyclerview-v7:23.2.1'
-    compile 'com.android.support:design:23.2.1'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.yolanda.nohttp:nohttp:1.0.4'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
     compile 'org.greenrobot:greendao:3.1.0'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:cardview-v7:23.2.1'
     apt project(':viewinject-compiler')
 }
 
