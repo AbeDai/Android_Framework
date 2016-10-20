@@ -9,6 +9,7 @@ import example.abe.com.android.R;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.AssetUtil;
 
+
 public class AssetsActivity extends BaseActivity {
 
     @BindView(R.id.act_abassets_iv_root_png)

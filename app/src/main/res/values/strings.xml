@@ -21,6 +21,7 @@
     <string name="act_title_suspend_windows">悬浮窗使用介绍</string>
     <string name="act_title_ipc">进程通讯方式总结</string>
     <string name="act_title_green_dao">GreenDAO使用模板</string>
+    <string name="act_title_material_design">材料设计使用介绍</string>
 
     <!--Activity列表详细描述-->
     <string name="act_content_recycle_list">介绍RecycleView的使用,主要包含了Recycle的使用模板示范代码和RecycleView的封装使用介绍</string>
@@ -41,5 +42,6 @@
     <string name="act_content_suspend_windows">添加监控内存的悬浮窗界面,通过悬浮窗展示手机内存使用情况,主要是为了学习使用WindowManager和Window这两个类。</string>
     <string name="act_content_ipc">进程通讯总结,包括了使用Messenger和AIDL方式进行进程间通讯</string>
     <string name="act_content_green_dao">GreenDAO数据库的操作介绍,主要实现了对数据库的增删改查</string>
+    <string name="act_content_material_design">材料设计:包含DrawerLayout使用模板</string>
 
 </resources>

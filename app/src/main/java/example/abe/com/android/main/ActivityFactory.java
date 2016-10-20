@@ -14,6 +14,7 @@ import example.abe.com.android.activity.greendao.GreenDaoActivity;
 import example.abe.com.android.activity.gridview.GridViewActivity;
 import example.abe.com.android.activity.imageloader.ImageLoaderActivity;
 import example.abe.com.android.activity.ipc.IpcActivity;
+import example.abe.com.android.activity.materialdesign.MaterialDesignActivity;
 import example.abe.com.android.activity.multithread.MultiThreadActivity;
 import example.abe.com.android.activity.recycleview.RecycleViewActivity;
 import example.abe.com.android.activity.retrofit.RetrofitActivity;
@@ -91,6 +92,9 @@ public class ActivityFactory {
 
         //GreenDAO使用
         GREEN_DAO,
+
+        //材料设计使用介绍
+        MATERIAL_DESIGN,
     }
 
     public static Class getClass(Flags flag) {
@@ -149,6 +153,9 @@ public class ActivityFactory {
                 break;
             case GREEN_DAO:
                 clazz = GreenDaoActivity.class;
+                break;
+            case MATERIAL_DESIGN:
+                clazz = MaterialDesignActivity.class;
                 break;
         }
         return clazz;
@@ -216,6 +223,10 @@ public class ActivityFactory {
                 break;
             case GREEN_DAO:
                 title = ResourceUtil.getString(R.string.act_title_green_dao);
+                break;
+            case MATERIAL_DESIGN:
+                title = ResourceUtil.getString(R.string.act_title_material_design);
+                break;
         }
 
         //存储
@@ -285,6 +296,10 @@ public class ActivityFactory {
                 break;
             case GREEN_DAO:
                 content = ResourceUtil.getString(R.string.act_content_green_dao);
+                break;
+            case MATERIAL_DESIGN:
+                content = ResourceUtil.getString(R.string.act_content_material_design);
+                break;
         }
 
         //存储

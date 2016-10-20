@@ -94,6 +94,10 @@
         </activity>
         <activity android:name=".activity.greendao.GreenDaoActivity">
         </activity>
+        <activity android:name=".activity.materialdesign.MaterialDesignActivity">
+        </activity>
+        <activity android:name=".activity.materialdesign.drawerlayout.DrawerLayoutActivity">
+        </activity>
     </application>
 
 </manifest>
