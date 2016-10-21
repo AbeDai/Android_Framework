@@ -17,7 +17,6 @@ import example.abe.com.framework.util.ToastUtil;
 /**
  * Created by abe on 16/10/20.
  */
-
 public class DrawerFragment extends BaseFragment {
 
     @BindView(R.id.frag_drawer_layout_rv)
