@@ -11,6 +11,6 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="8dp"
         android:gravity="left|center_vertical"
-        android:text="图片详情"/>
+        android:textColor="@color/text_black"/>
 
 </LinearLayout>

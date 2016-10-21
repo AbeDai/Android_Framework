@@ -16,7 +16,8 @@ public class LogUtil {
     private static String sMsgC="";
 
     private static final int PRINT_STACK_NUM = 10;
-    private static final String MARK = "AB-";
+//    private static final String MARK = "AB-";
+    private static final String MARK = "ABE";
 
     /**
      * Log.e信息，默认不显示，函数调用队列
@@ -158,7 +159,8 @@ public class LogUtil {
 
         String className = sCurrentThread[curentIndex].getFileName();
         int endIndex = className.lastIndexOf(".");
-        sTagName = MARK + (endIndex < 0 ? className : className.substring(0, endIndex));
+//        sTagName = MARK + (endIndex < 0 ? className : className.substring(0, endIndex));
+        sTagName = MARK;
         sMsgT = "[" + className + ":" + sCurrentThread[curentIndex].getLineNumber() + ":"
                 + sCurrentThread[curentIndex].getMethodName() + "()]---";
         sMsgC = "msg:[" + msg + "]\n";

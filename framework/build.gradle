@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         minSdkVersion 19
@@ -25,7 +25,7 @@ android {
         //发布版本
         release {
             //混淆
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //签名
             signingConfig signingConfigs.release
@@ -41,7 +41,7 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile 'com.google.code.gson:gson:2.6.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
     compile project(path: ':annotation')
 }

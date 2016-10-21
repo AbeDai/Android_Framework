@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android.R;
-import example.abe.com.android.activity.banner.BannerFragment;
 import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.recycleview.adapter.BaseAdapter;
+import example.abe.com.framework.util.ToastUtil;
 
 /**
  * Created by abe on 16/10/20.
@@ -25,23 +25,22 @@ public class DrawerFragment extends BaseFragment {
     private BaseAdapter<TextModel> mAdapter;
     private List<TextModel> mListData;
 
-    public static BannerFragment instance() {
-        return new BannerFragment();
+    public static DrawerFragment instance() {
+        return new DrawerFragment();
     }
 
     @Override
-    public int getLayoutID(){
+    public int getLayoutID() {
         return R.layout.fragment_drawer_layout;
     }
 
     @Override
     public void initData() {
         mListData = new ArrayList<>();
-        mListData.add(new TextModel("111111111"));
-        mListData.add(new TextModel("222222222"));
-        mListData.add(new TextModel("333333333"));
-        mListData.add(new TextModel("444444444"));
-        mListData.add(new TextModel("555555555"));
+        for (int i = 0; i < 20; i++) {
+            String text = String.format("%d%d%d%d%d", i, i, i, i, i);
+            mListData.add(new TextModel(text));
+        }
     }
 
     @Override
@@ -53,14 +52,16 @@ public class DrawerFragment extends BaseFragment {
         mRv.setAdapter(mAdapter);
     }
 
-    private BaseAdapter.OnItemClickListener itemClickListener =  new BaseAdapter.OnItemClickListener() {
+    private BaseAdapter.OnItemClickListener itemClickListener = new BaseAdapter.OnItemClickListener<TextModel>() {
         @Override
-        public void onItemClick(View view, RecyclerView.ViewHolder holder, Object data, int position) {
-
+        public void onItemClick(View view, RecyclerView.ViewHolder holder, TextModel data, int position) {
+            ((DrawerLayoutActivity)DrawerFragment.this.getActivity()).setContentText(data.getText());
+            ((DrawerLayoutActivity)DrawerFragment.this.getActivity()).closeDrawer();
         }
 
         @Override
-        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, Object data, int position) {
+        public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, TextModel data, int position) {
+            ToastUtil.makeText("onItemLongClick");
             return true;
         }
     };

@@ -1,7 +1,5 @@
 package example.abe.com.framework.util;
 
-import android.view.Gravity;
-import android.view.View;
 import android.widget.Toast;
 
 import example.abe.com.framework.main.BaseApplication;
@@ -46,12 +44,10 @@ public class ToastUtil {
     }
 
     private static void showToast(CharSequence msg, int duration) {
-        if (mToast == null) {
-            mToast = Toast.makeText(BaseApplication.getInstance(), msg, duration);
-        } else {
-            mToast.setText(msg);
-            mToast.setDuration(duration);
+        if (mToast != null) {
+            mToast.cancel();
         }
+        mToast = Toast.makeText(BaseApplication.getInstance(), msg, duration);
         mToast.show();
     }
 
@@ -59,13 +55,10 @@ public class ToastUtil {
         if (resId == 0) {
             return;
         }
-
-        if (mToast == null) {
-            mToast = Toast.makeText(BaseApplication.getInstance(), resId, duration);
-        } else {
-            mToast.setText(resId);
-            mToast.setDuration(duration);
+        if (mToast != null) {
+            mToast.cancel();
         }
+        mToast = Toast.makeText(BaseApplication.getInstance(), resId, duration);
         mToast.show();
     }
 }
