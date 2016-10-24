@@ -20,7 +20,7 @@ public class BitmapCache implements ImageCache {
     @Override
     public Bitmap getBitmap(String url) {
         String imgName = getFileFullNameByUrl(url);
-        return FileUtil.getBitmap(imgName);
+        return FileUtil.getBitmapByName(imgName);
     }
 
     private String getFileFullNameByUrl(String url) {

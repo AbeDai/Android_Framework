@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import example.abe.com.android.R;
+import example.abe.com.android.activity.album.AlbumActivity;
 import example.abe.com.android.activity.assets.AssetsActivity;
 import example.abe.com.android.activity.banner.BannerActivity;
 import example.abe.com.android.activity.cardview.CardViewActivity;
@@ -93,8 +94,11 @@ public class ActivityFactory {
         //GreenDAO使用
         GREEN_DAO,
 
-        //材料设计使用介绍
+        //材料设计使用介
         MATERIAL_DESIGN,
+
+        //相册使用介绍
+        ALBUM,
     }
 
     public static Class getClass(Flags flag) {
@@ -156,6 +160,9 @@ public class ActivityFactory {
                 break;
             case MATERIAL_DESIGN:
                 clazz = MaterialDesignActivity.class;
+                break;
+            case ALBUM:
+                clazz = AlbumActivity.class;
                 break;
         }
         return clazz;
@@ -226,6 +233,9 @@ public class ActivityFactory {
                 break;
             case MATERIAL_DESIGN:
                 title = ResourceUtil.getString(R.string.act_title_material_design);
+                break;
+            case ALBUM:
+                title = ResourceUtil.getString(R.string.act_title_album);
                 break;
         }
 
@@ -299,6 +309,9 @@ public class ActivityFactory {
                 break;
             case MATERIAL_DESIGN:
                 content = ResourceUtil.getString(R.string.act_content_material_design);
+                break;
+            case ALBUM:
+                content = ResourceUtil.getString(R.string.act_content_album);
                 break;
         }
 

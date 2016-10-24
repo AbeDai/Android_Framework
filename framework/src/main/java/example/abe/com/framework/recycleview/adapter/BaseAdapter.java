@@ -23,7 +23,7 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
     //代理管理者
     protected ItemViewDelegateManager mItemViewDelegateManager;
     //点击事件
-    protected OnItemClickListener mOnItemClickListener;
+    protected OnItemClickListener<T> mOnItemClickListener;
 
     public BaseAdapter(Context context, List<T> listData) {
         mContext = context;
@@ -99,7 +99,7 @@ public class BaseAdapter<T> extends RecyclerView.Adapter<ViewHolder> {
      * 设置点击监听
      * @param onItemClickListener 监听
      */
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    public void setOnItemClickListener(OnItemClickListener<T> onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
     }
 

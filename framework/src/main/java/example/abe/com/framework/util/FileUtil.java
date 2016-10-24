@@ -66,7 +66,7 @@ public class FileUtil {
      * @param name 图片名
      * @return 位图
      */
-    public static Bitmap getBitmap(String name) {
+    public static Bitmap getBitmapByName(String name) {
         //添加图片格式后缀
         name += ".png";
         //保存图片
@@ -79,6 +79,28 @@ public class FileUtil {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
+    /**
+     * 本地获取位图
+     * @param path 图片路径
+     * @return 位图
+     */
+    public static Bitmap getBitmapByPath(String path) {
+        Bitmap bitmap = null;
+        try {
+            File imgFile = new File(path);
+            FileInputStream in = new FileInputStream(imgFile);
+            bitmap = BitmapFactory.decodeStream(in);
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
             e.printStackTrace();
         }
         return bitmap;

@@ -98,6 +98,10 @@
         </activity>
         <activity android:name=".activity.materialdesign.drawerlayout.DrawerLayoutActivity">
         </activity>
+        <activity android:name=".activity.album.AlbumActivity">
+        </activity>
+        <activity android:name=".activity.album.PhotoActivity">
+        </activity>
     </application>
 
 </manifest>
