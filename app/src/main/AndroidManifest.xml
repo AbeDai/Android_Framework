@@ -46,6 +46,14 @@
         <activity android:name=".activity.ipc.IpcActivity"/>
         <activity android:name=".activity.ipc.aidl.AidlActivity"/>
         <activity android:name=".activity.recycleview.RecycleViewActivity"/>
+        <activity android:name=".activity.recycleview.example.baseadapter.BaseAdapterActivity"/>
+        <activity android:name=".activity.recycleview.example.wrapperadapter.WrapperAdapterActivity"/>
+        <activity android:name=".activity.recycleview.example.loadadapter.LoadAndRefreshActivity"/>
+        <activity android:name=".activity.greendao.GreenDaoActivity"/>
+        <activity android:name=".activity.materialdesign.MaterialDesignActivity"/>
+        <activity android:name=".activity.materialdesign.drawerlayout.DrawerLayoutActivity"/>
+        <activity android:name=".activity.album.AlbumActivity"/>
+        <activity android:name=".activity.album.PhotoActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -86,21 +94,13 @@
             android:process=":remote_aidl_service">
         </service>
 
-        <activity android:name=".activity.recycleview.example.baseadapter.BaseAdapterActivity">
+        <activity android:name=".activity.packagemanager.PackageActivity">
         </activity>
-        <activity android:name=".activity.recycleview.example.wrapperadapter.WrapperAdapterActivity">
+        <activity android:name=".activity.packagemanager.launcher.LauncherActivity">
         </activity>
-        <activity android:name=".activity.recycleview.example.loadadapter.LoadAndRefreshActivity">
+        <activity android:name=".activity.packagemanager.appfilter.AppFilterActivity">
         </activity>
-        <activity android:name=".activity.greendao.GreenDaoActivity">
-        </activity>
-        <activity android:name=".activity.materialdesign.MaterialDesignActivity">
-        </activity>
-        <activity android:name=".activity.materialdesign.drawerlayout.DrawerLayoutActivity">
-        </activity>
-        <activity android:name=".activity.album.AlbumActivity">
-        </activity>
-        <activity android:name=".activity.album.PhotoActivity">
+        <activity android:name=".activity.packagemanager.appfilter.AppInfoListActivity">
         </activity>
     </application>
 

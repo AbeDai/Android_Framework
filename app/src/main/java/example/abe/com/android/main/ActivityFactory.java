@@ -17,6 +17,7 @@ import example.abe.com.android.activity.imageloader.ImageLoaderActivity;
 import example.abe.com.android.activity.ipc.IpcActivity;
 import example.abe.com.android.activity.materialdesign.MaterialDesignActivity;
 import example.abe.com.android.activity.multithread.MultiThreadActivity;
+import example.abe.com.android.activity.packagemanager.PackageActivity;
 import example.abe.com.android.activity.recycleview.RecycleViewActivity;
 import example.abe.com.android.activity.retrofit.RetrofitActivity;
 import example.abe.com.android.activity.socket.SocketActivity;
@@ -99,6 +100,9 @@ public class ActivityFactory {
 
         //相册使用介绍
         ALBUM,
+
+        //软件包管理
+        PACKAGE_MANAGER,
     }
 
     public static Class getClass(Flags flag) {
@@ -163,6 +167,9 @@ public class ActivityFactory {
                 break;
             case ALBUM:
                 clazz = AlbumActivity.class;
+                break;
+            case PACKAGE_MANAGER:
+                clazz = PackageActivity.class;
                 break;
         }
         return clazz;
@@ -236,6 +243,9 @@ public class ActivityFactory {
                 break;
             case ALBUM:
                 title = ResourceUtil.getString(R.string.act_title_album);
+                break;
+            case PACKAGE_MANAGER:
+                title = ResourceUtil.getString(R.string.act_title_package_manager);
                 break;
         }
 
@@ -312,6 +322,9 @@ public class ActivityFactory {
                 break;
             case ALBUM:
                 content = ResourceUtil.getString(R.string.act_content_album);
+                break;
+            case PACKAGE_MANAGER:
+                content = ResourceUtil.getString(R.string.act_content_package_manager);
                 break;
         }
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_app_filter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android.activity.packagemanager.appfilter.AppFilterActivity">
+
+    <Button
+        android:id="@+id/act_filter_btn_all_app"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="所有App"/>
+
+    <Button
+        android:id="@+id/act_filter_btn_system_app"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="系统App"/>
+
+    <Button
+        android:id="@+id/act_filter_btn_third_app"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="第三方App"/>
+
+    <Button
+        android:id="@+id/act_package_btn_sdcard_app"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="sdcard中的App"/>
+
+</LinearLayout>
