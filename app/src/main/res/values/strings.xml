@@ -23,7 +23,7 @@
     <string name="act_title_green_dao">GreenDAO使用模板</string>
     <string name="act_title_material_design">材料设计使用介绍</string>
     <string name="act_title_album">相册使用介绍</string>
-    <string name="act_title_package_manager">安装应用管理</string>
+    <string name="act_title_package_manager">应用管理</string>
 
     <!--Activity列表详细描述-->
     <string name="act_content_recycle_list">介绍RecycleView的使用,主要包含了Recycle的使用模板示范代码和RecycleView的封装使用介绍</string>
@@ -46,6 +46,6 @@
     <string name="act_content_green_dao">GreenDAO数据库的操作介绍,主要实现了对数据库的增删改查</string>
     <string name="act_content_material_design">材料设计:包含DrawerLayout使用模板</string>
     <string name="act_content_album">简单实现相册,后续需要添加相机应用</string>
-    <string name="act_content_package_manager">应用管理:包括编写启动器</string>
+    <string name="act_content_package_manager">应用管理:包含启动器实现,获取所有应用信息的列表,获取应用各个部分的存储空间大小功能</string>
 
 </resources>
