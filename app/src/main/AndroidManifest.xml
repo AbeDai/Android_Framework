@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"></uses-permission>
 
     <application
         android:name=".main.MyApplication"
@@ -54,6 +55,11 @@
         <activity android:name=".activity.materialdesign.drawerlayout.DrawerLayoutActivity"/>
         <activity android:name=".activity.album.AlbumActivity"/>
         <activity android:name=".activity.album.PhotoActivity"/>
+        <activity android:name=".activity.packagemanager.PackageActivity"/>
+        <activity android:name=".activity.packagemanager.launcher.LauncherActivity"/>
+        <activity android:name=".activity.packagemanager.appfilter.AppFilterActivity"/>
+        <activity android:name=".activity.packagemanager.appfilter.AppInfoListActivity"/>
+        <activity android:name=".activity.packagemanager.appsize.AppSizeActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -93,15 +99,6 @@
             android:exported="true"
             android:process=":remote_aidl_service">
         </service>
-
-        <activity android:name=".activity.packagemanager.PackageActivity">
-        </activity>
-        <activity android:name=".activity.packagemanager.launcher.LauncherActivity">
-        </activity>
-        <activity android:name=".activity.packagemanager.appfilter.AppFilterActivity">
-        </activity>
-        <activity android:name=".activity.packagemanager.appfilter.AppInfoListActivity">
-        </activity>
     </application>
 
 </manifest>

@@ -20,5 +20,10 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="搜索应用"/>
-
+    <Button
+        android:id="@+id/act_package_btn_app_size"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="应用大小"/>
 </LinearLayout>

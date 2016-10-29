@@ -5,10 +5,10 @@ import android.graphics.drawable.Drawable;
 
 public class AppInfoModel {
 
-    private String appLabel;
-    private Drawable appIcon;
-    private Intent intent;
-    private String pkgName;
+    private String appLabel;//应用名
+    private Drawable appIcon;//应用icon
+    private Intent intent;//应用启动页
+    private String pkgName;//包名
 
     public AppInfoModel() {
     }

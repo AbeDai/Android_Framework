@@ -7,6 +7,7 @@ import com.example.OnClick;
 
 import example.abe.com.android.R;
 import example.abe.com.android.activity.packagemanager.appfilter.AppFilterActivity;
+import example.abe.com.android.activity.packagemanager.appsize.AppSizeActivity;
 import example.abe.com.android.activity.packagemanager.launcher.LauncherActivity;
 import example.abe.com.framework.main.BaseActivity;
 
@@ -27,7 +28,7 @@ public class PackageActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.act_package_btn_app_search, R.id.act_package_btn_app_launcher})
+    @OnClick({R.id.act_package_btn_app_search, R.id.act_package_btn_app_launcher, R.id.act_package_btn_app_size})
     public void onBtnClick(View v){
         Intent intent = new Intent();
         switch (v.getId()){
@@ -37,6 +38,10 @@ public class PackageActivity extends BaseActivity {
 
             case R.id.act_package_btn_app_launcher:
                 intent.setClass(this, LauncherActivity.class);
+                break;
+
+            case R.id.act_package_btn_app_size:
+                intent.setClass(this, AppSizeActivity.class);
                 break;
         }
         startActivity(intent);
