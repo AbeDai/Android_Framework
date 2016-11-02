@@ -227,8 +227,7 @@ public class WhiteboardActivity extends BaseActivity {
             mPenPaintView.buildDrawingCache();
             Bitmap bitmap= mPenPaintView.getDrawingCache();
             String name = "whiteboard_"
-                    + TimeUtil.getStrCurrentCH(TimeUtil.FORMAT_YYYYMMDDHHMMSS)
-                    + ".png";
+                    + TimeUtil.getStrCurrentCH(TimeUtil.FORMAT_YYYYMMDDHHMMSS);
             //保存
             FileUtil.saveBitmap(name, bitmap);
         }
