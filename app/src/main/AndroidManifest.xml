@@ -60,6 +60,7 @@
         <activity android:name=".activity.packagemanager.appfilter.AppFilterActivity"/>
         <activity android:name=".activity.packagemanager.appfilter.AppInfoListActivity"/>
         <activity android:name=".activity.packagemanager.appsize.AppSizeActivity"/>
+        <activity android:name=".activity.drawing.text.TextActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -100,7 +101,7 @@
             android:process=":remote_aidl_service">
         </service>
 
-        <activity android:name=".activity.drawing.text.TextActivity">
+        <activity android:name=".activity.projectmode.mvvm.view.MVVMActivity">
         </activity>
     </application>
 

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="example.abe.com.android.activity.projectmode.mvvm.viewmodel.MVVMViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/act_mvvm_tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:onClick="@{viewModel::btnCancelClick}"
+            android:padding="22dp"
+            android:text="取消"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:id="@+id/act_mvvm_tv_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="116dp"
+            android:text="手机号码登录"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+        <RelativeLayout
+            android:id="@+id/act_mvvm_ll_area"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/act_mvvm_tv_hint"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/act_mvvm_tv_area_state"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:paddingLeft="14dp"
+                android:text="国家/地区"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/act_mvvm_tv_country"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:paddingRight="14dp"
+                android:text="中国"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/act_mvvm_divide1"
+                style="@style/divider"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/act_mvvm_ll_number"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/act_mvvm_ll_area"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/act_mvvm_tv_number_hint"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:paddingLeft="18dp"
+                android:text="+86"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/act_mvvm_divide2"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/act_mvvm_tv_number_hint"
+                android:background="@color/gray_light"/>
+
+            <EditText
+                android:id="@+id/act_mvvm_et_number"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@id/act_mvvm_divide2"
+                android:afterNumberTextChanged="@{viewModel}"
+                android:background="@android:color/transparent"
+                android:hint="请填写手机号码"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/act_mvvm_divide3"
+                style="@style/divider"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/act_mvvm_rl_password"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/act_mvvm_ll_number"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/act_mvvm_tv_password_hint"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:paddingLeft="18dp"
+                android:text="密码"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <View
+                android:id="@+id/act_mvvm_divide4"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/act_mvvm_tv_password_hint"
+                android:background="@color/gray_light"/>
+
+            <EditText
+                android:id="@+id/act_mvvm_et_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@id/act_mvvm_divide4"
+                android:afterPasswordTextChanged="@{viewModel}"
+                android:background="@android:color/transparent"
+                android:hint="请填写密码"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/act_mvvm_tv_register"
+            android:layout_width="244dp"
+            android:layout_height="44dp"
+            android:layout_below="@id/act_mvvm_rl_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:background="#009600"
+            android:gravity="center"
+            android:onClick="@{viewModel::btnLoginClick}"
+            android:text="登录"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+
+    </RelativeLayout>
+</layout>

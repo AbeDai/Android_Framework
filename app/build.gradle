@@ -34,6 +34,11 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    //MVVM示例需用dataBinding框架
+    dataBinding{
+        enabled true
+    }
 }
 
 dependencies {

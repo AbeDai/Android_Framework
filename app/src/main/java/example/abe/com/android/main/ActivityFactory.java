@@ -18,6 +18,7 @@ import example.abe.com.android.activity.ipc.IpcActivity;
 import example.abe.com.android.activity.materialdesign.MaterialDesignActivity;
 import example.abe.com.android.activity.multithread.MultiThreadActivity;
 import example.abe.com.android.activity.packagemanager.PackageActivity;
+import example.abe.com.android.activity.projectmode.mvvm.view.MVVMActivity;
 import example.abe.com.android.activity.recycleview.RecycleViewActivity;
 import example.abe.com.android.activity.retrofit.RetrofitActivity;
 import example.abe.com.android.activity.socket.SocketActivity;
@@ -103,6 +104,9 @@ public class ActivityFactory {
 
         //软件包管理
         PACKAGE_MANAGER,
+
+        //项目搭建模式介绍
+        PROJECT_MODE,
     }
 
     public static Class getClass(Flags flag) {
@@ -170,6 +174,9 @@ public class ActivityFactory {
                 break;
             case PACKAGE_MANAGER:
                 clazz = PackageActivity.class;
+                break;
+            case PROJECT_MODE:
+                clazz = MVVMActivity.class;
                 break;
         }
         return clazz;
@@ -246,6 +253,9 @@ public class ActivityFactory {
                 break;
             case PACKAGE_MANAGER:
                 title = ResourceUtil.getString(R.string.act_title_package_manager);
+                break;
+            case PROJECT_MODE:
+                title = ResourceUtil.getString(R.string.act_title_project_mode);
                 break;
         }
 
@@ -325,6 +335,9 @@ public class ActivityFactory {
                 break;
             case PACKAGE_MANAGER:
                 content = ResourceUtil.getString(R.string.act_content_package_manager);
+                break;
+            case PROJECT_MODE:
+                content = ResourceUtil.getString(R.string.act_content_project_mode);
                 break;
         }
 
