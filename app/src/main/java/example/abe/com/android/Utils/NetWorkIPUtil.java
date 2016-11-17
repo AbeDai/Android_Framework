@@ -4,7 +4,7 @@ package example.abe.com.android.Utils;
  * Created by abe on 16/11/12.
  */
 
-public class NetWorkIpUtil {
+public class NetWorkIPUtil {
 
     //服务器IP
     public static String SERVER_IP = "http://192.168.70.192:8080";

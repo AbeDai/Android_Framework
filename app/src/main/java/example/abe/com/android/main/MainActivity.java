@@ -54,6 +54,19 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         mEtSearch.setOnEditorActionListener(this);
 
         requestPermissions();
+
+        AlertDialog.Builder builder = new AlertDialog
+                .Builder(this)
+                .setTitle("存储读写权限")
+                .setMessage("这项权限对我们非常重要，取消授权将对App的正常运行产生影响！")
+                .setPositiveButton("知道了", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
+
     }
 
     @Override

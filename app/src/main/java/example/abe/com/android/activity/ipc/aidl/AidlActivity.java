@@ -84,7 +84,7 @@ public class AidlActivity extends BaseActivity {
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-
+            mPersonManager = null;
         }
     };
 }
