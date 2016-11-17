@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+    <!--求和函数-->
+    function sum(a,b){
+        return a+b;
+    }
+
+    <!--回退按钮-->
+    function back(){
+        var result = window.action.back();
+        document.getElementById("p").innerHTML = result;
+    }
+
+    <!--本地弹Dialog-->
+    function showDialog(){
+        window.action.showDialog(123456, 'content');
+    }
+
+    <!--修改颜色-->
+    function changeColor(color){
+        document.body.style.backgroundColor = color;
+    }
+    </script>
+</head>
+
+<body>
+<button onclick="back()">返回按钮</button>
+<br>
+<button onclick="showDialog()">本地弹Dialog</button>
+<br>
+<a href="http://www.baidu.com">跳转百度（被拦截)</a>
+<br>
+<a href="http://www.qq.com">跳转QQ(未拦截）</a>
+<p id="p"></p>
+</body>
+
+</html>

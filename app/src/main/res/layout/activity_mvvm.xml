@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="example.abe.com.android.activity.projectmode.mvvm.viewmodel.MVVMViewModel"/>
+            type="example.abe.com.android.activity.mvvm.viewmodel.MVVMViewModel"/>
     </data>
 
     <RelativeLayout

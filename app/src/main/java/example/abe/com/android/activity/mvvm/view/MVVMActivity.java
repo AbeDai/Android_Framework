@@ -1,11 +1,11 @@
-package example.abe.com.android.activity.projectmode.mvvm.view;
+package example.abe.com.android.activity.mvvm.view;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import example.abe.com.android.R;
-import example.abe.com.android.activity.projectmode.mvvm.viewmodel.MVVMViewModel;
+import example.abe.com.android.activity.mvvm.viewmodel.MVVMViewModel;
 import example.abe.com.android.databinding.ActivityMvvmBinding;
 
 /**

@@ -1,4 +1,4 @@
-package example.abe.com.android.activity.projectmode.mvvm.viewmodel;
+package example.abe.com.android.activity.mvvm.viewmodel;
 
 import android.databinding.BindingAdapter;
 import android.text.Editable;
@@ -7,7 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
-import example.abe.com.android.activity.projectmode.mvvm.model.UserModel;
+import example.abe.com.android.activity.mvvm.model.UserModel;
 import example.abe.com.framework.util.ToastUtil;
 
 /**

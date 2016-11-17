@@ -1,4 +1,4 @@
-package example.abe.com.android.activity.projectmode.mvvm.model;
+package example.abe.com.android.activity.mvvm.model;
 
 /**
  * Created by abe on 16/11/6.
