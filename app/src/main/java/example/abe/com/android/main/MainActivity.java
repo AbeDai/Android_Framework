@@ -66,7 +66,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                     }
                 });
         builder.create().show();
-
     }
 
     @Override
