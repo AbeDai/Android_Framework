@@ -9,6 +9,7 @@ import com.example.OnClick;
 
 import example.abe.com.android.R;
 import example.abe.com.android.activity.drawing.custom.CustomActivity;
+import example.abe.com.android.activity.drawing.matrix.MatrixActivity;
 import example.abe.com.android.activity.drawing.text.TextActivity;
 import example.abe.com.android.activity.drawing.whiteboard.WhiteboardActivity;
 import example.abe.com.framework.main.BaseActivity;
@@ -35,7 +36,8 @@ public class DrawActivity extends BaseActivity{
     public void initView(){
     }
 
-    @OnClick({R.id.act_draw_btn_whiteboard, R.id.act_draw_btn_text, R.id.act_draw_btn_custom_view})
+    @OnClick({R.id.act_draw_btn_whiteboard, R.id.act_draw_btn_text, R.id.act_draw_btn_custom_view,
+            R.id.act_draw_btn_matrix})
     public void onEnterWhiteboard(View view){
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -47,6 +49,9 @@ public class DrawActivity extends BaseActivity{
                 break;
             case R.id.act_draw_btn_custom_view:
                 intent.setClass(this, CustomActivity.class);
+                break;
+            case R.id.act_draw_btn_matrix:
+                intent.setClass(this, MatrixActivity.class);
                 break;
         }
         startActivity(intent);

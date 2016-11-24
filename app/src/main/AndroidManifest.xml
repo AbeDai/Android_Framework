@@ -63,17 +63,20 @@
         <activity android:name=".activity.drawing.text.TextActivity"/>
         <activity android:name=".activity.mvvm.view.MVVMActivity"/>
         <activity android:name=".activity.webview.WebViewActivity"/>
+        <activity android:name=".activity.drawing.matrix.MatrixActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN"/>
+
+
+             <category android:name="android.intent.category.LAUNCHER"/>
+             </intent-filter>
         </activity>
 
         <service android:name=".activity.multithread.MyIntentService"/>

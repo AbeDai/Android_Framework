@@ -27,4 +27,11 @@
         android:layout_weight="1"
         android:text="绘制文本"/>
 
+    <Button
+        android:id="@+id/act_draw_btn_matrix"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Matrix使用介绍"/>
+
 </LinearLayout>

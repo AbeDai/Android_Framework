@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_matrix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.abe.com.android.activity.drawing.matrix.MatrixActivity">
+
+    <example.abe.com.android.activity.drawing.matrix.MatrixImageView
+        android:id="@+id/act_matrix_matrix_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/act_matrix_btn_translate"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:text="点击显示Matrix效果"/>
+</FrameLayout>

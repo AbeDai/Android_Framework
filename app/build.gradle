@@ -10,7 +10,7 @@ android {
         abortOnError false
     }
 
-    defaultConfig {
+   defaultConfig {
         applicationId "example.abe.com.android.framework"
         minSdkVersion 19
         targetSdkVersion 23
