@@ -24,6 +24,7 @@ import example.abe.com.android.activity.retrofit.RetrofitActivity;
 import example.abe.com.android.activity.socket.SocketActivity;
 import example.abe.com.android.activity.suspend.SuspendWindowActivity;
 import example.abe.com.android.activity.tablayout.TabLayoutActivity;
+import example.abe.com.android.activity.touch.TouchActivity;
 import example.abe.com.android.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android.activity.volley.VolleyActivity;
 import example.abe.com.android.activity.webview.WebViewActivity;
@@ -72,6 +73,9 @@ public class ActivityFactory {
 
         //绘图详解
         DRAW,
+
+        //触摸事件
+        TOUCH,
 
         //广告栏详解
         BANNER,
@@ -145,6 +149,9 @@ public class ActivityFactory {
                 break;
             case DRAW:
                 clazz = DrawActivity.class;
+                break;
+            case TOUCH:
+                clazz = TouchActivity.class;
                 break;
             case BANNER:
                 clazz = BannerActivity.class;
@@ -227,6 +234,9 @@ public class ActivityFactory {
                 break;
             case DRAW:
                 title = ResourceUtil.getString(R.string.act_title_draw);
+                break;
+            case TOUCH:
+                title = ResourceUtil.getString(R.string.act_title_touch);
                 break;
             case BANNER:
                 title = ResourceUtil.getString(R.string.act_title_banner);
@@ -312,6 +322,9 @@ public class ActivityFactory {
                 break;
             case DRAW:
                 content = ResourceUtil.getString(R.string.act_content_draw);
+                break;
+            case TOUCH:
+                content = ResourceUtil.getString(R.string.act_content_touch);
                 break;
             case BANNER:
                 content = ResourceUtil.getString(R.string.act_content_banner);

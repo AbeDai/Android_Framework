@@ -30,22 +30,21 @@ public class MatrixActivity extends BaseActivity {
     @OnClick(R.id.act_matrix_btn_translate)
     public void onBtnClick() {
         Matrix matrix = new Matrix();
-        // 1. 平移
-        matrix.postTranslate(matrixView.getImageBitmap().getWidth(), matrixView.getImageBitmap().getHeight());
-        // 在x方向平移view.getImageBitmap().getWidth()，在y轴方向view.getImageBitmap().getHeight()
-        matrixView.setImageMatrix(matrix);
-        // 下面的代码是为了查看matrix中的元素
-        float[] matrixValues = new float[9];
-        matrix.getValues(matrixValues);
-        for (int i = 0; i < 3; ++i) {
-            String temp = new String();
-            for (int j = 0; j < 3; ++j) {
-                temp += matrixValues[3 * i + j] + "\t";
-            }
-            LogUtil.e(temp);
-        }
-
-
+//        // 1. 平移
+//        matrix.postTranslate(matrixView.getImageBitmap().getWidth(), matrixView.getImageBitmap().getHeight());
+//        // 在x方向平移view.getImageBitmap().getWidth()，在y轴方向view.getImageBitmap().getHeight()
+//        matrixView.setImageMatrix(matrix);
+//        // 下面的代码是为了查看matrix中的元素
+//        float[] matrixValues = new float[9];
+//        matrix.getValues(matrixValues);
+//        for (int i = 0; i < 3; ++i) {
+//            String temp = new String();
+//            for (int j = 0; j < 3; ++j) {
+//                temp += matrixValues[3 * i + j] + "\t";
+//            }
+//            LogUtil.e(temp);
+//        }
+//
 //          // 2. 旋转(围绕图像的中心点)
 //          matrix.setRotate(45f, view.getImageBitmap().getWidth() / 2f, view.getImageBitmap().getHeight() / 2f);
 //
@@ -89,37 +88,37 @@ public class MatrixActivity extends BaseActivity {
 //              LogUtil.e(temp);
 //          }
 
-//          // 4. 缩放
-//          matrix.setScale(2f, 2f);
-//          // 下面的代码是为了查看matrix中的元素
-//          float[] matrixValues = new float[9];
-//          matrix.getValues(matrixValues);
-//          for(int i = 0; i < 3; ++i)
-//          {
-//              String temp = new String();
-//              for(int j = 0; j < 3; ++j)
-//              {
-//                  temp += matrixValues[3 * i + j ] + "\t";
-//              }
-//              LogUtil.e(temp);
-//          }
-//
-//          // 做下面的平移变换，纯粹是为了让变换后的图像和原图像不重叠
-//          matrix.postTranslate(view.getImageBitmap().getWidth(), view.getImageBitmap().getHeight());
-//          view.setImageMatrix(matrix);
-//
-//          // 下面的代码是为了查看matrix中的元素
-//          matrixValues = new float[9];
-//          matrix.getValues(matrixValues);
-//          for(int i = 0; i < 3; ++i)
-//          {
-//              String temp = new String();
-//              for(int j = 0; j < 3; ++j)
-//              {
-//                  temp += matrixValues[3 * i + j ] + "\t";
-//              }
-//              LogUtil.e(temp);
-//          }
+          // 4. 缩放
+          matrix.setScale(2f, 2f);
+          // 下面的代码是为了查看matrix中的元素
+          float[] matrixValues = new float[9];
+          matrix.getValues(matrixValues);
+          for(int i = 0; i < 3; ++i)
+          {
+              String temp = new String();
+              for(int j = 0; j < 3; ++j)
+              {
+                  temp += matrixValues[3 * i + j ] + "\t";
+              }
+              LogUtil.e(temp);
+          }
+
+          // 做下面的平移变换，纯粹是为了让变换后的图像和原图像不重叠
+          matrix.postTranslate(matrixView.getImageBitmap().getWidth(), matrixView.getImageBitmap().getHeight());
+          matrixView.setImageMatrix(matrix);
+
+          // 下面的代码是为了查看matrix中的元素
+          matrixValues = new float[9];
+          matrix.getValues(matrixValues);
+          for(int i = 0; i < 3; ++i)
+          {
+              String temp = new String();
+              for(int j = 0; j < 3; ++j)
+              {
+                  temp += matrixValues[3 * i + j ] + "\t";
+              }
+              LogUtil.e(temp);
+          }
 
 
 //          // 5. 错切 - 水平

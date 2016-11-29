@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_scale_gesture"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.touch.scalegesture.ScaleGestureActivity">
+
+    <Button
+        android:id="@+id/act_scale_gesture_btn_show_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示图片"/>
+
+    <ImageView
+        android:id="@+id/act_scale_gesture_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

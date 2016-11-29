@@ -34,4 +34,10 @@
         android:layout_weight="1"
         android:text="Matrix使用介绍"/>
 
+    <Button
+        android:id="@+id/act_draw_btn_surface_view"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="SurfaceView使用介绍"/>
 </LinearLayout>
