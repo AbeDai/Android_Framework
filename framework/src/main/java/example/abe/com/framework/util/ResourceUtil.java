@@ -2,6 +2,7 @@ package example.abe.com.framework.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,6 +41,15 @@ public class ResourceUtil {
      */
     public static Bitmap getBitmap(int id){
         return BitmapFactory.decodeResource(BaseApplication.getInstance().getResources(), id);
+    }
+
+    /**
+     * 获取资源文件中的Drawable
+     * @param id 资源id
+     * @return 位图
+     */
+    public static Drawable getDrawable(int id){
+        return BaseApplication.getInstance().getResources().getDrawable(id);
     }
 
     /**

@@ -106,6 +106,9 @@
             android:exported="true"
             android:process=":remote_aidl_service">
         </service>
+
+        <activity android:name=".activity.span.SpannableStringActivity">
+        </activity>
     </application>
 
 </manifest>
