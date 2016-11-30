@@ -67,6 +67,7 @@
         <activity android:name=".activity.touch.scalegesture.ScaleGestureActivity"/>
         <activity android:name=".activity.touch.TouchActivity"/>
         <activity android:name=".activity.drawing.surfaceview.SurfaceViewActivity"/>
+        <activity android:name=".activity.span.SpannableStringActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -107,7 +108,9 @@
             android:process=":remote_aidl_service">
         </service>
 
-        <activity android:name=".activity.span.SpannableStringActivity">
+        <activity android:name=".activity.span.SpanActivity">
+        </activity>
+        <activity android:name=".activity.span.SpannableHtmlActivity">
         </activity>
     </application>
 

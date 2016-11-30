@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_abretrofit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="example.abe.com.android.activity.retrofit.RetrofitActivity">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_person_info"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="获取个人信息"/>
+
+    <Button
+        android:id="@+id/btn_setting_info"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="获取设置信息"/>
+
+    <Button
+        android:id="@+id/btn_all_car"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="获取所有车辆"/>
+
+    <EditText
+        android:id="@+id/et_show"
+        android:editable="false"
+        android:inputType="textMultiLine"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btn_person_info"
-            style="@style/btn__font_normal__gravity_center__width_fill"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="获取个人信息"/>
-
-        <Button
-            android:id="@+id/btn_setting_info"
-            style="@style/btn__font_normal__gravity_center__width_fill"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="获取设置信息"/>
-
-        <Button
-            android:id="@+id/btn_all_car"
-            style="@style/btn__font_normal__gravity_center__width_fill"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="获取所有车辆"/>
-
-        <EditText
-            android:id="@+id/et_show"
-            android:editable="false"
-            android:inputType="textMultiLine"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3"
-            android:gravity="left|top"/>
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="left|top"/>
+</LinearLayout>

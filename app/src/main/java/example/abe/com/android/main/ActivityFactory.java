@@ -22,7 +22,7 @@ import example.abe.com.android.activity.packagemanager.PackageActivity;
 import example.abe.com.android.activity.recycleview.RecycleViewActivity;
 import example.abe.com.android.activity.retrofit.RetrofitActivity;
 import example.abe.com.android.activity.socket.SocketActivity;
-import example.abe.com.android.activity.span.SpannableStringActivity;
+import example.abe.com.android.activity.span.SpanActivity;
 import example.abe.com.android.activity.suspend.SuspendWindowActivity;
 import example.abe.com.android.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android.activity.touch.TouchActivity;
@@ -118,7 +118,7 @@ public class ActivityFactory {
         HYBRID_APP,
 
         //Span使用介绍
-        SPANNABLE_STRING,
+        SPANN,
     }
 
     public static Class getClass(Flags flag) {
@@ -196,8 +196,8 @@ public class ActivityFactory {
             case HYBRID_APP:
                 clazz = WebViewActivity.class;
                 break;
-            case SPANNABLE_STRING:
-                clazz = SpannableStringActivity.class;
+            case SPANN:
+                clazz = SpanActivity.class;
                 break;
         }
         return clazz;
@@ -284,7 +284,7 @@ public class ActivityFactory {
             case HYBRID_APP:
                 title = ResourceUtil.getString(R.string.act_title_hybrid_app);
                 break;
-            case SPANNABLE_STRING:
+            case SPANN:
                 title = ResourceUtil.getString(R.string.act_title_spannable_string);
                 break;
         }
@@ -375,7 +375,7 @@ public class ActivityFactory {
             case HYBRID_APP:
                 content = ResourceUtil.getString(R.string.act_content_hybrid_app);
                 break;
-            case SPANNABLE_STRING:
+            case SPANN:
                 content = ResourceUtil.getString(R.string.act_content_spannable_string);
                 break;
         }
