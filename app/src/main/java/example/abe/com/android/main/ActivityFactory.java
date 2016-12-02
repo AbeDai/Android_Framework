@@ -27,6 +27,7 @@ import example.abe.com.android.activity.suspend.SuspendWindowActivity;
 import example.abe.com.android.activity.tablayout.TabLayoutActivity;
 import example.abe.com.android.activity.touch.TouchActivity;
 import example.abe.com.android.activity.viewpager.ViewPagerActivity;
+import example.abe.com.android.activity.viewstub.ViewStubActivity;
 import example.abe.com.android.activity.volley.VolleyActivity;
 import example.abe.com.android.activity.webview.WebViewActivity;
 import example.abe.com.framework.util.ResourceUtil;
@@ -119,6 +120,9 @@ public class ActivityFactory {
 
         //Span使用介绍
         SPANN,
+
+        //ViewStub使用介绍
+        VIEW_STUB,
     }
 
     public static Class getClass(Flags flag) {
@@ -198,6 +202,9 @@ public class ActivityFactory {
                 break;
             case SPANN:
                 clazz = SpanActivity.class;
+                break;
+            case VIEW_STUB:
+                clazz = ViewStubActivity.class;
                 break;
         }
         return clazz;
@@ -286,6 +293,9 @@ public class ActivityFactory {
                 break;
             case SPANN:
                 title = ResourceUtil.getString(R.string.act_title_spannable_string);
+                break;
+            case VIEW_STUB:
+                title = ResourceUtil.getString(R.string.act_title_view_stub);
                 break;
         }
 
@@ -377,6 +387,9 @@ public class ActivityFactory {
                 break;
             case SPANN:
                 content = ResourceUtil.getString(R.string.act_content_spannable_string);
+                break;
+            case VIEW_STUB:
+                content = ResourceUtil.getString(R.string.act_content_view_stub);
                 break;
         }
 

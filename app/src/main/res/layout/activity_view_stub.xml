@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/include_start_bar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFCCDD"
+        android:orientation="vertical" >
+
+        <ViewStub
+            android:id="@+id/act_view_stub_view_stub"
+            android:inflatedId="@+id/act_view_stub_id_view_stub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout="@layout/include_start_bar" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/act_view_stub_btn_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动态添加布局" />
+
+    <Button
+        android:id="@+id/act_view_stub_btn_hide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="动态隐藏布局" />
+    <Button
+        android:id="@+id/act_view_stub_btn_change_start_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="操作StubInflate的控件" />
+</LinearLayout>

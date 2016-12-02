@@ -3,6 +3,7 @@ package example.abe.com.android.main;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 import android.view.View;
@@ -58,6 +59,11 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        int count = 5;
+        while (count-- > 0){
+            SystemClock.sleep(10000);
+        }
+
         Flags tag = mAdapter.getListFlagFilter().get(position);
         Class clazz = ActivityFactory.getClass(tag);
         Intent intent = new Intent(this, clazz);

@@ -112,6 +112,8 @@
         </activity>
         <activity android:name=".activity.span.SpannableHtmlActivity">
         </activity>
+        <activity android:name=".activity.viewstub.ViewStubActivity">
+        </activity>
     </application>
 
 </manifest>
