@@ -14,6 +14,7 @@ import example.abe.com.framework.util.ToastUtil;
 public class CookieActivity extends BaseActivity {
 
     private static final String URL = "http://www.baidu.com/";
+    private static final String COOKIE = "content=content——content;domain=baidu.com;path=/";
 
     @Override
     public int getLayoutID() {
@@ -35,14 +36,12 @@ public class CookieActivity extends BaseActivity {
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String content = "content——content";
-            cookieManager.setCookie(URL, "content=" + content + ";domain=" + "baidu.com;" + "   path=" + "/");
+            cookieManager.setCookie(URL, COOKIE);
             CookieSyncManager.getInstance().sync();
         } else {
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            String token = "content——content";
-            cookieManager.setCookie(URL, "content=" + token + ";domain=" + "baidu.com;" + "   path=" + "/");
+            cookieManager.setCookie(URL, COOKIE);
         }
     }
 
