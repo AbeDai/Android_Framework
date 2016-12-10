@@ -88,7 +88,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @PermissionSuccess(requestCode = STORAGE_PERMISSIONS_REQUEST)
     public void onRequestStorageSuccess(){
-
     }
 
     @PermissionFail(requestCode = STORAGE_PERMISSIONS_REQUEST)

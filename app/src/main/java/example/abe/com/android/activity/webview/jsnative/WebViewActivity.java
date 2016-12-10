@@ -1,4 +1,4 @@
-package example.abe.com.android.activity.webview;
+package example.abe.com.android.activity.webview.jsnative;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,6 +18,7 @@ import example.abe.com.framework.util.ToastUtil;
 
 public class WebViewActivity extends BaseActivity {
 
+    private static final String URL = "file:///android_asset/test.html";
     @BindView(R.id.act_web_view_webview)
     protected WebView mWebView;
     private int mBackCount = 3;
@@ -39,7 +40,7 @@ public class WebViewActivity extends BaseActivity {
         //设置Encoding编码
         webSettings.setDefaultTextEncodingName("utf-8");
         //加载网页
-        mWebView.loadUrl("file:///android_asset/test.html");
+        mWebView.loadUrl(URL);
         //添加JS调用接口
         mWebView.addJavascriptInterface(new JsAction(this), "action");
         //设置网页监听客户端

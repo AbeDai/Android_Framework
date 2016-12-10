@@ -29,7 +29,7 @@ import example.abe.com.android.activity.touch.TouchActivity;
 import example.abe.com.android.activity.viewpager.ViewPagerActivity;
 import example.abe.com.android.activity.viewstub.ViewStubActivity;
 import example.abe.com.android.activity.volley.VolleyActivity;
-import example.abe.com.android.activity.webview.WebViewActivity;
+import example.abe.com.android.activity.webview.WebActivity;
 import example.abe.com.framework.util.ResourceUtil;
 
 /**
@@ -198,7 +198,7 @@ public class ActivityFactory {
                 clazz = MVVMActivity.class;
                 break;
             case HYBRID_APP:
-                clazz = WebViewActivity.class;
+                clazz = WebActivity.class;
                 break;
             case SPANN:
                 clazz = SpanActivity.class;

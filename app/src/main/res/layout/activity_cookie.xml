@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cookie"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android.activity.webview.cookie.CookieActivity">
+
+    <Button
+        android:id="@+id/act_cookie_btn_save_cookie"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="保存Cookie内容"/>
+
+    <Button
+        android:id="@+id/act_web_btn_remove_cookie"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="清空所有Cookie"/>
+
+    <Button
+        android:id="@+id/act_web_btn_show_cookie"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="显示指定Cookie"/>
+
+</LinearLayout>
