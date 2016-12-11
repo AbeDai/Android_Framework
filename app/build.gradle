@@ -10,12 +10,16 @@ android {
         abortOnError false
     }
 
-   defaultConfig {
+    defaultConfig {
         applicationId "example.abe.com.android.framework"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            moduleName "hello"       //生成的so文件名字，调用C程序的代码中会用到该名字    
+            abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定三种平台下的so库
+        }
     }
 
     signingConfigs {
@@ -40,8 +44,12 @@ android {
     }
 
     //MVVM示例需用dataBinding框架
-    dataBinding{
+    dataBinding {
         enabled true
+    }
+    sourceSets {
+        main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] }
+        debug { jni.srcDirs = ['src/debug/jni', 'src/debug/jni/'] }
     }
 }
 

@@ -74,11 +74,11 @@
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+<!---->
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
 
         <service android:name=".activity.multithread.MyIntentService"/>
@@ -117,6 +117,13 @@
         <activity android:name=".activity.webview.WebActivity">
         </activity>
         <activity android:name=".activity.webview.cookie.CookieActivity">
+        </activity>
+        <activity android:name=".activity.JNIActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 
