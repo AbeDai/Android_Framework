@@ -7,6 +7,7 @@ import com.example.OnClick;
 
 import example.abe.com.android.R;
 import example.abe.com.android.activity.drawing.custom.CustomActivity;
+import example.abe.com.android.activity.drawing.gaussianblur.GaussianBlurActivity;
 import example.abe.com.android.activity.drawing.matrix.MatrixActivity;
 import example.abe.com.android.activity.drawing.surfaceview.SurfaceViewActivity;
 import example.abe.com.android.activity.drawing.text.TextActivity;
@@ -29,7 +30,7 @@ public class DrawActivity extends BaseActivity{
     }
 
     @OnClick({R.id.act_draw_btn_whiteboard, R.id.act_draw_btn_text, R.id.act_draw_btn_custom_view,
-            R.id.act_draw_btn_matrix, R.id.act_draw_btn_surface_view})
+            R.id.act_draw_btn_matrix, R.id.act_draw_btn_surface_view, R.id.act_draw_btn_gaussian_blur})
     public void toNextActivity(View view){
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -47,6 +48,9 @@ public class DrawActivity extends BaseActivity{
                 break;
             case R.id.act_draw_btn_surface_view:
                 intent.setClass(this, SurfaceViewActivity.class);
+                break;
+            case R.id.act_draw_btn_gaussian_blur:
+                intent.setClass(this, GaussianBlurActivity.class);
                 break;
         }
         startActivity(intent);

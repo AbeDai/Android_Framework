@@ -40,4 +40,11 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="SurfaceView使用介绍"/>
+
+    <Button
+        android:id="@+id/act_draw_btn_gaussian_blur"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="高斯模糊使用介绍"/>
 </LinearLayout>

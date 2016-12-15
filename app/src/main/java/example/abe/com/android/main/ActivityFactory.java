@@ -15,6 +15,7 @@ import example.abe.com.android.activity.greendao.GreenDaoActivity;
 import example.abe.com.android.activity.gridview.GridViewActivity;
 import example.abe.com.android.activity.imageloader.ImageLoaderActivity;
 import example.abe.com.android.activity.ipc.IpcActivity;
+import example.abe.com.android.activity.jni.JNIActivity;
 import example.abe.com.android.activity.materialdesign.MaterialDesignActivity;
 import example.abe.com.android.activity.multithread.MultiThreadActivity;
 import example.abe.com.android.activity.mvvm.view.MVVMActivity;
@@ -123,6 +124,9 @@ public class ActivityFactory {
 
         //ViewStub使用介绍
         VIEW_STUB,
+
+        //JNI基础使用介绍
+        JNI,
     }
 
     public static Class getClass(Flags flag) {
@@ -205,6 +209,9 @@ public class ActivityFactory {
                 break;
             case VIEW_STUB:
                 clazz = ViewStubActivity.class;
+                break;
+            case JNI:
+                clazz = JNIActivity.class;
                 break;
         }
         return clazz;
@@ -296,6 +303,9 @@ public class ActivityFactory {
                 break;
             case VIEW_STUB:
                 title = ResourceUtil.getString(R.string.act_title_view_stub);
+                break;
+            case JNI:
+                title = ResourceUtil.getString(R.string.act_title_jni);
                 break;
         }
 
@@ -390,6 +400,9 @@ public class ActivityFactory {
                 break;
             case VIEW_STUB:
                 content = ResourceUtil.getString(R.string.act_content_view_stub);
+                break;
+            case JNI:
+                content = ResourceUtil.getString(R.string.act_content_jni);
                 break;
         }
 

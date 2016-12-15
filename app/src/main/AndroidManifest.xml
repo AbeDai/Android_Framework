@@ -68,17 +68,23 @@
         <activity android:name=".activity.touch.TouchActivity"/>
         <activity android:name=".activity.drawing.surfaceview.SurfaceViewActivity"/>
         <activity android:name=".activity.span.SpannableStringActivity"/>
+        <activity android:name=".activity.span.SpanActivity"/>
+        <activity android:name=".activity.span.SpannableHtmlActivity"/>
+        <activity android:name=".activity.viewstub.ViewStubActivity"/>
+        <activity android:name=".activity.webview.WebActivity"/>
+        <activity android:name=".activity.webview.cookie.CookieActivity"/>
+        <activity android:name=".activity.jni.JNIActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="stateHidden">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-<!---->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <service android:name=".activity.multithread.MyIntentService"/>
@@ -108,22 +114,7 @@
             android:process=":remote_aidl_service">
         </service>
 
-        <activity android:name=".activity.span.SpanActivity">
-        </activity>
-        <activity android:name=".activity.span.SpannableHtmlActivity">
-        </activity>
-        <activity android:name=".activity.viewstub.ViewStubActivity">
-        </activity>
-        <activity android:name=".activity.webview.WebActivity">
-        </activity>
-        <activity android:name=".activity.webview.cookie.CookieActivity">
-        </activity>
-        <activity android:name=".activity.JNIActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".activity.drawing.gaussianblur.GaussianBlurActivity">
         </activity>
     </application>
 

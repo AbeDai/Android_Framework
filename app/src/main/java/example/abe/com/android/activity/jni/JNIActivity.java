@@ -1,4 +1,4 @@
-package example.abe.com.android.activity;
+package example.abe.com.android.activity.jni;
 
 import com.example.OnClick;
 

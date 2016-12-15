@@ -26,9 +26,11 @@ public class EventCenterActivity extends BaseActivity {
     public void initView() {
     }
 
+    private byte[] memory;
+
     @Override
     public void initData() {
-
+        memory = new byte[1024*1024*10];
     }
 
     @OnClick({R.id.act_event_center_btn_post_event, R.id.act_event_center_btn_register, R.id.act_event_center_btn_unregister})
@@ -71,8 +73,5 @@ public class EventCenterActivity extends BaseActivity {
         } else {
             Log.e("ABE onEventBg", "当前线程是BG线程");
         }
-
-        //报错
-        // tv.setText(event.getmMessage());
     }
 }
