@@ -43,11 +43,11 @@ public class GaussianBlurActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mSeekBar.setOnSeekBarChangeListener(seekListerner);
+        mSeekBar.setOnSeekBarChangeListener(seekListener);
     }
 
     // 拖动条事件
-    private SeekBar.OnSeekBarChangeListener seekListerner = new SeekBar.OnSeekBarChangeListener() {
+    private SeekBar.OnSeekBarChangeListener seekListener = new SeekBar.OnSeekBarChangeListener() {
 
         // 拖动条停止执行
         public void onStopTrackingTouch(SeekBar seekBar) {
