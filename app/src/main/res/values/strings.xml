@@ -12,7 +12,7 @@
     <string name="act_title_card_view">CardView使用</string>
     <string name="act_title_grid_view">GridView使用</string>
     <string name="act_title_volley">Volley使用介绍</string>
-    <string name="act_title_draw">绘图详解</string>
+    <string name="act_title_draw">绘图Draw使用介绍</string>
     <string name="act_title_touch">触摸事件详情</string>
     <string name="act_title_banner">广告栏详解</string>
     <string name="act_title_event_center">EventCenter(自定义EventBus)</string>
@@ -41,7 +41,7 @@
     <string name="act_content_card_view">CardView简单使用描述</string>
     <string name="act_content_grid_view">GridView的使用方法介绍，实现效果和ListView差不多</string>
     <string name="act_content_volley">Volley框架的学习介绍，主要包括框架自带Request的使用，自定义Request使用，还有图片下载功能</string>
-    <string name="act_content_draw">绘图详情：1. 简单图像绘制的使用 2.自定义白板的使用白板开发 3.文字绘制 4.matrix使用介绍 5.SurfaceView使用介绍</string>
+    <string name="act_content_draw">绘图详情：1. 简单图像绘制的使用 2.自定义白板的使用白板开发 3.文字绘制 4.matrix使用介绍 5.SurfaceView使用介绍 6.高斯模糊使用介绍</string>
     <string name="act_content_touch">触摸事件详情：对ScaleGestureDetector类的使用介绍</string>
     <string name="act_content_banner">自定义实现广告栏项目，但是现在还没有开始重构什么的，封装的也不是很好的。需要在参考：http://blog.csdn.net/yanzhenjie1003/article/details/51327392</string>
     <string name="act_content_event_center">EventCenter，仿造EventBus。EventCenter中，完成注册和注销。EventHandler中，完成主线程和背景线程Runable分发。EventMethod存储函数信息。</string>
