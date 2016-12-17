@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId "example.abe.com.android.framework"
         minSdkVersion 19
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         ndk {

@@ -74,6 +74,7 @@
         <activity android:name=".activity.webview.WebActivity"/>
         <activity android:name=".activity.webview.cookie.CookieActivity"/>
         <activity android:name=".activity.jni.JNIActivity"/>
+        <activity android:name=".activity.drawing.gaussianblur.GaussianBlurActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -113,9 +114,6 @@
             android:exported="true"
             android:process=":remote_aidl_service">
         </service>
-
-        <activity android:name=".activity.drawing.gaussianblur.GaussianBlurActivity">
-        </activity>
     </application>
 
 </manifest>
