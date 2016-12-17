@@ -44,6 +44,16 @@ public class ResourceUtil {
     }
 
     /**
+     * 获取资源文件中的图片
+     * @param id 资源id
+     * @param options 图片配置参数
+     * @return 位图
+     */
+    public static Bitmap getBitmap(int id, BitmapFactory.Options options){
+        return BitmapFactory.decodeResource(BaseApplication.getInstance().getResources(), id, options);
+    }
+
+    /**
      * 获取资源文件中的Drawable
      * @param id 资源id
      * @return 位图
