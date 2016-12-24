@@ -7,7 +7,7 @@ buildscript(){
     }
     dependencies(){
         //android gradle 插件
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         //android apt 插件
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         //android greendao 插件

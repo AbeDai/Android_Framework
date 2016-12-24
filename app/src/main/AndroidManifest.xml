@@ -114,6 +114,9 @@
             android:exported="true"
             android:process=":remote_aidl_service">
         </service>
+
+        <activity android:name=".activity.drawing.shader.ShaderActivity">
+        </activity>
     </application>
 
 </manifest>
