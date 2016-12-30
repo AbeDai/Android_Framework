@@ -11,7 +11,12 @@ import static example.abe.com.framework.recycleview.wrapper.WrapperHelper.ITEM_T
 
 /**
  * Created by abe on 16/10/11.
+ * @deprecated <br>
+ *     销毁原因：<br>
+ *     1.此功能通用性不强，只能用在RecycleView中<br>
+ *     2.上拉加载功能太弱
  */
+@Deprecated
 public class LoadMoreWrapper<T> extends RecyclerView.Adapter<ViewHolder> {
 
     /**
