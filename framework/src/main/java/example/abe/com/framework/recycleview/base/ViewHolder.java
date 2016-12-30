@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 
+/**
+ * Created by abe on 16/10/11.
+ */
 public class ViewHolder extends RecyclerView.ViewHolder {
     private HashMap<Integer, View> mViewMap;
     private View mItemView;

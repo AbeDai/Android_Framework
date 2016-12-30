@@ -6,7 +6,7 @@ import java.util.Map;
 
 
 /**
- * Created by zhy on 16/6/22.
+ * Created by abe on 16/10/11.
  */
 public class ItemViewDelegateManager<T> {
 
