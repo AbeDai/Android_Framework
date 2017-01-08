@@ -117,6 +117,8 @@
 
         <activity android:name=".activity.drawing.shader.ShaderActivity">
         </activity>
+        <activity android:name=".activity.refresh.RefreshActivity">
+        </activity>
     </application>
 
 </manifest>

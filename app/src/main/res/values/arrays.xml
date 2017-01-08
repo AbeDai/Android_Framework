@@ -8,6 +8,21 @@
         <item>第五弹</item>
     </string-array>
 
+    <string-array name="refresh_view_pager_title">
+        <item>ListView</item>
+        <item>GridView </item>
+        <item>RecyclerView</item>
+        <item>Grid RecyclerView</item>
+        <item>StaggeredGrid RecyclerView</item>
+        <item>ScrollView</item>
+        <item>WebView</item>
+        <item>FrameLayout</item>
+        <item>RelativeLayout</item>
+        <item>LinearLayout</item>
+        <item>ImageView</item>
+        <item>TextView</item>
+    </string-array>
+
     <string-array name="view_pager_content">
         <item>11111111111111111111111111111111111111111111111111111111111111111111111111</item>
         <item>22222222222222222222222222222222222222222222222222222222222222222222222222</item>

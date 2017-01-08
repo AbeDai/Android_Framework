@@ -101,14 +101,14 @@ public class BannerFragment extends BaseFragment {
     }
 
     private ImageView getViewForText(String text) {
-        Bitmap bitmap = Bitmap.createBitmap(DensityUtil.dip2px(300), DensityUtil.dip2px(300), Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = Bitmap.createBitmap(DensityUtil.dip2px(getContext(), 300), DensityUtil.dip2px(getContext(), 300), Bitmap.Config.ARGB_8888);
         float height = bitmap.getHeight();
         float width = bitmap.getWidth();
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
         paint.setColor(Color.RED);
         paint.setStrokeWidth(3);
-        paint.setTextSize(DensityUtil.dip2px(40));
+        paint.setTextSize(DensityUtil.dip2px(getContext(), 40));
         canvas.drawText(text, width / 2f, height / 2f, paint);
 
         ImageView imageView = new ImageView(getActivity());

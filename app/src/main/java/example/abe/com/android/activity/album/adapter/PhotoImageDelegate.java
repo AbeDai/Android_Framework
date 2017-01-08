@@ -15,15 +15,16 @@ import example.abe.com.framework.recycleview.base.ItemViewDelegate;
 import example.abe.com.framework.recycleview.base.ViewHolder;
 import example.abe.com.framework.util.DensityUtil;
 
-import static android.R.attr.tag;
-
 /**
  * Created by abe on 16/10/24.
  */
 public class PhotoImageDelegate implements ItemViewDelegate<PhotoItemModel> {
 
+    private Context mContext;
+
     @Override
     public View getItemView(Context context, ViewGroup parent) {
+        mContext = context;
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.item_photo_image, parent, false);
         return view;
@@ -39,7 +40,7 @@ public class PhotoImageDelegate implements ItemViewDelegate<PhotoItemModel> {
         String path = "file://" + photoItemModel.getImagePath();
         Picasso.with(MyApplication.getInstance())
                 .load(path)
-                .resize(DensityUtil.dip2px(100),DensityUtil.dip2px(150))
+                .resize(DensityUtil.dip2px(mContext, 100),DensityUtil.dip2px(mContext, 150))
                 .centerCrop()
                 .into((ImageView)holder.getView(R.id.item_photo_image_iv));
     }

@@ -21,6 +21,7 @@ import example.abe.com.android.activity.multithread.MultiThreadActivity;
 import example.abe.com.android.activity.mvvm.view.MVVMActivity;
 import example.abe.com.android.activity.packagemanager.PackageActivity;
 import example.abe.com.android.activity.recycleview.RecycleViewActivity;
+import example.abe.com.android.activity.refresh.RefreshActivity;
 import example.abe.com.android.activity.retrofit.RetrofitActivity;
 import example.abe.com.android.activity.socket.SocketActivity;
 import example.abe.com.android.activity.span.SpanActivity;
@@ -127,6 +128,9 @@ public class ActivityFactory {
 
         //JNI基础使用介绍
         JNI,
+
+        //下拉刷新框架使用介绍
+        PULL_TO_REFRESH,
     }
 
     public static Class getClass(Flags flag) {
@@ -212,6 +216,9 @@ public class ActivityFactory {
                 break;
             case JNI:
                 clazz = JNIActivity.class;
+                break;
+            case PULL_TO_REFRESH:
+                clazz = RefreshActivity.class;
                 break;
         }
         return clazz;
@@ -306,6 +313,9 @@ public class ActivityFactory {
                 break;
             case JNI:
                 title = ResourceUtil.getString(R.string.act_title_jni);
+                break;
+            case PULL_TO_REFRESH:
+                title = ResourceUtil.getString(R.string.act_title_pull_to_refresh);
                 break;
         }
 
@@ -403,6 +413,9 @@ public class ActivityFactory {
                 break;
             case JNI:
                 content = ResourceUtil.getString(R.string.act_content_jni);
+                break;
+            case PULL_TO_REFRESH:
+                content = ResourceUtil.getString(R.string.act_content_pull_to_refresh);
                 break;
         }
 

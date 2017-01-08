@@ -169,7 +169,7 @@ public class MyTextView extends View {
      * @param textSizeSp 文本大小，单位是sp
      */
     public void setTextSize(int textSizeSp) {
-        this.textSize = DensityUtil.sp2px(textSizeSp);
+        this.textSize = DensityUtil.sp2px(getContext(), textSizeSp);
         invalidate();
     }
 

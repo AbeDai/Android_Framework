@@ -48,4 +48,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile project(path: ':annotation')
+    compile 'com.android.support:multidex:1.0.1'
 }

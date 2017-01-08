@@ -97,8 +97,8 @@ public class MemoryWindowManager {
             mMemoryWindowParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
             mMemoryWindowParams.format = PixelFormat.RGBA_8888;
             mMemoryWindowParams.gravity = Gravity.LEFT | Gravity.TOP;
-            mMemoryWindowParams.width = DensityUtil.dip2px(30);
-            mMemoryWindowParams.height = DensityUtil.dip2px(18);
+            mMemoryWindowParams.width = DensityUtil.dip2px(mContext, 30);
+            mMemoryWindowParams.height = DensityUtil.dip2px(mContext, 18);
         }
         mMemoryWindowParams.x = x;
         mMemoryWindowParams.y = y;

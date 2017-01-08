@@ -16,6 +16,7 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         ndk {
             moduleName "hello"       //生成的so文件名字，调用C程序的代码中会用到该名字    
             abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定三种平台下的so库
@@ -56,6 +57,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('libs/volley.jar')
+    apt project(':viewinject-compiler')
+    compile project(path: ':framework')
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.yolanda.nohttp:nohttp:1.0.4'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
@@ -65,8 +68,8 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:cardview-v7:24.2.1'
     compile 'com.squareup.picasso:picasso:2.5.1'
-    apt project(':viewinject-compiler')
-    compile project(path: ':framework')
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.google.android.gms:play-services:10.0.1'
 }
 
 //GreenDao配置
