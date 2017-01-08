@@ -47,15 +47,6 @@ public class RefreshActivity extends BaseActivity {
         mTabLayout.setupWithViewPager(mPager);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
-            super.onBackPressed();
-        } else {
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-        }
-    }
-
     private class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private List<String> mTitleList = new ArrayList<>();
