@@ -12,7 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android.R;
+import example.abe.com.android.activity.refresh.fragment.TwitterFrameLayoutFragment;
+import example.abe.com.android.activity.refresh.fragment.TwitterGridViewFragment;
 import example.abe.com.android.activity.refresh.fragment.TwitterListViewFragment;
+import example.abe.com.android.activity.refresh.fragment.TwitterRecyclerFragment;
+import example.abe.com.android.activity.refresh.fragment.TwitterScrollViewFragment;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.util.ResourceUtil;
 
@@ -74,42 +78,23 @@ public class RefreshActivity extends BaseActivity {
         public Fragment getItem(int position) {
             String title = mTitleList.get(position);
             Fragment fragment = null;
-//            switch (title){
-//                case "ListView":
-//                    fragment = new TwitterListViewFragment();
-//                    break;
-//                case "GridView":
-//                    fragment = new TwitterGridViewFragment();
-//                    break;
-//
-//                case "RecyclerView":
-//                    fragment = TwitterRecyclerFragment.newInstance(TwitterRecyclerFragment.TYPE_LINEAR);
-//                    break;
-//
-//                case "Grid RecyclerView":
-//                    fragment = TwitterRecyclerFragment.newInstance(TwitterRecyclerFragment.TYPE_GRID);
-//                    break;
-//
-//                case "StaggeredGrid RecyclerView":
-//                    fragment = TwitterRecyclerFragment.newInstance(TwitterRecyclerFragment.TYPE_STAGGERED_GRID);
-//                    break;
-//
-//                case "ScrollView":
-//                    fragment = new TwitterScrollViewFragment();
-//                    break;
-//                case "WebView":
-//                    fragment = new TwitterWebViewFragment();
-//                    break;
-//
-//                case "FrameLayout":
-//                case "RelativeLayout":
-//                case "LinearLayout":
-//                case "ImageView":
-//                case "TextView":
-//                    fragment = TwitterOtherViewFragment.newInstance(title);
-//                    break;
-//            }
-            fragment = new TwitterListViewFragment();
+            switch (title){
+                case "ListView":
+                    fragment = TwitterListViewFragment.newInstance();
+                    break;
+                case "GridView":
+                    fragment = TwitterGridViewFragment.newInstance();
+                    break;
+                case "RecyclerView":
+                    fragment = TwitterRecyclerFragment.newInstance();
+                    break;
+                case "ScrollView":
+                    fragment = TwitterScrollViewFragment.newInstance();
+                    break;
+                case "FrameLayout":
+                    fragment = TwitterFrameLayoutFragment.newInstance();
+                    break;
+            }
             return fragment;
         }
 

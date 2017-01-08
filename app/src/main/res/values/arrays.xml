@@ -12,15 +12,8 @@
         <item>ListView</item>
         <item>GridView </item>
         <item>RecyclerView</item>
-        <item>Grid RecyclerView</item>
-        <item>StaggeredGrid RecyclerView</item>
         <item>ScrollView</item>
-        <item>WebView</item>
         <item>FrameLayout</item>
-        <item>RelativeLayout</item>
-        <item>LinearLayout</item>
-        <item>ImageView</item>
-        <item>TextView</item>
     </string-array>
 
     <string-array name="view_pager_content">

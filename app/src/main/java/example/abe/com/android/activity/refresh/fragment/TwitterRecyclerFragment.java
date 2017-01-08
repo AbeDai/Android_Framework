@@ -1,10 +1,10 @@
 package example.abe.com.android.activity.refresh.fragment;
 
+import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.BindView;
@@ -16,14 +16,20 @@ import example.abe.com.android.R;
 import example.abe.com.android.activity.refresh.ui.TwitterFooterView;
 import example.abe.com.android.activity.refresh.ui.TwitterHeaderView;
 import example.abe.com.framework.main.BaseFragment;
+import example.abe.com.framework.recycleview.adapter.BaseAdapter;
+import example.abe.com.framework.recycleview.base.ItemViewDelegate;
+import example.abe.com.framework.recycleview.base.ViewHolder;
 import example.abe.com.framework.refresh.OnLoadMoreListener;
 import example.abe.com.framework.refresh.OnRefreshListener;
 import example.abe.com.framework.refresh.SwipeToLoadLayout;
 import example.abe.com.framework.util.ResourceUtil;
 
-public class TwitterListViewFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
+/**
+ * Created by abe on 17/1/8.
+ */
+public class TwitterRecyclerFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
 
-    @BindView(R.id.frag_twitter_list_view_swipe_to_load)
+    @BindView(R.id.frag_twitter_recycler_swipe_to_load)
     protected SwipeToLoadLayout mSwipeToLoadLayout;
 
     @BindView(R.id.swipe_refresh_header)
@@ -33,22 +39,22 @@ public class TwitterListViewFragment extends BaseFragment implements OnRefreshLi
     protected TwitterFooterView mFooterHeader;
 
     @BindView(R.id.swipe_target)
-    protected ListView mLv;
+    protected RecyclerView mRv;
 
-    private MyAdapter mAdapter;
+    private BaseAdapter<String> mAdapter;
 
     private List<String> mListData;
 
-    public static TwitterListViewFragment newInstance(){
-        return new TwitterListViewFragment();
+    public static TwitterRecyclerFragment newInstance() {
+        return new TwitterRecyclerFragment();
     }
 
-    public TwitterListViewFragment() {
+    public TwitterRecyclerFragment() {
     }
 
     @Override
     public int getLayoutID() {
-        return R.layout.fragment_twitter_list_view;
+        return R.layout.fragment_twitter_recycler_view;
     }
 
     @Override
@@ -58,8 +64,10 @@ public class TwitterListViewFragment extends BaseFragment implements OnRefreshLi
 
     @Override
     public void initView() {
-        mAdapter = new MyAdapter();
-        mLv.setAdapter(mAdapter);
+        mAdapter = new BaseAdapter<>(getContext(), mListData);
+        mAdapter.addItemViewDelegate(new TextDelegate());
+        mRv.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRv.setAdapter(mAdapter);
 
         mSwipeToLoadLayout.setOnRefreshListener(this);
         mSwipeToLoadLayout.setOnLoadMoreListener(this);
@@ -98,35 +106,28 @@ public class TwitterListViewFragment extends BaseFragment implements OnRefreshLi
             mListData.add(string);
         }
     }
-
-    public class MyAdapter extends BaseAdapter {
+    public class TextDelegate implements ItemViewDelegate<String> {
 
         @Override
-        public int getCount() {
-            return mListData.size();
+        public View getItemView(Context context, ViewGroup parent) {
+            TextView tv = new TextView(context);
+            tv.setPadding(100, 50, 0, 50);
+            tv.setId(R.id.text);
+            tv.setBackgroundColor(ResourceUtil.getColor(R.color.theme_accent));
+            tv.setTextColor(ResourceUtil.getColor(R.color.text_white));
+            tv.setLayoutParams(new RecyclerView.LayoutParams(
+                    RecyclerView.LayoutParams.MATCH_PARENT, RecyclerView.LayoutParams.WRAP_CONTENT));
+            return tv;
         }
 
         @Override
-        public Object getItem(int position) {
-            return mListData.get(position);
+        public boolean isForViewType(String item, int position) {
+            return true;
         }
 
         @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = new TextView(getContext());
-                convertView.setLayoutParams(new AbsListView.LayoutParams(
-                        AbsListView.LayoutParams.MATCH_PARENT, AbsListView.LayoutParams.MATCH_PARENT));
-                convertView.setPadding(0, 20, 0, 20);
-                convertView.setBackgroundColor(ResourceUtil.getColor(R.color.cardview_light_background));
-            }
-            ((TextView)convertView).setText(mListData.get(position));
-            return convertView;
+        public void bindViewHolder(ViewHolder holder, String text, int position) {
+            holder.setText(R.id.text, "位置：" + text);
         }
     }
 }

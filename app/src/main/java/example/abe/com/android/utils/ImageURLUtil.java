@@ -1,4 +1,4 @@
-package example.abe.com.android.activity.imageloader;
+package example.abe.com.android.utils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by abe on 16/9/1.
  */
-public class ImageModel {
+public class ImageURLUtil {
 
     public static final Random RANDOM = new Random(System.currentTimeMillis());
     public static final List<String> LIST_IMAGE_URL = Arrays.asList(

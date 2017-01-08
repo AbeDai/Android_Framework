@@ -7,6 +7,7 @@ import com.example.BindView;
 import com.example.OnClick;
 
 import example.abe.com.android.R;
+import example.abe.com.android.utils.ImageURLUtil;
 import example.abe.com.framework.imageloader.ImageLoader;
 import example.abe.com.framework.imageloader.handle.BitmapHandle;
 import example.abe.com.framework.main.BaseActivity;
@@ -31,7 +32,7 @@ public class ImageLoaderImageViewActivity extends BaseActivity {
 
     @OnClick({R.id.act_image_loader_btn_change_image})
     public void onChangeImage() {
-        ImageLoader.getInstance().getBitmap(ImageModel.getRandomImageUrl(),
+        ImageLoader.getInstance().getBitmap(ImageURLUtil.getRandomImageUrl(),
                 new BitmapHandle.BitmapHandleListener() {
                     @Override
                     public void onHandle(Bitmap bitmap) {

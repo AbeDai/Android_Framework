@@ -1,40 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/act_abrecycle_list_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="example.abe.com.android.activity.recycleview.template.RecycleListActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="64dp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="64dp">
-            <Button
-                android:id="@+id/act_abrecycle_list_btn_add"
-                style="@style/btn__font_normal__gravity_center__height_fill"
-                android:text="+"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-            <Button
-                android:id="@+id/act_abrecycle_list_btn_del"
-                style="@style/btn__font_normal__gravity_center__height_fill"
-                android:text="-"
-                android:layout_width="0dp"
-                android:layout_weight="1"/>
-        </LinearLayout>
+        <Button
+            android:id="@+id/act_abrecycle_list_btn_add"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="+"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/act_abrecycle_list_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+        <Button
+            android:id="@+id/act_abrecycle_list_btn_del"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="-"/>
     </LinearLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/act_abrecycle_list_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

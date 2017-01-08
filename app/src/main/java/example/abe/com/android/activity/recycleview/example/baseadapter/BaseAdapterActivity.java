@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android.R;
-import example.abe.com.android.activity.imageloader.ImageModel;
+import example.abe.com.android.utils.ImageURLUtil;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.recycleview.adapter.BaseAdapter;
 
@@ -28,8 +28,8 @@ public class BaseAdapterActivity extends BaseActivity {
     @Override
     public void initData() {
         mListData = new ArrayList<>();
-        for (int i = 0; i < ImageModel.LIST_IMAGE_URL.size(); i++) {
-            String imgUrl = ImageModel.LIST_IMAGE_URL.get(i);
+        for (int i = 0; i < ImageURLUtil.LIST_IMAGE_URL.size(); i++) {
+            String imgUrl = ImageURLUtil.LIST_IMAGE_URL.get(i);
             mListData.add(new ImageTextModel(imgUrl, "图片位置:" + i));
         }
     }
