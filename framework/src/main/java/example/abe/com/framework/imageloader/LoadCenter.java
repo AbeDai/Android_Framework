@@ -116,6 +116,7 @@ public class LoadCenter {
         return new Runnable() {
             @Override
             public void run() {
+                byte[] bytes;
                 final Bitmap bitmap;
                 final String url = imageHandle.getImageUrl();
                 String name = EncryptionUtil.getMd5(url);
@@ -126,14 +127,14 @@ public class LoadCenter {
                     bitmap = mImageCache.getBitmapCache(uid);
                 }
                 //保存在本地
-                else if (mImageCache.isExistsDisk(name)){
-                    byte[] bytes = mImageCache.getBitmapDisk(name);
+                else if (mImageCache.isExistsDisk(name)
+                        && (bytes = mImageCache.getBitmapDisk(name)).length > 0){
                     bitmap = imageHandle.onPreHandle(bytes);
                     mImageCache.saveBitmapCache(uid, bitmap);
                 }
                 //网络加载
                 else{
-                    byte[] bytes = ImageNetworkUtil.loadByteArrayByUrl(url);
+                    bytes = ImageNetworkUtil.loadByteArrayByUrl(url);
                     mImageCache.saveBitmapDisk(name, bytes);
                     bitmap = imageHandle.onPreHandle(bytes);
                     mImageCache.saveBitmapCache(uid, bitmap);
