@@ -497,6 +497,11 @@ public class SwipeToLoadLayout extends ViewGroup {
     }
 
     @Override
+    protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
+        return p instanceof LayoutParams && super.checkLayoutParams(p);
+    }
+
+    @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         final int action = MotionEventCompat.getActionMasked(ev);
         switch (action) {
