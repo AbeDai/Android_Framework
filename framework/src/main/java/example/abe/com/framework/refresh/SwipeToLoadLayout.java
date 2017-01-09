@@ -392,18 +392,10 @@ public class SwipeToLoadLayout extends ViewGroup {
                 childTempNum++;
             }
             if (mHeaderView != null){
-                if (mHeaderView instanceof SwipeRefreshTrigger){
-                    childTempNum++;
-                }else {
-                    throw new IllegalStateException("头部视图没有实现SwipeRefreshTrigger接口");
-                }
+                childTempNum++;
             }
             if (mFooterView != null){
-                if (mFooterView instanceof SwipeLoadMoreTrigger){
-                    childTempNum++;
-                }else {
-                    throw new IllegalStateException("尾部视图没有实现SwipeLoadMoreTrigger接口");
-                }
+                childTempNum++;
             }
             if (childNum == childTempNum){
                 throw new IllegalStateException("子视图不符合构建要求，只允许添加头部视图 内容视图 尾部视图 ");
@@ -745,17 +737,13 @@ public class SwipeToLoadLayout extends ViewGroup {
      *
      * @param view 头部视图，必须实现SwipeRefreshTrigger，通过现实SwipeTrigger来扩展功能
      */
-    public void setRefreshHeaderView(View view){
-        if (view instanceof SwipeRefreshTrigger) {
-            if (mHeaderView != null && mHeaderView != view) {
-                removeView(mHeaderView);
-            }
-            if (mHeaderView != view) {
-                this.mHeaderView = view;
-                addView(view);
-            }
-        } else {
-            throw new IllegalStateException("头部视图必须实现SwipeRefreshTrigger接口");
+    public void setRefreshHeaderView(View view) {
+        if (mHeaderView != null && mHeaderView != view) {
+            removeView(mHeaderView);
+        }
+        if (mHeaderView != view) {
+            this.mHeaderView = view;
+            addView(view);
         }
     }
 
@@ -765,16 +753,12 @@ public class SwipeToLoadLayout extends ViewGroup {
      * @param view 尾部视图，必须实现SwipeLoadTrigger，通过现实SwipeTrigger来扩展功能
      */
     public void setLoadMoreFooterView(View view) {
-        if (view instanceof SwipeLoadMoreTrigger) {
-            if (mFooterView != null && mFooterView != view) {
-                removeView(mFooterView);
-            }
-            if (mFooterView != view) {
-                this.mFooterView = view;
-                addView(mFooterView);
-            }
-        } else {
-            throw new IllegalStateException("尾部视图必须实现SwipeLoadTrigger接口");
+        if (mFooterView != null && mFooterView != view) {
+            removeView(mFooterView);
+        }
+        if (mFooterView != view) {
+            this.mFooterView = view;
+            addView(mFooterView);
         }
     }
 
