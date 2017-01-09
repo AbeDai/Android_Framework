@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -16,14 +17,16 @@ import java.util.List;
 import example.abe.com.android.R;
 import example.abe.com.android.activity.refresh.ui.TwitterFooterView;
 import example.abe.com.android.activity.refresh.ui.TwitterHeaderView;
-import example.abe.com.android.utils.ImageURLUtil;
 import example.abe.com.framework.imageloader.ImageLoader;
 import example.abe.com.framework.main.BaseFragment;
 import example.abe.com.framework.refresh.OnLoadMoreListener;
 import example.abe.com.framework.refresh.OnRefreshListener;
 import example.abe.com.framework.refresh.SwipeToLoadLayout;
+import example.abe.com.framework.util.DensityUtil;
+import example.abe.com.framework.util.ToastUtil;
 
-public class TwitterGridViewFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
+public class TwitterGridViewFragment extends BaseFragment implements OnRefreshListener,
+        OnLoadMoreListener, AdapterView.OnItemClickListener {
 
     @BindView(R.id.frag_twitter_grid_view_swipe_to_load)
     protected SwipeToLoadLayout mSwipeToLoadLayout;
@@ -63,10 +66,17 @@ public class TwitterGridViewFragment extends BaseFragment implements OnRefreshLi
         mAdapter = new MyAdapter(getContext(), 0, mListData);
         mGridView.setAdapter(mAdapter);
 
+        mGridView.setOnItemClickListener(this);
+
         mSwipeToLoadLayout.setOnRefreshListener(this);
         mSwipeToLoadLayout.setOnLoadMoreListener(this);
 
         mSwipeToLoadLayout.setRefreshing(true);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        ToastUtil.makeText("图片地址：" + mAdapter.getItem(position));
     }
 
     @Override
@@ -95,7 +105,7 @@ public class TwitterGridViewFragment extends BaseFragment implements OnRefreshLi
 
     private void addListItem(){
         for (int i = 0; i < 5; i++){
-            mListData.add(ImageURLUtil.getRandomImageUrl());
+            mListData.add("http://img.my.csdn.net/uploads/201407/26/1406383291_6518.jpg");
         }
     }
 
@@ -109,7 +119,8 @@ public class TwitterGridViewFragment extends BaseFragment implements OnRefreshLi
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 ImageView imageView= new ImageView(getContext());
-                imageView.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, 120));
+                imageView.setLayoutParams(new AbsListView.LayoutParams(
+                        AbsListView.LayoutParams.MATCH_PARENT, DensityUtil.dip2px(getContext(), 300)));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 convertView = imageView;
             }

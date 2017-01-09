@@ -18,7 +18,6 @@ public class TwitterFrameLayoutFragment extends BaseFragment implements OnRefres
     @BindView(R.id.frag_twitter_frame_layout_swipe_to_load)
     protected SwipeToLoadLayout mSwipeToLoadLayout;
 
-    @BindView(R.id.swipe_refresh_header)
     protected TwitterHeaderView mRefreshHeader;
 
     @BindView(R.id.swipe_load_more_footer)
@@ -44,9 +43,15 @@ public class TwitterFrameLayoutFragment extends BaseFragment implements OnRefres
 
     @Override
     public void initView() {
+        //头部视图
+        mRefreshHeader = new TwitterHeaderView(getContext());
+        mSwipeToLoadLayout.setRefreshHeaderView(mRefreshHeader);
+
+        //回调监听
         mSwipeToLoadLayout.setOnRefreshListener(this);
         mSwipeToLoadLayout.setOnLoadMoreListener(this);
 
+        //自动刷新
         mSwipeToLoadLayout.setRefreshing(true);
     }
 
