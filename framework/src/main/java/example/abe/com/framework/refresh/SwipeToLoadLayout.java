@@ -483,7 +483,7 @@ public class SwipeToLoadLayout extends ViewGroup {
 
     @Override
     protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return new SwipeToLoadLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        return new SwipeToLoadLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
     @Override
