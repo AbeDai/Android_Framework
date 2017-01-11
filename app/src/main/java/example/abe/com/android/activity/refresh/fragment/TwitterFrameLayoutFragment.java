@@ -13,7 +13,7 @@ import example.abe.com.framework.refresh.OnLoadMoreListener;
 import example.abe.com.framework.refresh.OnRefreshListener;
 import example.abe.com.framework.refresh.SwipeToLoadLayout;
 
-public class TwitterFrameLayoutFragment11 extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
+public class TwitterFrameLayoutFragment extends BaseFragment implements OnRefreshListener, OnLoadMoreListener {
 
     @BindView(R.id.frag_twitter_frame_layout_swipe_to_load)
     protected SwipeToLoadLayout mSwipeToLoadLayout;
@@ -26,11 +26,11 @@ public class TwitterFrameLayoutFragment11 extends BaseFragment implements OnRefr
     @BindView(R.id.swipe_target)
     protected ScrollView mScrollView;
 
-    public static TwitterFrameLayoutFragment11 newInstance() {
-        return new TwitterFrameLayoutFragment11();
+    public static TwitterFrameLayoutFragment newInstance() {
+        return new TwitterFrameLayoutFragment();
     }
 
-    public TwitterFrameLayoutFragment11() {
+    public TwitterFrameLayoutFragment() {
     }
 
     @Override
