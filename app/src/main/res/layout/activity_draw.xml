@@ -14,6 +14,13 @@
         android:text="自定义绘图View"/>
 
     <Button
+        android:id="@+id/act_draw_btn_clock"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="自定义闹钟控件"/>
+
+    <Button
         android:id="@+id/act_draw_btn_whiteboard"
         style="@style/btn__font_normal__gravity_center__width_fill"
         android:layout_height="0dp"
