@@ -17,6 +17,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 
 import example.abe.com.android.R;
+import example.abe.com.android.model.BaseModel;
+import example.abe.com.android.utils.ApiUtil;
 import example.abe.com.framework.main.BaseActivity;
 
 public class VolleyCustomActivity extends BaseActivity{
@@ -34,8 +36,8 @@ public class VolleyCustomActivity extends BaseActivity{
 
     @Override
     public void initData(){
-        mXMLUrl = "http://flash.weather.com.cn/sk2/101220607.xml";
-        mJsonGetUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
+        mXMLUrl = ApiUtil.BASE_URL + ApiUtil.PATTERN_XML + ApiUtil.SEPARATOR + "volley.xml";
+        mJsonGetUrl = ApiUtil.BASE_URL + ApiUtil.PATTERN_LOGIN + "?username=daiyibo&password=123";
         mQueue = Volley.newRequestQueue(this);
     }
 
@@ -57,7 +59,7 @@ public class VolleyCustomActivity extends BaseActivity{
             case R.id.act_volley_custom_btn_gson_get:
                 request = new GsonRequest<>(
                         mJsonGetUrl,
-                        PlModel.class,
+                        BaseModel.class,
                         mGsonListener,
                         mErrorListener);
                 break;
@@ -93,9 +95,9 @@ public class VolleyCustomActivity extends BaseActivity{
         }
     };
 
-    Response.Listener<PlModel> mGsonListener = new Response.Listener<PlModel>() {
+    Response.Listener<BaseModel> mGsonListener = new Response.Listener<BaseModel>() {
         @Override
-        public void onResponse(PlModel pl) {
+        public void onResponse(BaseModel pl) {
             mEtShow.setText(pl.toString());
         }
     };

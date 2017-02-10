@@ -6,6 +6,7 @@ import com.example.BindView;
 import com.example.OnClick;
 
 import example.abe.com.android.R;
+import example.abe.com.android.model.BaseModel;
 import example.abe.com.framework.main.BaseActivity;
 
 public class RetrofitActivity extends BaseActivity{
@@ -26,51 +27,34 @@ public class RetrofitActivity extends BaseActivity{
     public void initView(){
     }
 
-    @OnClick(R.id.btn_person_info)
-    public void getPersonInfo(){
-        NetworkPresent.getPersonInfo("jui5dhmmimhggmidheodkdhlkndo5g7", "2567", new RetrofitUtil.ABCallback() {
+    @OnClick(R.id.act_retrofit_login)
+    public void getLogin(){
+        NetworkPresent.getLogin("daiyibo", "123", new NetworkPresent.ABCallback() {
             @Override
-            public <T> void onSuccess(T data) {
-                PersonModel model = (PersonModel) data;
-                mTvShow.setText(model.toString());
+            public void onSuccess(BaseModel data) {
+                mTvShow.setText(data.toString());
             }
 
             @Override
-            public void onFailure(String message) {
-                mTvShow.setText(message);
+            public void onFailure(BaseModel data) {
+                mTvShow.setText(data.toString());
             }
         });
     }
 
-    @OnClick(R.id.btn_all_car)
-    public void getAllCar(){
-        NetworkPresent.getAllCar("pui5dhlmiihkgpidnejdgdhlkodo5g7", new RetrofitUtil.ABCallback() {
+    @OnClick(R.id.act_retrofit_logout)
+    public void getLogout(){
+        NetworkPresent.getLogout("daiyibo", new NetworkPresent.ABCallback() {
             @Override
-            public <T> void onSuccess(T data) {
-                CarModel model = (CarModel) data;
-                mTvShow.setText(model.toString());
+            public void onSuccess(BaseModel data) {
+                mTvShow.setText(data.toString());
             }
 
             @Override
-            public void onFailure(String message) {
-                mTvShow.setText(message);
+            public void onFailure(BaseModel data) {
+                mTvShow.setText(data.toString());
             }
         });
     }
 
-    @OnClick(R.id.btn_setting_info)
-    public void getSettingInfo(){
-        NetworkPresent.getSetInfo("jui5dhmmimhggmidheodkdhlkndo5g7", new RetrofitUtil.ABCallback() {
-            @Override
-            public <T> void onSuccess(T data) {
-                InfoModel model = (InfoModel) data;
-                mTvShow.setText(model.toString());
-            }
-
-            @Override
-            public void onFailure(String message) {
-                mTvShow.setText(message);
-            }
-        });
-    }
 }

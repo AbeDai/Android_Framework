@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import example.abe.com.android.R;
+import example.abe.com.android.utils.ApiUtil;
 import example.abe.com.framework.main.BaseActivity;
 
 public class VolleyBaseActivity extends BaseActivity {
@@ -37,14 +38,12 @@ public class VolleyBaseActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        mGetUrl = "http://ditu.amap.com/service/pl/pl.json?rand=635840524184357321";
-        mPostUrl = "http://121.196.244.159:8081/mobileAppServlet";
+        mGetUrl = ApiUtil.BASE_URL + ApiUtil.PATTERN_LOGIN + "?username=daiyibo&password=123";
+        mPostUrl = ApiUtil.BASE_URL + ApiUtil.PATTERN_LOGIN;
         mQueue = Volley.newRequestQueue(this);
         mPostParamMap = new HashMap<>();
-        mPostParamMap.put("secretId", "jui5dhmmimhggmidheodkdhlkndo5g7");
-        mPostParamMap.put("m", "getConfigData");
-        mPostParamMap.put("ver", "2.0");
-        mPostParamMap.put("cla", "system");
+        mPostParamMap.put("username", "daiyibo");
+        mPostParamMap.put("password", "123");
     }
 
     @Override

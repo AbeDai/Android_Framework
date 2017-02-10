@@ -15,6 +15,7 @@ import com.example.BindView;
 import com.example.OnClick;
 
 import example.abe.com.android.R;
+import example.abe.com.android.utils.ImageURLUtil;
 import example.abe.com.framework.main.BaseActivity;
 
 public class VolleyImageActivity extends BaseActivity{
@@ -35,7 +36,7 @@ public class VolleyImageActivity extends BaseActivity{
 
     @Override
     public void initData(){
-        mImgUrl = "http://img.mp.itc.cn/upload/20160418/c44022406262471e86551d54945d4c55_th.jpg";
+        mImgUrl = ImageURLUtil.getRandomImageUrl();
         mQueue = Volley.newRequestQueue(this);
         mLoader = new ImageLoader(mQueue, new BitmapCache());
     }

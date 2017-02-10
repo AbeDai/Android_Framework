@@ -1,8 +1,20 @@
 package example.abe.com.android.activity.retrofit;
 
-import java.util.HashMap;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 
-import static example.abe.com.android.activity.retrofit.RetrofitUtil.handleCall;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+
+import example.abe.com.android.model.BaseModel;
+import example.abe.com.android.utils.ApiUtil;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
@@ -10,35 +22,74 @@ import static example.abe.com.android.activity.retrofit.RetrofitUtil.handleCall;
  */
 public class NetworkPresent {
 
-    public static void getPersonInfo(String secretId, String userId, RetrofitUtil.ABCallback abCallback) {
-        HashMap<String, String> args = initArgs();
-        args.put("cla", "system");
-        args.put("m", "getUserInfo");
-        args.put("secretId", secretId);
-        args.put("userId", userId);
-        handleCall(abCallback, args, PersonModel.class);
+    public interface ABCallback {
+        void onSuccess(BaseModel data);
+        void onFailure(BaseModel data);
     }
 
-    public static void getSetInfo(String secretId, RetrofitUtil.ABCallback abCallback) {
-        HashMap<String, String> args = initArgs();
-        args.put("cla", "system");
-        args.put("m", "getConfigData");
-        args.put("secretId", secretId);
-        handleCall(abCallback, args, InfoModel.class);
+    public static final int WRITE_TIME_OUT_SEC = 60;
+    public static final int READ_TIME_OUT_SEC = 30;
+    private static Retrofit sRetrofit;
+
+    public static Retrofit getRetrofit() {
+        if (sRetrofit == null) {
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);//开启log日志记录
+            OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
+                    .writeTimeout(WRITE_TIME_OUT_SEC, TimeUnit.SECONDS)
+                    .readTimeout(READ_TIME_OUT_SEC, TimeUnit.SECONDS)
+                    .addInterceptor(logging)
+                    .build();//用于拦截
+
+            sRetrofit = new Retrofit.Builder()
+                    .baseUrl(ApiUtil.BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(mOkHttpClient)
+                    .build();
+        }
+        return sRetrofit;
     }
 
-    public static void getAllCar(String secretId, RetrofitUtil.ABCallback abCallback) {
-        HashMap<String, String> args = initArgs();
-        args.put("cla", "monitor");
-        args.put("m", "getAllCarList");
-        args.put("secretId", secretId);
-        handleCall(abCallback, args, CarModel.class);
+    public static void getLogin(String username, String password, final ABCallback abCallback) {
+        HashMap<String, String> args = new HashMap<>();
+        args.put("username", username);
+        args.put("password", password);
+        handleCall(getRetrofit().create(Service.class).getLogin(args), abCallback);
     }
 
-    private static HashMap<String, String> initArgs() {
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("ver", "2.0");
-        return hashMap;
+    public static void getLogout(String username, final ABCallback abCallback) {
+        HashMap<String, String> args = new HashMap<>();
+        args.put("username", username);
+        handleCall(getRetrofit().create(Service.class).getLogout(args), abCallback);
+    }
+
+    private static void handleCall(Call<JsonElement> call, final ABCallback abCallback) {
+        call.enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+                if (abCallback == null) return;
+
+                if (response.isSuccessful() && response.body() != null) {
+                    BaseModel data = new Gson().fromJson(response.body(), BaseModel.class);
+                    abCallback.onSuccess(data);
+                } else {
+                    abCallback.onSuccess(NetworkPresent.getFailedBaseModel());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                abCallback.onFailure(NetworkPresent.getFailedBaseModel());
+            }
+        });
+    }
+
+    private static BaseModel getFailedBaseModel() {
+        BaseModel baseModel = new BaseModel();
+        baseModel.setData("");
+        baseModel.setError(-1);
+        baseModel.setMsg("服务端操作数据库出现异常");
+        return baseModel;
     }
 }
 

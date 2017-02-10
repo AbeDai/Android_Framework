@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
 
 import example.abe.com.framework.util.FileUtil;
+import example.abe.com.framework.util.LogUtil;
 
 /**
  * Created by abe on 16/8/31.
