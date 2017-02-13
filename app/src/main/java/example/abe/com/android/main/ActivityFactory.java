@@ -5,6 +5,7 @@ import java.util.Map;
 
 import example.abe.com.android.R;
 import example.abe.com.android.activity.album.AlbumActivity;
+import example.abe.com.android.activity.animation.AnimActivity;
 import example.abe.com.android.activity.assets.AssetsActivity;
 import example.abe.com.android.activity.banner.BannerActivity;
 import example.abe.com.android.activity.cardview.CardViewActivity;
@@ -131,6 +132,9 @@ public class ActivityFactory {
 
         //下拉刷新框架使用介绍
         PULL_TO_REFRESH,
+
+        //动画模板
+        ANIMATION,
     }
 
     public static Class getClass(Flags flag) {
@@ -219,6 +223,9 @@ public class ActivityFactory {
                 break;
             case PULL_TO_REFRESH:
                 clazz = RefreshActivity.class;
+                break;
+            case ANIMATION:
+                clazz = AnimActivity.class;
                 break;
         }
         return clazz;
@@ -316,6 +323,9 @@ public class ActivityFactory {
                 break;
             case PULL_TO_REFRESH:
                 title = ResourceUtil.getString(R.string.act_title_pull_to_refresh);
+                break;
+            case ANIMATION:
+                title = ResourceUtil.getString(R.string.act_title_animation);
                 break;
         }
 
@@ -416,6 +426,9 @@ public class ActivityFactory {
                 break;
             case PULL_TO_REFRESH:
                 content = ResourceUtil.getString(R.string.act_content_pull_to_refresh);
+                break;
+            case ANIMATION:
+                content = ResourceUtil.getString(R.string.act_content_animation);
                 break;
         }
 

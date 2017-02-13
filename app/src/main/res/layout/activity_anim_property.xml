@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_anim_property"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android.activity.animation.AnimPropertyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/act_anim_property_btn_attribute_set"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="AttributeSet" />
+        <Button
+            android:id="@+id/act_anim_property_btn_single_object_animation"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="Single ObjectAnimation" />
+        <Button
+            android:id="@+id/act_anim_property_btn_multi_object_animation"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="Multi ObjectAnimation" />
+        <Button
+            android:id="@+id/act_anim_property_btn_value_animation"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="ValueAnimator" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/act_anim_view_show"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@color/theme_background"/>
+    </FrameLayout>
+
+
+</LinearLayout>

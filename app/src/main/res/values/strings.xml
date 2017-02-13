@@ -31,6 +31,7 @@
     <string name="act_title_view_stub">ViewStub使用介绍</string>
     <string name="act_title_jni">JNI基础使用介绍</string>
     <string name="act_title_pull_to_refresh">下拉加载框架使用介绍</string>
+    <string name="act_title_animation">动画模板代码</string>
 
     <!--Activity列表详细描述-->
     <string name="act_content_recycle_list">介绍RecycleView的使用,主要包含了Recycle的使用模板示范代码和RecycleView的封装使用介绍</string>
@@ -61,4 +62,5 @@
     <string name="act_content_view_stub">ViewStub使用介绍：对ViewStub的简单使用介绍</string>
     <string name="act_content_jni">JNI基础使用介绍：实现了Java调JNI方法和JNI调用Java方法，简单使用记录。</string>
     <string name="act_content_pull_to_refresh">下拉加载框架使用介绍：自定义了要给下拉加载框架，此模块为下拉加载框架的使用模板方法</string>
+    <string name="act_content_animation">动画模板代码：包括属性动画，视图动画，帧动画三种，在例子中分别呈现出这三种动画的设置方法。</string>
 </resources>

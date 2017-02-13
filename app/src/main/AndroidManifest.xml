@@ -78,6 +78,10 @@
         <activity android:name=".activity.drawing.shader.ShaderActivity"/>
         <activity android:name=".activity.refresh.RefreshActivity"/>
         <activity android:name=".activity.drawing.clock.ClockActivity"/>
+        <activity android:name=".activity.animation.AnimActivity"/>
+        <activity android:name=".activity.animation.AnimPropertyActivity"/>
+        <activity android:name=".activity.animation.AnimViewActivity"/>
+        <activity android:name=".activity.animation.AnimFrameActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
