@@ -1,4 +1,4 @@
-package example.abe.com.android.activity.cardview;
+package example.abe.com.android.activity.materialdesign.cardview;
 
 import android.graphics.Color;
 import android.support.v7.widget.CardView;

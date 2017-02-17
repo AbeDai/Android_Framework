@@ -9,7 +9,6 @@
     <string name="act_title_assets">Assets使用</string>
     <string name="act_title_tab_layout">TabLayout使用</string>
     <string name="act_title_event_bus">EventBus使用</string>
-    <string name="act_title_card_view">CardView使用</string>
     <string name="act_title_grid_view">GridView使用</string>
     <string name="act_title_volley">Volley使用介绍</string>
     <string name="act_title_draw">绘图Draw使用介绍</string>
@@ -40,7 +39,6 @@
     <string name="act_content_assets">将文件添加到Assets中，并通过相应方法获取其中内容</string>
     <string name="act_content_tab_layout">TabLayout使用介绍，分别实现了TabLayout的简单添加 和 TabLayout与ViewPager关联使用</string>
     <string name="act_content_event_bus">EventBus使用，介绍了EventBus的几种使用方式</string>
-    <string name="act_content_card_view">CardView简单使用描述</string>
     <string name="act_content_grid_view">GridView的使用方法介绍，实现效果和ListView差不多</string>
     <string name="act_content_volley">Volley框架的学习介绍，主要包括框架自带Request的使用，自定义Request使用，还有图片下载功能</string>
     <string name="act_content_draw">绘图详情：1. 简单图像绘制的使用 2.自定义白板的使用白板开发 3.文字绘制 4.matrix使用介绍 5.SurfaceView使用介绍 6.高斯模糊使用介绍</string>

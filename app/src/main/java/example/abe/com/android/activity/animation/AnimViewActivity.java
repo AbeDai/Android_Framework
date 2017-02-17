@@ -4,9 +4,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
 
 import com.example.BindView;
 import com.example.OnClick;
@@ -52,19 +50,14 @@ public class AnimViewActivity extends BaseActivity {
         mViewShow.startAnimation(anim);
     }
 
-    /**k
+    /**
      * Code添加视图动画
      */
     private void doAnimCode() {
         AlphaAnimation alphaAnimation = new AlphaAnimation(1F, 0.5F);
-        ScaleAnimation scaleAnimation = new ScaleAnimation(1, 2F, 1F, 4F, 0F, 1F);
+        alphaAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
+        alphaAnimation.setDuration(1000);
 
-        AnimationSet animationSet = new AnimationSet(true);
-        animationSet.addAnimation(alphaAnimation);
-        animationSet.addAnimation(scaleAnimation);
-        animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        animationSet.setDuration(1000);
-
-        mViewShow.startAnimation(animationSet);
+        mViewShow.startAnimation(alphaAnimation);
     }
 }

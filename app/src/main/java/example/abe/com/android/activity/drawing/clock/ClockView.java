@@ -1,12 +1,15 @@
 package example.abe.com.android.activity.drawing.clock;
 
 import android.content.Context;
+import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.Calendar;
@@ -35,6 +38,18 @@ public class ClockView extends View {
     //日历
     private Calendar mCalender;
 
+    //camera绕X轴旋转的角度
+    private float mCameraRotateX;
+
+    //camera绕Y轴旋转的角度
+    private float mCameraRotateY;
+
+    //照相机，用于旋转时钟实现3D效果
+    private Camera mCamera;
+
+    //触摸时作用在Camera的矩阵
+    private Matrix mCameraMatrix;
+
     public ClockView(Context context) {
         this(context, null);
     }
@@ -53,6 +68,10 @@ public class ClockView extends View {
         mPaint.setAntiAlias(true);
 
         mPath = new Path();
+
+        mCameraMatrix = new Matrix();
+
+        mCamera = new Camera();
 
         mBgColor = Color.parseColor("#78c4ec");
         mWaitScanScaleColor = Color.parseColor("#dadada");
@@ -86,7 +105,10 @@ public class ClockView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
         canvas.drawColor(mBgColor);
+
+        drawCameraRotate(canvas);
         drawValueLine(canvas);
         drawValue(canvas);
         drawOutScale(canvas, mSecond, mMilliSecond);
@@ -103,7 +125,6 @@ public class ClockView extends View {
      */
     private void drawValueLine(Canvas canvas) {
         //平移坐标系原点
-        canvas.translate(300, 300);
         mPaint.setColor(Color.WHITE);
         mPaint.setStrokeWidth(1);
         mPaint.setStyle(Paint.Style.STROKE);
@@ -258,4 +279,62 @@ public class ClockView extends View {
         canvas.rotate(-angle);
     }
 
+    /**
+     * 立体旋转实现
+     * @param canvas 画布
+     */
+    private void drawCameraRotate(Canvas canvas){
+        mCameraMatrix.reset();
+        mCamera.save();
+        mCamera.rotateX(mCameraRotateX);//绕x轴旋转角度
+        mCamera.rotateY(mCameraRotateY);//绕y轴旋转角度
+        mCamera.getMatrix(mCameraMatrix);//相关属性设置到matrix中
+        mCameraMatrix.postTranslate(300, 300);
+        mCamera.restore();
+        canvas.concat(mCameraMatrix);//matrix与canvas相关联
+    }
+
+    /**
+     * 获取camera旋转的大小
+     *
+     * @param event motionEvent
+     */
+    private void getCameraRotate(MotionEvent event) {
+        float rotateX = -(event.getY() - getHeight() / 2);
+        float rotateY = (event.getX() - getWidth() / 2);
+        //最终旋转的大小按比例匀称改变
+        mCameraRotateX = getPercent(rotateX) * 10;
+        mCameraRotateY = getPercent(rotateY) * 10;
+    }
+
+    /**
+     * 获取操作旋转比例
+     * @param i 大小
+     * @return 比例值
+     */
+    private float getPercent(float i) {
+        float percentI = i / 300;
+        if (percentI > 1) {
+            percentI = 1;
+        } else if (percentI < -1) {
+            percentI = -1;
+        }
+        return percentI;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                getCameraRotate(event);
+                invalidate();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                //根据手指坐标计算camera应该旋转的大小
+                getCameraRotate(event);
+                invalidate();
+                break;
+        }
+        return true;
+    }
 }

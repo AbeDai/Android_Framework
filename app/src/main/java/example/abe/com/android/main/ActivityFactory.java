@@ -8,7 +8,6 @@ import example.abe.com.android.activity.album.AlbumActivity;
 import example.abe.com.android.activity.animation.AnimActivity;
 import example.abe.com.android.activity.assets.AssetsActivity;
 import example.abe.com.android.activity.banner.BannerActivity;
-import example.abe.com.android.activity.cardview.CardViewActivity;
 import example.abe.com.android.activity.drawing.DrawActivity;
 import example.abe.com.android.activity.eventbus.EventBusActivity;
 import example.abe.com.android.activity.eventcenter.EventCenterActivity;
@@ -66,9 +65,6 @@ public class ActivityFactory {
 
         //EventBus使用模板
         EVENT_BUS,
-
-        //CardView用法介绍
-        CARD_VIEW,
 
         //GridView使用介绍
         GRID_VIEW,
@@ -157,9 +153,6 @@ public class ActivityFactory {
                 break;
             case EVENT_BUS:
                 clazz = EventBusActivity.class;
-                break;
-            case CARD_VIEW:
-                clazz = CardViewActivity.class;
                 break;
             case GRID_VIEW:
                 clazz = GridViewActivity.class;
@@ -257,9 +250,6 @@ public class ActivityFactory {
                 break;
             case EVENT_BUS:
                 title = ResourceUtil.getString(R.string.act_title_event_bus);
-                break;
-            case CARD_VIEW:
-                title = ResourceUtil.getString(R.string.act_title_card_view);
                 break;
             case GRID_VIEW:
                 title = ResourceUtil.getString(R.string.act_title_grid_view);
@@ -360,9 +350,6 @@ public class ActivityFactory {
                 break;
             case EVENT_BUS:
                 content = ResourceUtil.getString(R.string.act_content_event_bus);
-                break;
-            case CARD_VIEW:
-                content = ResourceUtil.getString(R.string.act_content_card_view);
                 break;
             case GRID_VIEW:
                 content = ResourceUtil.getString(R.string.act_content_grid_view);
