@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <application>
+        <!--RecycleView详解-->
+        <activity
+            class="example.abe.com.android.activity.recycleview.RecycleViewActivity"
+            content="介绍RecycleView的使用,主要包含了Recycle的使用模板示范代码和RecycleView的封装使用介绍"
+            title="RecycleView使用"/>
+
+        <!--网络框架-->
+        <activity
+            class="example.abe.com.android.activity.retrofit.RetrofitActivity"
+            content="对Retrofit框架进行了简单的封装，使用起来更加简单方便"
+            title="Retrofit使用"/>
+
+        <!--ViewPager使用范例-->
+        <activity
+            class="example.abe.com.android.activity.viewpager.ViewPagerActivity"
+            content="对ViewPager的使用详解，主要包含往ViewPager中添加View，往ViewPager中添加Fragment，还有ViewPager中元素动态增减"
+            title="ViewPager使用"/>
+
+        <!--Assets使用范例-->
+        <activity
+            class="example.abe.com.android.activity.assets.AssetsActivity"
+            content="将文件添加到Assets中，并通过相应方法获取其中内容"
+            title="Assets使用"/>
+
+        <!--TabLayout使用范例-->
+        <activity
+            class="example.abe.com.android.activity.tablayout.TabLayoutActivity"
+            content="TabLayout使用介绍，分别实现了TabLayout的简单添加 和 TabLayout与ViewPager关联使用"
+            title="TabLayout使用"/>
+
+        <!--EventBus使用模板-->
+        <activity
+            class="example.abe.com.android.activity.eventbus.EventBusActivity"
+            content="EventBus使用，介绍了EventBus的几种使用方式"
+            title="EventBus使用"/>
+
+        <!--GridView使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.gridview.GridViewActivity"
+            content="GridView的使用方法介绍，实现效果和ListView差不多"
+            title="GridView使用"/>
+
+        <!--Volley使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.volley.VolleyActivity"
+            content="Volley框架的学习介绍，主要包括框架自带Request的使用，自定义Request使用，还有图片下载功能"
+            title="Volley使用介绍"/>
+
+        <!--绘图详解-->
+        <activity
+            class="example.abe.com.android.activity.drawing.DrawActivity"
+            content="绘图详情：1. 简单图像绘制的使用 2.自定义白板的使用白板开发 3.文字绘制 4.matrix使用介绍 5.SurfaceView使用介绍 6.高斯模糊使用介绍"
+            title="绘图Draw使用介绍"/>
+
+        <!--触摸事件-->
+        <activity
+            class="example.abe.com.android.activity.touch.TouchActivity"
+            content="触摸事件详情：对ScaleGestureDetector类的使用介绍"
+            title="触摸事件详情"/>
+
+        <!--广告栏详解-->
+        <activity
+            class="example.abe.com.android.activity.banner.BannerActivity"
+            content="自定义实现广告栏项目，但是现在还没有开始重构什么的，封装的也不是很好的。需要在参考：http://blog.csdn.net/yanzhenjie1003/article/details/51327392"
+            title="广告栏详解"/>
+
+        <!--自定义EventBus-->
+        <activity
+            class="example.abe.com.android.activity.eventcenter.EventCenterActivity"
+            content="EventCenter，仿造EventBus。EventCenter中，完成注册和注销。EventHandler中，完成主线程和背景线程Runable分发。EventMethod存储函数信息。"
+            title="EventCenter(自定义EventBus)"/>
+
+        <!--Socket使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.socket.SocketActivity"
+            content="socket通讯使用方法：示例中将数据从Client端发送到Server端，在通过EventCenter将Server端接收的数据显示到UI上。Socket通讯，主要在于建立连接，然后通过Socket中的输入输出流来进行数据传输。"
+            title="socket使用介绍"/>
+
+        <!--多线程框架-->
+        <activity
+            class="example.abe.com.android.activity.multithread.MultiThreadActivity"
+            content="多线程(multi-thread)：介绍了android中常用的多线程使用方法"
+            title="多线程使用介绍"/>
+
+        <!--自定义图片加载框架-->
+        <activity
+            class="example.abe.com.android.activity.imageloader.ImageLoaderActivity"
+            content="自己实现的一个图片加载框架，对图片加载到内存做了优化，使用策略模式功能便于扩展，使用外观模式代码更加整洁。"
+            title="ImageLoader（自定义图片加载框架）"/>
+
+        <!--悬浮窗实例-->
+        <activity
+            class="example.abe.com.android.activity.suspend.SuspendWindowActivity"
+            content=">添加监控内存的悬浮窗界面,通过悬浮窗展示手机内存使用情况,主要是为了学习使用WindowManager和Window这两个类。"
+            title="悬浮窗使用介绍"/>
+
+        <!--进程通讯总结-->
+        <activity
+            class="example.abe.com.android.activity.ipc.IpcActivity"
+            content="进程通讯总结,包括了使用Messenger和AIDL方式进行进程间通讯"
+            title="进程通讯方式总结"/>
+
+        <!--GreenDAO使用-->
+        <activity
+            class="example.abe.com.android.activity.greendao.GreenDaoActivity"
+            content="GreenDAO数据库的操作介绍,主要实现了对数据库的增删改查"
+            title="GreenDAO使用模板"/>
+
+        <!--材料设计使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.materialdesign.MaterialDesignActivity"
+            content="材料设计:包含DrawerLayout使用模板"
+            title="材料设计使用介绍"/>
+
+        <!--相册使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.album.AlbumActivity"
+            content="简单实现相册,后续需要添加相机应用"
+            title="相册使用介绍"/>
+
+        <!--软件包管理-->
+        <activity
+            class="example.abe.com.android.activity.packagemanager.PackageActivity"
+            content="应用管理:包含启动器实现,获取所有应用信息的列表,获取应用各个部分的存储空间大小功能"
+            title="应用管理"/>
+
+        <!--项目搭建模式介绍-->
+        <activity
+            class="example.abe.com.android.activity.mvvm.view.MVVMActivity"
+            content="项目设计模式:MVVM设计模式使用介绍"
+            title="项目设计模式"/>
+
+        <!--H5与原生调用介绍-->
+        <activity
+            class="example.abe.com.android.activity.webview.WebActivity"
+            content="实现JS与Android原生互调"
+            title="混编App使用简介"/>
+
+        <!--Span使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.span.SpanActivity"
+            content="SpannableString使用介绍：SpannableString的简单使用"
+            title="SpannableString使用介绍"/>
+
+        <!--ViewStub使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.viewstub.ViewStubActivity"
+            content="ViewStub使用介绍：对ViewStub的简单使用介绍"
+            title="ViewStub使用介绍"/>
+
+        <!--JNI基础使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.jni.JNIActivity"
+            content="JNI基础使用介绍：实现了Java调JNI方法和JNI调用Java方法，简单使用记录。"
+            title="JNI基础使用介绍"/>
+
+        <!--下拉刷新框架使用介绍-->
+        <activity
+            class="example.abe.com.android.activity.refresh.RefreshActivity"
+            content="下拉加载框架使用介绍：自定义了要给下拉加载框架，此模块为下拉加载框架的使用模板方法"
+            title="下拉加载框架使用介绍"/>
+
+        <!--动画模板-->
+        <activity
+            class="example.abe.com.android.activity.animation.AnimActivity"
+            content="动画模板代码：包括属性动画，视图动画，帧动画三种，在例子中分别呈现出这三种动画的设置方法。"
+            title="动画模板代码"/>
+
+    </application>
+</config>

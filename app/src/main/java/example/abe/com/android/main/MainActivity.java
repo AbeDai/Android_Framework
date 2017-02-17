@@ -16,12 +16,7 @@ import com.example.BindView;
 import com.example.PermissionFail;
 import com.example.PermissionSuccess;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import example.abe.com.android.R;
-import example.abe.com.android.main.ActivityFactory.Flags;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.permission.PermissionUtils;
 
@@ -46,8 +41,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void initView() {
-        List<Flags> listActFlag = new ArrayList<>(Arrays.asList(Flags.values()));
-        mAdapter = new MainAdapter(this, listActFlag);
+        mAdapter = new MainAdapter(this, ActivityFactory.getInstance().getClazzList());
         mLv.setAdapter(mAdapter);
         mLv.setOnItemClickListener(this);
 
@@ -58,8 +52,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Flags tag = mAdapter.getListFlagFilter().get(position);
-        Class clazz = ActivityFactory.getClass(tag);
+        Class clazz = ActivityFactory.getInstance().getClazz(position);
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }

@@ -31,10 +31,10 @@ public class AssetsActivity extends BaseActivity {
     @Override
     public void initView(){
         //获取root中图片
-        mIvRoot.setImageBitmap(AssetUtil.getAssetBitmap("root_img.png"));
+        mIvRoot.setImageBitmap(AssetUtil.getAssetBitmap("img/root_img.png"));
 
         //获取file中图片
-        mIvFile.setImageBitmap(AssetUtil.getAssetBitmap("file2/file_img.png"));
+        mIvFile.setImageBitmap(AssetUtil.getAssetBitmap("img/file_img.png"));
 
         //打印文件目录
         mTv.setText(AssetUtil.getAssetRootList().toString());

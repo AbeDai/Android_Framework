@@ -43,6 +43,34 @@ public class AssetUtil {
     }
 
     /**
+     * 从Asset中字符串资源
+     * @param fileName 文件名
+     * @return 字符串资源
+     */
+    public static String getAssetInputStream(String fileName) {
+
+        String str = null;
+        try {
+            //打开文件
+            InputStream inputStream = BaseApplication.getInstance().getAssets().open(fileName);
+
+            //图片操作
+            str = IOUtils.stream2String(inputStream);
+
+            //关闭文件
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                LogUtil.e("关闭输入流失败!");
+            }
+        } catch (IOException e) {
+            LogUtil.e("asset获取文件: " + fileName + " 失败!");
+        }
+
+        return str;
+    }
+
+    /**
      * 获取Asset中的根目录列表
      * @return 列表
      */

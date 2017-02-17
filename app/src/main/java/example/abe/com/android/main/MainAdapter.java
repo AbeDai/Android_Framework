@@ -11,28 +11,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android.R;
-import example.abe.com.android.main.ActivityFactory.Flags;
+import example.abe.com.android.model.ClazzModel;
 
 public class MainAdapter extends BaseAdapter {
 
-    private List<Flags> mListFlag;
-    private List<Flags> mListFlagFilter;
+    private List<ClazzModel> mListClazz;
+    private List<ClazzModel> mListClazzFilter;
     private Context mContext;
 
-    public MainAdapter(Context context, List<Flags> listFlag) {
-        mListFlag = new ArrayList<>(listFlag);
-        mListFlagFilter = new ArrayList<>(mListFlag);
+    public MainAdapter(Context context, List<ClazzModel> listClazz) {
         mContext = context;
+        mListClazz = listClazz;
+        mListClazzFilter = new ArrayList<>(listClazz);
     }
 
     @Override
     public int getCount() {
-        return mListFlagFilter.size();
+        return ActivityFactory.getInstance().getClazzSize();
     }
 
     @Override
     public Object getItem(int position) {
-        return mListFlagFilter.get(position);
+        return ActivityFactory.getInstance().getClazzModel(position);
     }
 
     @Override
@@ -43,6 +43,7 @@ public class MainAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
+        ClazzModel clazzModel = (ClazzModel)getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext)
                     .inflate(R.layout.item_main_activity_list, parent, false);
@@ -51,32 +52,27 @@ public class MainAdapter extends BaseAdapter {
         }
 
         viewHolder = (ViewHolder) convertView.getTag();
-        Flags flag = mListFlagFilter.get(position);
-        viewHolder.setTitle(ActivityFactory.getTitle(flag));
-        viewHolder.setDec(ActivityFactory.getContent(flag));
+        viewHolder.setTitle(clazzModel.getTitle());
+        viewHolder.setDec(clazzModel.getContent());
 
         return convertView;
     }
 
     public void filter(String key) {
-        mListFlagFilter.clear();
-        mListFlagFilter.addAll(fuzzyMatchList(mListFlag, key));
+        mListClazzFilter.clear();
+        mListClazzFilter.addAll(fuzzyMatchList(mListClazz, key));
         notifyDataSetChanged();
     }
 
-    public List<Flags> getListFlagFilter(){
-        return mListFlagFilter;
-    }
-
-    private List<Flags> fuzzyMatchList(List<Flags> list, String key) {
+    private List<ClazzModel> fuzzyMatchList(List<ClazzModel> list, String key) {
         key = key.toLowerCase();//转小写
 
-        List<Flags> temp = new ArrayList<>();
-        for (Flags flag : list) {
+        List<ClazzModel> temp = new ArrayList<>();
+        for (ClazzModel clazzModel : list) {
             //内容转小写
-            if (ActivityFactory.getTitle(flag).toLowerCase().contains(key)
-                    || ActivityFactory.getContent(flag).toLowerCase().contains(key)) {
-                temp.add(flag);
+            if (clazzModel.getTitle().toLowerCase().contains(key)
+                    || clazzModel.getContent().toLowerCase().contains(key)) {
+                temp.add(clazzModel);
             }
         }
 

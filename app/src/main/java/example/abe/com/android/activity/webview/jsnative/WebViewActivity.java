@@ -18,7 +18,7 @@ import example.abe.com.framework.util.ToastUtil;
 
 public class WebViewActivity extends BaseActivity {
 
-    private static final String URL = "file:///android_asset/test.html";
+    private static final String URL = "file:///android_asset/html/test.html";
     @BindView(R.id.act_web_view_webview)
     protected WebView mWebView;
     private int mBackCount = 3;

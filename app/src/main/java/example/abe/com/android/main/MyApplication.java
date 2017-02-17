@@ -7,8 +7,13 @@ import example.abe.com.framework.main.BaseApplication;
  */
 public class MyApplication extends BaseApplication {
 
+    private static final String ACTIVITY_CONFIG_XML_PATH = "config/activity_config.xml";
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //配置 首页Activity
+        ActivityFactory.getInstance().config(ACTIVITY_CONFIG_XML_PATH).parseActivityConfig();
     }
 }
