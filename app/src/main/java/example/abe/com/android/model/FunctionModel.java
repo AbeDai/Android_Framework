@@ -4,17 +4,28 @@ package example.abe.com.android.model;
  * Created by abe on 17/2/17.
  */
 
-public class ClazzModel {
+public class FunctionModel {
 
-    private String clazz;
+    /**
+     * 类对象
+     */
+    private Class clazz;
+
+    /**
+     * 功能标题
+     */
     private String title;
+
+    /**
+     * 功能详细描述
+     */
     private String content;
 
-    public String getClazz() {
+    public Class getClazz() {
         return clazz;
     }
 
-    public void setClazz(String clazz) {
+    public void setClazz(Class clazz) {
         this.clazz = clazz;
     }
 

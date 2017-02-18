@@ -7,45 +7,31 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import example.abe.com.android.model.ClazzModel;
+import example.abe.com.android.model.FunctionModel;
+import example.abe.com.android.model.TabModel;
 import example.abe.com.framework.util.AssetUtil;
 
 /**
  * Created by abe on 16/8/10.
  */
-public class ActivityFactory {
+public class KnowledgeStructHelper {
 
-    private static ActivityFactory instance;
+    private static List<TabModel> mListTab = new ArrayList<>();
 
-    private List<ClazzModel> mListClazz = new ArrayList<>();
-
-    private String mXmlPath;
-
-    static {
-        instance = new ActivityFactory();
-    }
-
-    public static ActivityFactory getInstance() {
-        return instance;
-    }
-
-    private ActivityFactory() {
-    }
+    private static String mXmlPath;
 
     /**
-     * 设置XML配置路径
-     *
-     * @param xmlPath xml路径
+     * 设置XML配置并构建配置
      */
-    public ActivityFactory config(String xmlPath) {
+    public static void build(String xmlPath){
         mXmlPath = xmlPath;
-        return instance;
+        parseActivityConfig();
     }
 
     /**
      * 解析 XML 配置 到 首页Activity
      */
-    public void parseActivityConfig() {
+    private static void parseActivityConfig() {
         String xmlData = AssetUtil.getAssetInputStream(mXmlPath);
         int eventType;
 
@@ -70,27 +56,39 @@ public class ActivityFactory {
     }
 
     /**
+     * 获取标签数组
+     * @return 标签数组
+     */
+    public static List<TabModel> getListTab(){
+        return mListTab;
+    }
+
+    /**
      * 开始解析XML标签
      *
      * @param parser XML分析器
      */
-    private void startParseTag(XmlPullParser parser) {
-        if ("activity".equals(parser.getName())) {
-            ClazzModel clazzModel = new ClazzModel();
-            clazzModel.setClazz(parser.getAttributeValue(null, "class"));
-            clazzModel.setTitle(parser.getAttributeValue(null, "title"));
-            clazzModel.setContent(parser.getAttributeValue(null, "content"));
-            mListClazz.add(clazzModel);
+    private static void startParseTag(XmlPullParser parser) {
+        if ("tab".equals(parser.getName())){
+            TabModel tabModel = new TabModel();
+            tabModel.setTitle(parser.getAttributeValue(null, "title"));
+            tabModel.setTabList(new ArrayList<FunctionModel>());
+            mListTab.add(tabModel);
+        }else if ("activity".equals(parser.getName())) {
+            FunctionModel activityModel = new FunctionModel();
+            activityModel.setTitle(parser.getAttributeValue(null, "title"));
+            activityModel.setContent(parser.getAttributeValue(null, "content"));
+            activityModel.setClazz(reflexName2Class(parser.getAttributeValue(null, "class")));
+            mListTab.get(mListTab.size()-1).addFunctionModel(activityModel);
         }
     }
 
-    public List<ClazzModel> getClazzList() {
-        return mListClazz;
-    }
-
-    public Class getClazz(int position) {
-        ClazzModel clazzModel = mListClazz.get(position);
-        String className = clazzModel.getClazz();
+    /**
+     * 反射获取Class对象
+     * @param className 类名（全路径）
+     * @return Class对象
+     */
+    private static Class reflexName2Class(String className){
         Class clazz = MainActivity.class;
         try {
             clazz = Class.forName(className);
@@ -98,13 +96,5 @@ public class ActivityFactory {
             e.printStackTrace();
         }
         return clazz;
-    }
-
-    public int getClazzSize() {
-        return mListClazz.size();
-    }
-
-    public ClazzModel getClazzModel(int position){
-        return mListClazz.get(position);
     }
 }

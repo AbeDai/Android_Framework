@@ -2,15 +2,12 @@ package example.abe.com.android.main;
 
 import android.Manifest;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.BindView;
 import com.example.PermissionFail;
@@ -20,15 +17,16 @@ import example.abe.com.android.R;
 import example.abe.com.framework.main.BaseActivity;
 import example.abe.com.framework.permission.PermissionUtils;
 
-public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener,
-        TextView.OnEditorActionListener {
+public class MainActivity extends BaseActivity {
 
     private static final int STORAGE_PERMISSIONS_REQUEST = 100;
-    @BindView(R.id.act_main_list)
-    protected ListView mLv;
-    @BindView(R.id.act_main_et_search)
-    protected EditText mEtSearch;
-    private MainAdapter mAdapter;
+
+    @BindView(R.id.act_main_view_pager)
+    protected ViewPager mPager;
+    @BindView(R.id.act_main_tab_layout)
+    protected TabLayout mTabLayout;
+
+    private ViewPagerAdapter mPagerAdapter;
 
     @Override
     public int getLayoutID(){
@@ -41,28 +39,11 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     @Override
     public void initView() {
-        mAdapter = new MainAdapter(this, ActivityFactory.getInstance().getClazzList());
-        mLv.setAdapter(mAdapter);
-        mLv.setOnItemClickListener(this);
-
-        mEtSearch.setOnEditorActionListener(this);
+        mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mTabLayout.setupWithViewPager(mPager);
 
         requestPermissions();
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Class clazz = ActivityFactory.getInstance().getClazz(position);
-        Intent intent = new Intent(this, clazz);
-        startActivity(intent);
-    }
-
-    @Override
-    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-            mAdapter.filter(v.getText().toString());
-        }
-        return false;
     }
 
     @Override
@@ -97,4 +78,27 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 });
         builder.create().show();
     }
+
+    private class ViewPagerAdapter extends FragmentPagerAdapter {
+
+        public ViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return KnowledgeStructHelper.getListTab().get(position).getTitle();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return MainListFragment.newInstance(position);
+        }
+
+        @Override
+        public int getCount() {
+            return KnowledgeStructHelper.getListTab().size();
+        }
+    }
+
 }

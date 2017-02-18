@@ -14,6 +14,6 @@ public class MyApplication extends BaseApplication {
         super.onCreate();
 
         //配置 首页Activity
-        ActivityFactory.getInstance().config(ACTIVITY_CONFIG_XML_PATH).parseActivityConfig();
+        KnowledgeStructHelper.build(ACTIVITY_CONFIG_XML_PATH);
     }
 }

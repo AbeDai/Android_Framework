@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_main_act_list_title"
+            android:id="@+id/item_main_act_list_tv_title"
             android:textSize="20sp"
             android:gravity="left|center_vertical"
             android:layout_height="25dp"
@@ -25,7 +25,7 @@
         <View style="@style/divider"/>
 
         <TextView
-            android:id="@+id/item_main_act_list_dec"
+            android:id="@+id/item_main_act_list_tv_dec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|top"
