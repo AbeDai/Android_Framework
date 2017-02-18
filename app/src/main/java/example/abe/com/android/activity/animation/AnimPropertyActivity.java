@@ -74,9 +74,9 @@ public class AnimPropertyActivity extends BaseActivity {
      * 单属性动画
      */
     private void doSingleObjectAnim() {
-        ObjectAnimator.ofFloat(mViewShow, "x", 200F)
-                .setDuration(1000)
-                .start();
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mViewShow, "x", 200F);
+        animator.setDuration(1000);
+        animator.start();
     }
 
     /**
