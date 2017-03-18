@@ -125,6 +125,12 @@
                 content="对Retrofit框架进行了简单的封装，使用起来更加简单方便"
                 title="Retrofit使用"/>
 
+            <!--OKHttp框架使用-->
+            <activity
+                class="example.abe.com.android.activity.okhttp.OKHttpActivity"
+                content="对OkHttp的使用介绍，主要学习其源码设计思路"
+                title="OkHttp使用介绍"/>
+
             <!--EventBus使用模板-->
             <activity
                 class="example.abe.com.android.activity.eventbus.EventBusActivity"

@@ -121,6 +121,14 @@
             android:exported="true"
             android:process=":remote_aidl_service">
         </service>
+
+        <activity android:name=".activity.okhttp.OKHttpActivity">
+        </activity>
+        <activity
+            android:name=".activity.okhttp.OKHttpBaseActivity"
+            android:label="@string/title_activity_okhttp_base"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>
