@@ -23,12 +23,17 @@ public class OKHttpActivity extends BaseActivity {
     public void initView() {
     }
 
-    @OnClick({R.id.act_okhttp_btn_base})
+    @OnClick({R.id.act_okhttp_btn_base, R.id.act_okhttp_btn_upload})
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
             case R.id.act_okhttp_btn_base: {
                 intent = new Intent(this, OKHttpBaseActivity.class);
+            }
+            break;
+
+            case R.id.act_okhttp_btn_upload:{
+                intent = new Intent(this, OkHttpUploadActivity.class);
             }
             break;
         }

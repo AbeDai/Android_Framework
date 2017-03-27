@@ -129,6 +129,8 @@
             android:label="@string/title_activity_okhttp_base"
             android:theme="@style/AppTheme">
         </activity>
+        <activity android:name=".activity.okhttp.OkHttpUploadActivity">
+        </activity>
     </application>
 
 </manifest>
