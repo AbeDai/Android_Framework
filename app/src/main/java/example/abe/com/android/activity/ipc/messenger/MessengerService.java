@@ -13,6 +13,7 @@ import example.abe.com.framework.util.LogUtil;
 
 public class MessengerService extends Service {
     public static final int MSG_FROM_CLIENT = 1000;
+    public static final int MSG_FROM_SERVICE = 1001;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -25,7 +26,7 @@ public class MessengerService extends Service {
                     Messenger mMessenger = msg.replyTo;
 
                     //创建传输给客户端的消息
-                    Message mMessage = Message.obtain(null, MessengerService.MSG_FROM_CLIENT);
+                    Message mMessage = Message.obtain(null, MessengerService.MSG_FROM_SERVICE);
                     Bundle mBundle = new Bundle();
                     mBundle.putString("rep", "这里是服务端，我们收到信息了");
                     mMessage.setData(mBundle);

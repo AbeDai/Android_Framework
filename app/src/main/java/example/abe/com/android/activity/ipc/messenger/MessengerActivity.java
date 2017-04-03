@@ -83,7 +83,7 @@ public class MessengerActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case MessengerService.MSG_FROM_CLIENT:
+                case MessengerService.MSG_FROM_SERVICE:
                     LogUtil.i("客户端收到的信息:" + msg.getData().get("rep"));
                     mTvShow.setText("客户端收到的信息(" + sCount++ + "):" + msg.getData().get("rep"));
                     break;
