@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_PROFILE"/>
 
     <application
         android:name=".main.MyApplication"
@@ -82,6 +86,11 @@
         <activity android:name=".activity.animation.AnimPropertyActivity"/>
         <activity android:name=".activity.animation.AnimViewActivity"/>
         <activity android:name=".activity.animation.AnimFrameActivity"/>
+        <activity android:name=".activity.okhttp.OKHttpActivity"/>
+        <activity android:name=".activity.okhttp.OKHttpBaseActivity"/>
+        <activity android:name=".activity.okhttp.OkHttpUploadActivity"/>
+        <activity android:name=".activity.contentprovider.ContentProviderActivity"/>
+        <activity android:name=".activity.contentprovider.contacts.ContactsActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -122,14 +131,12 @@
             android:process=":remote_aidl_service">
         </service>
 
-        <activity android:name=".activity.okhttp.OKHttpActivity">
-        </activity>
-        <activity
-            android:name=".activity.okhttp.OKHttpBaseActivity"
-            android:label="@string/title_activity_okhttp_base"
-            android:theme="@style/AppTheme">
-        </activity>
-        <activity android:name=".activity.okhttp.OkHttpUploadActivity">
+        <provider
+            android:name=".activity.contentprovider.custom.CustomContentProvider"
+            android:authorities="example.abe.com.android.activity.contentprovider.custom.contentprovider"
+            android:exported="true"/>
+
+        <activity android:name=".activity.contentprovider.custom.OperateActivity">
         </activity>
     </application>
 

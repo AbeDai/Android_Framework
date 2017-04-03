@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_operate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android.activity.contentprovider.custom.OperateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/act_operate_btn_add_name"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="插入名字"/>
+
+        <Button
+            android:id="@+id/act_operate_btn_show_name"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="显示所有名字"/>
+
+        <Button
+            android:id="@+id/act_operate_btn_delete_name"
+            style="@style/btn__font_normal__gravity_center__height_fill"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="删除名字"/>
+    </LinearLayout>
+
+    <ScrollView
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <TextView
+            android:id="@+id/act_operate_edit_text_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
+</LinearLayout>

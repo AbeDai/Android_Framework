@@ -113,6 +113,12 @@
                 class="example.abe.com.android.activity.animation.AnimActivity"
                 content="动画模板代码：包括属性动画，视图动画，帧动画三种，在例子中分别呈现出这三种动画的设置方法。"
                 title="动画模板代码"/>
+
+            <!--ContentProvider使用详解-->
+            <activity
+                class="example.abe.com.android.activity.contentprovider.ContentProviderActivity"
+                content="介绍ContentProvider的使用,主要包含了通过ContentProvider对通讯录的操作和自定义实现ContentProvider"
+                title="ContentProvider使用详解"/>
         </tab>
 
         <!--框架使用模块-->

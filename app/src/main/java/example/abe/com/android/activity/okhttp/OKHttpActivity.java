@@ -39,6 +39,4 @@ public class OKHttpActivity extends BaseActivity {
         }
         startActivity(intent);
     }
-
-
 }
