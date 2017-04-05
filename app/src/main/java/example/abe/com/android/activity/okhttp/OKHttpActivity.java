@@ -23,7 +23,7 @@ public class OKHttpActivity extends BaseActivity {
     public void initView() {
     }
 
-    @OnClick({R.id.act_okhttp_btn_base, R.id.act_okhttp_btn_upload})
+    @OnClick({R.id.act_okhttp_btn_base, R.id.act_okhttp_btn_upload, R.id.act_okhttp_btn_ssl})
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
@@ -34,6 +34,11 @@ public class OKHttpActivity extends BaseActivity {
 
             case R.id.act_okhttp_btn_upload:{
                 intent = new Intent(this, OkHttpUploadActivity.class);
+            }
+            break;
+
+            case R.id.act_okhttp_btn_ssl:{
+                intent = new Intent(this, SSLOKHttpActivity.class);
             }
             break;
         }

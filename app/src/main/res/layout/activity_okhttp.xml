@@ -22,4 +22,11 @@
         android:layout_weight="1"
         android:text="OkHttp上传操作"/>
 
+    <Button
+        android:id="@+id/act_okhttp_btn_ssl"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="OkHttp使用Https操作"/>
+
 </LinearLayout>

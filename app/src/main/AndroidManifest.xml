@@ -138,6 +138,8 @@
 
         <activity android:name=".activity.contentprovider.custom.OperateActivity">
         </activity>
+        <activity android:name=".activity.okhttp.SSLOKHttpActivity">
+        </activity>
     </application>
 
 </manifest>
