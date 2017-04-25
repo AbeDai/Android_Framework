@@ -5,10 +5,10 @@ import android.widget.TextView;
 import com.example.BindView;
 import com.example.OnClick;
 
-import org.apache.commons.io.output.StringBuilderWriter;
-
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 
 import example.abe.com.android.R;
 import example.abe.com.android.utils.ApiUtil;
@@ -57,10 +57,9 @@ public class OkHttpUploadActivity extends BaseActivity {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                StringBuilderWriter writer = new StringBuilderWriter();
-                PrintWriter printWriter = new PrintWriter(writer);
-                e.printStackTrace(printWriter);
-                setShowText(printWriter.toString());
+                Writer errors = new StringWriter();
+                e.printStackTrace(new PrintWriter(errors));
+                setShowText(errors.toString());
             }
 
             @Override
