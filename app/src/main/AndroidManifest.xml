@@ -140,6 +140,8 @@
         </activity>
         <activity android:name=".activity.okhttp.SSLOKHttpActivity">
         </activity>
+        <activity android:name=".activity.maidian.MaiDianActivity">
+        </activity>
     </application>
 
 </manifest>
