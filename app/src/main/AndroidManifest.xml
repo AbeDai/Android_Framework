@@ -142,6 +142,8 @@
         </activity>
         <activity android:name=".activity.maidian.MaiDianActivity">
         </activity>
+        <activity android:name=".activity.commonview.CommonViewActivity">
+        </activity>
     </application>
 
 </manifest>

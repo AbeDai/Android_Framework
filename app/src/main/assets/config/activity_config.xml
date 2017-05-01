@@ -202,6 +202,12 @@
                 class="example.abe.com.android.activity.maidian.MaiDianActivity"
                 content="埋点技术实现模板：实现埋点的方式有很多，这里采用了可视化埋点技术来实现其功能"
                 title="埋点技术实现模板"/>
+
+            <!--View公共内容统一封装解决思路-->
+            <activity
+                class="example.abe.com.android.activity.commonview.CommonViewActivity"
+                content="View公共内容统一封装:主要将通用视图元素统一封装到父类中，在子类中分别实现各自视图元素。优点：统一封装，统一改动，有利于代码的修改和调整 缺点：视图树层级过高，造成不必要的性能消耗"
+                title="View公共内容统一封装"/>
         </tab>
 
     </application>
