@@ -208,6 +208,13 @@
                 class="example.abe.com.android.activity.commonview.CommonViewActivity"
                 content="View公共内容统一封装:主要将通用视图元素统一封装到父类中，在子类中分别实现各自视图元素。优点：统一封装，统一改动，有利于代码的修改和调整 缺点：视图树层级过高，造成不必要的性能消耗"
                 title="View公共内容统一封装"/>
+
+            <!--GridView和ListView显示所有Item-->
+            <activity
+                class="example.abe.com.android.activity.alldisplay.AllDispalyActivity"
+                content="显示所有Item的GridView和ListView:重写onMeasure方法，显示全部Item内容"
+                title="显示所有Item的GridView和ListView"/>
+
         </tab>
 
     </application>

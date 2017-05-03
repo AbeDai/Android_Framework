@@ -144,6 +144,8 @@
         </activity>
         <activity android:name=".activity.commonview.CommonViewActivity">
         </activity>
+        <activity android:name=".activity.alldisplay.AllDispalyActivity">
+        </activity>
     </application>
 
 </manifest>
