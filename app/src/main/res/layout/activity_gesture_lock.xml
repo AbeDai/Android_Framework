@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="example.abe.com.android.activity.gesturelock.GestureLockActivity">
+
+        <example.abe.com.android.activity.gesturelock.GestureLockView
+            android:id="@+id/act_gesture_lock_view_1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:layout_gravity="center"
+            app:nodeSrc="@drawable/node_small_normal"
+            app:nodeOnSrc="@drawable/node_small_active"
+            app:nodeOnAnim="@anim/node_on_scale"
+            app:nodeSize="16dp"
+            app:nodeAreaExpand="24dp"
+            app:lineColor="#33b5e5"
+            app:lineWidth="4dp"
+            app:autoLink="true"
+            app:enableVibrate="true"
+            app:vibrateTime="20" />
+
+        <example.abe.com.android.activity.gesturelock.GestureLockView
+            android:id="@+id/act_gesture_lock_view_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:nodeSrc="@drawable/node_normal"
+            app:nodeOnSrc="@drawable/node_active"
+            app:nodeOnAnim="@anim/node_on_translate"
+            app:padding="28dp"
+            app:spacing="28dp"
+            app:lineColor="#ff4444"
+            app:lineWidth="8dp"
+            app:autoLink="false"
+            app:enableVibrate="true"
+            app:vibrateTime="20" />
+
+</LinearLayout>

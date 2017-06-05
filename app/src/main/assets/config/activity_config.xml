@@ -215,6 +215,12 @@
                 content="显示所有Item的GridView和ListView:重写onMeasure方法，显示全部Item内容"
                 title="显示所有Item的GridView和ListView"/>
 
+            <!--手势密码自定义视图-->
+            <activity
+                class="example.abe.com.android.activity.gesturelock.GestureLockActivity"
+                content="简单干净的实现了手势密码控件，在MVC中只实现了V部分，值得参考学习。https://github.com/TakWolf/Android-Lock9View"
+                title="手势密码自定义视图"/>
+
         </tab>
 
     </application>

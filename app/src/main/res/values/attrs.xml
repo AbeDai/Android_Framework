@@ -1,4 +1,5 @@
 <resources>
+    <!--下拉刷新控件-->
     <declare-styleable name="TwitterHeaderView">
         <attr name="exampleString" format="string"/>
         <attr name="exampleDimension" format="dimension"/>
@@ -6,7 +7,24 @@
         <attr name="exampleDrawable" format="color|reference"/>
     </declare-styleable>
 
+    <!--圆角图片-->
     <declare-styleable name="CircleView">
         <attr name="circle_color" format="color"/>
+    </declare-styleable>
+
+    <!--手势密码控件-->
+    <declare-styleable name="GestureLockView">
+        <attr name="nodeSrc" format="color|reference" />
+        <attr name="nodeOnSrc" format="color|reference" />
+        <attr name="nodeSize" format="dimension" />
+        <attr name="nodeAreaExpand" format="dimension" />
+        <attr name="nodeOnAnim" format="reference" />
+        <attr name="lineColor" format="color" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="padding" format="dimension" />
+        <attr name="spacing" format="dimension" />
+        <attr name="autoLink" format="boolean" />
+        <attr name="enableVibrate" format="boolean" />
+        <attr name="vibrateTime" format="integer" />
     </declare-styleable>
 </resources>
