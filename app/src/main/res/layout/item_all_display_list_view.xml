@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="106dp"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="83dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/item_collect_trend_week"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="周三"
+                android:textSize="16sp"
+                android:textColor="#666565"
+                android:gravity="center_horizontal"
+                android:paddingTop="25dp"/>
+
+            <TextView
+                android:id="@+id/item_collect_trend_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27"
+                android:textSize="30sp"
+                android:textColor="#666565"
+                android:gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="#e2e2e2"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="32dp">
+            <TextView
+                android:id="@+id/item_collect_trend_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="每日小记"
+                android:textSize="16sp"
+                android:paddingTop="13dp"
+                android:textColor="#3bc8d4"/>
+
+            <TextView
+                android:id="@+id/item_collect_trend_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="我是戴益波，我边听五月天边写代码。我是戴益波，我边听五月天边写代码。我是戴益波，我边听五月天边写代码。我是戴益波，我边听五月天边写代码。"
+                android:textSize="14sp"
+                android:lines="3"
+                android:ellipsize="end"
+                android:textColor="#666565"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:background="#e2e2e2"/>
+
+</FrameLayout>

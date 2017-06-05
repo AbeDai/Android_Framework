@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.WRITE_PROFILE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".main.MyApplication"
@@ -91,6 +92,13 @@
         <activity android:name=".activity.okhttp.OkHttpUploadActivity"/>
         <activity android:name=".activity.contentprovider.ContentProviderActivity"/>
         <activity android:name=".activity.contentprovider.contacts.ContactsActivity"/>
+        <activity android:name=".activity.contentprovider.custom.OperateActivity"/>
+        <activity android:name=".activity.okhttp.SSLOKHttpActivity"/>
+        <activity android:name=".activity.maidian.MaiDianActivity"/>
+        <activity android:name=".activity.commonview.CommonViewActivity"/>
+        <activity android:name=".activity.alldisplay.AllDispalyActivity"/>
+        <activity android:name=".activity.alldisplay.AllDisplayListViewActivity"/>
+        <activity android:name=".activity.alldisplay.AllDisplayGridViewActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -135,17 +143,6 @@
             android:name=".activity.contentprovider.custom.CustomContentProvider"
             android:authorities="example.abe.com.android.activity.contentprovider.custom.contentprovider"
             android:exported="true"/>
-
-        <activity android:name=".activity.contentprovider.custom.OperateActivity">
-        </activity>
-        <activity android:name=".activity.okhttp.SSLOKHttpActivity">
-        </activity>
-        <activity android:name=".activity.maidian.MaiDianActivity">
-        </activity>
-        <activity android:name=".activity.commonview.CommonViewActivity">
-        </activity>
-        <activity android:name=".activity.alldisplay.AllDispalyActivity">
-        </activity>
     </application>
 
 </manifest>

@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_all_dispaly"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="example.abe.com.android.activity.alldisplay.AllDispalyActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/act_all_display_btn_grid_view"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="GridView显示所有子控件"/>
 
-        <example.abe.com.android.activity.alldisplay.AllDisplayGridView
-            android:id="@+id/grid_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#0000ff"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="10dp"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="10dp"/>
-
-        <example.abe.com.android.activity.alldisplay.AllDisplayListView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ff0000"/>
-    </LinearLayout>
-
-</ScrollView>
+    <Button
+        android:id="@+id/act_all_display_btn_list_view"
+        style="@style/btn__font_normal__gravity_center__width_fill"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="GridView显示所有子控件"/>
+</LinearLayout>

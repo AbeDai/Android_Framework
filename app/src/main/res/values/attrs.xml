@@ -5,4 +5,8 @@
         <attr name="exampleColor" format="color"/>
         <attr name="exampleDrawable" format="color|reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleView">
+        <attr name="circle_color" format="color"/>
+    </declare-styleable>
 </resources>
