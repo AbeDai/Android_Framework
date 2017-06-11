@@ -221,6 +221,11 @@
                 content="简单干净的实现了手势密码控件，在MVC中只实现了V部分，值得参考学习。https://github.com/TakWolf/Android-Lock9View"
                 title="手势密码自定义视图"/>
 
+            <!--滚轮自定义视图-->
+            <activity
+                class="example.abe.com.android.activity.wheel.WheelActivity"
+                content="自定义实现滚轮选择器控件"
+                title="滚轮自定义视图"/>
         </tab>
 
     </application>
