@@ -42,19 +42,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/act_main_btn_et_wheel_size"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:hint="输入滚轮数量"/>
         <Button
-            android:id="@+id/act_main_btn_wheel_size"
+            android:id="@+id/act_main_btn_wheel_size_add"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="滚轮个数"/>
+            android:text="增加滚轮"/>
+
+        <Button
+            android:id="@+id/act_main_btn_wheel_size_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="减少滚轮"/>
 
     </LinearLayout>
 </LinearLayout>

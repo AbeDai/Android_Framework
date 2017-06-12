@@ -216,16 +216,18 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
 
     @Override
     public void setWheelSize(int wheelSize) {
-        if ((wheelSize & 1) == 0) {
-            wheelSize ++;
+        if (wheelSize > 0){
+            if ((wheelSize & 1) == 0) {
+                wheelSize ++;
+            }
+            mWheelSize = wheelSize;
+            if (mWheelAdapter != null) {
+                mWheelAdapter.setWheelSize(wheelSize);
+            }
+            // 更新控件大小
+            addOnGlobalLayoutListener();
+            requestLayout();
         }
-        mWheelSize = wheelSize;
-        if (mWheelAdapter != null) {
-            mWheelAdapter.setWheelSize(wheelSize);
-        }
-        // 更新控件大小
-        addOnGlobalLayoutListener();
-        requestLayout();
     }
 
     @Override

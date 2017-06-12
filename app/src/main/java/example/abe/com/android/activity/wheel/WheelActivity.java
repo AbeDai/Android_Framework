@@ -1,7 +1,5 @@
 package example.abe.com.android.activity.wheel;
 
-import android.widget.EditText;
-
 import com.example.BindView;
 import com.example.OnClick;
 
@@ -17,9 +15,6 @@ public class WheelActivity extends BaseActivity {
 
     @BindView(R.id.act_wheel_wheel_view)
     protected WheelView<String> mWheelView;
-
-    @BindView(R.id.act_main_btn_et_wheel_size)
-    protected EditText mEtWheelSize;
 
     private MyWheelAdapter mWheelAdapter;
 
@@ -85,15 +80,20 @@ public class WheelActivity extends BaseActivity {
         mWheelView.setLoop(!mWheelView.getLoop());
     }
 
-    @OnClick(R.id.act_main_btn_wheel_size)
-    public void onWheelSizeChangeClick(){
+    @OnClick(R.id.act_main_btn_wheel_size_add)
+    public void onAddWheelSizeClick(){
         int wheelSize = mWheelView.getWheelSize();
-        try{
-            wheelSize = Integer.parseInt(mEtWheelSize.getText().toString());
-        }catch (Exception e){
-            e.printStackTrace();
+        mWheelView.setWheelSize(wheelSize + 2);
+    }
+
+    @OnClick(R.id.act_main_btn_wheel_size_delete)
+    public void onDeleteWheelSizeClick(){
+        int wheelSize = mWheelView.getWheelSize();
+        if (wheelSize == 1){
+            ToastUtil.makeText("无法继续减少");
+        }else {
+            mWheelView.setWheelSize(wheelSize - 2);
         }
-        mWheelView.setWheelSize(wheelSize);
     }
 
     private List<String> createData20() {
