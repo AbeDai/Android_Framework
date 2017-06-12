@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2016 venshine.cn@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package example.abe.com.android.activity.wheel.wheelview;
 
 import android.view.View;
@@ -24,7 +9,7 @@ import java.util.List;
 /**
  * 滚轮抽象数据适配器
  *
- * @author venshine
+ * @author daiyibo
  */
 public abstract class AbsWheelAdapter<T> extends BaseAdapter implements IWheelAdapter<T> {
 
@@ -126,7 +111,7 @@ public abstract class AbsWheelAdapter<T> extends BaseAdapter implements IWheelAd
         // position == -1，表示为滚轮顶部与尾部的空白项
         if (position == -1 && view.getVisibility() == View.VISIBLE) {
             view.setVisibility(View.INVISIBLE);
-        } else if (view.getVisibility() == View.INVISIBLE) {
+        } else if (position != -1 && view.getVisibility() == View.INVISIBLE) {
             view.setVisibility(View.VISIBLE);
         }
 

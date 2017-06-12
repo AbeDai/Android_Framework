@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2016 venshine.cn@gmail.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package example.abe.com.android.activity.wheel.wheelview;
 
 import android.content.Context;
@@ -33,7 +18,7 @@ import android.widget.ListView;
 /**
  * 滚轮控件
  *
- * @author venshine
+ * @author daiyibo
  */
 public class WheelView<T> extends ListView implements IWheelView<T> {
 
@@ -216,10 +201,11 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
     public void setLoop(boolean loop) {
         if (loop != mLoop) {
             mLoop = loop;
+            int curPosition = getCurrentPosition();
             if (mWheelAdapter != null) {
                 mWheelAdapter.setLoop(loop);
             }
-            setCurrentPosition(0);
+            setCurrentPosition(curPosition);
         }
     }
 
@@ -376,12 +362,20 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
      * @param offset 可见项偏移值
      */
     private void refreshVisibleItems(int firstPosition, int curPosition, int offset) {
-        for (int i = curPosition - offset; i <= curPosition + offset; i++) {
-            View itemView = getChildAt(i - firstPosition);
+        for (int position = curPosition - offset; position <= curPosition + offset; position++) {
+            View itemView = getChildAt(position - firstPosition);
             if (itemView == null) {
                 continue;
             }
-            mWheelAdapter.refreshView(curPosition, i, itemView);
+
+            // 此时curPosition和i都包含了非循环滚动时隐藏Item，所以需要除去隐藏Item
+            int argCurPosition = curPosition;
+            int argPosition = position;
+            if (!mLoop){
+                argCurPosition = curPosition - offset < 0 ? 0: curPosition - offset;
+                argPosition = position - offset < 0 ? 0: position - offset;
+            }
+            mWheelAdapter.refreshView(argCurPosition, argPosition, itemView);
         }
     }
 }

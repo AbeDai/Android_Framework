@@ -6,7 +6,9 @@ import android.view.ViewGroup;
 import java.util.List;
 
 /**
- * Created by abe on 17/6/11.
+ * 滚轮适配器抽象接口
+ *
+ * @author daiyibo
  */
 public interface IWheelAdapter<T> {
 
