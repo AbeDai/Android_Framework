@@ -192,11 +192,12 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
                 } else {
                     getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
-                if (getChildCount() > 0 && mItemHeight == 0) {
+                if (getChildCount() > 0) {
                     mItemHeight = getChildAt(0).getHeight();
                     if (mItemHeight != 0) {
                         ViewGroup.LayoutParams params = getLayoutParams();
                         params.height = mItemHeight * mWheelSize;
+                        setLayoutParams(params);
                         refreshVisibleItems(getFirstVisiblePosition(),
                                 getFirstVisiblePosition() + mWheelSize / 2,
                                 mWheelSize / 2);
@@ -236,6 +237,9 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
         if (mWheelAdapter != null) {
             mWheelAdapter.setWheelSize(wheelSize);
         }
+        // 更新控件大小
+        addOnGlobalLayoutListener();
+        requestLayout();
     }
 
     @Override
@@ -295,12 +299,12 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
     /**
      * 设置滚轮数据适配器，已弃用，具体使用{@link #setWheelAdapter(AbsWheelAdapter)}
      *
-     * @param adapter
+     * @param adapter 适配器
      */
     @Override
     @Deprecated
     public void setAdapter(ListAdapter adapter) {
-        if (adapter != null && adapter instanceof AbsWheelAdapter) {
+        if (adapter instanceof AbsWheelAdapter) {
             setWheelAdapter((AbsWheelAdapter) adapter);
         }
     }

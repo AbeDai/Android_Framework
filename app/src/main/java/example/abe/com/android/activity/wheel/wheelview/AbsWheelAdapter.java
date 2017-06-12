@@ -122,14 +122,14 @@ public abstract class AbsWheelAdapter<T> extends BaseAdapter implements IWheelAd
         } else {
             view = bindView(position, convertView, parent);
         }
-        if (!mLoop) {
-            // position == -1，表示为滚轮顶部与尾部的空白项
-            if (position == -1) {
-                view.setVisibility(View.INVISIBLE);
-            } else {
-                view.setVisibility(View.VISIBLE);
-            }
+
+        // position == -1，表示为滚轮顶部与尾部的空白项
+        if (position == -1 && view.getVisibility() == View.VISIBLE) {
+            view.setVisibility(View.INVISIBLE);
+        } else if (view.getVisibility() == View.INVISIBLE) {
+            view.setVisibility(View.VISIBLE);
         }
+
         return view;
     }
 

@@ -1,5 +1,7 @@
 package example.abe.com.android.activity.wheel;
 
+import android.widget.EditText;
+
 import com.example.BindView;
 import com.example.OnClick;
 
@@ -15,6 +17,9 @@ public class WheelActivity extends BaseActivity {
 
     @BindView(R.id.act_wheel_wheel_view)
     protected WheelView<String> mWheelView;
+
+    @BindView(R.id.act_main_btn_et_wheel_size)
+    protected EditText mEtWheelSize;
 
     private MyWheelAdapter mWheelAdapter;
 
@@ -35,8 +40,8 @@ public class WheelActivity extends BaseActivity {
         mWheelAdapter = new MyWheelAdapter(this);
         mWheelAdapter.setDataList(mListData);
         mWheelView.setWheelAdapter(mWheelAdapter);
-        mWheelView.setWheelSize(5);
-        mWheelView.setLoop(true);
+        mWheelView.setWheelSize(3);
+        mWheelView.setLoop(false);
         mWheelView.setCurrentPosition(3);
         mWheelView.setOnWheelItemSelectedListener(new WheelView.OnWheelItemSelectedListener<String>() {
             @Override
@@ -73,6 +78,22 @@ public class WheelActivity extends BaseActivity {
         mWheelAdapter.setDataList(mListData);
         mWheelAdapter.notifyDataSetChanged();
         mWheelView.setCurrentPosition(0);
+    }
+
+    @OnClick(R.id.act_main_btn_loop)
+    public void onLoopClick(){
+        mWheelView.setLoop(!mWheelView.getLoop());
+    }
+
+    @OnClick(R.id.act_main_btn_wheel_size)
+    public void onWheelSizeChangeClick(){
+        int wheelSize = mWheelView.getWheelSize();
+        try{
+            wheelSize = Integer.parseInt(mEtWheelSize.getText().toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        mWheelView.setWheelSize(wheelSize);
     }
 
     private List<String> createData20() {

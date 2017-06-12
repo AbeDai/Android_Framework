@@ -31,4 +31,30 @@
         android:layout_height="wrap_content"
         android:text="替换数据"/>
 
+    <Button
+        android:id="@+id/act_main_btn_loop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="循环滚动"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/act_main_btn_et_wheel_size"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="输入滚轮数量"/>
+        <Button
+            android:id="@+id/act_main_btn_wheel_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="滚轮个数"/>
+
+    </LinearLayout>
 </LinearLayout>

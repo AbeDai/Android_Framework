@@ -35,7 +35,7 @@ public interface IWheelAdapter<T> {
 
     /**
      * 设置数据列表
-     * @param list
+     * @param list 数据列表
      */
     void setDataList(List<T> list);
 
