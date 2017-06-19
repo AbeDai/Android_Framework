@@ -53,7 +53,7 @@ public class ViewFinderProcessor extends AbstractProcessor {
     }
 
     /**
-     * @return 指定使用的 Java 版本。通常返回 SourceVersion.latestSupported()。
+     * @return 指定使用的Java版本, 通常返回SourceVersion.latestSupported()
      */
     @Override
     public SourceVersion getSupportedSourceVersion() {
