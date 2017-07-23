@@ -226,6 +226,12 @@
                 class="example.abe.com.android.activity.wheel.WheelActivity"
                 content="自定义实现滚轮选择器控件"
                 title="滚轮自定义视图"/>
+
+            <!--自定义键盘-->
+            <activity
+                class="example.abe.com.android.activity.keyboard.KeyboardActivity"
+                content="自定义键盘实现"
+                title="自定义键盘，包含了数字键盘和密码键盘，支持四种input类型的EditText文本，分别是：number，numberPassword，text，textPassword"/>
         </tab>
 
     </application>

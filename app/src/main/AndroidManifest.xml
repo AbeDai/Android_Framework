@@ -99,9 +99,15 @@
         <activity android:name=".activity.alldisplay.AllDispalyActivity"/>
         <activity android:name=".activity.alldisplay.AllDisplayListViewActivity"/>
         <activity android:name=".activity.alldisplay.AllDisplayGridViewActivity"/>
+        <activity android:name=".activity.wheel.WheelActivity"/>
+        <activity android:name=".activity.keyboard.KeyboardActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name=".activity.gesturelock.GestureLockActivity"
+            android:screenOrientation="landscape">
+        </activity>
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="stateHidden">
@@ -143,13 +149,6 @@
             android:name=".activity.contentprovider.custom.CustomContentProvider"
             android:authorities="example.abe.com.android.activity.contentprovider.custom.contentprovider"
             android:exported="true"/>
-
-        <activity
-            android:name=".activity.gesturelock.GestureLockActivity"
-            android:screenOrientation="landscape">
-        </activity>
-        <activity android:name=".activity.wheel.WheelActivity">
-        </activity>
     </application>
 
 </manifest>

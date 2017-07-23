@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<example.abe.com.android.activity.keyboard.CustomKeyboardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keyboard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#ffffff"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:shadowRadius="0.0"
+    android:keyBackground="@drawable/keyboard_key_selector"
+    android:keyPreviewHeight="60dp"
+    android:keyPreviewLayout="@layout/keyboard_preview"
+    android:keyTextColor="#323232"
+    android:keyTextSize="@dimen/dp_25"
+    android:labelTextSize="@dimen/dp_25"
+    android:visibility="gone"/>
+

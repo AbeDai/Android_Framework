@@ -19,4 +19,8 @@
     <dimen name="padding_normal">8dp</dimen>
     <dimen name="padding_small">6dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!--键盘大小-->
+    <dimen name="dp_17">17dp</dimen>
+    <dimen name="dp_25">25dp</dimen>
 </resources>
