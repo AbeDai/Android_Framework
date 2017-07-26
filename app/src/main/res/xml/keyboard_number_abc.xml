@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- 数字键盘ABC -->
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+          android:horizontalGap="0dp"
+          android:keyHeight="53dp"
+          android:keyWidth="25%p"
+          android:verticalGap="0dp">
+    <Row>
+        <Key android:codes="49" android:keyLabel="1"
+             android:keyEdgeFlags="left" />
+        <Key android:codes="50" android:keyLabel="2" />
+        <Key android:codes="51" android:keyLabel="3" />
+        <Key android:codes="999999" android:keyIcon="@drawable/keyboard_delete"
+             android:isRepeatable="true" android:keyEdgeFlags="right"
+             android:keyHeight="106dp"/>
+    </Row>
+    <Row>
+        <Key android:codes="52" android:keyLabel="4"
+             android:keyEdgeFlags="left" />
+        <Key android:codes="53" android:keyLabel="5" />
+        <Key android:codes="54" android:keyLabel="6" />
+    </Row>
+    <Row>
+        <Key android:codes="55" android:keyLabel="7"
+             android:keyEdgeFlags="left"/>
+        <Key android:codes="56" android:keyLabel="8" />
+        <Key android:codes="57" android:keyLabel="9" />
+        <Key android:codes="-4" android:keyLabel="确认"
+             android:keyEdgeFlags="right"
+             android:keyHeight="106dp"/>
+    </Row>
+    <Row>
+        <Key android:codes="-2" android:keyLabel="ABC"
+             android:keyEdgeFlags="left" />
+        <Key android:codes="48" android:keyLabel="0"/>
+        <Key android:codes="32" android:keyLabel="空格"/>
+    </Row>
+</Keyboard>

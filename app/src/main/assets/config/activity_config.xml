@@ -191,12 +191,6 @@
                 content=">添加监控内存的悬浮窗界面,通过悬浮窗展示手机内存使用情况,主要是为了学习使用WindowManager和Window这两个类。"
                 title="悬浮窗使用介绍"/>
 
-            <!--项目搭建模式介绍-->
-            <activity
-                class="example.abe.com.android.activity.mvvm.view.MVVMActivity"
-                content="项目设计模式:MVVM设计模式使用介绍"
-                title="项目设计模式"/>
-
             <!--埋点技术模板实现-->
             <activity
                 class="example.abe.com.android.activity.maidian.MaiDianActivity"

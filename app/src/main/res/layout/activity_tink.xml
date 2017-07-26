@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="example.abe.com.android.activity.drawing.tink.TinkActivity">
+
+    <Button
+        android:id="@+id/act_tink_btn_begin_tink"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="开始打钩动画"/>
+
+    <example.abe.com.android.activity.drawing.tink.TinkView
+        android:id="@+id/act_tink_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

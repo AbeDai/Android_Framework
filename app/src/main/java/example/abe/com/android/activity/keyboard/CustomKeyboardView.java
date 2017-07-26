@@ -18,6 +18,7 @@ public class CustomKeyboardView extends KeyboardView {
 
     private Context mContext;
     private Paint mPaint;
+    private boolean isUpper;
 
     public CustomKeyboardView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -30,12 +31,18 @@ public class CustomKeyboardView extends KeyboardView {
     }
 
     public void init(Context context) {
+        isUpper = false;
         mContext = context;
         mPaint = new Paint();
         mPaint.setTextSize(getResources().getDimension(R.dimen.dp_17));
         mPaint.setColor(GRAY);
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Paint.Align.CENTER);
+    }
+
+    public void setIsUpper(boolean upper){
+        isUpper = upper;
+        postInvalidate();
     }
 
     @Override
@@ -57,6 +64,9 @@ public class CustomKeyboardView extends KeyboardView {
                             R.drawable.keyboard_key_selector);
                     drawText(key, canvas);
                 }
+                if (key.codes[0] == Keyboard.KEYCODE_SHIFT){// 切换大小写
+                    drawShiftIcon(key, canvas);
+                }
             }
         }
     }
@@ -77,5 +87,22 @@ public class CustomKeyboardView extends KeyboardView {
                 + (fm.descent - fm.ascent) / 2;
         float textX = key.x + (float) key.width / 2;
         canvas.drawText(key.label.toString(), textX, textY, mPaint);
+    }
+
+    private void drawShiftIcon(Keyboard.Key key, Canvas canvas) {
+        Drawable drawable = null;
+        if (isUpper){
+            drawable = mContext.getResources().getDrawable(R.drawable.keyboard_shift_selected);
+        }else {
+            drawable = mContext.getResources().getDrawable(R.drawable.keyboard_shift_normal);
+        }
+        if (drawable != null){
+            int drawWidth = drawable.getIntrinsicWidth();
+            int drawHeight = drawable.getIntrinsicHeight();
+            drawable.setBounds(key.x + (key.width - drawWidth)/2, key.y + (key.height - drawHeight)/2,
+                    key.x + (key.width + drawWidth)/2,
+                    key.y + (key.height + drawHeight)/2);
+            drawable.draw(canvas);
+        }
     }
 }

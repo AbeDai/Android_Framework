@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.abe.com.android.R;
+import example.abe.com.framework.util.LogUtil;
 
 /**
  * Created by abe on 17/7/22.
@@ -26,19 +27,22 @@ public class KeyboardUtil {
     private static final String WORD_STR = "abcdefghijklmnopqrstuvwxyz";
 
     private Context mContext; // 上下文
-    private KeyboardView mKeyboardView;// 键盘
+    private CustomKeyboardView mKeyboardView;// 键盘
     private Keyboard mKeyboardEnglish;// 英文键盘
-    private Keyboard mKeyboardNumber;// 数字键盘
+    private Keyboard mKeyboardNumberABC;// 数字键盘(带有ABC按键,可以切换英文键盘)
+    private Keyboard mKeyboardNumberDot;// 数字键盘(带有"."按键)
     private ValidEditTextInner mEtCurrent;// 当前编辑框
     private List<ValidEditTextInner> mListEditText;// 使用自定义键盘的编辑框
     private boolean isNumber = false;// 是否数字键盘
     private boolean isUpper = false;// 是否大写
+    private KeyboardWatcher mKeyboardWatcher;
 
     public KeyboardUtil(Context context) {
         this.mContext = context;
         mKeyboardEnglish = new Keyboard(context, R.xml.keyboard_english);
-        mKeyboardNumber = new Keyboard(context, R.xml.keyboard_number);
-        mKeyboardView = (KeyboardView) LayoutInflater.from(context)
+        mKeyboardNumberABC = new Keyboard(context, R.xml.keyboard_number_abc);
+        mKeyboardNumberDot = new Keyboard(context, R.xml.keyboard_number_dot);
+        mKeyboardView = (CustomKeyboardView) LayoutInflater.from(context)
                 .inflate(R.layout.view_keyboard, null);
         mKeyboardView.setKeyboard(mKeyboardEnglish);
         mKeyboardView.setEnabled(true);
@@ -90,7 +94,7 @@ public class KeyboardUtil {
                         return false;
                     }
                     if (inner.isNumberInputType()){
-                        showNumberKeyboardInner(inner);
+                        showNumberDotKeyboardInner(inner);
                     }else {
                         showEnglishKeyboardInner(inner);
                     }
@@ -98,14 +102,6 @@ public class KeyboardUtil {
                 }
             });
         }
-    }
-
-    private ValidEditTextInner findEditText(EditText editText){
-        for (ValidEditTextInner inner : mListEditText) {
-            if (inner.editText == editText)
-                return inner;
-        }
-        return null;
     }
 
     public void showEnglishKeyboard(EditText editText) {
@@ -121,7 +117,19 @@ public class KeyboardUtil {
         if (inner == null){
             inner = new ValidEditTextInner(editText);
         }
-        showNumberKeyboardInner(inner);
+        showNumberDotKeyboardInner(inner);
+    }
+
+    public void setTextWatcher(KeyboardWatcher watcher){
+        mKeyboardWatcher = watcher;
+    }
+
+    private ValidEditTextInner findEditText(EditText editText){
+        for (ValidEditTextInner inner : mListEditText) {
+            if (inner.editText == editText)
+                return inner;
+        }
+        return null;
     }
 
     private KeyboardView.OnKeyboardActionListener mKeyboardActionListener = new KeyboardView.OnKeyboardActionListener() {
@@ -152,10 +160,12 @@ public class KeyboardUtil {
         @Override
         public void onPress(int primaryCode) {
             if (primaryCode == Keyboard.KEYCODE_SHIFT // 切换大小写
-                    || primaryCode == Keyboard.KEYCODE_DELETE // 回退
+                    || primaryCode == 999999 // 回退
                     || primaryCode == Keyboard.KEYCODE_DONE // 确认
                     || primaryCode == Keyboard.KEYCODE_MODE_CHANGE // 键盘类型切换
-                    || primaryCode == 32) {
+                    || primaryCode == 32//空格
+                    || primaryCode == 100000//数字键盘中的"."符号
+                    || primaryCode == 100001 || primaryCode == 100002) {//数字键盘中的"00"符号
                 mKeyboardView.setPreviewEnabled(false);
                 return;
             }
@@ -165,16 +175,30 @@ public class KeyboardUtil {
 
         @Override
         public void onKey(int primaryCode, int[] keyCodes) {
+            LogUtil.e(primaryCode + "");
             if (primaryCode == Keyboard.KEYCODE_DONE) {//确认
-                hideKeyboard();
-            } else if (primaryCode == Keyboard.KEYCODE_DELETE) {//回退
+                if (mKeyboardWatcher != null
+                        && mEtCurrent != null
+                        && mEtCurrent.editText != null
+                        && mEtCurrent.sb != null){
+                    mKeyboardWatcher.onSureClicked(mEtCurrent.editText, mEtCurrent.sb.toString());
+                }else {
+                    hideKeyboard();
+                }
+            } else if (primaryCode == 999999) {//回退
                 mEtCurrent.delete();
             } else if (primaryCode == Keyboard.KEYCODE_SHIFT) {//大小写切换
                 changeCaseWordKey();
                 mKeyboardView.setKeyboard(mKeyboardEnglish);
             } else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE) {//键盘类型切换
                 changeKeyboardType();
-            } else {
+            } else if(primaryCode == 100000){ //数字键盘中的"."符号
+                mEtCurrent.insert(".");
+            } else if(primaryCode == 100001 || primaryCode == 100002){ //数字键盘中的"00"符号
+                mEtCurrent.insert("00");
+            } else if (primaryCode == -5){
+                // 屏蔽按键 (-5)在点击"00"的时候,会无故触发,所以屏蔽操作
+            }else {
                 mEtCurrent.insert(Character.toString((char) primaryCode));
             }
         }
@@ -198,11 +222,18 @@ public class KeyboardUtil {
         mKeyboardView.setKeyboard(mKeyboardEnglish);
     }
 
-    private void showNumberKeyboardInner(ValidEditTextInner inner) {
+    private void showNumberDotKeyboardInner(ValidEditTextInner inner) {
         mEtCurrent = inner;
         showKeyboard();
         isNumber = true;
-        mKeyboardView.setKeyboard(mKeyboardNumber);
+        mKeyboardView.setKeyboard(mKeyboardNumberDot);
+    }
+
+    private void showNumberABCKeyboardInner(ValidEditTextInner inner) {
+        mEtCurrent = inner;
+        showKeyboard();
+        isNumber = true;
+        mKeyboardView.setKeyboard(mKeyboardNumberABC);
     }
 
     private void changeKeyboardType() {
@@ -211,7 +242,7 @@ public class KeyboardUtil {
             mKeyboardView.setKeyboard(mKeyboardEnglish);
         } else {
             isNumber = true;
-            mKeyboardView.setKeyboard(mKeyboardNumber);
+            mKeyboardView.setKeyboard(mKeyboardNumberABC);
         }
     }
 
@@ -219,6 +250,7 @@ public class KeyboardUtil {
         List<Keyboard.Key> keyList = mKeyboardEnglish.getKeys();
         if (isUpper) {//大写切换小写
             isUpper = false;
+            mKeyboardView.setIsUpper(isUpper);
             for (Keyboard.Key key : keyList) {
                 if (key.label != null && isWord(key.label.toString())) {
                     key.label = key.label.toString().toLowerCase();
@@ -227,6 +259,7 @@ public class KeyboardUtil {
             }
         } else {//小写切换大写
             isUpper = true;
+            mKeyboardView.setIsUpper(isUpper);
             for (Keyboard.Key key : keyList) {
                 if (key.label != null && isWord(key.label.toString())) {
                     key.label = key.label.toString().toUpperCase();
@@ -255,18 +288,19 @@ public class KeyboardUtil {
         imm.hideSoftInputFromWindow(mKeyboardView.getWindowToken(), 0);
     }
 
-    private static class ValidEditTextInner {
+    private class ValidEditTextInner{
         private static final int TEXT_PASSWORD = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD;
-        private static final int NUMBER_PASSWORD = InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD;
+        private static final int NUMBER_DECIMAL = InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL;
         private static final int TEXT_NORMAL = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL;
-        private static final int NUMBER_NORMAL = InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_NORMAL;
 
         EditText editText;
+        StringBuffer sb;
         int inputType;
 
         private ValidEditTextInner(EditText et){
             editText = et;
             inputType = editText.getInputType();
+            sb = new StringBuffer(editText.getText().toString());
             skipSystemKeyboard(editText);
         }
 
@@ -276,27 +310,43 @@ public class KeyboardUtil {
             if (editable != null && editable.length() > 0) {
                 if (start > 0) {
                     editable.delete(start - 1, start);
+                    sb.delete(start-1, start);
+                    callOnTextChange();
                 }
             }
         }
 
         private void insert(CharSequence text){
             if (editText.getInputType() == InputType.TYPE_NULL){
-                if (inputType == TEXT_PASSWORD
-                        || inputType == NUMBER_PASSWORD){
+                if (inputType == TEXT_PASSWORD){
                     int start = editText.getSelectionStart();
+                    int length = editText.length();
                     Editable editable = editText.getText();
                     editable.insert(start, "*");
+                    if (length != editable.length()){
+                        sb.insert(start, text);
+                        callOnTextChange();
+                    }
                 }else if (inputType == TEXT_NORMAL
-                        || inputType == NUMBER_NORMAL){
+                        || inputType == NUMBER_DECIMAL){
                     int start = editText.getSelectionStart();
+                    int length = editText.length();
                     Editable editable = editText.getText();
                     editable.insert(start, text);
+                    if (length != editable.length()){
+                        sb.insert(start, text);
+                        callOnTextChange();
+                    }
                 }
             }else {
                 int start = editText.getSelectionStart();
+                int length = editText.length();
                 Editable editable = editText.getText();
                 editable.insert(start, text);
+                if (length != editable.length()){
+                    sb.insert(start, text);
+                    callOnTextChange();
+                }
             }
         }
 
@@ -329,10 +379,24 @@ public class KeyboardUtil {
         }
 
         private boolean isNumberInputType(){
-            if (inputType == NUMBER_NORMAL //数字普通
-                    || inputType == NUMBER_PASSWORD) // 数字密码
+            if (inputType == NUMBER_DECIMAL) //数字普通
                 return true;
             return false;
         }
+
+        private void callOnTextChange(){
+            if (mKeyboardWatcher != null
+                    && sb != null
+                    && editText != null){
+                mKeyboardWatcher.onTextChanged(editText, sb.toString());
+            }
+        }
+    }
+
+    public interface KeyboardWatcher {
+
+        void onTextChanged(EditText editText, CharSequence string);
+
+        void onSureClicked(EditText editText, CharSequence string);
     }
 }

@@ -13,6 +13,7 @@ import example.abe.com.android.activity.drawing.matrix.MatrixActivity;
 import example.abe.com.android.activity.drawing.shader.ShaderActivity;
 import example.abe.com.android.activity.drawing.surfaceview.SurfaceViewActivity;
 import example.abe.com.android.activity.drawing.text.TextActivity;
+import example.abe.com.android.activity.drawing.tink.TinkActivity;
 import example.abe.com.android.activity.drawing.whiteboard.WhiteboardActivity;
 import example.abe.com.framework.main.BaseActivity;
 
@@ -33,7 +34,7 @@ public class DrawActivity extends BaseActivity{
 
     @OnClick({R.id.act_draw_btn_whiteboard, R.id.act_draw_btn_text, R.id.act_draw_btn_custom_view,
             R.id.act_draw_btn_matrix, R.id.act_draw_btn_surface_view, R.id.act_draw_btn_gaussian_blur,
-            R.id.act_draw_btn_shader, R.id.act_draw_btn_clock})
+            R.id.act_draw_btn_shader, R.id.act_draw_btn_clock, R.id.act_draw_btn_tink})
     public void toNextActivity(View view){
         Intent intent = new Intent();
         switch (view.getId()) {
@@ -61,6 +62,8 @@ public class DrawActivity extends BaseActivity{
             case R.id.act_draw_btn_clock:
                 intent.setClass(this, ClockActivity.class);
                 break;
+            case R.id.act_draw_btn_tink:
+                intent.setClass(this, TinkActivity.class);
         }
         startActivity(intent);
     }

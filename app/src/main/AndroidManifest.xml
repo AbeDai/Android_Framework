@@ -66,7 +66,6 @@
         <activity android:name=".activity.packagemanager.appfilter.AppInfoListActivity"/>
         <activity android:name=".activity.packagemanager.appsize.AppSizeActivity"/>
         <activity android:name=".activity.drawing.text.TextActivity"/>
-        <activity android:name=".activity.mvvm.view.MVVMActivity"/>
         <activity android:name=".activity.webview.jsnative.WebViewActivity"/>
         <activity android:name=".activity.drawing.matrix.MatrixActivity"/>
         <activity android:name=".activity.touch.scalegesture.ScaleGestureActivity"/>
@@ -101,6 +100,7 @@
         <activity android:name=".activity.alldisplay.AllDisplayGridViewActivity"/>
         <activity android:name=".activity.wheel.WheelActivity"/>
         <activity android:name=".activity.keyboard.KeyboardActivity"/>
+        <activity android:name=".activity.drawing.tink.TinkActivity"/>
         <activity
             android:name=".activity.drawing.whiteboard.WhiteboardActivity"
             android:screenOrientation="landscape"/>
@@ -149,6 +149,7 @@
             android:name=".activity.contentprovider.custom.CustomContentProvider"
             android:authorities="example.abe.com.android.activity.contentprovider.custom.contentprovider"
             android:exported="true"/>
+
     </application>
 
 </manifest>

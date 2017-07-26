@@ -34,7 +34,7 @@
     <Row>
         <Key android:keyWidth="15%p" android:codes="-1"
              android:keyEdgeFlags="left" android:isModifier="true"
-             android:isSticky="true" android:keyIcon="@drawable/keyboard_shift"/>
+             android:isSticky="true"/>
         <Key android:codes="122" android:keyLabel="z" />
         <Key android:codes="120" android:keyLabel="x" />
         <Key android:codes="99" android:keyLabel="c" />
@@ -42,7 +42,7 @@
         <Key android:codes="98" android:keyLabel="b" />
         <Key android:codes="110" android:keyLabel="n" />
         <Key android:codes="109" android:keyLabel="m" />
-        <Key android:keyWidth="15%p" android:codes="-5"
+        <Key android:keyWidth="15%p" android:codes="999999"
              android:keyEdgeFlags="right" android:isRepeatable="true"
              android:keyIcon="@drawable/keyboard_delete"/>
     </Row>

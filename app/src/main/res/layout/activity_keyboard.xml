@@ -16,12 +16,7 @@
             android:id="@+id/act_keyboard_et_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
-        <EditText
-            android:id="@+id/act_keyboard_et_number_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberPassword"/>
+            android:inputType="numberDecimal"/>
         <EditText
             android:id="@+id/act_keyboard_et_text"
             android:layout_width="match_parent"

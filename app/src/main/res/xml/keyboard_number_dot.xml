@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- 数字键盘 -->
+<?xml version="1.0" encoding="UTF-8"?><!-- 数字键盘ABC -->
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
           android:horizontalGap="0dp"
           android:keyHeight="53dp"
@@ -9,7 +9,7 @@
              android:keyEdgeFlags="left" />
         <Key android:codes="50" android:keyLabel="2" />
         <Key android:codes="51" android:keyLabel="3" />
-        <Key android:codes="-5" android:keyIcon="@drawable/keyboard_delete"
+        <Key android:codes="999999" android:keyIcon="@drawable/keyboard_delete"
              android:isRepeatable="true" android:keyEdgeFlags="right"
              android:keyHeight="106dp"/>
     </Row>
@@ -29,9 +29,9 @@
              android:keyHeight="106dp"/>
     </Row>
     <Row>
-        <Key android:codes="-2" android:keyLabel="ABC"
+        <Key android:codes="100000" android:keyLabel="."
              android:keyEdgeFlags="left" />
         <Key android:codes="48" android:keyLabel="0"/>
-        <Key android:codes="32" android:keyLabel="空格"/>
+        <Key android:codes="100001,100002" android:keyLabel="00"/>
     </Row>
 </Keyboard>
