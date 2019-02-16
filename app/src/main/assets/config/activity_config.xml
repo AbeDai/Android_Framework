@@ -6,6 +6,12 @@
         <tab
             title="基础知识模块">
 
+            <!--触摸事件-->
+            <activity
+                class="example.abe.com.android.activity.touch.TouchActivity"
+                content="触摸事件详情：对ScaleGestureDetector类的使用介绍"
+                title="触摸事件详情"/>
+
             <!--RecycleView详解-->
             <activity
                 class="example.abe.com.android.activity.recycleview.RecycleViewActivity"
@@ -41,12 +47,6 @@
                 class="example.abe.com.android.activity.drawing.DrawActivity"
                 content="绘图详情：1. 简单图像绘制的使用 2.自定义白板的使用白板开发 3.文字绘制 4.matrix使用介绍 5.SurfaceView使用介绍 6.高斯模糊使用介绍"
                 title="绘图Draw使用介绍"/>
-
-            <!--触摸事件-->
-            <activity
-                class="example.abe.com.android.activity.touch.TouchActivity"
-                content="触摸事件详情：对ScaleGestureDetector类的使用介绍"
-                title="触摸事件详情"/>
 
             <!--Socket使用介绍-->
             <activity

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_scale_gesture"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.touch.gesture.GestureActivity">
+
+    <view class="example.abe.com.android.activity.touch.gesture.GestureActivity$MyTextView"
+        android:id="@+id/tv_click"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="48dp"
+        android:gravity="center"
+        android:background="#00ff00"
+        android:text="点击弹出Toast"/>
+
+</FrameLayout>

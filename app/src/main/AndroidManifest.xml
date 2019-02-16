@@ -69,6 +69,8 @@
         <activity android:name=".activity.webview.jsnative.WebViewActivity"/>
         <activity android:name=".activity.drawing.matrix.MatrixActivity"/>
         <activity android:name=".activity.touch.scalegesture.ScaleGestureActivity"/>
+        <activity android:name=".activity.touch.gesture.GestureActivity"/>
+        <activity android:name=".activity.touch.velocitytrack.VelocityTrackerActivity"/>
         <activity android:name=".activity.touch.TouchActivity"/>
         <activity android:name=".activity.drawing.surfaceview.SurfaceViewActivity"/>
         <activity android:name=".activity.span.SpannableStringActivity"/>
