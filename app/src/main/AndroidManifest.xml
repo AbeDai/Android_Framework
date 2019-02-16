@@ -77,7 +77,6 @@
         <activity android:name=".activity.viewstub.ViewStubActivity"/>
         <activity android:name=".activity.webview.WebActivity"/>
         <activity android:name=".activity.webview.cookie.CookieActivity"/>
-        <activity android:name=".activity.jni.JNIActivity"/>
         <activity android:name=".activity.drawing.gaussianblur.GaussianBlurActivity"/>
         <activity android:name=".activity.drawing.shader.ShaderActivity"/>
         <activity android:name=".activity.refresh.RefreshActivity"/>

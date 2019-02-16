@@ -3,8 +3,8 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
 
     lintOptions {
         abortOnError false
@@ -13,14 +13,10 @@ android {
     defaultConfig {
         applicationId "example.abe.com.android.framework"
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-        ndk {
-            moduleName "hello"       //生成的so文件名字，调用C程序的代码中会用到该名字    
-            abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定三种平台下的so库
-        }
     }
 
     signingConfigs {
@@ -42,15 +38,6 @@ android {
             //签名
             signingConfig signingConfigs.release
         }
-    }
-
-    //MVVM示例需用dataBinding框架
-    dataBinding {
-        enabled true
-    }
-    sourceSets {
-        main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] }
-        debug { jni.srcDirs = ['src/debug/jni', 'src/debug/jni/'] }
     }
 }
 

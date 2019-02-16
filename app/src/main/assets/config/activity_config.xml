@@ -102,12 +102,6 @@
                 content="ViewStub使用介绍：对ViewStub的简单使用介绍"
                 title="ViewStub使用介绍"/>
 
-            <!--JNI基础使用介绍-->
-            <activity
-                class="example.abe.com.android.activity.jni.JNIActivity"
-                content="JNI基础使用介绍：实现了Java调JNI方法和JNI调用Java方法，简单使用记录。"
-                title="JNI基础使用介绍"/>
-
             <!--动画模板-->
             <activity
                 class="example.abe.com.android.activity.animation.AnimActivity"
